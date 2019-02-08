@@ -52,3 +52,5 @@ edit: "https://github.com/johngrib/johngrib.github.io/edit/master/_wiki"
 issue: "https://github.com/johngrib/johngrib.github.io/issues/new"
 
 timezone: "Asia/Seoul"
+
+theme: jekyll-theme-midnight
