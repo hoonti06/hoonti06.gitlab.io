@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2018-03-05 22:57:44 +0900
+updated : 2019-02-11 00:44:09 +0900
 tags    : index
 toc     : true
 public  : true
@@ -15,11 +15,24 @@ comment : false
         * [[google-search-console-remove-outdated-content]]{구글 웹 도구 - 오래된 콘텐츠 삭제}
 * [[programming-language]]{프로그래밍 언어}
     * [[Groovy]]
+	* C언어
+	* C++
+	* Java
+	* Python
 * [[how-to]]
     * [[mathjax-latex]]
 * [[Vim]]
     * [[vim-conceallevel]]{conceallevel (Vim)}
 * [[YAML]]
+* [[Network]]
+	* [[DHCP]]
+	* [[DNS]]
+	* [[IP]]
+	* [[CIDR]]
+	* [[Subnet Mask]]
+* [[Algorithm]]
+	* [[문제]]
+		* [[BOJ]]
 
 
 ---
