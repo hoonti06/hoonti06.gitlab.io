@@ -1,6 +1,6 @@
 # Site settings
 title: hoonti06
-url: "https://johngrib.github.io"
+url: "https://hoonti06.github.io"
 baseurl: ""
 description: >
     hoonti06 블로그
@@ -9,9 +9,8 @@ description: >
 email: hoonti06@gmail.com
 author: hoonti06
 profile: junior programmer
-twitter_username: none
 github_username: hoonti06
-disqus_shortname: none
+# disqus_shortname: none
 
 # Build settings
 plugins:
