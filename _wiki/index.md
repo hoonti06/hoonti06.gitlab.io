@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2019-02-11 00:44:09 +0900
+updated : 2019-02-12 21:35:17 +0900
 tags    : index
 toc     : true
 public  : true
@@ -33,6 +33,9 @@ comment : false
 * [[Algorithm]]
 	* [[문제]]
 		* [[BOJ]]
+			* [[BOJ-3019]]{BOJ 3019}
+		  
+		
 
 
 ---
