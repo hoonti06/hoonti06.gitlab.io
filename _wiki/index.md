@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2019-02-12 21:44:46 +0900
+updated : 2019-02-16 18:14:26 +0900
 tags    : index
 toc     : true
 public  : true
@@ -30,6 +30,8 @@ comment : false
 	* [[IP]]
 	* [[CIDR]]
 	* [[Netmask]]
+	* [[HTTP]]
+	* [[MAC]]
 * [[Algorithm]]
 	* [[문제]]
 		* [[BOJ]]
