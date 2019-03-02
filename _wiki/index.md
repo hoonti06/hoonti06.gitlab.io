@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2019-02-16 18:14:26 +0900
+updated : 2019-02-23 21:16:36 +0900
 tags    : index
 toc     : true
 public  : true
@@ -32,10 +32,13 @@ comment : false
 	* [[Netmask]]
 	* [[HTTP]]
 	* [[MAC]]
+	* [[Protocol-Stack]]{프로토콜 스택}
 * [[Algorithm]]
 	* [[문제]]
 		* [[BOJ]]
 			* [[BOJ-3019]]{3019. 빵집}
+* [[Computer-Terminology]]{컴퓨터 용어}
+		  
 		  
 		
 
