@@ -3,7 +3,7 @@ layout  : wiki
 title   : DHCP
 summary : 
 date    : 2019-02-09 22:13:32 +0900
-updated : 2019-03-03 05:07:05 +0900
+updated : 2019-03-03 05:10:09 +0900
 tags    : 
 toc     : true
 public  : true
@@ -27,7 +27,6 @@ DCHP IP를
 
 * 참고 : DHCP 프로토콜로 IP 주소를 받아올 때 [[DNS]] 서버(Local DNS 서버)의 IP 주소도 함께 받는다. 
 안녕[^1]  
-[^1]: 가장 가까운 DNS 서버
 
 
 ## 1. 동작 과정
@@ -62,3 +61,7 @@ allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 (https://www.netmanias.com/ko/post/blog/5348/dhcp-ip-allocation-network-protocol/understanding-the-basic-operations-of-dhcp)  
 [https://namu.wiki/w/DHCP](https://namu.wiki/w/DHCP)  
 [http://www.ciokorea.com/t/13929/%ED%86%B5%EC%8B%A0%7C%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/39337](http://www.ciokorea.com/t/13929/%ED%86%B5%EC%8B%A0%7C%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/39337)
+
+
+## footnote
+[^1]: 가장 가까운 DNS 서버
