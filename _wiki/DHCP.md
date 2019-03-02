@@ -3,7 +3,7 @@ layout  : wiki
 title   : DHCP
 summary : 
 date    : 2019-02-09 22:13:32 +0900
-updated : 2019-03-03 04:43:40 +0900
+updated : 2019-03-03 04:51:38 +0900
 tags    : 
 toc     : true
 public  : true
@@ -31,7 +31,7 @@ DCHP IP를
 
 ## 1. 동작 과정
 
-## 1.1 임대(Lease)
+### 1.1 임대(Lease)
 
 IP 주소가 할당되지 않은 Client는 DHCP 서버에 요청해야 한다. DHCP 서버에 요청하여 IP 주소를 할당 받는 과정은 아래와 같다.
 
@@ -47,6 +47,8 @@ IP 주소가 할당되지 않은 Client는 DHCP 서버에 요청해야 한다. D
 
 
 인터넷 공유기(Router)가 DCHP 서버의 역할도 하여 해당 공유기에 연결되는 Host에게 사설 IP(Private IP)를 제공해준다.
+
+#### 1.1.1 테스트
 
 
 ## 출처
