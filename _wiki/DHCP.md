@@ -3,7 +3,7 @@ layout  : wiki
 title   : DHCP
 summary : 
 date    : 2019-02-09 22:13:32 +0900
-updated : 2019-03-03 03:47:26 +0900
+updated : 2019-03-03 04:24:34 +0900
 tags    : 
 toc     : true
 public  : true
@@ -38,6 +38,8 @@ IP주소가 할당되지 않은 Client가 DHCP 서버에 요청해야 한다. DH
 	Discover Packet에는 IP 주소와 
 	
 [![dhcp-lease-youtube](https://img.youtube.com/vi/V69UAnkoYHM/0.jpg)](https://youtu.be/V69UAnkoYHM)
+
+<iframe width="480" height="390" src="https://www.youtube.com/embed/V69UAnkoYHM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 인터넷 공유기(Router)가 DCHP 서버의 역할도 하여 해당 공유기에 연결되는 Host에게 사설 IP(Private IP)를 제공해준다.
