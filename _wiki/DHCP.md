@@ -3,7 +3,7 @@ layout  : wiki
 title   : DHCP
 summary : 
 date    : 2019-02-09 22:13:32 +0900
-updated : 2019-03-03 04:51:38 +0900
+updated : 2019-03-03 05:05:35 +0900
 tags    : 
 toc     : true
 public  : true
@@ -25,15 +25,20 @@ DCHP IP를
 
 보통 Router(인터넷 공유기 등)에 해당 기능이 탑재된다. 별도 DHCP 서버를 별도로 구성하는 방법도 가능하다.
 
-* 참고 : DHCP 프로토콜로 IP 주소를 받아올 때 [[DNS]] 서버(Local DNS 서버[^1])의 IP 주소도 함께 받는다. 
+* 참고 : DHCP 프로토콜로 IP 주소를 받아올 때 [[DNS]] 서버(Local DNS 서버)의 IP 주소도 함께 받는다. 
+안녕[^1]
 [^1]: 가장 가까운 DNS 서버
 
 
 ## 1. 동작 과정
 
-### 1.1 임대(Lease)
-
 IP 주소가 할당되지 않은 Client는 DHCP 서버에 요청해야 한다. DHCP 서버에 요청하여 IP 주소를 할당 받는 과정은 아래와 같다.
+
+<!-- DHCP 과정 youtube -->
+<iframe width="480" height="390" src="https://www.youtube.com/embed/V69UAnkoYHM" frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### 1.1 임대(Lease)
 
 ![dhcp-lease](/wiki-img/network/dhcp-lease.png)
 
@@ -42,8 +47,8 @@ IP 주소가 할당되지 않은 Client는 DHCP 서버에 요청해야 한다. D
 	해당 네트워크 내의 모든 Host에게 Packet이 전달되며, DHCP 서버가 아닌 Host는 자신에게 오는 Packet이 아님을 확인하고 폐기한다.
 	Discover Packet에는 IP 주소와 
 	
-	<iframe width="480" height="390" src="https://www.youtube.com/embed/V69UAnkoYHM" frameborder="0" 
-	allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+2. DHCP Offer
+
 
 
 인터넷 공유기(Router)가 DCHP 서버의 역할도 하여 해당 공유기에 연결되는 Host에게 사설 IP(Private IP)를 제공해준다.
