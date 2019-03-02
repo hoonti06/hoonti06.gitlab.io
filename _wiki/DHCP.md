@@ -3,7 +3,7 @@ layout  : wiki
 title   : DHCP
 summary : 
 date    : 2019-02-09 22:13:32 +0900
-updated : 2019-03-03 05:05:35 +0900
+updated : 2019-03-03 05:07:05 +0900
 tags    : 
 toc     : true
 public  : true
@@ -26,7 +26,7 @@ DCHP IP를
 보통 Router(인터넷 공유기 등)에 해당 기능이 탑재된다. 별도 DHCP 서버를 별도로 구성하는 방법도 가능하다.
 
 * 참고 : DHCP 프로토콜로 IP 주소를 받아올 때 [[DNS]] 서버(Local DNS 서버)의 IP 주소도 함께 받는다. 
-안녕[^1]
+안녕[^1]  
 [^1]: 가장 가까운 DNS 서버
 
 
