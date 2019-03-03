@@ -3,7 +3,7 @@ layout  : wiki
 title   : DHCP
 summary : 
 date    : 2019-02-09 22:13:32 +0900
-updated : 2019-03-03 13:25:40 +0900
+updated : 2019-03-03 13:27:02 +0900
 tags    : 
 toc     : true
 public  : true
@@ -67,5 +67,5 @@ allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 
 ## footnote
 [^1]: 가장 가까운 DNS 서버
-[^2]: footnote Test
-[^3]: footnote Test
+[^2]: footnote Test1
+[^3]: footnote Test2
