@@ -3,7 +3,7 @@ layout  : wiki
 title   : DHCP
 summary : 
 date    : 2019-02-09 22:13:32 +0900
-updated : 2019-03-04 22:03:36 +0900
+updated : 2019-03-05 01:15:59 +0900
 tags    : 
 toc     : true
 public  : true
@@ -36,7 +36,7 @@ Test [^3]
 IP 주소가 할당되지 않은 Client는 DHCP 서버에 요청해야 한다. DHCP 서버에 요청하여 IP 주소를 할당 받는 과정은 아래와 같다.
 
 <!-- DHCP 과정 youtube -->
-<iframe width="480" height="390" src="https://www.youtube.com/embed/V69UAnkoYHM" frameborder="0" 
+<iframe width="942" height="704" src="https://www.youtube.com/embed/V69UAnkoYHM" frameborder="0" 
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### 1.1 임대(Lease)
