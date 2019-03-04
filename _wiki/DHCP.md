@@ -3,7 +3,7 @@ layout  : wiki
 title   : DHCP
 summary : 
 date    : 2019-02-09 22:13:32 +0900
-updated : 2019-03-03 13:27:02 +0900
+updated : 2019-03-04 22:03:36 +0900
 tags    : 
 toc     : true
 public  : true
@@ -59,8 +59,9 @@ allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
 
 ## 출처
 [https://netmanias.com/ko/?m=view&id=techdocs&no=5163](https://netmanias.com/ko/?m=view&id=techdocs&no=5163)  
-[https://www.netmanias.com/ko/post/blog/5348/dhcp-ip-allocation-network-protocol/understanding-the-basic-operations-of-dhcp]
-(https://www.netmanias.com/ko/post/blog/5348/dhcp-ip-allocation-network-protocol/understanding-the-basic-operations-of-dhcp)  
+[https://www.netmanias.com/ko/post/blog/5348/dhcp-ip-allocation-network-protocol/
+understanding-the-basic-operations-of-dhcp](https://www.netmanias.com/ko/post/blog/5348/dhcp-ip-allocation-network-protocol/
+understanding-the-basic-operations-of-dhcp)  
 [https://namu.wiki/w/DHCP](https://namu.wiki/w/DHCP)  
 [http://www.ciokorea.com/t/13929/%ED%86%B5%EC%8B%A0%7C%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/39337](http://www.ciokorea.com/t/13929/%ED%86%B5%EC%8B%A0%7C%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/39337)
 
