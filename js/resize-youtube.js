@@ -1,5 +1,5 @@
 // Find all YouTube videos - RESIZE YOUTUBE VIDEOS!!!
-var $allVideos = $("iframe[src^='https://www.youtube.com']"),
+var $allVideos = $("iframe[src^='https://www.youtube.com']");
 
 // The element that is fluid width
 $fluidEl = $("body");
