@@ -27,10 +27,12 @@ $allVideos.each(function() {
 // When the window is resized
 $(window).resize(function() {
 
-    var newWidth = $fluidEl.width();
+    //var newWidth = $fluidEl.width();
 
     // Resize all videos according to their own aspect ratio
     $allVideos.each(function() {
+		var $closest = $(this).closest("div");
+		var newWidth = $closest.width();
 
         var $el = $(this);
         $el
