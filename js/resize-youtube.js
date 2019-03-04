@@ -1,7 +1,7 @@
 document.write('<');
 document.write('script ');
 document.write('src="');
-document.write('https://code.jquery.com/jquery-latest.js'
+document.write('https://code.jquery.com/jquery-latest.js')
 document.write('></');
 document.write('script');
 document.write('>');
