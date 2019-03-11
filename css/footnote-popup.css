@@ -4,41 +4,27 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
-
+	background-color: black;
 }
 
 .popup-wrapper {
 	display: none;
-	max-width: 560px;
+	max-width: 35rem;
 	margin: 0 auto;
-	background-color: white;
-	border-top: 3px solid black;
-
-}
-
-#popup-index {
-	padding: 1.25rem 0 0 1.25rem;
-
-}
-
-#popup-close {
-	padding: 1.25rem;
-	margin-left: auto;
-	cursor: pointer;
-
-}
-
-#popup-close:hover {
-	background-color: #fdfdfd;
-
+	color: white;
 }
 
 #popup-content {
-	max-width: 500px;
+	max-width: 33rem;
 	text-align: left;
-	padding: 1.25rem 0 1.25rem 0.9rem;
-
+	padding: 1rem;
+	margin: 0 auto;
+	line-height: 1.4rem;
 }
+
+a.reversefootnote {
+	display: none;
+} 
 
 /*
 a.footnote {
@@ -51,35 +37,5 @@ margin-right: 2px;
 -moz-transition: all 2s ease;
 -o-transition: all 2s ease;
 transition: all 2s ease;
-
 } 
-
-a.footnote span {
-z-index: -1;
-opacity: 0;
-position: fixed;
-left: 15px; 
-bottom: 20px;
-margin-left: 0px;
-margin-right: 18px;
-padding:14px 20px;
-border-radius:4px; box-shadow: 5px 5px 8px #CCC;
-border:1px solid #DCA;
-background-color: #FEF6BB;
--webkit-transition: all 2s ease;
--moz-transition: all 2s ease;
--o-transition: all 2s ease;
-transition: all 2s ease;
-
-}
-
-a.footnote:hover span {
-z-index: 9;
-opacity: 1;
--webkit-transition: all 2s ease;
--moz-transition: all 2s ease;
--o-transition: all 2s ease;
-transition: all 2s ease;
-
-}
  */

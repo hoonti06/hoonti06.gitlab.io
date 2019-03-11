@@ -1,0 +1,13 @@
+div.language-cpp.highlighter-rouge {
+	tab-size: 4;
+	-o-tab-size: 4;
+	-moz-tab-size: 4;
+}
+
+/*
+div,p,span,textarea {
+	tab-size: 4;
+	-o-tab-size: 4;
+	-moz-tab-size: 4;
+}
+*/
