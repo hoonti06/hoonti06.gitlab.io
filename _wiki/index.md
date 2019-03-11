@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2019-02-23 21:16:36 +0900
+updated : 2019-03-11 18:51:35 +0900
 tags    : index
 toc     : true
 public  : true
@@ -37,6 +37,7 @@ comment : false
 	* [[문제]]
 		* [[BOJ]]
 			* [[BOJ-3019]]{3019. 빵집}
+			* [[BOJ-5373]]{5373. 큐빙}
 * [[Computer-Terminology]]{컴퓨터 용어}
 		  
 		  
