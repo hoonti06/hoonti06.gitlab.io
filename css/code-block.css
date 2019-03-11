@@ -3,6 +3,11 @@ div.language-cpp.highlighter-rouge {
 	-o-tab-size: 4;
 	-moz-tab-size: 4;
 }
+code {
+	tab-size: 4;
+	-o-tab-size: 4;
+	-moz-tab-size: 4;
+}
 
 /*
 div,p,span,textarea {
