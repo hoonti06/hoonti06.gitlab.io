@@ -6,7 +6,7 @@ function addLineNumberInCodeBlock() {
 		let num = pre[i].innerHTML.split(/\n/).length;
 		for (let j = 0; j < (num - 1); j++) {
 			let line_num = pre[i].getElementsByTagName('span')[0];
-			line_num.innerHTML += '<span style="display: block;">' + (j + 1) + '</span>';
+			line_num.innerHTML += '<span style="display: block; margin: 0 .5em 0 1em;">' + (j + 1) + '</span>';
 		}
 	}
 }
