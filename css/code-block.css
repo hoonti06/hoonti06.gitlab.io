@@ -4,7 +4,7 @@ code {
 	-moz-tab-size: 4;
 }
 pre {
-	display: block;
+/*	display: block;
 	margin-top: 0;
 	margin-bottom: 1rem;
 	font-size: 0.7rem;
@@ -15,7 +15,7 @@ pre {
 	border: 1px solid #ddd;
 	padding: .5rem;
 	max-height: 800px;
-	font-family: monospace;
+	font-family: monospace;*/
 	code {
 		color: inherit;
 		background-color: transparent;
@@ -34,7 +34,7 @@ pre {
 		span {
 			display: block;
 			padding: 0 .5em 0 1em;
-			color: #ccc;
+			color: #BDBDBD;
 		}
 	}
 	.cl {
