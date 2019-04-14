@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2019-03-11 18:51:35 +0900
+updated : 2019-04-15 07:48:24 +0900
 tags    : index
 toc     : true
 public  : true
@@ -34,10 +34,15 @@ comment : false
 	* [[MAC]]
 	* [[Protocol-Stack]]{프로토콜 스택}
 * [[Algorithm]]
-	* [[문제]]
+	* [[Algorithm-Problem]]{문제}
 		* [[BOJ]]
 			* [[BOJ-3019]]{3019. 빵집}
 			* [[BOJ-5373]]{5373. 큐빙}
+			* [[BOJ-10840]]{10840. 구간 성분}
+			* [[BOJ-16920]]{16920. 확장 게임}
+			* [[BOJ-17136]]{17136. 색종이 붙이기}
+	* [[Algorithm-Concept]]{개념}
+		* [[Hash]]
 * [[Computer-Terminology]]{컴퓨터 용어}
 		  
 		  
