@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2019-04-15 07:48:24 +0900
+updated : 2019-07-23 23:35:23 +0900
 tags    : index
 toc     : true
 public  : true
@@ -23,6 +23,7 @@ comment : false
     * [[mathjax-latex]]
 * [[Vim]]
     * [[vim-conceallevel]]{conceallevel (Vim)}
+	* [[vimwiki]]
 * [[YAML]]
 * [[Network]]
 	* [[DHCP]]
