@@ -3,12 +3,13 @@ layout  : wiki
 title   : DNS
 summary : DNS 서버 접속 과정
 date    : 2019-02-10 15:26:38 +0900
-updated : 2019-02-23 21:11:24 +0900
+updated : 2019-07-29 12:33:19 +0900
 tags    : 
 toc     : true
 public  : true
 parent  : Network
 latex   : false
+published : false
 ---
 * TOC
 {:toc}
