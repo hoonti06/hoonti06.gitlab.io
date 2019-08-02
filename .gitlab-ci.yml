@@ -1,11 +1,6 @@
-pages:
-  stage: deploy
-  script:
-  - mkdir .public
-  - cp -r * .public
-  - mv .public public
-  artifacts:
-    paths:
-    - public
-  only:
-  - master
+pages: 
+    image: jekyll/jekyll 
+    script: jekyll build -d public/ 
+    artifacts: 
+        paths: 
+        - public/
