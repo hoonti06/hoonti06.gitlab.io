@@ -46,6 +46,9 @@ google_analytics:
 google_adsense:
   client: ca-pub-3675948545737694
 
+original: "https://gitlab.com/hoonti06/hoonti06.gitlab.io/blob/master/_wiki"
+blame: "https://gitlab.com/hoonti06/hoonti06.gitlab.io/blame/master/_wiki"
+
 timezone: "Asia/Seoul"
 
 theme: jekyll-theme-midnight
