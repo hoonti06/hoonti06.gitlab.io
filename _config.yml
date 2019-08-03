@@ -9,7 +9,7 @@ description: >
 email: hoonti06@gmail.com
 author: hoonti06
 profile: junior programmer
-github_username: hoonti06
+gitlab_username: hoonti06
 # disqus_shortname: none
 
 # Build settings
@@ -51,4 +51,10 @@ blame: "https://gitlab.com/hoonti06/hoonti06.gitlab.io/blame/master/_wiki"
 
 timezone: "Asia/Seoul"
 
+# Search setting
+
+
+
 theme: jekyll-theme-midnight
+
+

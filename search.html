@@ -1,20 +1,53 @@
 ---
 layout: searchList
 title: Search
-permalink: /search/
+permalink: /search
 public: true
 ---
- <div id="home-search">
-     <script>
-         (function() {
-             var cx = '016269180258116102907:6ypbohkwi8i';
-             var gcse = document.createElement('script');
-             gcse.type = 'text/javascript';
-             gcse.async = true;
-             gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-             var s = document.getElementsByTagName('script')[0];
-             s.parentNode.insertBefore(gcse, s);
-         })();
-     </script>
-     <gcse:search linkTarget="_parent" queryParameterName="searchString"></gcse:search>
- </div>
+<form action="/search" method="get">
+  <label for="search-box">Search</label>
+  <input type="text" id="search-box" name="query">
+  <input type="submit" value="search">
+</form>
+
+<ul id="search-results"></ul>
+
+<script>
+  /* 구글 맞춤 검색
+  (function() {
+	var cx = '016269180258116102907:6ypbohkwi8i';
+	var gcse = document.createElement('script');
+	gcse.type = 'text/javascript';
+	gcse.async = true;
+	gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(gcse, s);
+  })();
+  <gcse:search linkTarget="_parent" queryParameterName="searchString"></gcse:search>
+  */
+
+  // 'lunr.js' 사용
+  window.store = {
+	// 'site'는 jekyll의 변수 (참고 : https://jekyllrb-ko.github.io/docs/variables/)
+	// 'site.wiki'는 '_wiki' directory 인듯 하다.
+    {% for post in site.wiki %} 
+      "{{ post.url | slugify }}": {
+        "title": "{{ post.title | xml_escape }}",
+        "content": {{ post.content | strip_html | strip_newlines | jsonify }},
+        "url": "{{ post.url | xml_escape }}"
+      }
+      {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
+</script>
+<!--script src="/js/lunr_chinese_0.7.2.js" charset="utf-8"></script-->
+<!--script src="/js/search_chinese_0.7.2.js" charset="utf-8"></script-->
+
+<!--script src="/js/lunr_chinese_0.7.2.js"></script-->
+<!--script src="/js/search_chinese_0.7.2.js"></script-->
+
+<script src="/js/lunr_0.7.1.js" charset="utf-8"></script>
+<script src="/js/search_0.7.1.js" charset="utf-8"></script>
+
+<!--script src="/js/lunr_2.6.3.js"></script-->
+<!--script src="/js/search_2.6.3.js"></script-->
