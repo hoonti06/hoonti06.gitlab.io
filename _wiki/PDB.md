@@ -3,7 +3,7 @@ layout  : wiki
 title   : PDB(Program DataBase)
 summary : 
 date    : 2019-08-05 09:46:05 +0900
-updated : 2019-08-05 22:47:40 +0900
+updated : 2019-08-06 10:12:05 +0900
 tags    : 
 toc     : true
 public  : true
@@ -58,8 +58,8 @@ set _NT_SYMBOL_PATH=srv\*D:\symbol\*http://msdl.microsoft.com/download/symbols;s
 
 ※참고 : 환경 변수 주의
 하기의 이미지와 같은 환경 변수 설정 창으로 환경 변수를 선언하게 되면 _NT_SYMBOL_PATH가 고정된다.  
-<center><img src="https://gitlab.com/hoonti06/hoonti06.gitlab.io/uploads/e440adfb5ead274f2779ee35964a564a/image.png" alt="drawing" class="center" style="max-width: 100%; height: auto;"></center>
-
+<center><img src="https://gitlab.com/hoonti06/hoonti06.gitlab.io/uploads/e440adfb5ead274f2779ee35964a564a/image.png" alt="drawing" style="max-width: 100%; height: auto;"></center>  
+<br>
 반면, cmd 또는 bat파일을 통한 설정은 cmd창이 종료되거나 bat파일의 실행이 종료되면 설정한 환경 변수가 사라지게 된다.  
 따라서, cmd 또는 bat파일을 통한 설정 방법을 추천한다.
 

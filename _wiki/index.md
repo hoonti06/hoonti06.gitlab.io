@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2019-08-05 20:04:37 +0900
+updated : 2019-08-06 12:46:07 +0900
 tags    : index
 toc     : true
 public  : true
@@ -52,7 +52,7 @@ comment : false
 * [[Computer-Terminology]]{컴퓨터 용어}
 * [[etc]]{기타}
 	* [[version-naming]]{버전 표기법(SemVer)}
-	* TBB
+	* [[TBB]]
 		  
 		  
 		
