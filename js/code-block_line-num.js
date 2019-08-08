@@ -2,7 +2,7 @@ function addLineNumberInCodeBlock() {
 	let pre = document.getElementsByTagName('pre');
 	let pl = pre.length;
 	for (let i = 0; i < pl; i++) {
-    // language가 지정되지 않은 단순한 code block에는 code line을 생략한다.
+    // language가 지정되지 않은 단순한 code block에는 line number를 생략한다.
     highlighter_rouge = pre[i].parentElement.parentElement;
     if (highlighter_rouge.className == "highlighter-rouge")
       continue;
