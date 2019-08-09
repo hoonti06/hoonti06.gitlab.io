@@ -1,13 +1,13 @@
 ---
-layout  : post
-title   : Naver Developer Open Class 2019
-summary : 네이버 하반기 공채 채용 설명회
-date    : 2019-08-08 10:09:03 +0900
-tags    : sql
-toc     : true
-public  : true
-publish  : false
-latex   : false
+layout    : post
+title     : Naver Developer Open Class 2019
+summary   : 네이버 하반기 공채 채용 설명회
+date      : 2019-08-08 10:09:03 +0900
+tags      : sql
+toc       : true
+public    : true
+published : false
+latex     : false
 ---
 * TOC
 {:toc}
@@ -22,7 +22,7 @@ latex   : false
 
 ## 2. 웹툰 개발 책임
 
-Speaker : 박찬규
+Speaker : 박찬규(chankyu.park@webtoonscorp.com)
 
 1. 네이버 개발자
 	- 잘하는 개발자와 함꼐 일하는 것. 성장할 수 있다.
@@ -36,7 +36,8 @@ Speaker : 박찬규
 3. 개발자 선배
 	- 후배 성장.
 	- '상담이 재밌다.'
-	- cafe에서 모의 면접을 진행해줌
+	- cafe에서 모의 면접을 진행해줌 *이메일로 상담을 해볼까..?*
+	
 	 
 ## 3. 선배와의 대화
 1. 김종찬
