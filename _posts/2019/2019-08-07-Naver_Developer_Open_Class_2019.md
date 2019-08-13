@@ -146,33 +146,33 @@ Speaker : 박찬규(chankyu.park@webtoonscorp.com)
 	- 면접
 		- (QnA에서 나온 답변)  쉬운 알고리즘, 예를 들어 sorting중 자신있는 것 하나 손코딩 구현  
 		   어떻게 하면 더 개선할 수 있을지
-		- *버블 sort의 개선..?*  
+		- *버블 sort의 개선을 아래처럼 하면 되려나...?*  
 
-ex>  
-개선 전
-```cpp
-for (int i = N-1; i > 0; i--)
-	for (int j = 0; j < i; j++)
-		if (arr[j] > arr[j+1])
-			swap(&arr[j], &arr[j+1]);
-```  
----
+			*ex>*  
+			*개선 전*
+			```cpp
+			for (int i = N-1; i > 0; i--)
+				for (int j = 0; j < i; j++)
+					if (arr[j] > arr[j+1])
+						swap(&arr[j], &arr[j+1]);
+			```  
+			---
 
-개선 후
-```cpp
-for (int i = N-1; i > 0 && isSwapped; i++)
-{
-	isSwapped = false:
-	for (int j = i; j < N-i-1; j++)
-	{
-		if (arr[j] > arr[j+1])
-		{
-			swap(&arr[i], &arr[j]);
-			isSwapped = true;
-		}
-	}
-}
-```
+			*개선 후*
+			```cpp
+			for (int i = N-1; i > 0 && isSwapped; i++)
+			{
+				isSwapped = false:
+				for (int j = i; j < N-i-1; j++)
+				{
+					if (arr[j] > arr[j+1])
+					{
+						swap(&arr[i], &arr[j]);
+						isSwapped = true;
+					}
+				}
+			}
+			```
 		  
 
 ## 4. QnA
