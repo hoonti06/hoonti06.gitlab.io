@@ -2,14 +2,17 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2019-09-14 10:17:04 +0900
+updated : 2019-09-26 00:22:12 +0900
 tags    : index
 toc     : true
 public  : true
 comment : false
 ---
 
+* [ToDoList]
+* [[Docker]]
 * [[Gradle]]
+* [[Maven]]
 * [[tools]]
     * [[useful-site]]
         * [[google-search-console-remove-outdated-content]]{구글 웹 도구 - 오래된 콘텐츠 삭제}
@@ -25,6 +28,11 @@ comment : false
     * [[vim-conceallevel]]{conceallevel (Vim)}
 	* [[vimwiki]]
 * [[YAML]]
+* [[Git]]
+* [[Debugging]]
+	* [[PDB]]
+	* [[Crash-Dump]]{Crash Dump}
+	* [[Memory-leak]]{Memory leak(Glfags 사용법)}
 * [[Network]]
 	* [[DHCP]]
 	* [[DNS]]
@@ -48,25 +56,4 @@ comment : false
 * [[Computer-Terminology]]{컴퓨터 용어}
 * [[etc]]{기타}
 	* [[version-naming]]{버전 표기법(SemVer)}
-		  
-		  
-		
-
-
----
-
-# blog
-<div>
-    <ul>
-{% for post in site.posts %}
-    {% if post.public != false %}
-        <li>
-            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
-                {{ post.title }}
-            </a>
-        </li>
-    {% endif %}
-{% endfor %}
-    </ul>
-</div>
-
+	* [[TBB]]
