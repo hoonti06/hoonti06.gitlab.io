@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2019-08-04 22:32:35 +0900
+updated : 2019-09-14 10:17:04 +0900
 tags    : index
 toc     : true
 public  : true
@@ -44,6 +44,7 @@ comment : false
 			* [[BOJ-17136]]{17136. 색종이 붙이기}
 	* [[Algorithm-Concept]]{개념}
 		* [[Hash]]
+		* [[Sort]]
 * [[Computer-Terminology]]{컴퓨터 용어}
 * [[etc]]{기타}
 	* [[version-naming]]{버전 표기법(SemVer)}
