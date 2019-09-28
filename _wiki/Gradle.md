@@ -3,8 +3,8 @@ layout  : wiki
 title   : Gradle
 summary : Gradle Build Tool
 date    : 2017-12-03 10:40:55 +0900
-updated : 2017-12-08 23:17:46 +0900
-tags    : gradle tool
+updated : 2019-09-28 21:22:17 +0900
+tag     : gradle tool
 toc     : true
 public  : true
 parent  : index

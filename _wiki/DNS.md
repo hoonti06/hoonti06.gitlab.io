@@ -3,8 +3,8 @@ layout  : wiki
 title   : DNS
 summary : DNS 서버 접속 과정
 date    : 2019-02-10 15:26:38 +0900
-updated : 2019-07-29 12:33:19 +0900
-tags    : 
+updated : 2019-09-28 21:25:16 +0900
+tag     : 
 toc     : true
 public  : true
 parent  : Network

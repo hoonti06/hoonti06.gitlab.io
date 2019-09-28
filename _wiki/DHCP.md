@@ -3,8 +3,8 @@ layout  : wiki
 title   : DHCP
 summary : 
 date    : 2019-02-09 22:13:32 +0900
-updated : 2019-08-04 22:16:11 +0900
-tags    : 
+updated : 2019-09-28 21:25:11 +0900
+tag     : 
 toc     : true
 public  : true
 parent  : Network

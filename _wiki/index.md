@@ -2,8 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2019-09-26 00:22:12 +0900
-tags    : index
+updated : 2019-09-28 21:18:46 +0900
 toc     : true
 public  : true
 comment : false

@@ -3,8 +3,8 @@ layout  : wiki
 title   : Groovy
 summary : A multi-faceted language for the Java platform
 date    : 2017-12-03 15:01:36 +0900
-updated : 2017-12-03 15:01:36 +0900
-tags    : language jvm-lang groovy
+updated : 2019-09-28 21:23:35 +0900
+tag     : language jvm-lang groovy
 toc     : true
 public  : true
 parent  : programming-language

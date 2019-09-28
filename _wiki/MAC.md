@@ -3,8 +3,8 @@ layout  : wiki
 title   : MAC 주소
 summary : 
 date    : 2019-02-16 18:14:26 +0900
-updated : 2019-02-17 00:41:17 +0900
-tags    : 
+updated : 2019-09-28 21:25:45 +0900
+tag     : 
 toc     : true
 public  : true
 parent  : Network

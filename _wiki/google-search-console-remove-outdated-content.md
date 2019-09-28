@@ -3,8 +3,8 @@ layout  : wiki
 title   : Google Search Console - Remove outdated content
 summary : 구글 웹 도구 - 오래된 콘텐츠 삭제
 date    : 2017-11-28 08:50:10 +0900
-updated : 2018-02-07 21:31:00 +0900
-tags    : google
+updated : 2019-09-28 21:23:00 +0900
+tag     : google
 toc     : true
 public  : true
 parent  : useful-site

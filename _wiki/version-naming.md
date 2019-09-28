@@ -3,8 +3,8 @@ layout  : wiki
 title   : 버전 표기법(SemVer)
 summary : 
 date    : 2019-08-04 22:28:51 +0900
-updated : 2019-08-04 23:14:35 +0900
-tags    : 
+updated : 2019-09-28 21:27:12 +0900
+tag     : 
 toc     : true
 public  : true
 parent  : etc
