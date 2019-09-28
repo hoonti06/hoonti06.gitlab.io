@@ -3,7 +3,7 @@ layout    : post
 title     : Naver Developer Open Class 2019
 summary   : 네이버 하반기 공채 채용 설명회
 date      : 2019-08-08 10:09:03 +0900
-tags      : 
+tag       : 
 toc       : true
 public    : true
 published : false
