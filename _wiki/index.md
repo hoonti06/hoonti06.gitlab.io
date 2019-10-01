@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2019-10-01 13:49:43 +0900
+updated : 2019-10-01 20:03:31 +0900
 toc     : true
 public  : true
 comment : false
@@ -29,6 +29,8 @@ comment : false
 * [[YAML]]
 * [[Git]]
 * [[OS]]
+* [[Database]]
+* [[Data-Structure]]{자료구조}
 * [[Debugging]]
 	* [[PDB]]
 	* [[Crash-Dump]]{Crash Dump}
