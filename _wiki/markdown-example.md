@@ -3,7 +3,7 @@ layout    : wiki
 title     : markdown 연습장
 summary   : 
 date      : 2019-09-29 17:32:09 +0900
-updated   : 2019-10-01 13:50:18 +0900
+updated   : 2019-10-01 14:45:46 +0900
 tag       : 
 toc       : true
 public    : true
@@ -16,6 +16,12 @@ latex     : false
 
 ## 1. 연습장
 
+| layer       | description |   |
+|-------------|-------------|---|
+| application | - build     |   |
+|             | - aa        |   |
+|-------------|-------------|---|
+|             |             |   |
 
 | 계층           | 설명   |     |
 | :------------: | :----: | --- |
