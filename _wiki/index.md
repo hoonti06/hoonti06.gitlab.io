@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2019-09-28 21:18:46 +0900
+updated : 2019-10-01 13:49:43 +0900
 toc     : true
 public  : true
 comment : false
@@ -28,11 +28,14 @@ comment : false
 	* [[vimwiki]]
 * [[YAML]]
 * [[Git]]
+* [[OS]]
 * [[Debugging]]
 	* [[PDB]]
 	* [[Crash-Dump]]{Crash Dump}
 	* [[Memory-leak]]{Memory leak(Glfags 사용법)}
 * [[Network]]
+	* [[OSI-7layers]]{OSI 7계층}
+	* [[TCP-IP]]{TCP/IP}
 	* [[DHCP]]
 	* [[DNS]]
 	* [[IP]]
@@ -56,3 +59,4 @@ comment : false
 * [[etc]]{기타}
 	* [[version-naming]]{버전 표기법(SemVer)}
 	* [[TBB]]
+	* [[markdown-example]]
