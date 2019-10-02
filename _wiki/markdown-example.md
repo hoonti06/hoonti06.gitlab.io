@@ -3,7 +3,7 @@ layout    : wiki
 title     : markdown 연습장
 summary   : 
 date      : 2019-09-29 17:32:09 +0900
-updated   : 2019-10-01 14:45:46 +0900
+updated   : 2019-10-02 16:38:01 +0900
 tag       : 
 toc       : true
 public    : true
@@ -90,10 +90,26 @@ $ var x = 10;
 $ document.getElementById("demo").innerTHML = x;
 ```
 
-```pandoc-table
-$ var x = 10;
-$ document.getElementById("demo").innerTHML = x;
+```cpp
+#include <cstdio>
+int main()
+{
+	int x = 10;
+	cout << x << endl;
+	return 0;
+}
 ```
+
+{% highlight cpp linenos %}
+#include <cstdio>
+int main()
+{
+	int x = 10;
+	cout << x << endl;
+	return 0;
+}
+{% endhighlight %}
+
 
 ```pandoc-table
 +---------------+---------------+--------------------+
@@ -106,3 +122,13 @@ $ document.getElementById("demo").innerTHML = x;
 |               |               | - tasty            |
 +---------------+---------------+--------------------+
 ```
+
++---------------+---------------+--------------------+
+| Fruit         | Price         | Advantages         |
++===============+===============+====================+
+| Bananas       | $1.34         | - built-in wrapper |
+|               |               | - bright color     |
++---------------+---------------+--------------------+
+| Oranges       | $2.10         | - cures scurvy     |
+|               |               | - tasty            |
++---------------+---------------+--------------------+
