@@ -5,13 +5,10 @@ summary :
 date    : 2019-08-06 10:19:27 +0900
 updated : 2019-09-28 21:24:49 +0900
 tag     : 
-toc     : true
 public  : true
 parent  : Debugging
 latex   : false
 ---
-* TOC
-{:toc}
 
 ## 0. 개요
 Crash Dump : 어떠한 원인으로 인하여 Crash가 발생했을 때 그 때의 오류의 원인 등의 내용을 기록하여 저장한 파일을 의미한다.

@@ -5,13 +5,10 @@ summary :
 date    : 2019-03-26 23:30:15 +0900
 updated : 2019-09-28 21:26:50 +0900
 tag     : 
-toc     : true
 public  : true
 parent  : 
 latex   : false
 ---
-* TOC
-{:toc}
 
 # 1. 롤링 해시
 

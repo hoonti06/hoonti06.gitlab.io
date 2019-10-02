@@ -5,13 +5,10 @@ summary :
 date    : 2019-02-22 22:20:04 +0900
 updated : 2019-09-28 21:25:50 +0900
 tag     : 
-toc     : true
 public  : true
 parent  : Network
 latex   : false
 ---
-* TOC
-{:toc}
 
 ## 0. 개요
 

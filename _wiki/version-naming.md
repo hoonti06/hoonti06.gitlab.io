@@ -5,13 +5,10 @@ summary :
 date    : 2019-08-04 22:28:51 +0900
 updated : 2019-09-28 21:27:12 +0900
 tag     : 
-toc     : true
 public  : true
 parent  : etc
 latex   : false
 ---
-* TOC
-{:toc}
 
 ## 0. 개요
 버전 표기법 중 대표적인 방법인 SemVer(Semantic Versioning Specification)의 소개글이다.

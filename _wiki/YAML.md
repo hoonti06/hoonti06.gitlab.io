@@ -5,13 +5,10 @@ summary : YAML Ain't Markup Language
 date    : 2017-12-02 16:45:25 +0900
 updated : 2019-09-28 21:24:16 +0900
 tag     : yaml data-format
-toc     : true
 public  : true
 parent  : index
 latex   : false
 ---
-* TOC
-{:toc}
 
 ## 개요
 

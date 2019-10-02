@@ -5,14 +5,11 @@ summary   :
 date      : 2019-09-29 19:22:36 +0900
 updated   : 2019-09-29 19:26:24 +0900
 tag       : 
-toc       : true
 public    : true
 published : true
 parent    : 
 latex     : false
 ---
-* TOC
-{:toc}
 
 ## 0. 개요
 TCP/IP : 인터넷에 연결된 디바이스간의 데이터 통신 표준 프로토콜

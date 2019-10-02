@@ -5,14 +5,11 @@ summary   :
 date      : 2019-09-29 17:32:09 +0900
 updated   : 2019-10-02 16:38:01 +0900
 tag       : 
-toc       : true
 public    : true
 published : true
 parent    : 
 latex     : false
 ---
-* TOC
-{:toc}
 
 ## 1. 연습장
 

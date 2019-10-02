@@ -3,7 +3,6 @@ layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
 updated : 2019-10-01 20:03:31 +0900
-toc     : true
 public  : true
 comment : false
 ---

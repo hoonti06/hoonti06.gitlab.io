@@ -5,13 +5,10 @@ summary :
 date    : 2019-02-16 18:14:26 +0900
 updated : 2019-09-28 21:25:45 +0900
 tag     : 
-toc     : true
 public  : true
 parent  : Network
 latex   : false
 ---
-* TOC
-{:toc}
 
 ## 1. 정의
 
