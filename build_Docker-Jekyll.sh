@@ -1,1 +1,12 @@
-docker run -it --name build-jekyll --rm --volume="$PWD:/srv/jekyll" -p 4000:4000 jekyll/jekyll jekyll build -d public
+INSTANCE_NAME="build-jekyll"
+WORKING_DIR=/srv/jekyll
+
+docker rm $INSTANCE_NAME
+
+docker run -it --name $INSTANCE_NAME \
+	--volume="$PWD:/srv/jekyll" \
+	--network host \
+	hoonti06/ruby-pandoc /bin/bash -c '\
+	cd /srv/jekyll; \
+	bundle install; \
+	bundle exec jekyll build -d public --watch --trace; '
