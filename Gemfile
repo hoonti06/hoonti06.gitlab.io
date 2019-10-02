@@ -28,3 +28,4 @@ gem 'jekyll-paginate'
 gem 'jekyll-gist'
 
 gem 'faraday', '~> 0.15.4' 
+gem 'jekyll-pandoc'

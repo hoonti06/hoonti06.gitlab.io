@@ -1,4 +1,4 @@
-image: ruby:latest
+image: hoonti06/ruby-pandoc
 
 variables:
   JEKYLL_ENV: production

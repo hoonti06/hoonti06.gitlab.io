@@ -16,19 +16,33 @@ gitlab_username: hoonti06
 plugins:
   - jekyll-paginate
   - jekyll-gist
+  - jekyll-pandoc
 
 permalink: /blog/:year/:month/:day/:title/
 
-markdown: kramdown
+# kramdown settings
+#markdown: kramdown
+#highlighter: rouge
+#kramdown:
+#  input: GFM
+#  syntax_highlighter: rouge
+#  syntax_highlighter_opts:
+#    block:
+#      line_numbers: true
+#   #span:
+#     #line_numbers: true
+
+
+# pandoc settings
+markdown: Pandoc
 highlighter: rouge
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    block:
-      line_numbers: true
-    #span:
-      #line_numbers: true
+pandoc:
+  extensions:
+    - toc
+    - toc-depth=6
+    - standalone
+    - highlight-style=pygments
+    #- no-highlight
 
 
 paginate: 10
