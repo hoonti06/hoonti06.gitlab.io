@@ -3,7 +3,7 @@ layout    : wiki
 title     : DNS
 summary   : DNS 서버 접속 과정
 date      : 2019-02-10 15:26:38 +0900
-updated   : 2019-10-03 12:16:43 +0900
+updated   : 2019-10-03 12:47:44 +0900
 tag       :
 public    : true
 parent    : Network

@@ -1,13 +1,14 @@
 ---
-layout  : wiki
-title   : DHCP
-summary : 
-date    : 2019-02-09 22:13:32 +0900
-updated : 2019-09-28 21:25:11 +0900
-tag     : 
-public  : true
-parent  : Network
-latex   : false
+layout    : wiki
+title     : DHCP
+summary   : DHCP 동작 과정
+date      : 2019-02-09 22:13:32 +0900
+updated   : 2019-10-03 14:40:56 +0900
+tag       :
+public    : true
+parent    : Network
+published : true
+latex     : false
 ---
 
 ## 0. 개요

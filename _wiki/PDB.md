@@ -1,13 +1,14 @@
 ---
-layout  : wiki
-title   : PDB(Program DataBase)
-summary : 
-date    : 2019-08-05 09:46:05 +0900
-updated : 2019-09-28 21:24:40 +0900
-tag     : 
-public  : true
-parent  : Debugging
-latex   : false
+layout    : wiki
+title     : PDB(Program DataBase)
+summary   : PDB의 활용
+date      : 2019-08-05 09:46:05 +0900
+updated   : 2019-10-03 14:41:23 +0900
+tag       :
+public    : true
+parent    : Debugging
+published : true
+latex     : false
 ---
 
 ## 0. 개요
