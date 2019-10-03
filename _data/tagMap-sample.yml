@@ -1,0 +1,47 @@
+sql:
+    - {fileName: 2018-02-26-sql-char-comparison}
+BFS:
+    - {fileName: BOJ-16920}
+DFS:
+    - {fileName: BOJ-17136}
+    - {fileName: BOJ-3019}
+SAMSUNG:
+    - {fileName: BOJ-17136}
+SW:
+    - {fileName: BOJ-17136}
+backtracking:
+    - {fileName: BOJ-3019}
+Simulation:
+    - {fileName: BOJ-5373}
+google:
+    - {fileName: google-search-console-remove-outdated-content}
+gradle:
+    - {fileName: Gradle}
+tool:
+    - {fileName: Gradle}
+language:
+    - {fileName: Groovy}
+    - {fileName: programming-language}
+jvm-lang:
+    - {fileName: Groovy}
+groovy:
+    - {fileName: Groovy}
+how-to:
+    - {fileName: how-to}
+latex:
+    - {fileName: mathjax-latex}
+Network:
+    - {fileName: Network}
+programming:
+    - {fileName: programming-language}
+tools:
+    - {fileName: tools}
+vim:
+    - {fileName: Vim}
+    - {fileName: vim-conceallevel}
+trouble-shooting:
+    - {fileName: vim-conceallevel}
+yaml:
+    - {fileName: YAML}
+data-format:
+    - {fileName: YAML}

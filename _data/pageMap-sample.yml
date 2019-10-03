@@ -318,13 +318,149 @@
     url: /blog/2018/02/26/sql-char-comparison
     updated: '2018-02-26 21:09:03 +0900'
     children: []
+Algorithm:
+    type: wiki
+    title: ""
+    summary: ""
+    parent: index
+    url: /wiki/Algorithm
+    updated: '2019-09-28 21:25:55 +0900'
+    children: [Algorithm-Concept, Algorithm-Problem]
+Algorithm-Concept:
+    type: wiki
+    title: 'Algorithm 개념'
+    summary: ""
+    parent: Algorithm
+    url: /wiki/Algorithm-Concept
+    updated: '2019-09-28 21:18:07 +0900'
+    children: []
+Algorithm-Problem:
+    type: wiki
+    title: 'Algorithm 문제'
+    summary: ""
+    parent: Algorithm
+    url: /wiki/Algorithm-Problem
+    updated: '2019-09-28 21:26:02 +0900'
+    children: [BOJ]
+BOJ:
+    type: wiki
+    title: 'BOJ 문제 풀이'
+    summary: ""
+    parent: Algorithm-Problem
+    url: /wiki/BOJ
+    updated: '2019-09-28 21:26:07 +0900'
+    children: [BOJ-3019, BOJ-5373]
+BOJ-10840:
+    type: wiki
+    title: ""
+    summary: ""
+    parent: ""
+    url: /wiki/BOJ-10840
+    updated: '2019-09-28 21:26:22 +0900'
+    children: []
+BOJ-16920:
+    type: wiki
+    title: 'BOJ 16920. 확장 게임'
+    summary: ""
+    parent: ""
+    url: /wiki/BOJ-16920
+    updated: '2019-09-28 21:26:26 +0900'
+    children: []
+BOJ-17136:
+    type: wiki
+    title: 'BOJ 17136. 색종이 붙이기'
+    summary: ""
+    parent: ""
+    url: /wiki/BOJ-17136
+    updated: '2019-10-03 10:50:03 +0900'
+    children: []
+BOJ-3019:
+    type: wiki
+    title: 'BOJ 3019. 빵집'
+    summary: ""
+    parent: BOJ
+    url: /wiki/BOJ-3019
+    updated: '2019-10-03 10:49:18 +0900'
+    children: []
+BOJ-5373:
+    type: wiki
+    title: 'BOJ 5373. 큐빙'
+    summary: ""
+    parent: BOJ
+    url: /wiki/BOJ-5373
+    updated: '2019-09-28 21:26:17 +0900'
+    children: []
+CIDR:
+    type: wiki
+    title: CIDR
+    summary: ""
+    parent: Network
+    url: /wiki/CIDR
+    updated: '2019-09-28 21:25:31 +0900'
+    children: []
+Computer-Terminology:
+    type: wiki
+    title: '컴퓨터 용어'
+    summary: ""
+    parent: index
+    url: /wiki/Computer-Terminology
+    updated: '2019-09-28 21:27:01 +0900'
+    children: [overhead]
+Crash-Dump:
+    type: wiki
+    title: 'Crash Dump'
+    summary: ""
+    parent: Debugging
+    url: /wiki/Crash-Dump
+    updated: '2019-09-28 21:24:49 +0900'
+    children: []
+Debugging:
+    type: wiki
+    title: Debugging
+    summary: ""
+    parent: index
+    url: /wiki/Debugging
+    updated: '2019-09-28 21:24:30 +0900'
+    children: [Crash-Dump, Memory-leak, PDB]
+DHCP:
+    type: wiki
+    title: DHCP
+    summary: ""
+    parent: Network
+    url: /wiki/DHCP
+    updated: '2019-09-28 21:25:11 +0900'
+    children: []
+DNS:
+    type: wiki
+    title: DNS
+    summary: 'DNS 서버 접속 과정'
+    parent: Network
+    url: /wiki/DNS
+    updated: '2019-10-03 12:11:11 +0900'
+    children: []
+Docker:
+    type: wiki
+    title: ""
+    summary: ""
+    parent: ""
+    url: /wiki/Docker
+    updated: '2019-09-28 21:22:00 +0900'
+    children: []
+etc:
+    type: wiki
+    title: etc(기타)
+    summary: ""
+    parent: index
+    url: /wiki/etc
+    updated: '2019-09-28 21:27:06 +0900'
+    children: [version-naming]
 google-search-console-remove-outdated-content:
     type: wiki
     title: 'Google Search Console - Remove outdated content'
     summary: '구글 웹 도구 - 오래된 콘텐츠 삭제'
     parent: useful-site
     url: /wiki/google-search-console-remove-outdated-content
-    updated: '2018-02-07 21:31:00 +0900'
+    updated: '2019-09-28 21:23:00 +0900'
     children: []
 Gradle:
     type: wiki
@@ -332,15 +468,23 @@ Gradle:
     summary: 'Gradle Build Tool'
     parent: index
     url: /wiki/Gradle
-    updated: '2017-12-08 23:17:46 +0900'
+    updated: '2019-09-28 21:22:17 +0900'
     children: []
-groovy:
+Groovy:
     type: wiki
     title: Groovy
     summary: 'A multi-faceted language for the Java platform'
     parent: programming-language
-    url: /wiki/groovy
-    updated: '2017-12-03 15:01:36 +0900'
+    url: /wiki/Groovy
+    updated: '2019-09-28 21:23:35 +0900'
+    children: []
+Hash:
+    type: wiki
+    title: ""
+    summary: ""
+    parent: ""
+    url: /wiki/Hash
+    updated: '2019-09-28 21:26:50 +0900'
     children: []
 how-to:
     type: wiki
@@ -348,15 +492,47 @@ how-to:
     summary: null
     parent: index
     url: /wiki/how-to
-    updated: '2018-02-04 15:57:05 +0900'
+    updated: '2019-09-28 21:23:42 +0900'
     children: [mathjax-latex]
+HTTP:
+    type: wiki
+    title: HTTP
+    summary: ""
+    parent: Network
+    url: /wiki/HTTP
+    updated: '2019-09-28 21:25:41 +0900'
+    children: []
 index:
     type: wiki
     title: wiki
     summary: null
     parent: null
     url: /wiki/index
-    updated: '2018-03-05 22:57:44 +0900'
+    updated: '2019-10-01 20:03:31 +0900'
+    children: []
+IP:
+    type: wiki
+    title: IP
+    summary: ""
+    parent: Network
+    url: /wiki/IP
+    updated: '2019-09-28 21:25:22 +0900'
+    children: []
+MAC:
+    type: wiki
+    title: 'MAC 주소'
+    summary: ""
+    parent: Network
+    url: /wiki/MAC
+    updated: '2019-09-28 21:25:45 +0900'
+    children: []
+markdown-example:
+    type: wiki
+    title: 'markdown 연습장'
+    summary: ""
+    parent: ""
+    url: /wiki/markdown-example
+    updated: '2019-10-02 16:38:01 +0900'
     children: []
 mathjax-latex:
     type: wiki
@@ -364,7 +540,71 @@ mathjax-latex:
     summary: null
     parent: how-to
     url: /wiki/mathjax-latex
-    updated: '2017-12-23 18:18:43 +0900'
+    updated: '2019-09-28 21:23:48 +0900'
+    children: []
+Maven:
+    type: wiki
+    title: Maven
+    summary: ""
+    parent: ""
+    url: /wiki/Maven
+    updated: '2019-09-28 21:22:23 +0900'
+    children: []
+Memory-leak:
+    type: wiki
+    title: ""
+    summary: ""
+    parent: Debugging
+    url: /wiki/Memory-leak
+    updated: '2019-09-28 21:24:57 +0900'
+    children: []
+Netmask:
+    type: wiki
+    title: 넷마스크
+    summary: ""
+    parent: ""
+    url: /wiki/Netmask
+    updated: '2019-09-28 21:25:37 +0900'
+    children: []
+Network:
+    type: wiki
+    title: Network
+    summary: ""
+    parent: index
+    url: /wiki/Network
+    updated: '2019-09-28 21:25:05 +0900'
+    children: [CIDR, DHCP, DNS, HTTP, IP, MAC, Protocol-Stack, UDP]
+OS:
+    type: wiki
+    title: OS
+    summary: ""
+    parent: ""
+    url: /wiki/OS
+    updated: '2019-10-02 23:31:40 +0900'
+    children: []
+OSI-7layers:
+    type: wiki
+    title: 'OSI 7계층'
+    summary: ""
+    parent: ""
+    url: /wiki/OSI-7layers
+    updated: '2019-10-01 14:23:54 +0900'
+    children: []
+overhead:
+    type: wiki
+    title: 오버헤드(overhead)
+    summary: ""
+    parent: Computer-Terminology
+    url: /wiki/overhead
+    updated: '2019-09-28 21:29:04 +0900'
+    children: []
+PDB:
+    type: wiki
+    title: 'PDB(Program DataBase)'
+    summary: ""
+    parent: Debugging
+    url: /wiki/PDB
+    updated: '2019-09-28 21:24:40 +0900'
     children: []
 programming-language:
     type: wiki
@@ -372,31 +612,71 @@ programming-language:
     summary: null
     parent: index
     url: /wiki/programming-language
-    updated: '2017-12-03 15:01:36 +0900'
-    children: [groovy]
+    updated: '2019-09-28 21:23:29 +0900'
+    children: [Groovy]
+Protocol-Stack:
+    type: wiki
+    title: '프로토콜 스택'
+    summary: ""
+    parent: Network
+    url: /wiki/Protocol-Stack
+    updated: '2019-09-28 21:25:50 +0900'
+    children: []
+Sort:
+    type: wiki
+    title: 정렬
+    summary: ""
+    parent: ""
+    url: /wiki/Sort
+    updated: '2019-09-28 21:26:56 +0900'
+    children: []
+TCP-IP:
+    type: wiki
+    title: TCP/IP
+    summary: ""
+    parent: ""
+    url: /wiki/TCP-IP
+    updated: '2019-09-29 19:26:24 +0900'
+    children: []
 tools:
     type: wiki
     title: tools
     summary: '도구 및 사이트 소개'
     parent: index
     url: /wiki/tools
-    updated: '2018-02-06 07:05:19 +0900'
+    updated: '2019-09-28 21:22:38 +0900'
     children: [useful-site]
+UDP:
+    type: wiki
+    title: UDP
+    summary: ""
+    parent: Network
+    url: /wiki/UDP
+    updated: '2019-09-28 21:35:41 +0900'
+    children: []
 useful-site:
     type: wiki
     title: '유용한 웹 서비스 모음'
     summary: ""
     parent: tools
     url: /wiki/useful-site
-    updated: '2018-02-20 22:07:53 +0900'
+    updated: '2019-09-28 21:22:51 +0900'
     children: [google-search-console-remove-outdated-content]
+version-naming:
+    type: wiki
+    title: '버전 표기법(SemVer)'
+    summary: ""
+    parent: etc
+    url: /wiki/version-naming
+    updated: '2019-09-28 21:27:12 +0900'
+    children: []
 Vim:
     type: wiki
     title: Vim
     summary: null
     parent: index
     url: /wiki/Vim
-    updated: '2017-12-20 13:13:21 +0900'
+    updated: '2019-09-28 21:23:54 +0900'
     children: [vim-conceallevel]
 vim-conceallevel:
     type: wiki
@@ -404,13 +684,21 @@ vim-conceallevel:
     summary: 'Vim에서 글자나 기호가 사라진다면 conceallevel을 확인해보자'
     parent: Vim
     url: /wiki/vim-conceallevel
-    updated: '2017-12-20 13:13:32 +0900'
+    updated: '2019-09-28 21:24:01 +0900'
     children: []
-yaml:
+vimwiki:
+    type: wiki
+    title: vimwiki
+    summary: ""
+    parent: vim
+    url: /wiki/vimwiki
+    updated: '2019-09-28 21:24:07 +0900'
+    children: []
+YAML:
     type: wiki
     title: YAML
     summary: 'YAML Ain''t Markup Language'
     parent: index
-    url: /wiki/yaml
-    updated: '2017-12-02 16:45:25 +0900'
+    url: /wiki/YAML
+    updated: '2019-09-28 21:24:16 +0900'
     children: []
