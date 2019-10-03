@@ -1,4 +1,4 @@
-image: hoonti06/ruby-pandoc
+image: hoonti06/ruby-pandoc-node
 
 variables:
   JEKYLL_ENV: production
@@ -7,6 +7,7 @@ variables:
 before_script:
   - gem install bundler
   - bundle install
+  - ./generateData.js
 
 test:
   stage: test

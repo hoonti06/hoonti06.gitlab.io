@@ -33,6 +33,9 @@ dataList.forEach(function collectTagMap(data) {
     if (!data.tag) {
         return;
     }
+    else if (data.published == 'false') {
+        return;
+    }
     data.tag.forEach(function(tag) {
         if (!tagMap[tag]) {
             tagMap[tag] = [];
@@ -62,6 +65,9 @@ const pageMap = {};
 dataList.sort(function(a, b) {
     return a.url.toLowerCase().localeCompare(b.url.toLowerCase());
 }).forEach(function(page) {
+
+    if (page.published == 'false')
+      return;
 
     pageMap[page.fileName] = {
         type: page.type,
