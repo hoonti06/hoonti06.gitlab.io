@@ -3,7 +3,7 @@ layout    : wiki
 title     : markdown 연습장
 summary   : 
 date      : 2019-09-29 17:32:09 +0900
-updated   : 2019-10-04 11:24:54 +0900
+updated   : 2019-10-04 23:01:24 +0900
 tag       : 
 public    : true
 published : true
@@ -82,12 +82,30 @@ latex     : false
 var x = 10;
   document.getElementById("demo").innerTHML = x;
 ```
-```cli
+ ```cpp
 $ var x = 10;
 $ document.getElementById("demo").innerTHML = x;
 ```
+```cpp
+```cpp
+```
 
-```cpp {highlight linenos}
+{% highlight  linenos %}
+  $ sudo su
+  # apt-get install nodejs npm
+{% endhighlight %}
+
+{% highlight cpp linenos %}
+#include <cstdio>
+int main()
+{
+	int x = 10;
+	cout << x << endl;
+	return 0;
+}
+{% endhighlight %}
+
+```cpp
 #include <cstdio>
 int main()
 {
@@ -142,3 +160,4 @@ int main()
 | (메모리 공간과 자원 소모가 상대적으로 큼)                            | - 자원 공유로 인한 동기화 문제가 발생                                   |
 |                                                                      | - 디버깅이 어려움                                                       |
 +----------------------------------------------------------------------+-------------------------------------------------------------------------+
+
