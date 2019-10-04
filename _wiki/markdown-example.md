@@ -3,11 +3,11 @@ layout    : wiki
 title     : markdown 연습장
 summary   : 
 date      : 2019-09-29 17:32:09 +0900
-updated   : 2019-10-03 22:50:24 +0900
+updated   : 2019-10-04 11:24:54 +0900
 tag       : 
 public    : true
 published : true
-parent    : 
+parent    : etc
 latex     : false
 ---
 
@@ -87,7 +87,7 @@ $ var x = 10;
 $ document.getElementById("demo").innerTHML = x;
 ```
 
-```cpp
+```cpp {highlight linenos}
 #include <cstdio>
 int main()
 {
