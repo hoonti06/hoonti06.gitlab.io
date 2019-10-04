@@ -31,12 +31,13 @@ table.gsc-search-box {
     margin: 0px;
 }
 
-.header {
+// page header
+.page-header {
     background-color: $theme-color;
 
     &:after {
         clear: both;
-        //content: ' ';
+        content: ' ';
         display: block;
     }
 
@@ -54,6 +55,11 @@ table.gsc-search-box {
         line-height: 1.5;
         padding-right: 10px;
     }
+}
+
+// markdown-pandoc table header
+.header {
+    background-color: $theme-color;
 }
 
 .page-content {
