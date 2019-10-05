@@ -3,7 +3,7 @@ layout    : wiki
 title     : OS
 summary   : 
 date      : 2019-09-29 16:55:46 +0900
-updated   : 2019-10-03 22:50:48 +0900
+updated   : 2019-10-05 14:56:26 +0900
 tag       : 
 public    : true
 published : true
@@ -12,7 +12,15 @@ latex     : false
 ---
 
 ## 0. 개요
+프로그램은 모두 운영체제 위에서 실행되기 때문에 프로그래머로서 운영체제에 대한 내용을 알아야 한다고 생각한다.
 
+운영체제(OS)는 `자원 관리자`이다.
+* H/W(자원)를 효율적으로 관리
+* Application 프로그램의 토대를 제공
+* User와 H/W 사이의 중간 매개체 역할
+* 항상 수행되고 있는 유일한 프로그램(kernel)
+
+## 1. 운영체제(OS)
 ## 1. process vs thread
 ### 1.1 process
 프로세스는 프로그램이 실행되어 CPU를 통해 자원을  
@@ -39,3 +47,7 @@ latex     : false
 ## 3. 동기화
 
 ## 4. 메모리 관리
+
+## 5. Virtual Memory
+
+## 6. IPC(InterProcess-Communication)
