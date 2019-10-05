@@ -33,8 +33,18 @@ code,pre {
     font-family:  $coding-font;
 }
 code {
-    color: $theme-color;
-    background-color: #D9D9D9;
+	// github-theme (검정-회색)
+    //color: $theme-color;
+    //background-color: #D9D9D9;
+
+	// gitlab-theme (빨강-주황)
+    //color: #c0341d;
+    //background-color: #fbe5e1;
+
+	// 형광-theme (검정-라임)
+    color: #000000;
+    background-color: #cfff40;
+
     padding: 1px 3px;
     border-radius: 3px;
 }
