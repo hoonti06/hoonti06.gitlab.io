@@ -3,7 +3,7 @@ layout    : wiki
 title     : DHCP
 summary   : DHCP 동작 과정
 date      : 2019-02-09 22:13:32 +0900
-updated   : 2019-10-03 14:40:56 +0900
+updated   : 2019-10-06 10:26:26 +0900
 tag       :
 public    : true
 parent    : Network
@@ -16,7 +16,7 @@ latex     : false
 DHCP(Dynamic Host Configuration Protocol) : 동적 호스트 설정 규약
 
 DHCP는 유무선 IP 환경에서 단말의 IP 주소, [[Netmask]]{서브넷 마스크}, Default 게이트 웨이의 IP 주소, DNS 서버의 IP 주소, 임대 기간(Lease Time) 등의 
-다양한 네트워크 정보를 DCHP 서버가 PC와 같은 이용자 단말에게 동적으로 할당해주는 프로토콜이다. 
+다양한 네트워크 정보를 DCHP 서버가 PC와 같은 이용자 단말에게 `동적으로 할당`해주는 프로토콜이다. 
 이로 인하여 이용자들은 관련 정보를 직접 설정할 필요 없이 네트워크를 이용할 수 있다.
 
 DCHP IP를
