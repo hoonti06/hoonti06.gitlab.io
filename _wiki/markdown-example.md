@@ -3,7 +3,7 @@ layout    : wiki
 title     : markdown 연습장
 summary   : 
 date      : 2019-09-29 17:32:09 +0900
-updated   : 2019-10-04 23:01:24 +0900
+updated   : 2019-10-08 00:04:14 +0900
 tag       : 
 public    : true
 published : true
@@ -105,15 +105,15 @@ int main()
 }
 {% endhighlight %}
 
-```cpp
+  ```cpp   
 #include <cstdio>
 int main()
 {
-	int x = 10;
-	cout << x << endl;
+	int ap = 10;
+	cout << ap << endl;
 	return 0;
 }
-```
+   ```  
 
 {% highlight cpp linenos %}
 #include <cstdio>
@@ -161,3 +161,9 @@ int main()
 |                                                                      | - 디버깅이 어려움                                                       |
 +----------------------------------------------------------------------+-------------------------------------------------------------------------+
 
+
+{% youtube https://www.youtube.com/watch?v=G33WiEktUo8 %}
+{% youtube https://www.youtube.com/embed/V69UAnkoYHM %}
+<iframe width="942" height="704" src="https://www.youtube.com/embed/V69UAnkoYHM" frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe title="YouTube video player" width="640" height="390" src="https://www.youtube.com/embed/7HiBFeLZlHM" frameborder="0" allowfullscreen></iframe>
