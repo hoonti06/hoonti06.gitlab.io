@@ -17,6 +17,8 @@ plugins:
   - jekyll-paginate
   - jekyll-gist
   - jekyll-pandoc
+ #- jekyll-pandoc-multi-format
+ #- jekyll-youtube
 
 permalink: /blog/:year/:month/:day/:title/
 
