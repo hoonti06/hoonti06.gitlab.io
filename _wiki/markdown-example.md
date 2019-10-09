@@ -3,7 +3,7 @@ layout    : wiki
 title     : markdown 연습장
 summary   : 
 date      : 2019-09-29 17:32:09 +0900
-updated   : 2019-10-08 00:04:14 +0900
+updated   : 2019-10-09 01:53:06 +0900
 tag       : 
 public    : true
 published : true
@@ -89,6 +89,9 @@ $ document.getElementById("demo").innerTHML = x;
 ```cpp
 ```cpp
 ```
+  ```
+```cpp
+ ```
 
 {% highlight  linenos %}
   $ sudo su
@@ -162,8 +165,10 @@ int main()
 +----------------------------------------------------------------------+-------------------------------------------------------------------------+
 
 
+```
 {% youtube https://www.youtube.com/watch?v=G33WiEktUo8 %}
 {% youtube https://www.youtube.com/embed/V69UAnkoYHM %}
 <iframe width="942" height="704" src="https://www.youtube.com/embed/V69UAnkoYHM" frameborder="0" 
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <iframe title="YouTube video player" width="640" height="390" src="https://www.youtube.com/embed/7HiBFeLZlHM" frameborder="0" allowfullscreen></iframe>
+```

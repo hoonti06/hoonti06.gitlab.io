@@ -17,7 +17,7 @@ plugins:
   - jekyll-paginate
   - jekyll-gist
   - jekyll-pandoc
- #- jekyll-pandoc-multi-format
+ #- jekyll-pandoc-multiple-format
  #- jekyll-youtube
 
 permalink: /blog/:year/:month/:day/:title/
@@ -35,9 +35,8 @@ permalink: /blog/:year/:month/:day/:title/
 #     #line_numbers: true
 
 
-# pandoc settings
+# jekyll-pandoc settings
 markdown: Pandoc
-highlighter: rouge
 pandoc:
   extensions:
     - toc
@@ -46,6 +45,46 @@ pandoc:
     - highlight-style=pygments
     #- no-highlight
 
+highlighter: rouge
+
+# jekyll-pandoc-auto-rouge settings
+pandoc_rouge:
+  use: true
+  lineno:
+    use: true
+    #include:
+    # - c
+    # - c++
+    #exclude:
+    # - c
+    # - c++
+
+# jekyll-pandoc-multiple-formats settings
+#markdown: pandoc
+#pandoc:
+#    skip:
+#      full: false
+#      posts: false
+#      categories: false
+#    bundle_permalink: ':output_ext/:slug.:output_ext'
+#    papersize: 'a5paper'
+#    sheetsize: 'a4paper'
+#    imposition: true
+#    binder: true
+#    covers_dir: assets/covers
+#    signature: 20
+#    full_file: true
+#
+#    flags: '--smart'
+#    site_flags: '--toc --toc-depth=6 --standalone --highlight-type=pygments'
+#    outputs:
+#      latex:
+#      pdf: '--latex-engine=xelatex'
+#      epub: '--epub-chapter-level=2'
+#    lang:
+#      ar:
+#        all: '-V mainfont="Amiri"'
+#        pdf: '--include-in-header=_layouts/rtl.tex'
 
 paginate: 10
 paginator_path: "/blog"
