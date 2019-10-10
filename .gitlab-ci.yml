@@ -8,7 +8,6 @@ before_script:
   - gem install bundler
   - bundle install
   - ./generateData.js
-  - ./replaceToRougeSyntax.js
 test:
   stage: test
   script:
