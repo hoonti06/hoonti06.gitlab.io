@@ -21,6 +21,7 @@ gem "minima", "~> 2.5.0"
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
   gem 'jekyll-pandoc'
+  gem 'jekyll-pandoc-rouge'
   gem 'faraday', '~> 0.15.4' 
 #  gem 'jekyll-youtube'
 #  gem 'jekyll-pandoc-multiple-formats'
@@ -31,3 +32,4 @@ group :jekyll_plugins do
   gem 'jekyll-gist'
 end
 
+#gem 'jekyll-pandoc-rouge', :path => "/jekyll-pandoc-rouge" # for development

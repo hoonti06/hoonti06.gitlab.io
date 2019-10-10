@@ -17,6 +17,7 @@ plugins:
   - jekyll-paginate
   - jekyll-gist
   - jekyll-pandoc
+  - jekyll-pandoc-rouge
  #- jekyll-pandoc-multiple-format
  #- jekyll-youtube
 
@@ -47,7 +48,7 @@ pandoc:
 
 highlighter: rouge
 
-# jekyll-pandoc-auto-rouge settings
+# jekyll-pandoc-rouge settings
 pandoc_rouge:
   use: true
   lineno:
