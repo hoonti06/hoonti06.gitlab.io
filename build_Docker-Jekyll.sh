@@ -9,4 +9,4 @@ docker run -it --name $INSTANCE_NAME \
 	hoonti06/ruby-pandoc-node /bin/bash -c '\
 	cd /srv/jekyll; \
 	bundle install; \
-	bundle exec jekyll build -d public --watch --trace; '
+	bundle exec jekyll build -d public --trace; '
