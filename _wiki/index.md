@@ -2,12 +2,14 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2019-10-06 10:27:45 +0900
+updated : 2020-01-06 14:23:31 +0900
 public  : true
 comment : false
 ---
 
 * [ToDoList]
+* [[book-review]]{도서 내용 정리}
+	* [[The_Essence_of_Object-Orientation]]{객체지향의 사실과 오해}
 * [[Git]]
 * [[OS]]
 * [[Database]]
@@ -61,3 +63,4 @@ comment : false
 	* [[version-naming]]{버전 표기법(SemVer)}
 	* [[TBB]]
 	* [[markdown-example]]
+
