@@ -3,7 +3,7 @@
 }
 
 @media (min-width: 1700px) {
-    ul#markdown-toc {
+    #TOC {
         position: fixed;
         top: 0;
         bottom: 0;
@@ -18,7 +18,7 @@
     }
 }
 
-#markdown-toc {
+#TOC {
     border: 1px solid;
     padding: 10px;
     padding-left: 30px;
