@@ -18,6 +18,7 @@ plugins:
   - jekyll-gist
   - jekyll-pandoc
   - jekyll-pandoc-rouge
+  - jekyll-mermaid
  #- jekyll-pandoc-multiple-format
  #- jekyll-youtube
 
@@ -59,6 +60,11 @@ pandoc_rouge:
     #exclude:
     # - c
     # - c++
+
+# mermaid settings
+mermaid:
+  src: 'https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js'
+
 
 # jekyll-pandoc-multiple-formats settings
 #markdown: pandoc
