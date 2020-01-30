@@ -3,7 +3,7 @@ layout    : wiki
 title     : Spring boot
 summary   : 
 date      : 2020-01-27 12:31:49 +0900
-updated   : 2020-01-30 20:00:43 +0900
+updated   : 2020-01-30 23:15:51 +0900
 tag       : 
 public    : true
 published : true
@@ -156,7 +156,9 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 		  me.hoonti06.HolomanConfiguration
 	6. mvn install
 	7. 1~6을 통해 자동 설정을 작성한 프로젝트(1)를 다른 프로젝트(2)에 의존성으로 추가한다.
-	9. 2번 프로젝트에서 
+	9. 프로젝트(2)에서 프로젝트(1)의 빈을 사용한다.
+	10. 프로젝트(2)에서 프로젝트(1)의 클래스를 사용하여 로컬에서 빈을 등록하게 되면 적용이 되지 않는다.  
+		그 이유는 ComponentScan이 먼저 수행되어 로컬에서 먼저 빈을 등록하고 Auto Configuration이 그 다음 수행되어 프로젝트(2)의 빈으로 덮어쓰게 되기 때문이다.
 
 - 덮어쓰기 방지
 	- @ConditionalOnMissingBean
