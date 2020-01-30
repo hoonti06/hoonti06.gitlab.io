@@ -3,7 +3,7 @@ layout    : wiki
 title     : Spring boot
 summary   : 
 date      : 2020-01-27 12:31:49 +0900
-updated   : 2020-01-28 15:37:41 +0900
+updated   : 2020-01-30 16:16:49 +0900
 tag       : 
 public    : true
 published : true
@@ -11,7 +11,19 @@ parent    :
 latex     : false
 ---
 
-## 1. 프로젝트 구조
+## 1. 시작하기
+
+### 1.1 Spring boot 소개
+https://docs.spring.io/spring-boot/docs/2.0.3.RELEASE/reference/htmlsingle/#getting-started-introducing-spring-boot 
+
+### 1.2 spring boot 시작하기
+https://docs.spring.io/spring-boot/docs/2.0.3.RELEASE/reference/htmlsingle/#getting-started-maven-installation
+
+### 1.3 Sprint boot 프로젝트 생성기
+https://start.spring.io
+
+### 1.4 프로젝트 구조
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-structuring-your-code
 
 - maven 기본 프로젝트 구조와 동일
 	- 소스 코드 (src\main\java)
@@ -22,6 +34,8 @@ latex     : false
 - main application 위치
 	- 기본 페키지(default package)
 		- component-scan을 해야하기 때문이다.(기본 패키지의 하위가 scan 대상)
+
+
 
 ## 2. 원리
 
@@ -34,6 +48,117 @@ graph BT
 	A[current project] -- parent --> B[spring-boot-starter-parent]
 	B -- parent --> C["spring-boot-dependencies(최상위)"]
 {% endmermaid %}
-spring-boot-dependencies의 pom.xml 내부 dependency management에  버전들이 정의되어 있다. 이 버전들을 current project의 pom.xml에 명시하여 dependency를 사용하면 된다.
+
+spring-boot-dependencies의 pom.xml 내부 <dependency management> 항목에 버전들이 정의되어 있다. 이 버전들을 current project의 pom.xml에 명시하면 해당 버전에 따른 dependency를 사용할 수 있다.
+
+spring-boot-starter-parent의 pom.xml 내부 <properties> 항목에 아래와 같이 정의되어 있다. 따라서, spring-boot-starter-parent를 쓰는 것을 권장한다.
+ - 1.8 Java version
+ - UTF-8 인코딩
+ - plugin configuration
+ - resource filtering 
+ - etc...
 
 
+#### 2.1.2 활용
+
+ - 버전 관리 해주는 의존성 추가  
+spring boot에서 관리하는 의존성이기 때문에 version을 명시하지 않아도 된다.
+```xml
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+```
+
+ - 버전 관리 안 해주는 의존성 추가  
+의도치 않은 version이 들어올 수 있기 때문에 version을 명시해주는 것이 좋다.
+```xml
+<dependency>
+	<groupId>org.modelmapper.boot</groupId>
+	<artifactId>modelmapper</artifactId>
+	<version>2.1.0</version>
+</dependency>
+```
+
+https://mvnrepository.com 참고  
+
+
+ - 기존 의존성 버전 변경하기  
+spring-boot-dependencies나 spring-boot-start-parent의 <properties>를 current project에서 다른 버전으로 overriding할 수 있다. 
+
+
+### 2.2 자동 설정
+
+#### 2.2.1 개요
+- @EnableAutoConfiguration (@SpringBootApplication 안에 포함되어 있음)
+	- 이 Annotation으로 인하여 application 실행 시 자동으로 tomcat이 뜨고, 이런 거 저런 거가 되는거다.
+	- 빈을 한 번 더 읽는다.
+- 빈은 사실 두 단계로 나뉘어서 읽힌다.
+	- 1단계 : @ComponentScan
+		- AutoConfigurationFilter와 
+	- 2단계 : @EnableAutoConfiguration
+- @ComponentScan
+	- 해당 애노테이션이 포함되어 있는 package에서 그 하위에 있는 모든 빈을 scan한다. (같은 또는 상위 레벨에 있는 package는 포함되지 않는다.)
+	- @Configuration @Repository @Service @Controller @RestController
+- @EnableAutoConfiguration
+	- spring.factories[^1]
+		- org.springframework.boot.autoconfigure.EnableAutoConfiguration : 이 항목 하위에 명시되어 있는 모든 목록에 대해 자동으로 빈 등록을 시도한다.(그 모든 목록에 가보면 @Configuration이 명시되어 있다.) 하지만, 각 목록에서 @ConditionalOnXxxYyyZzz 애노테이션에 따라 빈 등록 여부가 결정된다.
+
+#### 2.2.2 자동 설정 만들기
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-developing-auto-configuration
+
+
+- xxx-spring-boot-Autoconfigure 모듈 : 자동 설정 관련
+- xxx-spring-boot-starter 모듈 : 필요한 의존성 정의
+- 하나로 만들고 싶을 때는? xxx-spring-boot-starter
+- 구현 방법
+	1. 의존성 추가
+```xml
+<dependencies>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-autoconfigure</artifactId>
+	</dependency>
+	<dependency>
+	<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-autoconfigure-processor</artifactId>
+		<optional>true</optional>
+	</dependency>
+</dependencies>
+```
+
+```xml
+<dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-dependencies</artifactId>
+			<version>2.0.3.RELEASE</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+	</dependencies>
+</dependencyManagement>
+```
+	2. @Configuration 파일 작성
+	3. src/main/resource/META-INF에 spring.factories 파일 생성 (서비스 프로바이더??)
+	4. spring.factories 안에 자동 설정할 파일(2.의 @Configuration 파일)을 명시
+
+
+
+
+
+
+
+
+
+
+
+
+### 2.3 내장 서블릿 컨테이너
+
+
+
+
+## footnotes
+[^1]: spring-boot-autoconfigure/META-INF/spring.factories

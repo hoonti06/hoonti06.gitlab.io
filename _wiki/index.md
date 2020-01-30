@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2020-01-28 11:12:27 +0900
+updated : 2020-01-29 09:42:18 +0900
 public  : true
 comment : false
 ---
@@ -10,6 +10,7 @@ comment : false
 * [ToDoList]
 * [[book-review]]{도서 내용 정리}
 	* [[The_Essence_of_Object-Orientation]]{객체지향의 사실과 오해}
+* [[Spring-framework-core]]{Spring framework 핵심 기술}
 * [[Spring-boot]]{Spring boot}
 * [[Git]]
 * [[OS]]
