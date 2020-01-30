@@ -3,7 +3,7 @@ layout    : wiki
 title     : 
 summary   : 
 date      : 2020-01-28 11:12:44 +0900
-updated   : 2020-01-28 15:33:32 +0900
+updated   : 2020-01-30 15:11:02 +0900
 tag       : 
 public    : true
 published : true
@@ -15,7 +15,7 @@ latex     : false
 
 {% mermaid %}
 graph TD
-	A[Christmas] -->|Get money| B(Go shopping)
+	A['Christmas'] -->|Get money| B(Go shopping)
 	B --> C{Let me think}
 	C -->|One| D[Laptop]
 	C -->|Two| E[iPhone]
