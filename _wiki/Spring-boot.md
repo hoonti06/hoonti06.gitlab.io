@@ -3,7 +3,7 @@ layout    : wiki
 title     : Spring boot
 summary   : 
 date      : 2020-01-27 12:31:49 +0900
-updated   : 2020-01-30 16:16:49 +0900
+updated   : 2020-01-30 20:00:43 +0900
 tag       : 
 public    : true
 published : true
@@ -107,12 +107,23 @@ spring-boot-dependencies나 spring-boot-start-parent의 <properties>를 current 
 #### 2.2.2 자동 설정 만들기
 https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-developing-auto-configuration
 
-
-- xxx-spring-boot-Autoconfigure 모듈 : 자동 설정 관련
-- xxx-spring-boot-starter 모듈 : 필요한 의존성 정의
-- 하나로 만들고 싶을 때는? xxx-spring-boot-starter
+- 모듈(프로젝트)
+	- xxx-spring-boot-Autoconfigure : 자동 설정 관련
+	- xxx-spring-boot-starter : 필요한 의존성 정의
+- 하나로 만들고 싶을 때는? 프로젝트의 artifactId를 xxx-spring-boot-starter로 만든다.
 - 구현 방법
-	1. 의존성 추가
+	0. 프로젝트 생성
+		- groupId : me.hoonti06
+		- artifactId : artifactId : hoon-spring-boot-starter
+		- pom.xml에 아래와 같은 설정이 되어있다.
+```xml
+<groupId>me.hoonti06</groupId>
+<artifactId>hoon-spring-boot-starter</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+```
+
+	1. 의존성 추가  
+	   아래의 xml 코드를 pom.xml에 추가한다.
 ```xml
 <dependencies>
 	<dependency>
@@ -120,14 +131,12 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 		<artifactId>spring-boot-autoconfigure</artifactId>
 	</dependency>
 	<dependency>
-	<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-autoconfigure-processor</artifactId>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-autoconfigure-processor</artifactId> 
 		<optional>true</optional>
 	</dependency>
 </dependencies>
-```
 
-```xml
 <dependencyManagement>
 	<dependencies>
 		<dependency>
@@ -142,8 +151,29 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 ```
 	2. @Configuration 파일 작성
 	3. src/main/resource/META-INF에 spring.factories 파일 생성 (서비스 프로바이더??)
-	4. spring.factories 안에 자동 설정할 파일(2.의 @Configuration 파일)을 명시
+	5. spring.factories 안에 자동 설정할 파일(2.의 @Configuration 파일)을 명시
+		- org.springframework.boot.autoconfigure.EnableAutoConfiguration=\  
+		  me.hoonti06.HolomanConfiguration
+	6. mvn install
+	7. 1~6을 통해 자동 설정을 작성한 프로젝트(1)를 다른 프로젝트(2)에 의존성으로 추가한다.
+	9. 2번 프로젝트에서 
 
+- 덮어쓰기 방지
+	- @ConditionalOnMissingBean
+- 빈 재정의에 대한 수고 덜기
+	- resource에 application.properties 파일을 생성한다.
+	- application.properties에 property 값들을 설정한다.
+	- @ConfigurationProperties("holoman") // class 이름
+	- @EnableConfigurationProperties(HolomanProperties) // properties class 이름
+	- 프로퍼티 키값 자동 완성
+
+```xml
+<dependency>
+	<groupId> org.springframework.boot </groupId>
+	<artifactId> spring-boot-configuration-processor </artifactId>
+	<optional> true </optional>
+</dependency>
+```
 
 
 
