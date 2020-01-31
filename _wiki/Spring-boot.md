@@ -3,7 +3,7 @@ layout    : wiki
 title     : Spring boot
 summary   : 
 date      : 2020-01-27 12:31:49 +0900
-updated   : 2020-01-31 13:36:09 +0900
+updated   : 2020-01-31 20:39:14 +0900
 tag       : 
 public    : true
 published : true
@@ -133,41 +133,45 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 	   
 		```xml
 		<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-autoconfigure</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-autoconfigure-processor</artifactId> 
-			<optional>true</optional>
-		</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-autoconfigure</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-autoconfigure-processor</artifactId> 
+				<optional>true</optional>
+			</dependency>
 		</dependencies>
 
 		<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-dependencies</artifactId>
-				<version>2.0.3.RELEASE</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-dependencies</artifactId>
+					<version>2.0.3.RELEASE</version>
+					<type>pom</type>
+					<scope>import</scope>
+				</dependency>
+			</dependencies>
 		</dependencyManagement>
 		```  
 <br>
 			
 	3. @Configuration 파일 작성
  
-	4. src/main/resource/META-INF에 spring.factories 파일 생성 (서비스 프로바이더??)
+	4. src/main/resource/META-INF/spring.factories 파일 생성 (서비스 프로바이더와 비슷한 패턴(?))
 	 
 	5. spring.factories 안에 자동 설정할 파일(2.의 @Configuration 파일)을 명시
 		- org.springframework.boot.autoconfigure.EnableAutoConfiguration=\\  
 		  me.hoonti06.HolomanConfiguration
+			- SpringbootEnableAutoConfiguration이 켜져 있으면 위 리스트를 scan하게 된다.
+
 	6. mvn install
+		- 로컬 maven 저장소에 설치를 한다.
 	 
-	7. 1~6을 통해 자동 설정을 작성한 프로젝트(1)를 다른 프로젝트(2)에 의존성으로 추가한다.
+	7. 1.~6.을 통해 자동 설정을 작성한 프로젝트(1)를 다른 프로젝트(2)에 의존성으로 추가한다.
+		- 1.의 xml 코드를 추가하여 의존성을 추가하면 된다.
 	 
 	8. 프로젝트(2)에서 프로젝트(1)의 빈을 사용한다.
  

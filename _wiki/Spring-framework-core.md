@@ -3,7 +3,7 @@ layout    : wiki
 title     : 스프링 프레임워크 핵심 기술
 summary   : 
 date      : 2020-01-29 09:42:19 +0900
-updated   : 2020-01-30 10:17:46 +0900
+updated   : 2020-01-31 18:12:04 +0900
 tag       : 
 public    : true
 published : true
@@ -11,7 +11,7 @@ parent    :
 latex     : false
 ---
 
-## 1. Spring
+## 1. Spring framework
 Spring framework는 소규모 애플리케이션 또는 기업용 애플리케이션을 자바로 개발하는 데 있어 유용하고 편리한 기능을 제공하는 프레임 워크이다.
 
 ## 1.1 역사
@@ -37,49 +37,43 @@ Spring framework는 소규모 애플리케이션 또는 기업용 애플리케�
 
 Inversion of Control(IoC): 의존 관계 주입(Dependency Injection, DI)이라고도 하며, 어떤 객체가 사용하는 **의존 객체를 직접 만들어 사용하는게 아니라, 주입 받아 사용하는 방법**[^1]을 말함
 
-Spring IoC 컨테이너    
-
-- BeanFactory : 가장 상위 Class, 객체 생성과 검색에 대한 기능
-	- e.g) getBean(), 싱글톤/프로토타입
-	- Application Component의 중앙 저장소
-	- **빈 설정 소스**로부터 **빈 정의**를 읽어들이고, **빈을 구성하고 제공**한다.
-
-빈
-
-- Spring IoC 컨테이너가 관리하는 객체
-- 장점
-	- 의존성 관리
-	- Scope
-		- 싱글톤(Default) : 하나
-		- 프로토타입 : 매번 다른 객체
-	- 라이프사이클 인터페이스 (e.g> @PostConstruct : 빈이 만들어진 직후 수행할 함수 지정)
-
-  
-ApplicationContext : 메시지, 프로필/환경 변수 들을 처리할 수 있는 기능이 추가된다. (당연히 BeanFactory 기능도 할 수 있다.)  
-
-- BeanFactory를 상속 받음
-- 메시지 소스 처리 기능[^2] (i18n)
-- 이벤트 발행 기능
-- 리소스[^3] 로딩 기능
- 
-
-DI(Dependency Injection, 의존 주입)    
-
-- 한 클래스가 다른 클래스의 method를 사용할 때 이를 '의존'이라고 한다.
-- 방식
-	- 생성자
-	- Setter
-
-
-참고)  
-  
-- 단순히 getter와 setter가 있으면 java bean이라 할 수 있다. 하지만 Spring에서 다루는 빈은 될 수 없다.
-- 프레임워크는 뼈대와 프로그래밍 방법을 제공한다.
-- 자바SE로 된 자바 객체(POJO[^4])를 JAVAEE에 의존적이지 않게 연결해준다.
-- [[Spring-boot]]{Spring boot}
-	- Spring은 기능이 많은 만큼 환경 설정이 복잡함
-	- 설정의 많은 부분을 자동화 해주는 게 Spring boot
-	- 내장 Tomcat, 의존성 관리, 실행 환경 자동 설정
+- Spring IoC 컨테이너    
+	- BeanFactory : 가장 상위 Class, 객체 생성과 검색에 대한 기능
+		- e.g) getBean(), 싱글톤/프로토타입
+		- Application Component의 중앙 저장소
+		- **빈 설정 소스**로부터 **빈 정의**를 읽어들이고, **빈을 구성하고 제공**한다.  
+<br>
+- 빈  
+	- Spring IoC 컨테이너가 관리하는 객체
+	- 장점
+		- 의존성 관리
+		- Scope
+			- 싱글톤(Default) : 하나
+			- 프로토타입 : 매번 다른 객체
+		- 라이프사이클 인터페이스 (e.g> @PostConstruct : 빈이 만들어진 직후 수행할 함수 지정)  
+<br> 
+- ApplicationContext : 메시지, 프로필/환경 변수들을 처리할 수 있는 기능이 추가된다. (당연히 BeanFactory 기능도 할 수 있다.)  
+	- BeanFactory를 상속 받음
+	- 메시지 소스 처리 기능[^2] (i18n)
+	- 이벤트 발행 기능
+	- 리소스[^3] 로딩 기능  
+<br>
+- DI(Dependency Injection, 의존 주입)    
+	- 한 클래스가 다른 클래스의 method를 사용할 때 이를 '의존'이라고 한다.
+	- 방식
+		- 생성자
+		- Setter  
+<br><br>
+- 참고)
+	- 단순히 getter와 setter가 있으면 java bean이라 할 수 있다. 하지만 Spring에서 다루는 빈은 될 수 없다.
+	- 프레임워크는 뼈대와 프로그래밍 방법을 제공한다.
+	- 자바SE로 된 자바 객체(POJO[^4])를 JAVA EE에 의존적이지 않게 연결해준다.
+	- [[Spring-boot]]{Spring boot}
+		- Spring은 기능이 많은 만큼 환경 설정이 복잡함
+		- 설정의 많은 부분을 자동화해준다.
+			- 내장 Tomcat
+			- 의존성 관리
+			- 실행 환경 자동 설정
 
 
 ### 2.2 ApplicationContext와 다양한 빈 설정 방법
@@ -107,7 +101,7 @@ ApplicationContext
 	- 이름
 	- Class
 	- Scope
-	- 생성자 아규먼트(constructor)
+	- 생성자 argument(Constructor)
 	- properties(setter)
 	- etc...
 
@@ -120,7 +114,8 @@ Component Scan
 
 
 
-참고)
+참고)  
+
 - [[Spring-boot]]{Spring boot}
 	- @springBootApplicaion
 		- AppicationContext도 위 애노테이션을 통해 주입되기 때문에 바로 사용 가능하다.
@@ -142,7 +137,8 @@ Component Scan
 [^2]: 메시지 다국화
 [^3]: 특정 위치에 있는 파일 등
 [^4]: 단순히 평범한 자바 빈즈 객체
-[^5]: Java Platform Enterprise Edition, 자바를 이용한 서버측 개발을 위한 플랫폼. PC에서 동작하는 표준 플랫폼인 Java SE에 웹 애플리케이션 서버에서 동작하는 장애복구 및 분산 멀티티어(multi-tier)를 제공하는 자바 소프트웨어의 기능을 추가한 서버를 위한 플랫폼으로, 이전에는 J2EE라 불리었다.  Java EE 스펙에 따라 제품으로 구현한 것을 웹 애플리케이션 서버(WAS)라 불린다.
+[^5]: Java Platform Enterprise Edition, 자바를 이용한 서버측 개발을 위한 플랫폼. PC에서 동작하는 표준 플랫폼인 Java SE에 웹 애플리케이션 서버에서 동작하는 장애복구 및 분산 멀티티어(multi-tier)를 제공하는 자바 소프트웨어의 기능을 추가한 서버를 위한 플랫폼으로, 이전에는 J2EE라 불리었다.  Java EE 스펙에 따라 제품으로 구현한 것을 웹 애플리케이션 서버(WAS)라 불린다. (출처 : [위키피디아](https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94_%ED%94%8C%EB%9E%AB%ED%8F%BC,_%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88_%EC%97%90%EB%94%94%EC%85%98))
 
 ## 내용 출처
-[inflearn - 스프링 프레임워크 핵심 기술(백기선)](https://www.inflearn.com/course/spring-framework_core#)
+[inflearn - 스프링 프레임워크 핵심 기술 강의 및 강의 노트(백기선)](https://www.inflearn.com/course/spring-framework_core#)
+[위키피디아](https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94_%ED%94%8C%EB%9E%AB%ED%8F%BC,_%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88_%EC%97%90%EB%94%94%EC%85%98)

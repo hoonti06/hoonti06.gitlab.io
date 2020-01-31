@@ -3,7 +3,7 @@ layout    : wiki
 title     : 정렬
 summary   : 
 date      : 2019-09-14 10:17:04 +0900
-updated   : 2020-01-31 15:54:22 +0900
+updated   : 2020-01-31 19:20:55 +0900
 tag       : 
 public    : true
 published : true
@@ -14,7 +14,7 @@ latex     : false
 ## 0. 개요
 
 ## 1. 삽입 정렬(Insertion sort)
-정렬되어 있는 배열에 아직 정렬되지 않은 원소의 들어갈 위치를 찾아 삽입하는 정렬
+- 정렬되어 있는 배열에 아직 정렬되지 않은 원소의 들어갈 위치를 찾아 삽입하는 정렬  
 - 정렬되어 있을 때 가장 효율이 높다. 정렬되어 있는 배열의 가장 끝에 있는 원소만 정렬되지 않은 원소와 비교하면 되기 때문이다. O(N)
 - 시간 복잡도
 	- 평균 : O(N^2)
@@ -42,7 +42,8 @@ void insertionSort(int arr[], int N)
 ```
 
 ### 1.2 이진 삽입 정렬(Binary insertion sort)
-삽입 정렬에서 정렬되지 않은 원소의 들어갈 위치를 찾을 때, [[binary-search]]{이진 탐색(binary search)}을 활용하는 정렬. 삽입 정렬에서 살짝 개선된 것
+삽입 정렬에서 정렬되지 않은 원소의 들어갈 위치를 찾을 때, [[binary-search]]{이진 탐색(binary search)}을 활용하는 정렬. 삽입 정렬에서 살짝 개선된 것  
+
 #### 1.2.1 코드
 ```{.cpp .numberLines}
 //void binaryInsertionSort(int arr[], int N)
@@ -79,12 +80,12 @@ void insertionSort(int arr[], int N)
 ## 4. 기수 정렬(Radix sort)
 
 ## 5. 퀵 정렬(quick sort)
-pivot의 위치를 찾아가면서 진행되는 정렬 알고리즘으로, pivot보다 작은 혹은 큰 원소의 개수를 알면 pivot의 최종 위치를 알 수 있다.
-
+- pivot의 위치를 찾아가면서 진행되는 정렬 알고리즘
+	- pivot보다 작은 혹은 큰 원소의 개수만 알면 pivot의 최종 위치를 알 수 있다.  
 - 일반적으로 가장 빠른 정렬
-- 이미 정렬되어 있을 경우 효율이 가장 낮다. O(N^2)
+- 이미 정렬되어 있을 경우 **O(N^2)**로, 효율이 가장 낮다. 
 	- 재귀 함수가 1과 N-1, N-1이 다시 1과 N-2, ... 분할이 N만큼 일어난다. 
-	- N-1 + N-2 + N-3 + ... + 1 = (N-1)*N/2 `0(N^2)`
+	- N-1 + N-2 + N-3 + ... + 1 = (N-1)*N/2 &nbsp; **=>** &nbsp; O(N^2)
 - [[divide-and-conquer]]{분할 정복(divide and conquer)} 방법으로 구현된다.(재귀 함수)
 - in-place 정렬 알고리즘(그 자리에서 값을 바꾸는 알고리즘)
 - cache hit rate가 좋다.
