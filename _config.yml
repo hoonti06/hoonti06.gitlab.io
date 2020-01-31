@@ -17,7 +17,6 @@ plugins:
   - jekyll-paginate
   - jekyll-gist
   - jekyll-pandoc
-  - jekyll-pandoc-rouge
   - jekyll-mermaid
   - jekyll-pandoc-mermaid
  #- jekyll-pandoc-multiple-format
@@ -48,24 +47,11 @@ pandoc:
     - highlight-style=pygments
     #- no-highlight
 
-highlighter: rouge
-
-# jekyll-pandoc-rouge settings
-pandoc_rouge:
-  use: true
-  lineno:
-    use: true
-    #include:
-    # - c
-    # - c++
-    #exclude:
-    # - c
-    # - c++
-
 # jekyll-mermaid settinges
 mermaid:
   src: 'https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js'
 
+#highlighter: rouge
 
 # jekyll-pandoc-multiple-formats settings
 #markdown: pandoc
@@ -119,6 +105,4 @@ original: "https://gitlab.com/hoonti06/hoonti06.gitlab.io/blob/master/_wiki"
 blame: "https://gitlab.com/hoonti06/hoonti06.gitlab.io/blame/master/_wiki"
 
 timezone: "Asia/Seoul"
-
-# Search setting
 
