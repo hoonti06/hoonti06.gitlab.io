@@ -3,7 +3,7 @@ layout    : wiki
 title     : markdown 연습장
 summary   : 
 date      : 2019-09-29 17:32:09 +0900
-updated   : 2019-10-09 01:53:06 +0900
+updated   : 2020-01-31 15:55:38 +0900
 tag       : 
 public    : true
 published : true
@@ -82,7 +82,7 @@ latex     : false
 var x = 10;
   document.getElementById("demo").innerTHML = x;
 ```
- ```cpp
+ ```{.cpp .numberLines}
 $ var x = 10;
 $ document.getElementById("demo").innerTHML = x;
 ```
