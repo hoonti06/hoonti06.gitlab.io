@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2020-01-29 09:42:18 +0900
+updated : 2020-02-02 02:06:16 +0900
 public  : true
 comment : false
 ---
@@ -35,6 +35,7 @@ comment : false
 			* [[BOJ-10840]]{10840. 구간 성분}
 			* [[BOJ-16920]]{16920. 확장 게임}
 			* [[BOJ-17136]]{17136. 색종이 붙이기}
+			* [[BOJ-17837]]{17837. 새로운 게임2}
 	* [[Algorithm-Concept]]{개념}
 		* [[Hash]]
 		* [[Sort]]
