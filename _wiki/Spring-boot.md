@@ -3,7 +3,7 @@ layout    : wiki
 title     : Spring boot
 summary   : 
 date      : 2020-01-27 12:31:49 +0900
-updated   : 2020-01-31 20:39:14 +0900
+updated   : 2020-02-02 11:05:23 +0900
 tag       : 
 public    : true
 published : true
@@ -30,10 +30,10 @@ latex     : false
 <br><br>
 
 - maven 기본 프로젝트 구조와 동일
-	- 소스 코드 (src\main\java)
-	- 소스 리소스 (src\main\resource)
-	- 테스트 코드 (src\test\java)
-	- 테스트 리소스 (src\test\resource)
+	- 소스 코드 (src/main/java)
+	- 소스 리소스 (src/main/resource)
+	- 테스트 코드 (src/test/java)
+	- 테스트 리소스 (src/test/resource)
  
 - main application 위치
 	- 기본 페키지(default package)
@@ -56,6 +56,7 @@ graph BT
 spring-boot-dependencies의 pom.xml 내부 \<dependency management\> 항목에 버전들이 정의되어 있다. 이 버전들을 current project의 pom.xml에 명시하면 해당 버전에 따른 dependency를 사용할 수 있다.
 
 spring-boot-starter-parent의 pom.xml 내부 \<properties\> 항목에 아래와 같이 정의되어 있다. 따라서, spring-boot-starter-parent를 쓰는 것을 권장한다.
+
 - 1.8 Java version
 - UTF-8 인코딩
 - plugin configuration
