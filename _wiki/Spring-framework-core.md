@@ -3,7 +3,7 @@ layout    : wiki
 title     : 스프링 프레임워크 핵심 기술
 summary   : 
 date      : 2020-01-29 09:42:19 +0900
-updated   : 2020-01-31 18:12:04 +0900
+updated   : 2020-02-02 21:18:33 +0900
 tag       : 
 public    : true
 published : true
@@ -90,8 +90,8 @@ ApplicationContext
 - ClassPathXmlApplicationContext(XML) : 고전적인 방법, 번거롭다.
 - AnnotationConfigApplicationContext(Java) : Java 클래스들에서 정보를 읽어와 객체를 생성하고 초기화를 진행한다.
 	- 위 클래스로 빈을 등록하는 방법
-	1. 위 클래스 내부에 method를 정의하고, method 위에 @bean을 붙인다.
-	2. 등록하고자 하는 클래스에 @componentScan(basePackage=DemoApp.class)를 붙인다.
+		1. 위 클래스 내부에 method를 정의하고, method 위에 @bean을 붙인다.
+		2. 등록하고자 하는 클래스에 @componentScan(basePackage=DemoApp.class)를 붙인다.
 
 
 빈 설정
