@@ -22,7 +22,7 @@ group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
   gem 'jekyll-pandoc'
   gem 'jekyll-mermaid'
-  gem 'jekyll-pandoc-mermaid'
+  gem 'jekyll-pandoc-mermaid', ">= 1.0.2"
   gem 'faraday', '~> 0.15.4' 
 #  gem 'jekyll-youtube'
 #  gem 'jekyll-pandoc-multiple-formats'
