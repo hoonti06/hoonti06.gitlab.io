@@ -59,6 +59,8 @@ div,p,span,textarea {
 
 div.sourceCode {
 	background-color: #222233; /* _sass/_base.scss에 정의된 'pre'의 background-color와 동일한 색상 */
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
 }
 
 
