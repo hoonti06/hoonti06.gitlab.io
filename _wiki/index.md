@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2020-02-02 02:06:16 +0900
+updated : 2020-02-03 19:50:29 +0900
 public  : true
 comment : false
 ---
@@ -29,6 +29,7 @@ comment : false
 	* [[Protocol-Stack]]{프로토콜 스택}
 * [[Algorithm]]
 	* [[Algorithm-Problem]]{문제}
+		* [[Unknown-algorithm-problem]]
 		* [[BOJ]]
 			* [[BOJ-3019]]{3019. 빵집}
 			* [[BOJ-5373]]{5373. 큐빙}
