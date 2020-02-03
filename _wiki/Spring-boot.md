@@ -3,7 +3,7 @@ layout    : wiki
 title     : Spring boot
 summary   : 
 date      : 2020-01-27 12:31:49 +0900
-updated   : 2020-02-03 00:50:48 +0900
+updated   : 2020-02-03 13:48:23 +0900
 tag       : 
 public    : true
 published : true
@@ -31,14 +31,12 @@ latex     : false
 
 - maven 기본 프로젝트 구조와 동일
 	- 소스 코드 (src/main/java)
-	- 소스 리소스 (src/main/resource)
+	- 소스 리소스 (src/main/resources)
 	- 테스트 코드 (src/test/java)
-	- 테스트 리소스 (src/test/resource)
+	- 테스트 리소스 (src/test/resources)
  
-- main application 위치
-	- 기본 페키지(default package)
-		- component-scan을 해야하기 때문이다.(기본 패키지의 하위가 scan 대상)
-
+- main application 위치 : 기본 패키지(default package)
+	- component-scan을 해야하기 때문이다.(기본 패키지의 하위가 scan 대상)
 
 
 ## 2. 원리
@@ -74,10 +72,10 @@ spring boot에서 관리하는 의존성이기 때문에 version을 명시하지
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-data-jpa</artifactId>
 	</dependency>
-	```
-
+	```  
+	<br>
 - 버전 관리 안 해주는 의존성 추가  
-의도치 않은 version이 들어올 수 있기 때문에 version을 명시해주는 것이 좋다.  
+의도치 않은 version이 들어올 수 있기 때문에 version을 명시해주는 것이 좋다. ([https://mvnrepository.com](https://mvnrepository.com) 참고)  
 
 	```xml  
 	<dependency>
@@ -85,10 +83,8 @@ spring boot에서 관리하는 의존성이기 때문에 version을 명시하지
 		<artifactId>modelmapper</artifactId>
 		<version>2.1.0</version>
 	</dependency>
-	```
-
-	[https://mvnrepository.com](https://mvnrepository.com) 참고  
-
+	```  
+	<br>
 
 - 기존 의존성 버전 변경하기  
 spring-boot-dependencies나 spring-boot-start-parent의 \<properties\>를 current project에서 다른 버전으로 overriding할 수 있다. 
@@ -98,17 +94,15 @@ spring-boot-dependencies나 spring-boot-start-parent의 \<properties\>를 curren
 
 #### 2.2.1 개요
 - @EnableAutoConfiguration (@SpringBootApplication 안에 포함되어 있음)
-	- 이 Annotation으로 인하여 application 실행 시 자동으로 tomcat이 뜨고, 이런 거 저런 거가 되는거다.
-	- 빈을 한 번 더 읽는다.
-- 빈은 사실 두 단계로 나뉘어서 읽힌다.
-	- 1단계 : @ComponentScan
-	- 2단계 : @EnableAutoConfiguration
-- @ComponentScan
-	- 해당 애노테이션이 포함되어 있는 package에서 그 하위에 있는 모든 빈을 scan한다. (같은 또는 상위 레벨에 있는 package는 포함되지 않는다.)
-	- @Configuration @Repository @Service @Controller @RestController
-- @EnableAutoConfiguration
-	- spring.factories[^1]
-		- org.springframework.boot.autoconfigure.EnableAutoConfiguration : 이 항목 하위에 명시되어 있는 모든 목록에 대해 자동으로 빈 등록을 시도한다.(그 모든 목록에 가보면 @Configuration이 명시되어 있다.) 하지만, 각 목록에서 @ConditionalOnXxxYyyZzz 애노테이션에 따라 빈 등록 여부가 결정된다.
+	- 의존성 'spring-boot-autoconfigure'에서 설정된 이 Annotation으로 인해 application 실행 시 tomcat, jdbc, MongoDB 등이 자동으로 설정되는 것이다.  
+	<br>
+- 자동 설정에서 빈은 두 단계로 나뉘어서 등록된다.
+	- 첫 번째 : @ComponentScan
+		- 해당 annotation이 포함되어 있는 package에서 그 하위에 있는 모든 빈을 scan한다. (같은 또는 상위 레벨에 있는 package는 포함되지 않는다.)  
+		- @Configuration, @Repository, @Service, @Controller, @RestController
+	- 두 번째 : @EnableAutoConfiguration
+		- spring.factories[^1]
+			- org.springframework.boot.autoconfigure.EnableAutoConfiguration : 이 항목 하위에 명시되어 있는 모든 목록에 대해 자동으로 빈 등록을 시도한다.(그 모든 목록에 가보면 각각 @Configuration이 명시되어 있다.) 하지만, 각 목록에서 @ConditionalOnXxxYyyZzz 애노테이션에 따라 빈 등록 여부가 결정된다.
 
 #### 2.2.2 자동 설정 만들기
 https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-developing-auto-configuration
@@ -116,20 +110,22 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 - 모듈(프로젝트)
 	- xxx-spring-boot-Autoconfigure : 자동 설정 관련
 	- xxx-spring-boot-starter : 필요한 의존성 정의
-- 하나로 만들고 싶을 때는? 프로젝트의 artifactId를 xxx-spring-boot-starter로 만든다.
+- 하나의 모듈로 만들고 싶을 때는? 
+	- xxx-spring-boot-starter로 만든다.  
+	<br>
 - 구현 방법
 	1. 프로젝트 생성
 		- groupId : me.hoonti06
-		- artifactId : hoon-spring-boot-starter
+		- artifactId : hoon-spring-boot-starter  
+		<br>
 		- pom.xml에 아래와 같은 설정이 되어있다.  
 		  
 			```xml  
 			<groupId>me.hoonti06</groupId>
 			<artifactId>hoon-spring-boot-starter</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			```
-
-
+			```  
+			<br>
 	2. 의존성 추가  
 	   아래의 xml 코드를 pom.xml에 추가한다.  
 	   
@@ -158,8 +154,7 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 			</dependencies>
 		</dependencyManagement>
 		```  
-<br>
-			
+		<br>
 	3. @Configuration 파일 작성
  
 	4. src/main/resource/META-INF/spring.factories 파일에 자동 설정할 파일 이름(3.의 @Configuration 파일)을 명시  
@@ -169,8 +164,8 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 			```
 			org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 			me.hoonti06.HolomanConfiguration
-			```
-
+			```  
+			<br>
 	5. mvn install
 		- 로컬 maven 저장소에 설치를 하게 된다.
 	 
@@ -200,8 +195,8 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 		  ```
 		  holoman.name = helloman  
 		  holoman.howLong = 5
-		  ```
-		  
+		  ```  
+		  <br>
 	- HolomanProperties class에 @ConfigurationProperties("holoman")를 설정한다. ('holoman'이라는 prefix를 설정)
 		- 해당 애노테이션을 사용하기 위해서는 spring-boot-configuration-processor 의존성을 추가해야 한다.  
 	
@@ -211,8 +206,8 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 				<artifactId>spring-boot-configuration-processor</artifactId>
 				<optional>true</optional>
 			</dependency>
-			```
-		  
+			```  
+			<br>
 	- HolomanConfiguration class에 @EnableConfigurationProperties(HolomanProperties.class)를 설정하고,  
 	  HolomanProperties instance를 통해 Holoman instance의 값을 초기화한다.
 	  
@@ -255,8 +250,8 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 				tomcat.getServer().await();
 			}
 		}
-		```
-		
+		```  
+		<br>
 	- 위 Java 코드의 과정들을 상세하고 유연하게 설정하고 실행해주는 것이 바로 Spring boot의 자동 설정  
 	  (spring-boot-autoconfigure의 spring.factories에 등록되어 있다.)
 		- SevletWebServerFactoryAutoConfiguration (서블릿 웹 서버(컨테이너) 생성)
@@ -291,7 +286,8 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jetty</artifactId>
 		</dependency>
-		```
+		```  
+		<br>
 - 웹 서버 사용하지 않기 
 	- application.properties에 'spring.main.-application-type=none'을 설정한다.
 
@@ -312,38 +308,37 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 					ServletWebServerApplicationContext appContext = even;
 					System.out.println(appContext.getWebServer().getPort());
 			}
-			```
-
+			```  
+			<br>
 - HTTPS 설정하기 ([생활 코딩 참고 자료](https://gist.github.com/keesun/f93f0b83d7232137283450e08a53c4fd))
 	- keystore(인증서) 생성 ([출처](https://gist.github.com/keesun/f93f0b83d7232137283450e08a53c4fd))  
-	  shell script  
 	  
-		```shell
-		keytool -genkey 
+		```sh
+		$ keytool -genkey 
 			-alias tomcat 
 			-storetype PKCS12 
 			-keyalg RSA 
 			-keysize 2048 
 			-keystore keystore.p12 
 			-validity 4000
-		```
-	- properteis에 설정 ([출처](https://gist.github.com/keesun/f93f0b83d7232137283450e08a53c4fd))
+		```  
+		<br>
+	- application.properteis 설정 ([출처](https://gist.github.com/keesun/f93f0b83d7232137283450e08a53c4fd))
 
 		```
 		server.ssl.key-store=keystore.p12
 		server.ssl.key-store-type=PKCS12
 		server.ssl.key-store-password=123456
 		server.ssl.key-alias=spring
-		```
-		
+		```  
+		<br>
 	- HTTP는 못 쓰게 된다. ([참고 Document](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-configure-ssl))
 		- Spring boot는 기본적으로 커넥터가 하나만 등록이 되어서 HTTP 커넥터와 HTTPS 커넥터를 동시에 사용할 수 없다. 
 		  HTTPS로 설정하면 모든 요청을 HTTPS로 해야 한다.
-		- 커넥터를 둘 다 쓰려면 properties에 HTTPS 커넥터를 등록하고, HTTP는 코드로(프로그래밍적으로) 구현하는 방법을 추천한다.
-			- [예제 코드](https://github.com/spring-projects/spring-boot/tree/v2.0.3.RELEASE/spring-boot-samples/spring-boot-sample-tomcat-multi-connectors )
+		- 커넥터를 둘 다 쓰려면 properties에 HTTPS 커넥터를 등록하고, HTTP는 코드로(프로그래밍적으로) 구현하는 방법을 추천한다. ([예제 코드](https://github.com/spring-projects/spring-boot/tree/v2.0.3.RELEASE/spring-boot-samples/spring-boot-sample-tomcat-multi-connectors))
 		 
-	- https://로 접근하면 공인된 인증서가 아니여서 브라우저가 Not Secure라는 Warning 문구를 띄운다.
-	 
+	- https://로 접근하면 공인된 인증서가 아니여서 브라우저가 Not Secure라는 Warning 문구를 띄운다.  
+	  <br>
 - HTTP2 설정 
 	- SSL이 기본적으로 적용되어 있어야 한다.
 	- properties에 'server.http2.enabled=true'를 설정한다.
