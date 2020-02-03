@@ -3,7 +3,7 @@ layout    : wiki
 title     : Spring boot
 summary   : 
 date      : 2020-01-27 12:31:49 +0900
-updated   : 2020-02-03 13:48:23 +0900
+updated   : 2020-02-03 23:37:15 +0900
 tag       : 
 public    : true
 published : true
@@ -342,8 +342,105 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 - HTTP2 설정 
 	- SSL이 기본적으로 적용되어 있어야 한다.
 	- properties에 'server.http2.enabled=true'를 설정한다.
-	- 참고)  
-	  사용하는 서블릿 컨테이너마다 설정의 차이가 있다.
+	- 사용하는 서블릿 컨테이너마다 설정의 차이가 있다.
+		- tomcat
+			- JDK9와 Tomcat9+를 사용하는 것을 추천
+				- pom.xml에 Java와 tomcat 버전을 명시한다.  
+				  
+					```xml
+					<java.version>9</java.version>
+					<tomcat.version>9.0.10</tomcat.version>
+					```
+				
+			- 그 이하 버전을 사용하는 방법은 [링크](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-embedded-web-servers. html#howto-configure-http2-tomcat) 참고 (방법이 복잡하여 추천하지 않음)
+			
+	- curl 명령어를 통해 HTTP2가 적용되었는지 확인할 수 있다. (HTTP Response에 HTTP 버전이 포함되어 있으니까)  
+	  
+		```sh
+		curl -I -k --http2 https://localhost:8080/hello
+		```
+				
+				
+### 2.4 독립적으로 실행 가능한 JAR
+
+- 배포하거나 docker 이미지를 만들 때 JAR package로 packaging하고 JAR로 실행하는 것이 유용하다.
+- java -jar xXXX.jar (jar 파일 하나로 Application이 실행된다.)
+- jar 파일 안에 의존성들이 다 들어가 있다. 
+- mvn package를 하면 실행 가능한 jar파일 하나가 생성된다.
+- spring-maven-plugin이 해주는 일 : 패키징
+- 과거 "uber" jar를 사용했다.
+	- 모든 클래스(의존성 및 애플리케이션)를 하나로 압축했다.
+	- 뭐가 어디에서 온 건지 알 수 없었음
+		- 무슨 라이브러리를 쓰는건지..
+	- 내용은 다르지만 이름이 같은 파일은 또 어떻게 처리?
+- Spring boot의 전략
+	- 내장 JAR : 기본적으로 자바에는 내장 JAR를 로딩하는 표준적인 방법이 없음
+	- 애플리케이션 클래스와 라이브러리 위치 구분
+	- org.springframework.boot.loader.jar.JarFile을 사용해서 내장 JAR를 읽는다.
+	- org.springframework.boot.loader.Launcher를 사용해서 Application을 실행한다.
+
+
+- mvn clean 하면 target 하위에 있는 것을 모두 clean 시킨다.(home dir에서 실행해야 한다.)
+- mvn package -DskipTests
+- MANIFEST.MF에 Main-Class는 JAVA spec이다. Main-Class에서 실행되야 하는 것이 내가 작성한 프로젝트의 application class여야 하지만, spring boot에서 해당 class를 start-class로 넣고, main-class에는 jarLauncher를 넣어 jar 관련 설정을 먼저 수행하고 jarLauncher에서 내 프로젝트의 application class를 실행할 수 있도록 변경한다.
+			
+				
+				
+## 3. 스프링 부트 활용
+
+### 3.1 소개
+
+Spring boot가 제공하는 여러 기능을 사용하며 원하는대로 커스터마이징하는 방법을 학습
+
++---------------------+-----------------------------+
+| 핵심 기능           | 각종 기술 연동              |
++=====================+=============================+
+| - SpringApplication | - 스프링 웹 MVC             |
+| - 외부 설정         | - 스프링 데이터             |
+| - 프로파일          | - 스프링 시큐리티           |
+| - 로깅              | - REST API 클라이언트       |
+| - 테스트            | - 그밖에 다루지 않은 내용들 |
+| - spring-Dev-Tools  |                             |
++---------------------+-----------------------------+
+
+### 3.2 SpringApplication
+
+[document](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-embedded-web-servers.html#howto-configure-http2-tomcat)
+
+```java
+SpringApplication app = new SpringApplication(DemoApplication.Class);
+app.run(args)
+```
+
+- VM options : --debug or -Ddebug
+	- debug모드로 로그가 출력된다.
+
+
+
+
+- 기본 로그 레벨 INFO
+	- 뒤에 로길 수업때 자세히 살펴볼 예정
+- FailureAnalyzer
+
+- 베너
+	- src/main/resources/banner.txt | gif | jpg | png
+	- classpath 또는 spring.banner.location
+	- ${spring-boot.version} 등의 변수를 사용할 수 있음
+	- Banner 클래스 구현하고 SpringApplication.setBanner()로 설정 가능
+	- 배너 끄는 방법 : setBanner(Banner.Mode.OFF)
+- SpringApplicationBuilder로 빌더 패턴 사용 가능  
+
+```java
+new SpringApplcationBuilder()
+	.sources(DemoApplication.class)
+	.run(args);
+```
+
+
+
+
+
+
 
 
 ## footnotes
