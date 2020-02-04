@@ -3,7 +3,7 @@ layout    : wiki
 title     : Spring boot
 summary   : 
 date      : 2020-01-27 12:31:49 +0900
-updated   : 2020-02-03 23:37:15 +0900
+updated   : 2020-02-04 11:14:35 +0900
 tag       : 
 public    : true
 published : true
@@ -155,7 +155,7 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 		</dependencyManagement>
 		```  
 		<br>
-	3. @Configuration 파일 작성
+	3. Class 파일 작성 및 @Configuration 적용
  
 	4. src/main/resource/META-INF/spring.factories 파일에 자동 설정할 파일 이름(3.의 @Configuration 파일)을 명시  
 	   (서비스 프로바이더와 비슷한 패턴(?))  
@@ -234,9 +234,9 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 					protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
 						PrintWrite writer = resp.getWriter();
 						writer.println("<html><head><title>");
-						writer.println("Hey, Tomcat");
+						writer.println("Hello Tomcat");
 						writer.println("</title>");
-						writer.println("<body><h1>Hello Tomat</h1></body>");
+						writer.println("<body><h1>Bye Tomcat</h1></body>");
 						writer.println("</html>");
 					}
 				};
@@ -259,7 +259,7 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 		- DispatcherServletAutoConfiguration
 			- (Dispatcher) 서블릿을 만들고 등록
 		- 참고)
-		  '서블릿 웹 서버(컨테이너)를 생성하는 일'과 '서블릿을 생성하고 등록하는 일'이 분리되어 있다.  
+		  위 내용처럼 '서블릿 웹 서버(컨테이너)를 생성하는 일'과 '서블릿을 생성하고 등록하는 일'이 분리되어 있다.   
 		  서블릿은 바뀌지 않지만 컨테이너는 설정에 따라 달라질 수 있기 때문이다.
 
 #### 2.3.2 응용
@@ -292,7 +292,7 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 	- application.properties에 'spring.main.-application-type=none'을 설정한다.
 
 - 포트 
-	- server.port 
+	- 포트 지정
 		- application.properties에 'server.port=7070'을 설정한다.
 		- relaxed binding을 통해 Environment 값 'SERVER_PORT'로 설정할 수 있다.
 	- 랜덤 포트 
@@ -357,7 +357,7 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 	- curl 명령어를 통해 HTTP2가 적용되었는지 확인할 수 있다. (HTTP Response에 HTTP 버전이 포함되어 있으니까)  
 	  
 		```sh
-		curl -I -k --http2 https://localhost:8080/hello
+		curl -I -k --http2 https://localhost:7070/hello
 		```
 				
 				
@@ -377,12 +377,13 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 	- 내장 JAR : 기본적으로 자바에는 내장 JAR를 로딩하는 표준적인 방법이 없음
 	- 애플리케이션 클래스와 라이브러리 위치 구분
 	- org.springframework.boot.loader.jar.JarFile을 사용해서 내장 JAR를 읽는다.
-	- org.springframework.boot.loader.Launcher를 사용해서 Application을 실행한다.
+	- org.springframework.boot.loader.Launcher를 사용해서 Application을 실행한다.  
+	  <br><br>
 
-
-- mvn clean 하면 target 하위에 있는 것을 모두 clean 시킨다.(home dir에서 실행해야 한다.)
-- mvn package -DskipTests
-- MANIFEST.MF에 Main-Class는 JAVA spec이다. Main-Class에서 실행되야 하는 것이 내가 작성한 프로젝트의 application class여야 하지만, spring boot에서 해당 class를 start-class로 넣고, main-class에는 jarLauncher를 넣어 jar 관련 설정을 먼저 수행하고 jarLauncher에서 내 프로젝트의 application class를 실행할 수 있도록 변경한다.
+- 참고)
+	- mvn clean 하면 target 하위에 있는 것을 모두 clean 시킨다.(home dir에서 실행해야 한다.)
+	- mvn package -DskipTests
+	- MANIFEST.MF에 Main-Class는 JAVA spec이다. Main-Class에서 실행되야 하는 것이 내가 작성한 프로젝트의 application class여야 하지만, spring boot에서 해당 class를 start-class로 넣고, main-class에는 jarLauncher를 넣어 jar 관련 설정을 먼저 수행하고 jarLauncher에서 내 프로젝트의 application class를 실행할 수 있도록 변경한다.
 			
 				
 				
@@ -405,7 +406,7 @@ Spring boot가 제공하는 여러 기능을 사용하며 원하는대로 커스
 
 ### 3.2 SpringApplication
 
-[document](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-embedded-web-servers.html#howto-configure-http2-tomcat)
+[document](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-embedded-web-servers.html#howto-configure-http2-tomcat)  
 
 ```java
 SpringApplication app = new SpringApplication(DemoApplication.Class);
@@ -436,11 +437,32 @@ new SpringApplcationBuilder()
 	.run(args);
 ```
 
+- EventListener를 만드는 것은 쉽다. 하지만 주의해야할 점이 있다.
+- ApplicationListener<ApplicationStartingListener>
+- ApplicationContext가 만들어졌냐 아직 안만들어졌냐를 기준으로 이벤트를 빈으로 등록하더라고 수행이 안 된다.
+	- 빈을 직접 등록해야 한다. (@Component 말고)
+	- app.addLinstener(new Listener)
+
+- ApplicationEvent 등록
+	- ApplicationContext를 만들기 전에 사용하는 리스너는 @Bean으로 등록할 수
+	없다.
+		- SpringApplication.addListners()
+- WebApplicationType 설정
+	- app.setWebApplicationType()
+	- SERVLET(default)
+	- REACTIVE
+	- NONE
+- 애플리케이션 아규먼트 사용하기 (program argument(--), not VM Options(-D))
+	- ApplicationArguments를 빈으로 등록해 주니까 가져다 쓰면 됨.
+	- jvm argument는 애플리케이션 아규먼트가 아니다.
+- 애플리케이션이 실행한 뒤(다 뜬 뒤) 뭔가 실행하고 싶을 때
+	- ApplicationRunner (추천) 또는 CommandLineRunner
+	- APllicationRunner들의 순서 지정 가능 : @Order
 
 
 
-
-
+- 참고)
+- 빈의 생성자가 하나고 그 생성자의 파라미터가 빈이면 spring이 알아서 주입해준다.
 
 
 ## footnotes
