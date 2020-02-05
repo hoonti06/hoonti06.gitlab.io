@@ -3,6 +3,7 @@
 function resizeMermaid() {
   let mermaidDivList = $('div.mermaid');
   Array.prototype.forEach.call(mermaidDivList, function(mermaidDiv) {
+    mermaidDiv.style.textAlign = "center";
 
     var mermaidSvg = getMermaidSvgIfOnlyOneExistsIn(mermaidDiv);
     if (!mermaidSvg)
