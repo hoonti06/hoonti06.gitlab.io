@@ -22,9 +22,10 @@ function decreaseLeftPaddingSizeofUlRecursively(element) {
 
 decreaseIndentSizeOfListInTable();
 
+// Remove margin of list in table
+$($("td").find("ul")).css("margin-top", 0);
+$($("td").find("ul")).css("margin-bottom", 0);
 
-
-//
 
 function resizeGridTableColsEvenly() {
 
@@ -34,7 +35,6 @@ function resizeGridTableColsEvenly() {
 
   let maxWidth = $(postContent[0]).width();
 
-  
   jQuery.each( $("table"), function(i, table) {
 
     var colGroup = $(table).find("colGroup");
@@ -44,14 +44,15 @@ function resizeGridTableColsEvenly() {
 
     let curColMaxWidth = 0;
     jQuery.each( $(colGroup), function(i, col) {
-      curColMaxWidth = Math.max(curColMaxWidth, col.offsetWidth);
+      curColWidthPercentage = parseInt(col.style.width.replace(/%/g, ''));
+      curColWidth = curColWidthPercentage / 100 * maxWidth;
+      curColMaxWidth = Math.max(curColMaxWidth, curColWidth);
     });
 
     let colMaxWidthThresholds = maxWidth / colGroup.length;
     let colWidth = Math.min(curColMaxWidth, colMaxWidthThresholds);
 
     $(table).css("width", (colWidth * colGroup.length) + "px");
-
     jQuery.each( $(colGroup), function(i, col) {
       $(col).css("width", colWidth + "px");
     });
