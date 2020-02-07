@@ -3,7 +3,7 @@ layout    : wiki
 title     : Spring boot
 summary   : 
 date      : 2020-01-27 12:31:49 +0900
-updated   : 2020-02-05 12:32:11 +0900
+updated   : 2020-02-07 17:22:07 +0900
 tag       : 
 public    : true
 published : true
@@ -473,8 +473,8 @@ app.run(args)
 		- @Value("${app.name}")
 	- YAML
 	- 환경 변수
-	- 커맨드 라인 아규먼트
-
+	- 커맨드 라인 아규먼트  
+	  <br>
 - 프로퍼티 우선 순위
 	1. 유저 홈 디렉토리에 있는 spring-boot-dev-tools.properties (강의자 본인은 걸리적 거려서 잘 안 쓴다고 함)
 	2. 테스트에 있는 @TestPropertySource
@@ -495,28 +495,46 @@ app.run(args)
 	14. JAR 밖에 있는 application properties
 	15. JAR 안에 있는 application properties
 	16. @PropertySource
-	17. 기본 프로퍼티 (SpringApplication.setDefaultProperties)
-
-- application.properties 우선 순위 (높은게 낮은걸 덮어 씁니다.) : 곂치는 key값들에 대해서 덮어쓴다.
+	17. 기본 프로퍼티 (SpringApplication.setDefaultProperties)  
+		<br>
+- application.properties 우선 순위 (높은게 낮은걸 덮어 씁니다.) : 겹치는 key값들에 대해서 덮어쓴다.
 	1. file:./config/
 	2. file:./
 	3. classpath:/config/
-	4. classpath:/
- 
+	4. classpath:/  
+	   <br>
 - 랜덤값 설정하기
-	- ${random.*}
+	- ${random.*}  
+	  <br>
 - 플레이스 홀더
-	- name = keesun
-	- fullName = ${name} baik
-
-
+	- name = hoon
+	- fullName = ${name} baik  
+	  <br>
+- type-safe property : @ConfigurationProperties("appication.properties의 prefix값")
+	- application.properties에 있는 값들을 class의 빈에 바인딩해준다. 해당 class를 @component로
+	- 기존에 @Value를 통해 property 값을 가져온 것이 type-safe하지 않았음.
+	- 여러 property를 묶어서 읽어올 수 있음
+		- 빈으로 등록해서 다른 빈에 주입할 수 있음
+		- `@Component`
+		- @EnableConfigurationProperties
+		- @Bean
+	- 융통성 있는 바인딩 (application.properteis 안)
+		- person.first-name (Kebab case, .properties와 .yml에서 추천하는 형식)
+		- person.first_name (Underscore)
+		- person.firstName (camel)
+		- PERSON_FIRSTNAME (Upper, 시스템 환경 변수에서 추천하는 형식)
+	- 프로퍼티 타입 conversion
+		- @DurationUnit
+	- 프로퍼티 값 검증
+		- @Validated
+		- SJR-303 (@NotNull, ...)  
+		  <br><br>
 
 - 참고)
-- 테스트에서는 Environment로 가져올 수 있다. environment.getProperty("app.name")
-- 테스트용 application.properties를 test/resources 하위에 가지고 있을 수 있으나 관리가 어렵다.
-	- 실제 application.properties에 추가한 항목에 대해 테스트용에도 추가해야 한다는 번거로움이 있다.
-	- test.properties
-- test.properteis는 파일 자체를 덮는게 아니라 
+	- 테스트에서는 Environment로 가져올 수 있다. environment.getProperty("app.name")
+	- 테스트용 application.properties를 test/resources 하위에 가지고 있을 수 있으나 관리가 어렵다.
+		- 실제 application.properties에 추가한 항목에 대해 테스트용에도 추가해야 한다는 번거로움이 있다.
+		- test.properteis는 파일 자체를 덮는게 아니라 존재하는 key 값에 대해서만 value를 overriding한다.
 
 
 ## footnotes
