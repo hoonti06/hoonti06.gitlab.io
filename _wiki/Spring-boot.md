@@ -3,7 +3,7 @@ layout    : wiki
 title     : Spring boot
 summary   : 
 date      : 2020-01-27 12:31:49 +0900
-updated   : 2020-02-07 17:22:07 +0900
+updated   : 2020-02-07 20:28:07 +0900
 tag       : 
 public    : true
 published : true
@@ -64,30 +64,30 @@ spring-boot-starter-parent의 pom.xml 내부 \<properties\> 항목에 아래와 
 
 #### 2.1.2 활용
 
-- 버전 관리 해주는 의존성 추가  
-spring boot에서 관리하는 의존성이기 때문에 version을 명시하지 않아도 된다.  
+- 버전 관리 해주는 의존성 추가
+	- spring boot에서 관리하는 의존성이기 때문에 version을 명시하지 않아도 된다.  
 
-	```xml  
-	<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-data-jpa</artifactId>
-	</dependency>
-	```  
-	<br>
-- 버전 관리 안 해주는 의존성 추가  
-의도치 않은 version이 들어올 수 있기 때문에 version을 명시해주는 것이 좋다. ([https://mvnrepository.com](https://mvnrepository.com) 참고)  
+		```xml  
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		```  
+		<br>
+- 버전 관리 안 해주는 의존성 추가
+	- 버전 관리가 되지 않아 의도치 않은 version이 들어올 수 있기 때문에 아래 코드와 같이 version을 명시해주는 것이 좋다. ([https://mvnrepository.com](https://mvnrepository.com) 참고)  
 
-	```xml  
-	<dependency>
-		<groupId>org.modelmapper.boot</groupId>
-		<artifactId>modelmapper</artifactId>
-		<version>2.1.0</version>
-	</dependency>
-	```  
-	<br>
+		```xml  
+		<dependency>
+			<groupId>org.modelmapper.boot</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+		```  
+		<br>
 
-- 기존 의존성 버전 변경하기  
-spring-boot-dependencies나 spring-boot-start-parent의 \<properties\>를 current project에서 다른 버전으로 overriding할 수 있다. 
+- 기존 의존성 버전 변경하기
+	- spring-boot-dependencies나 spring-boot-start-parent의 \<properties\>를 current project에서 다른 버전으로 overriding할 수 있다. 
 
 
 ### 2.2 자동 설정
