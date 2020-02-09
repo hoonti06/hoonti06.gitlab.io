@@ -3,7 +3,7 @@ layout    : wiki
 title     : Spring boot
 summary   : 
 date      : 2020-01-27 12:31:49 +0900
-updated   : 2020-02-07 20:28:07 +0900
+updated   : 2020-02-10 00:45:09 +0900
 tag       : 
 public    : true
 published : true
@@ -420,6 +420,7 @@ app.run(args)
 
 - 기본 로그 레벨 INFO
 - FailureAnalyzer
+	- 오류 메시지를 이쁘게 출력해준다.
 
 - 베너
 	- src/main/resources/banner.txt | gif | jpg | png
@@ -518,16 +519,20 @@ app.run(args)
 		- `@Component`
 		- @EnableConfigurationProperties
 		- @Bean
-	- 융통성 있는 바인딩 (application.properteis 안)
+	- 융통성 있는 바인딩(relaxed binding) (application.properteis 안)
 		- person.first-name (Kebab case, .properties와 .yml에서 추천하는 형식)
 		- person.first_name (Underscore)
 		- person.firstName (camel)
 		- PERSON_FIRSTNAME (Upper, 시스템 환경 변수에서 추천하는 형식)
 	- 프로퍼티 타입 conversion
+		- 숫자를 알아서 초로 변경해준다거나 뭐 그런거
 		- @DurationUnit
 	- 프로퍼티 값 검증
 		- @Validated
-		- SJR-303 (@NotNull, ...)  
+		- SJR-303 (@NotNull, @NotEmpty, ...)
+	- 메타 정보 생성
+	- 참고)
+		- @value : SpeL을 사용할 수 있지만, 위에 있는 기능들은 전부 사용 못함.  
 		  <br><br>
 
 - 참고)
@@ -535,6 +540,81 @@ app.run(args)
 	- 테스트용 application.properties를 test/resources 하위에 가지고 있을 수 있으나 관리가 어렵다.
 		- 실제 application.properties에 추가한 항목에 대해 테스트용에도 추가해야 한다는 번거로움이 있다.
 		- test.properteis는 파일 자체를 덮는게 아니라 존재하는 key 값에 대해서만 value를 overriding한다.
+
+### 3.4 프로파일
+
+- "test", "prod"
+- @Profile 애노테이션은 어디에? 아래의 애노태이션들과 같이
+	- @Configuration
+	- @Component
+- 어떤 프로파일을 활성화할 것인가?
+	- spring.profiles.active (.properties 파일에 설정)
+- 어떤 프로파일을 추가할 것인가?
+	- spring.profile.include (.properties 파일에 설정)
+- 프로파일용 프로퍼티
+	- application-{profile}.properties (.properties 파일에 설정)
+
+### 3.5 Logging
+- 로깅 퍼사드 vs 로거
+	- 로깅 퍼사드는 로거 API들을 추상화 해놓은 인터페이스(로거를 변경할 수 있다.)
+	- 로깅 퍼사드 : Commons Logging(defualt, 문제 많음), SLF4j(좀 더 안전, 대신 설정들이 좀 복잡했음)
+	- 로거 : JUL, Log4J2, **Logback**(SLF4J의 구현체) (결국 Logback으로 로그를 출력하게 된다.)
+- [스프링5에 로거 관련 변경 사항](https://docs.spring.io/spring/docs/5.0.0.RC3/spring-framework-reference/overview.ht ml#overview-logging)
+	- Spring-JCL 모듈
+		- Commons Logging -> SLF4j or Log4j2(Commons Logging을 SLF4j로 알아서 변경해준다)
+		- pom.xml에 exclusion 안 해도 됨
+
+- 스프링 부트 로깅
+	- 기본 포맷
+	- --debug(일부 핵심 라이브러리만 디버깅 모드로)
+	- --trace(전부 다 디버깅 모드로)
+	- 컬러 출력 : spring.ansi.enabled (.properties 설정)
+	- 파일 출력 : logging.file 또는 logging.path (.properties 설정)
+	- 로그 레벨 조정 : logging.level.패키지_경로 = 로그_레벨 (외부 라이브러리 패키지도 가능하다)
+
+- [커스터마이징](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-logging)
+	- 커스텀 로그 설정 파일 사용
+		- Logback : logback-spring.xml (logback.xml으로도 사용 가능하나 extension 기능을 사용할 수 없다.)
+			- extension
+				- 프로파일 <springProfile name="프로파일">
+				- Environment 프로퍼티 <springProperty>
+		- Log4j2 : log4j2-spring.xml
+		- ~~JUL : logging.properties~~ (비추천)
+	- [로거를 Log4j2로 변경하기](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-configure-log4j-for-logging)
+
+### 3.6 Test
+- 시작은 일단 spring-boot-start-test 의존성을 추가하는 것부터
+	- 'test' scope로 추가
+- @AutoConfigureMockMvc
+ 
+- @SpringBootTest
+	- 통합 테스트
+	- @RunWith(SpringRunner.class)랑 같이 써야 함.
+	- 빈 설정 파일은 설정을 안해주나? 알아서 찾아준다.(@SpringBootApplication)
+	- webEnvironment
+		- MOCK : mock servlet enviroment. 내장 톰캣 구동 안 함
+		- RANDOM_PORT, DEFINED_PORT : 내장 톰캣 구동
+		- NONE : 서블릿 환경 제공 안 함
+- @MockBean
+	- ApplicationContext에 들어있는 빈을 mock으로 만든 객체로 교체함.
+	- 모든 @Test마다 자동으로 리셋
+
+- 'WebTestClient' class
+	- async
+	- spring-boot-start-webflux 의존성을 추가해야 함
+	- 제공하는 API가 좋음
+	 
+	 
+- 슬라이스 테스트
+	- 레이어 별로 잘라서 테스트하고 싶을 때 사용
+	- @JsonTest
+	- @WebMvcTest
+		- @component bean은 스캔되지 않아 필요한 빈이 있다면 MockBean을 통해 빈으로 등록해야 한다.
+	- @WebFluxTest
+	- @DataJpaTest
+	- etc...
+
+
 
 
 ## footnotes
