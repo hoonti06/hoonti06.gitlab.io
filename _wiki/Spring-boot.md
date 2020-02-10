@@ -3,8 +3,8 @@ layout    : wiki
 title     : Spring boot
 summary   : 
 date      : 2020-01-27 12:31:49 +0900
-updated   : 2020-02-10 00:45:09 +0900
-tag       : 
+updated   : 2020-02-10 20:35:43 +0900
+tag       : Spring Spring-boot Web inflearn
 public    : true
 published : true
 parent    : 
@@ -614,6 +614,9 @@ app.run(args)
 	- @DataJpaTest
 	- etc...
 
+
+## 내용 출처
+[inflearn - '스프링 부트 개념과 활용(백기선)' 강의 및 강의 노트](https://www.inflearn.com/course/스프링부트)
 
 
 

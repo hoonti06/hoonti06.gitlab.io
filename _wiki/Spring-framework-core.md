@@ -3,8 +3,8 @@ layout    : wiki
 title     : 스프링 프레임워크 핵심 기술
 summary   : 
 date      : 2020-01-29 09:42:19 +0900
-updated   : 2020-02-03 15:22:32 +0900
-tag       : Spring
+updated   : 2020-02-10 20:35:59 +0900
+tag       : Spring Web inflearn
 public    : true
 published : true
 parent    :
@@ -156,8 +156,8 @@ Inversion of Control(IoC): 의존 관계 주입(Dependency Injection, DI)이라�
 
 
 ## 내용 출처
-[inflearn - 스프링 프레임워크 핵심 기술 강의 및 강의 노트(백기선)](https://www.inflearn.com/course/spring-framework_core#)
-[위키피디아](https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94_%ED%94%8C%EB%9E%AB%ED%8F%BC,_%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88_%EC%97%90%EB%94%94%EC%85%98)
+[inflearn - '스프링 프레임워크 핵심 기술(백기선)' 강의 및 강의 노트](https://www.inflearn.com/course/spring-framework_core)
+[Java EE - wikipedia](https://ko.wikipedia.org/wiki/자바_플랫폼,_엔터프라이즈_에디션)
 
 
 ## footnote
@@ -165,4 +165,4 @@ Inversion of Control(IoC): 의존 관계 주입(Dependency Injection, DI)이라�
 [^2]: 메시지 다국화
 [^3]: 특정 위치에 있는 파일 등
 [^4]: 단순히 평범한 자바 빈즈 객체
-[^5]: Java Platform Enterprise Edition, 자바를 이용한 서버측 개발을 위한 플랫폼. PC에서 동작하는 표준 플랫폼인 Java SE에 웹 애플리케이션 서버에서 동작하는 장애복구 및 분산 멀티티어(multi-tier)를 제공하는 자바 소프트웨어의 기능을 추가한 서버를 위한 플랫폼으로, 이전에는 J2EE라 불리었다.  Java EE 스펙에 따라 제품으로 구현한 것을 웹 애플리케이션 서버(WAS)라 불린다. (출처 : [위키피디아](https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94_%ED%94%8C%EB%9E%AB%ED%8F%BC,_%EC%97%94%ED%84%B0%ED%94%84%EB%9D%BC%EC%9D%B4%EC%A6%88_%EC%97%90%EB%94%94%EC%85%98))
+[^5]: Java Platform Enterprise Edition, 자바를 이용한 서버측 개발을 위한 플랫폼. PC에서 동작하는 표준 플랫폼인 Java SE에 웹 애플리케이션 서버에서 동작하는 장애복구 및 분산 멀티티어(multi-tier)를 제공하는 자바 소프트웨어의 기능을 추가한 서버를 위한 플랫폼으로, 이전에는 J2EE라 불리었다.  Java EE 스펙에 따라 제품으로 구현한 것을 웹 애플리케이션 서버(WAS)라 불린다. (출처 : [위키피디아](https://ko.wikipedia.org/wiki/자바_플랫폼,_엔터프라이즈_에디션))

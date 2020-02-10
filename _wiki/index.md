@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2020-02-03 19:50:29 +0900
+updated : 2020-02-10 12:16:49 +0900
 public  : true
 comment : false
 ---
@@ -12,6 +12,7 @@ comment : false
 	* [[The_Essence_of_Object-Orientation]]{객체지향의 사실과 오해}
 * [[Spring-framework-core]]{Spring framework 핵심 기술}
 * [[Spring-boot]]{Spring boot}
+* [[Spring-MVC]]{Spring MVC}
 * [[Git]]
 * [[OS]]
 * [[Database]]
