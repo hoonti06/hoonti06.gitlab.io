@@ -3,8 +3,8 @@ layout    : wiki
 title     : Spring boot
 summary   : 
 date      : 2020-01-27 12:31:49 +0900
-updated   : 2020-02-10 20:35:43 +0900
-tag       : Spring Spring-boot Web inflearn
+updated   : 2020-02-11 20:21:19 +0900
+tag       : spring spring-boot web inflearn
 public    : true
 published : true
 parent    : 
