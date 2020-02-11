@@ -1,10 +1,10 @@
 ---
 layout    : wiki
-title     : 
+title     : Docker
 summary   : 
 date      : 2019-08-20 14:37:47 +0900
-updated   : 2020-02-11 12:52:10 +0900
-tag       : 
+updated   : 2020-02-11 20:20:39 +0900
+tag       : docker
 public    : true
 published : true
 parent    : 
@@ -30,7 +30,14 @@ kernel 3.8이상의 버전만을 지원한다.
 Docker Host의 OS가 kernel 3.13.0 버전의 Ubuntu 14.04 LTS이고, CentOS 6.6(default kernel version : 2.6.32) Container를 올리게 되면 CentOS 6.6에 kernel 버전을 3.13.0으로 upgrade한 OS를 사용하는 듯한 환경이 될 것이다.
 
 
-## 1. Command
+## 2. Dockerfile
+## 2.1 Dockerfile Command
+
+## 3. docker-compose
+
+## 4. command
+
+
 
 
 
