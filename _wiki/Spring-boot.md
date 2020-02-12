@@ -3,7 +3,7 @@ layout    : wiki
 title     : Spring boot
 summary   : 
 date      : 2020-01-27 12:31:49 +0900
-updated   : 2020-02-11 20:21:19 +0900
+updated   : 2020-02-12 09:12:57 +0900
 tag       : spring spring-boot web inflearn
 public    : true
 published : true
@@ -508,8 +508,8 @@ app.run(args)
 	- ${random.*}  
 	  <br>
 - 플레이스 홀더
-	- name = hoon
-	- fullName = ${name} baik  
+	- name = Jihoon
+	- fullName = ${name} Kim  
 	  <br>
 - type-safe property : @ConfigurationProperties("appication.properties의 prefix값")
 	- application.properties에 있는 값들을 class의 빈에 바인딩해준다. 해당 class를 @component로

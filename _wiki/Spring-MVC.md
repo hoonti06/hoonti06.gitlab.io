@@ -3,7 +3,7 @@ layout    : wiki
 title     : 스프링 웹 MVC
 summary   : 
 date      : 2020-02-10 12:16:49 +0900
-updated   : 2020-02-11 20:21:28 +0900
+updated   : 2020-02-12 20:28:25 +0900
 tag       : spring mvc web inflearn
 public    : true
 published : true
@@ -123,38 +123,132 @@ public class EventService {
 	- [Thymeleaf Document](https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html)
 
 
-###1.2 Servlet
+### 1.2 Servlet
 
 - 서블릿(Servlet)
 	- Java EE는 Web Application 개발용 spec과 API를 제공. 
 		- 제공하는 클래스 중 가장 중요한 것 중 하나가 HttpServlet
 	- 요청당 Thread (만들거나, **Pool에서 가져다가**) 사용 (한 프로세스의 자원을 공유하는 Thread를 만들어서)
+ 
 - 서블릿 등장 이전에 사용하던 기술인 CGI(Common Gateway Interface)
 	- 요청당 프로세스를 만들어 사용
+	- 
 - 서블릿의 장점 (CGI에 비해)
 	- 빠르다
 	- 플랫폼 독립적
 	- 보안
 	- 이식성
+
 - 서블릿 엔진 또는 서블릿 컨테이너 (톰캣, 제티, 언더토, ...)
 	- 서블릿 스펙을 준수하여 
 	- 초기화, 실행, 사용 등의 서블릿 라이프 사이클을 관리
 	- 서블릿 애플리케이션은 우리가 직접 실행할 수 없고, 서블릿 컨테이너가 실행할 수 있다.
+	- 세션 관리, 네트워크 서비스 MIME 기반 메시지 인코딩 디코딩
+
 - 서블릿의 생명주기
-	- 서블릿 컨테이너가 서블릿 인스턴스의 init() 
+	- 서블릿 컨테이너가 서블릿 인스턴스의 init() 메소드를 호출하여 초기화한다.
+		- 최초 요청을 받았을 때 초기화를 한 번 하고 나면 그 다음 요청부터는 이 과정을 생략한다.
+	- 서블릿이 초기화된 다음부터 클라이언트의 요청을 처리할 수 있다. 각 요청은 별도의 쓰레드로 처리하고 이때 서블릿 인스턴스의 service() 메소드를 호출한다.
+		- 이 안에서 HTTP 요청을 받고 클라이언트로 보낼 HTTP 응답을 만든다.
+		- service()는 보통 HTTP Method에 따라 doGet(), doPost() 등으로 처리를 위임한다.
+		- 따라서 보통 doGet() 또는 doPost()를 구현한다.
+	- 서블릿 컨테이너 판단에 따라 해당 서블릿을 메모리에서 내려야 할 시점에 destroy()를 호출한다.
+
 ```java
+// src/main/java/me.hoonti06/HelloServlet.java
 public class HelloServlet extends HttpServlet {
 	@Override
-
-	init()
+	public void init() throws ServletException {
+		System.out.println("init");
+	}
 	
-	doGet() {
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("doGet");
+		resp.getWriter().write("<html>");
+		resp.getWriter().write("<head>");
+		resp.getWriter().write("<body>");
+		resp.getWriter().write("<h1>Hello Servlet</h1>");
+		resp.getWriter().write("</body>");
+		resp.getWriter().write("</head>");
+		resp.getWriter().write("</html>");
 	}
 
+	@Override
+	public void destory() {
+		System.out.println("destory");
+	}
 }
 
+
+```  
+<br>
+```xml
+<!-- src/main/webapp/WEB-INF/web.xml -->
+<web-app>
+	<display-name>web app</display-name>
+	
+	<servlet>
+		<servlet-name>hello</servlet-name>
+		<servlet-class>me.hoonti06.HelloServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>hello</servlet-name>
+		<url-pattern>/hello</url-pattern>
+	</servlet-mapping>
+</web-app>
+```  
+<br>
+```xml
+<dependency>
+	<groupId>javax.servlet</groupId>
+	<artifactId>javax.servlet-api</artifactId>
+	<version>4.0.1</version>
+	<scope>provided</scope> 
+</dependency>
 ```
 
+
+- 참고)
+	- maven 의존성 scope
+		- compile : Default scope, 모든 상황에서 의존성이 포함된다.
+		- provided : 서블릿 컨테이너에서 기본 제공되어 마지막 패지킹할 때 해당 의존성이 포함되지 않는다.
+		- runtime : 런타임 및 테스트 시 classpath에 포함되지만, 컴파일 시에는 포함되지 않음
+		- test : 테스트시에만 사용
+		- system
+		- import
+	- Servlet application
+		- application context를 '/'(root)로 설정한다.
+		- war_exploded : war를 푼 상태로 배포(Deployment)하는 방법
+
+### 1.3 Servlet Listener and Filter
+
+- 서블릿 리스터
+	- 웹 애플리케이션에서 발생하는 주요 이벤트를 감지하고 각 이벤트에 특별한 작업이 필요한 경우에 사용할 수 있다.
+		- 서블릿 컨텍스트 수준의 이벤트
+			- 컨텍스트 라이프사이클 이벤트
+			- 컨텍스트 애트리뷰트 변경 이벤트
+		- 세션 수준의 이벤트
+			- 세션 라이프사이클 이벤트
+			- 세션 애트리뷰트 변경 이벤트
+- 서블릿 필터
+	- 틀어온 요청을 서블릿으로 보내고, 또 서블릿이 작성한 응답을 클라이언트로 보내기 전에 특별한 처리가 필요한 경우에 사용할 수 있다.
+	- 체인 형태의 구조  
+	  
+			id1(Servlet Container) == request ==> id2(filterA) == request ==> id3(filterB) == request ==> id4(Servlet)
+			id4 == responce ==> id3 == responce ==> id2 == responce ==> id1
+		{% mermaid %}
+		graph TD
+			subgraph one
+				id1 ==> id4
+			end
+			subgraph two
+			end
+			id4 ==> id1
+			style id1 fill:#f9f,stroke:#333,stroke-width:4px
+			style id2 fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
+		{% endmermaid %}
 
 
 ## 내용 출처
