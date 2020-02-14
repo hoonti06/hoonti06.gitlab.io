@@ -19,6 +19,7 @@ plugins:
   - jekyll-pandoc
   - jekyll-mermaid
   - jekyll-pandoc-mermaid
+  - jekyll-plantuml
  #- jekyll-pandoc-multiple-format
  #- jekyll-youtube
 

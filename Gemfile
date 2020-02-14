@@ -24,6 +24,7 @@ group :jekyll_plugins do
   gem 'jekyll-mermaid'
   gem 'jekyll-pandoc-mermaid', ">= 1.0.2"
   gem 'faraday', '~> 0.15.4' 
+  gem 'jekyll-plantuml'
 #  gem 'jekyll-youtube'
 #  gem 'jekyll-pandoc-multiple-formats'
 
