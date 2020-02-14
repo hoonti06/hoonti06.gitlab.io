@@ -1,4 +1,4 @@
-image: hoonti06/ruby-pandoc-node
+image: hoonti06/hoonti06.gitlab.io-env
 
 variables:
   JEKYLL_ENV: production
