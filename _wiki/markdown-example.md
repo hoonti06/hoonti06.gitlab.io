@@ -3,7 +3,7 @@ layout    : wiki
 title     : markdown 연습장
 summary   : 
 date      : 2019-09-29 17:32:09 +0900
-updated   : 2020-01-31 15:55:38 +0900
+updated   : 2020-02-14 12:23:33 +0900
 tag       : 
 public    : true
 published : true
@@ -11,7 +11,7 @@ parent    : etc
 latex     : false
 ---
 
-## 1. 연습장
+## 1. Table
 
 | layer       | description |   |
 |-------------|-------------|---|
@@ -77,6 +77,33 @@ latex     : false
   </tbody>
 </table>
 
++---------------+---------------+--------------------+
+| Fruit         | Price         | Advantages         |
++===============+===============+====================+
+| Bananas       | $1.34         | - built-in wrapper |
+|               |               | - bright color     |
++---------------+---------------+--------------------+
+| Oranges       | $2.10         | - cures scurvy     |
+|               |               | - tasty            |
++---------------+---------------+--------------------+
+
++----------------------------------------------------------------------+-------------------------------------------------------------------------+
+| process                                                              | thread                                                                  |
++======================================================================+=========================================================================+
+| OS로부터 자원을 할당 받는 `작업의 단위`                              | 프로세스가 할당 받은 자원을 이용하는 `실행의 단위`                      |
++----------------------------------------------------------------------+-------------------------------------------------------------------------+
+| - 프로그램에 대한 인스턴스                                           | - 프로세스 내에서 실제로 작업을 수행                                    |
+| <ul><li>프로그램 수행에 필요한 자원을 하나의 개체에서 관리</li></ul> | - 하나의 프로세스 안에서 각각의 레지스터, 스택 공간을 제외한            |
+| - 모든 프로세스에는 하나 이상의 쓰레드 존재                          | 나머지 공간(heap, data, bss, code)과 자원을 다른 쓰레드와 공유          |
+| - 자신만의 고유 공간과 자원을 할당 받는다.                           | - 스택과 레지스터만 switching하므로 context switching 속도가 상대적으로 |
+| (메모리 공간과 자원 소모가 상대적으로 큼)                            | - 자원 공유로 인한 동기화 문제가 발생                                   |
+|                                                                      | - 디버깅이 어려움                                                       |
++----------------------------------------------------------------------+-------------------------------------------------------------------------+
+
+
+
+
+## 2. code-block
 
 ```javascript
 var x = 10;
@@ -141,30 +168,226 @@ int main()
 +---------------+---------------+--------------------+
 ```
 
-+---------------+---------------+--------------------+
-| Fruit         | Price         | Advantages         |
-+===============+===============+====================+
-| Bananas       | $1.34         | - built-in wrapper |
-|               |               | - bright color     |
-+---------------+---------------+--------------------+
-| Oranges       | $2.10         | - cures scurvy     |
-|               |               | - tasty            |
-+---------------+---------------+--------------------+
 
-+----------------------------------------------------------------------+-------------------------------------------------------------------------+
-| process                                                              | thread                                                                  |
-+======================================================================+=========================================================================+
-| OS로부터 자원을 할당 받는 `작업의 단위`                              | 프로세스가 할당 받은 자원을 이용하는 `실행의 단위`                      |
-+----------------------------------------------------------------------+-------------------------------------------------------------------------+
-| - 프로그램에 대한 인스턴스                                           | - 프로세스 내에서 실제로 작업을 수행                                    |
-| <ul><li>프로그램 수행에 필요한 자원을 하나의 개체에서 관리</li></ul> | - 하나의 프로세스 안에서 각각의 레지스터, 스택 공간을 제외한            |
-| - 모든 프로세스에는 하나 이상의 쓰레드 존재                          | 나머지 공간(heap, data, bss, code)과 자원을 다른 쓰레드와 공유          |
-| - 자신만의 고유 공간과 자원을 할당 받는다.                           | - 스택과 레지스터만 switching하므로 context switching 속도가 상대적으로 |
-| (메모리 공간과 자원 소모가 상대적으로 큼)                            | - 자원 공유로 인한 동기화 문제가 발생                                   |
-|                                                                      | - 디버깅이 어려움                                                       |
-+----------------------------------------------------------------------+-------------------------------------------------------------------------+
+## 3. plantuml
+[GUIDE](http://plantuml.com/ko/guide)
+
+{% plantuml %}
+[First] - [Third]
+{% endplantuml %}
+
+{% plantuml %}
+@startuml
+
+(First usecase)
+(Another usecase) as (UC2)  
+usecase UC3
+usecase (Last\nusecase) as UC4
+
+@enduml
+{% endplantuml %}
 
 
+{% plantuml %}
+@startuml
+:Main Admin: as Admin
+(Use the application) as (Use)
+
+User -> (Start)
+User --> (Use)
+
+Admin ---> (Use)
+
+note right of Admin : This is an example.
+
+note right of (Use)
+  A note can also
+  be on several lines
+end note
+
+note "This note is connected\nto several objects." as N2
+(Start) .. N2
+N2 .. (Use)
+@enduml
+{% endplantuml %}
+
+
+{% plantuml %}
+@startuml
+participant Alice
+actor Bob
+
+ref over Alice, Bob : init
+
+Alice -> Bob : hello
+
+ref over Bob
+	This can be on
+	several lines
+end ref
+@enduml
+{% endplantuml %}
+
+
+{% plantuml %}
+@startuml
+participant User
+User -> A: DoWork
+activate A
+A -> B: << createRequest >>
+activate B
+B -> C: DoWork
+activate C
+C --> B: WorkDone
+destroy C
+B --> A: RequestCreated
+deactivate B
+A -> User: Done
+deactivate A
+@enduml
+{% endplantuml %}
+
+
+## 4. ditaa
+[ditaa github](https://github.com/stathissideris/ditaa)
+
+{% ditaa -T %}
+    +--------+   +-------+    +-------+
+    |        | --+ ditaa +--> |       |
+    |  Text  |   +-------+    |diagram|
+    |Document|   |!magic!|    |       |
+    |     {d}|   |       |    |       |
+    +---+----+   +-------+    +-------+
+        :                         ^
+        |       Lots of work      |
+        +-------------------------+
+{% endditaa %}
+
+{% ditaa -T %}
+/----+  DAAP /-----+-----+ Audio  /--------+
+| PC |<------| RPi | MPD |------->| Stereo |
++----+       +-----+-----+        +--------+
+   |                 ^ ^
+   |     ncmpcpp     | | mpdroid /---------+
+   +--------=--------+ +----=----| Nexus S |
+                                 +---------+
+{% endditaa %}		
+
+{% ditaa -T %}
+         +----------------------+
+         |cPNK                  |
+   +-----|  Dispatcher Servlet  |-----+
+   |     |                      |     |
+   |     +----------------------+     |
+   |                                  |
+   |  +-----------------------------+ |
+   |  |Servlet WebApplicationContext| |
+   |  |                             | |
+   |  | +-----------+               | |
+   |  | |Controllers|               | |
+   |  | +-----------+               | |
+   |  |            +--------------+ | |
+   |  |            |HandlerMapping| | |
+   |  |            +--------------+ | |
+   |  |   +------------+            | |
+   |  |   |ViewResolver|            | |
+   |  |   +------------+            | |
+   |  +-------------+---------------+ |
+   |                |                 |
+   |                |Delegates        |
+   |                | if no bean found|
+   |                |                 |
+   |                v                 |
+   |  +-----------------------------+ |
+   |  | Root WebApplicationContext  | |
+   |  |                             | |
+   |  | +--------+  +------------+  | |
+   |  | |Services|  |Repositories|  | | 
+   |  | +--------+  +------------+  | |
+   |  +-----------------------------+ |
+   +----------------------------------+ 
+{% endditaa %}		
+
+
+
+
+## 5. mermaid
+[mermaid website](https://mermaid-js.github.io/mermaid/#/)
+
+{% mermaid %}
+graph TD
+	A['Christmas'] -->|Get money| B(Go shopping)
+	B --> C{Let me think}
+	C -->|One| D[Laptop]
+	C -->|Two| E[iPhone]
+	C -->|Three| F[fa:fa-car Car]
+{% endmermaid %}
+
+{% mermaid %}
+graph LR
+A[working directory] --> |add| B[staging area]
+B --> |commit| C[local repository]
+C --> |merge| A
+C --> |push| D[remote repository]
+D --> |fetch| C
+D --> |pull| A
+{% endmermaid %}
+
+{% mermaid %}
+classDiagram
+classA --|> classB : Inheritance
+classC --* classD : Composition
+classE --o classF : Aggregation
+classG --> classH : Association
+classI -- classJ : Link(Solid)
+classK ..> classL : Dependency
+classM ..|> classN : Realization
+classO .. classP : Link(Dashed)
+{% endmermaid %}
+
+
+{% mermaid %}
+gantt
+       dateFormat  YYYY-MM-DD
+       title Adding GANTT diagram functionality to mermaid
+	   excludes weekdays 2014-01-10
+
+       section A section
+       Completed task            :done,    des1, 2014-01-06,2014-01-08
+       Active task               :active,  des2, 2014-01-09, 3d
+       Future task               :         des3, after des2, 5d
+       Future task2              :         des4, after des3, 5d
+
+       section Critical tasks
+       Completed task in the critical line :crit, done, 2014-01-06,24h
+       Implement parser and jison          :crit, done, after des1, 2d
+       Create tests for parser             :crit, active, 3d
+       Future task in critical line        :crit, 5d
+       Create tests for renderer           :2d
+       Add to mermaid                      :1d
+
+       section Documentation
+       Describe gantt syntax               :active, a1, after des1, 3d
+       Add gantt diagram to demo page      :after a1  , 20h
+       Add another diagram to demo page    :doc1, after a1  , 48h
+
+       section Last section
+       Describe gantt syntax               :after doc1, 3d
+       Add gantt diagram to demo page      :20h
+       Add another diagram to demo page    :48h
+{% endmermaid %}
+	  
+
+{% mermaid %}
+pie
+    title Key elements in Product X
+    "Calcium" : 42.96
+    "Potassium" : 50.05
+    "Magnesium" : 10.01
+    "Iron" :  5
+{% endmermaid %}
+
+## 6.etc
 ```
 {% youtube https://www.youtube.com/watch?v=G33WiEktUo8 %}
 {% youtube https://www.youtube.com/embed/V69UAnkoYHM %}
@@ -172,3 +395,4 @@ int main()
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <iframe title="YouTube video player" width="640" height="390" src="https://www.youtube.com/embed/7HiBFeLZlHM" frameborder="0" allowfullscreen></iframe>
 ```
+

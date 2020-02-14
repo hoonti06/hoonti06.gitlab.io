@@ -3,7 +3,7 @@ layout    : wiki
 title     : 스프링 웹 MVC
 summary   : 
 date      : 2020-02-10 12:16:49 +0900
-updated   : 2020-02-12 20:28:25 +0900
+updated   : 2020-02-14 11:31:09 +0900
 tag       : spring mvc web inflearn
 public    : true
 published : true
@@ -235,21 +235,64 @@ public class HelloServlet extends HttpServlet {
 - 서블릿 필터
 	- 틀어온 요청을 서블릿으로 보내고, 또 서블릿이 작성한 응답을 클라이언트로 보내기 전에 특별한 처리가 필요한 경우에 사용할 수 있다.
 	- 체인 형태의 구조  
-	  
-			id1(Servlet Container) == request ==> id2(filterA) == request ==> id3(filterB) == request ==> id4(Servlet)
-			id4 == responce ==> id3 == responce ==> id2 == responce ==> id1
-		{% mermaid %}
-		graph TD
-			subgraph one
-				id1 ==> id4
-			end
-			subgraph two
-			end
-			id4 ==> id1
-			style id1 fill:#f9f,stroke:#333,stroke-width:4px
-			style id2 fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5
-		{% endmermaid %}
 
+{% ditaa -T -E %}
+          +---------------------+
+          |cBLU                 | 
+          |  Servlet Container  | 
+          |                     | 
+          +---+-----------------+       
+      request |            ^ responce
+              |            |
+            +-+------------|-+ 
+            | |  Filter A  | | 
+            +-|------------+-+ 
+              |            | 
+              |            | 
+              |            |
+            +-+------------|-+ 
+            | |  Filter B  | | 
+            +-|------------+-+ 
+              |            |   
+              v            |  
+          +----------------+----+
+          |cPNK                 | 
+          |       Servlet       | 
+          |                     | 
+          +---------------------+       
+{% endditaa %}		
+
+
+
+
+{% ditaa -T %}		
+   +----------------------------------+
+   |Spring Application                |
+   |                                  |
+   |  +-----------------------------+ |
+   |  |     Spring IoC Container    | |
+   |  +-----------------------------+ |
+   |                ^                 |
+   |  +-------------|---------------+ |
+   |  |             |               | |
+   |  |    +--------+--------+      | |
+   |  |    |DispatcherServlet|      | |
+   |  |    +-----------------+      | |
+   |  |                             | |
+   |  |Embedded Tomcat              | |
+   |  +-------------+---------------+ |
+   +----------------------------------+ 
+{% endditaa %}
+		
+### 1.4 Dispatcher Servlet
+
+- 서블릿 애플리케이션에 스프링 연동하기
+	- 
+
+- 참고)
+	- 의존성 'org.springframework::spring-webmvc'
+	- Listener 'org.springframework.web.context.ContextLoaderListener'
+		- Servlet 컨텍스트의 라이프 사이클에 맞춰 Spring이 제공해주는 애플리케이션 컨텍스트를 연동해준다.
 
 ## 내용 출처
 [inflearn - '스프링 웹 MVC(백기선)' 강의 및 강의 노트](https://www.inflearn.com/course/%EC%9B%B9-mvc#)
