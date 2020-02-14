@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2020-02-10 12:16:49 +0900
+updated : 2020-02-14 12:20:58 +0900
 public  : true
 comment : false
 ---
@@ -68,5 +68,4 @@ comment : false
 	* [[version-naming]]{버전 표기법(SemVer)}
 	* [[TBB]]
 	* [[markdown-example]]
-	* [[mermaid-example]]
 
