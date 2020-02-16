@@ -3,7 +3,7 @@ layout    : wiki
 title     : 스프링 프레임워크 핵심 기술
 summary   : 
 date      : 2020-01-29 09:42:19 +0900
-updated   : 2020-02-14 18:52:27 +0900
+updated   : 2020-02-16 21:07:18 +0900
 tag       : spring web inflearn
 public    : true
 published : true
@@ -29,13 +29,33 @@ Spring framework는 소규모 애플리케이션 또는 기업용 애플리케�
 - API를 신중히 설계한다. (공들인다)
 - 높은 수준의 코드를 지향한다. (자랑)
 
-
+## 1.3 장점
+- 트랜젝션 관리
+- 각기 다른 데이터베이스의 연동 지원
+- 객체관계형 프레임워크(하이버네이트, 아이바티스)와 결합
+- 모든 필요한 이즈노성을 컨테이너에서 해결되도록 의존성 주입을 지원
+- REST 스타일 웹 서비스 지원 
+ 
 
 ## 2. IoC 컨테이너
 
 ### 2.1 Spring IoC 컨테이너와 빈
 
 Inversion of Control(IoC): 의존 관계 주입(Dependency Injection, DI)이라고도 하며, 어떤 객체가 사용하는 **의존 객체를 직접 만들어 사용하는게 아니라, 주입 받아 사용하는 방법**[^1]을 말함
+
+{% plantuml %}
+@startuml
+rectangle "Bean 설정" as bean
+node "Spring IoC 컨테이너" as container
+bean -right-> container
+
+skinparam node {
+	backgroundColor Agua
+}
+
+@enduml
+					
+{% endplantuml %}
 
 - Spring IoC 컨테이너    
 	- BeanFactory : 가장 상위 Class, 객체 생성과 검색에 대한 기능
@@ -57,7 +77,6 @@ Inversion of Control(IoC): 의존 관계 주입(Dependency Injection, DI)이라�
 	- 메시지 소스 처리 기능[^2] (i18n)
 	- 이벤트 발행 기능
 	- 리소스[^3] 로딩 기능  
-	  <br>
   
 +---------------------------------------------------+-------------+--------------------+
 | Feature                                           | BeanFactory | ApplicationContext |
@@ -71,13 +90,6 @@ Inversion of Control(IoC): 의존 관계 주입(Dependency Injection, DI)이라�
 | Convenient `messageSource` access (for i18n)      |      No     |         Yes        |
 +---------------------------------------------------+-------------+--------------------+
 | `ApplicationEvent` publicaion                     |      No     |         Yes        |
-+---------------------------------------------------+-------------+--------------------+
-| ```cpp                                            |      No     |         Yes        |
-| int main() {                                      |             |                    |
-| }                                                 |             |                    |
-| ```                                               |             |                    |
-+---------------------------------------------------+-------------+--------------------+
-| ${4}                                              |     ${1}    |        ${1}        |
 +---------------------------------------------------+-------------+--------------------+
 
 	  
@@ -177,6 +189,45 @@ Inversion of Control(IoC): 의존 관계 주입(Dependency Injection, DI)이라�
 		- 생성자가 호출되는 시점에는 아직 빈이 초기화되지 않은 상태, 즉 아직 Bean이 주입되기 전이다.  
 		  생성자에서 빈에 대한 초기화를 할 수 없으니 주입이 완료된 빈에 대해 초기화를 @PostConstruct가 설정된 method에서 할 수 있다.
 
+### 2.4 @Component와 컴포넌트 스캔
+
+- @Component : 개발자가 직접 작성한 Class를 Bean으로 등록할 때 사용
+	- 하위 annotation으로 나눈 이유 : annotation마다 특성을 갖고 있지만, 가독성에서도 해당 애노테이션을 갖는 클래스가 무엇을 하는지 알 수 있다.
+	- @Repository
+		- DAO의 메소드에서 발생할 수 있는 unchecked exception들을 스프링의 DataAccessException으로 처리할 수 있다.
+	- @Service
+	- @controller
+	- @Configuration
+		- @Bean으로 정의된 메소드들을 포함하며, 이 메소드는 Spring IoC Container에 의해 관리되는 오브젝트들의 instatiation, configuration, initialization 로직 등을 담당한다.
+
+
+- 컴포넌트 스캔
+	- @Component와 @Service, @Repository, @Controller, @Configuration이 붙은 클래스 Bean들을 찾아 Context에 Bean 등록을 해주는 annotation
+	- 주요 기능
+		- 스캔 위치, 범위 설정
+		- 필터 : 어떤 annotation을 스캔할지 또는 하지 않을지(include or exclude)
+	- 동작 원리
+		- @ComponentScan은 스캔할 package와 annoataion에 대한 정보
+		- 실제 스캐닝은 ConfigurationClassPostProcessor라는 BeanFactoryPostProcessor에 의해 처리됨
+		- scan을 먼저 수행하고, scan을 통하지 않는 빈 등록을 수행한다.  
+	 
+- 참고)
+	- @Bean : @Configuration으로 선언된 클래스 내에 있는 메소드를 정의할 때 사용한다. 이 메소드가 반환하는 객체가 bean이 되며, 메소드 이름이 bean의 이름이 된다.
+	- @Bean vs @Component:
+		- @Bean은 개발자가 직접 제어할 수 없는 외부 라이브러리 등을 Bean으로 등록할 때 사용
+	- Function을 사용한 빈 등록 ('@Bean'을 통한 빈 등록을 대체할 수 있지만, @ComponentScan을 대체하기엔 좋지 못한 방법)  
+	  
+	  ```java
+	  
+	  public static void main(String[] args) {
+	  	new SpringApplicationBuilder()
+			.sources(DemoApplication.class)
+			.initalizer((ApplicationContextInitializer<GenericApplicationContext>) applicationContext -> { 
+				applicationContext.registerBean(MyBean.class);
+			})
+			.run(args);
+	  }
+	  ```
 
 ## 내용 출처
 [inflearn - '스프링 프레임워크 핵심 기술(백기선)' 강의 및 강의 노트](https://www.inflearn.com/course/spring-framework_core)

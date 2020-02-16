@@ -3,7 +3,7 @@ layout    : wiki
 title     : Spring boot
 summary   : 
 date      : 2020-01-27 12:31:49 +0900
-updated   : 2020-02-12 09:12:57 +0900
+updated   : 2020-02-15 20:36:12 +0900
 tag       : spring spring-boot web inflearn
 public    : true
 published : true
@@ -103,6 +103,10 @@ spring-boot-starter-parent의 pom.xml 내부 \<properties\> 항목에 아래와 
 	- 두 번째 : @EnableAutoConfiguration
 		- spring.factories[^1]
 			- org.springframework.boot.autoconfigure.EnableAutoConfiguration : 이 항목 하위에 명시되어 있는 모든 목록에 대해 자동으로 빈 등록을 시도한다.(그 모든 목록에 가보면 각각 @Configuration이 명시되어 있다.) 하지만, 각 목록에서 @ConditionalOnXxxYyyZzz 애노테이션에 따라 빈 등록 여부가 결정된다.
+
+- 참고)
+	- @SpringBootApplication : @COnfiguration, @EnableAutoConfiguration, @ComponentScan 3가지를 하나의 annotation으로 합친 것
+
 
 #### 2.2.2 자동 설정 만들기
 https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-developing-auto-configuration

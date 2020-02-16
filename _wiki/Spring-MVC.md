@@ -3,7 +3,7 @@ layout    : wiki
 title     : 스프링 웹 MVC
 summary   : 
 date      : 2020-02-10 12:16:49 +0900
-updated   : 2020-02-14 18:20:06 +0900
+updated   : 2020-02-16 23:06:55 +0900
 tag       : spring mvc web inflearn
 public    : true
 published : true
@@ -282,20 +282,39 @@ public class HelloServlet extends HttpServlet {
 {% endditaa %}
 
 ### 1.4 Dispatcher Servlet
+![이미지 출처 : [https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc
+](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc)](/wiki-img/Spring-MVC/DispatcherServlet.png)  
 
-- 서블릿 애플리케이션에 스프링 연동하기
+<br>
+
+- 서블릿 애플리케이션에 스프링 연동하기  
+  <br>
 	- 서블릿에서 스프링이 제공하는 IoC 컨테이너를 활용하는 방법
 		- ContextLoaderListener
 			- 서블릿 리스너의 구현체
-			- ApplicationContext를 만들어준다.
-			- ApplicationContext를 서블릿 컨텍스트 라이프사이클에 따라 등록하고 소멸시켜준다.
-			- 서블릿에서 IoC 컨테이너를 ServletContext를 통해 꺼내 사용할 수 있다.
-	- 스프링이 제공하는 서블릿 구현체 DispatcherServlet
+			- ApplicationContext를 만들어준다. (Spring 설정 파일이 필요하다.)
+			- ApplicationContext를 ServletContext 라이프사이클에 따라 등록하고 소멸시켜준다.
+			- 서블릿에서 IoC 컨테이너를 ServletContext를 통해 꺼내 사용할 수 있다.  
+			  <br>
+	- 스프링이 제공하는 서블릿 구현체 DispatcherServlet 사용하기
+		- Dispatcher Servlet
+		- 스프링 MVC의 핵심
+		- Front Controller의 역할 (Front Controller 참고 : 
+		                          [자료1](http://www.corej2eepatterns.com/FrontController.htm), 
+								  [자료2](https://www.oracle.com/technetwork/java/frontcontroller-135648.html),
+								  [자료3](https://martinfowler.com/eaaCatalog/frontController.html))
 
 - 참고)
 	- 의존성 'org.springframework::spring-webmvc'
 	- Listener 'org.springframework.web.context.ContextLoaderListener'
 		- Servlet 컨텍스트의 라이프 사이클에 맞춰 Spring이 제공해주는 애플리케이션 컨텍스트를 연동해준다.
+	- Spring boot를 쓰지 않고 Spring만 쓰게 되면 의존성을 추가할 때 버전을 다 명시해주어야 한다.
+	- ServletContext : 모든 Sevlet이 사용할 수 있는 공용 저장소
+	- Dispatch : 분배하다.
+	- Root WebApplicationContext는 다른 Context에서 사용할 수 있으나, DispatcherServlet 의 applicationContext는 DispatcherServlet 안에서만 사용할 수 있다. 
+	- 여러 DispatcherServlet에서 특정 빈을 공용으로 쓸 수 있게 하기 위해 Servlet Webapplication과 Root WebApplicationContext를 상속 관계로 만들었다.
+	- Root WebApplicationContext에는 주로 web과 관련된 빈은 등록되지 않고, 공용으로 쓸 수 있는 Service나 Repository를 빈으로 등록한다.
+	- WebApplicationContext는 해당 DispatchServlet에 한정된 빈들을 등록한다.
 
 ## 내용 출처
 [inflearn - '스프링 웹 MVC(백기선)' 강의 및 강의 노트](https://www.inflearn.com/course/%EC%9B%B9-mvc#)
