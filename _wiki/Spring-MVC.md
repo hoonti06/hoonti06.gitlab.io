@@ -3,7 +3,7 @@ layout    : wiki
 title     : 스프링 웹 MVC
 summary   : 
 date      : 2020-02-10 12:16:49 +0900
-updated   : 2020-02-16 23:06:55 +0900
+updated   : 2020-02-17 19:58:40 +0900
 tag       : spring mvc web inflearn
 public    : true
 published : true
@@ -262,26 +262,9 @@ public class HelloServlet extends HttpServlet {
       +--------------------+
 {% endditaa %}		
 
-{% ditaa -T %}		
-+----------------------------------+
-|Spring Application                |
-|                                  |
-|  +-----------------------------+ |
-|  |     Spring IoC Container    | |
-|  +-----------------------------+ |
-|                 ^                |
-|  +--------------|--------------+ |
-|  |              |              | |
-|  |     +--------+--------+     | |
-|  |     |DispatcherServlet|     | |
-|  |     +-----------------+     | |
-|  |                             | |
-|  |Embedded Tomcat              | |
-|  +-------------+---------------+ |
-+----------------------------------+
-{% endditaa %}
 
-### 1.4 Dispatcher Servlet
+### 1.4 DispatcherServlet
+#### 1.4.1 DispatcherServlet
 ![이미지 출처 : [https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc
 ](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc)](/wiki-img/Spring-MVC/DispatcherServlet.png)  
 
@@ -290,14 +273,67 @@ public class HelloServlet extends HttpServlet {
 - 서블릿 애플리케이션에 스프링 연동하기  
   <br>
 	- 서블릿에서 스프링이 제공하는 IoC 컨테이너를 활용하는 방법
-		- ContextLoaderListener
+		- ContextLoaderListener  
+
+			```xml
+			<web-app>
+				<display-name>Demo Web App</display-name>
+
+				<context-param>
+					<param-name>contextClass</param-name>
+					<param-value>org.springframework.web.conetext.support.AnnotationConfigWebApplicationContext</param-value>
+				</context-param>
+
+				<context-param>
+					<param-name>contextConfigLocation</param-name>
+					<param-value>me.hoonti06.AppConfig</param-value>
+				</context-param>
+
+				<listener>
+					<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+				</listener>
+				.
+				.
+				.
+			<web-app>
+			```
+			root WebApplicationContext의 빈은 me.hoonti06.AppConfig.class에서 등록된다.
 			- 서블릿 리스너의 구현체
 			- ApplicationContext를 만들어준다. (Spring 설정 파일이 필요하다.)
 			- ApplicationContext를 ServletContext 라이프사이클에 따라 등록하고 소멸시켜준다.
 			- 서블릿에서 IoC 컨테이너를 ServletContext를 통해 꺼내 사용할 수 있다.  
 			  <br>
 	- 스프링이 제공하는 서블릿 구현체 DispatcherServlet 사용하기
-		- Dispatcher Servlet
+		- DispatcherServlet  
+
+			```xml
+			<web-app>
+				.
+				.
+				.
+				<servlet>
+					<servlet-name>app</servlet-name>
+					<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+					<init-param>
+						<param-name>contextClass</param-name>
+						<param-value>org.springframework.web.conetext.support.AnnotationConfigWebApplicationContext</param-value>
+					</init-param>
+					<init-param>
+						<param-name>contextConfigLocation</param-name>
+						<param-value>me.hoonti06.WebConfig</param-value>
+					</init-param>
+				</servlet>
+
+				<servlet-mapping>
+					<servlet-name>app</servlet-name>
+					<url-pattern>/app/*</url-pattern>
+				</servlet-mapping>
+			</web-app>
+			```  
+			Servlet WebApplicationContext의 빈은 me.hoonti06.webConfig.class에서 등록된다.
+			app/* 요청은 모두 DispatcherServlet으로 들어간다.
+
+
 		- 스프링 MVC의 핵심
 		- Front Controller의 역할 (Front Controller 참고 : 
 		                          [자료1](http://www.corej2eepatterns.com/FrontController.htm), 
@@ -315,6 +351,76 @@ public class HelloServlet extends HttpServlet {
 	- 여러 DispatcherServlet에서 특정 빈을 공용으로 쓸 수 있게 하기 위해 Servlet Webapplication과 Root WebApplicationContext를 상속 관계로 만들었다.
 	- Root WebApplicationContext에는 주로 web과 관련된 빈은 등록되지 않고, 공용으로 쓸 수 있는 Service나 Repository를 빈으로 등록한다.
 	- WebApplicationContext는 해당 DispatchServlet에 한정된 빈들을 등록한다.
+	- Root WebApplicationContext  
+
+		```java
+		@ComponentScan(excludeFilters = @ComponentScan.Filter(Controller.class))
+		public class AppConfig {
+		}
+		```
+	- Servlet WebApplicationContext  
+
+		```java
+		@ComponentScan(useDefaultFilters = false, includeFilters = @ComponentScan.Filter(Controller.class))
+		public class WebConfig {
+		}
+		```
+
+	- 하지만 최근에는 대부분 상속 관계를 가지지 않고 DispatcherServlet 하나만 등록하여 해당 Servlet WebApplicationContext에 모든 빈을 등록한다.
+	- Spring vs Spring boot
+		- servlet container(tomcat, netty 등)가 먼저 뜨고, 그 안에 등록되는 servlet Application에다가 spring을 연동하는 방법이다. => servlet container 안에 spring이 들어가 있는 형태
+		- spring boot의 경우 spring boot application(java app)이 먼저 뜨고, 내장되어 있는 Tomcat이 뜨게 된다. boot가 내장 Tomcat에 DispatcherServlet을 코드로 등록한다. => spring boot application(java app) 안에 tomcat이 들어가 있는 형태
+
+#### 1.4.2 동작 원리
+
+- DispatcherServlet 초기화
+	- 다음의 특별한 타입의 빈들을 찾거나, 기본 전력에 해당하는 빈들을 등록한다.
+	- HandlerMapping : 핸들러를 찾아주는 인터페이스 (strategy pattern)
+	- HandlerAdapter : 핸들러를 실행하는 인터페이스 (strategy pattern)
+	- HandlerExceptionResolver
+	- ViewResolver  
+	  <br>
+- DispatcherServlet 동작 순서 (doDispatch())
+	1. 요청을 분석한다. (locale, theme, multipart(file upload))
+	2. (HandlerMapping에게 위임하여) 요청을 처리할 핸들러를 찾는다. (getHandler())
+	3. (등록되어 있는 HandlerAdapter 중에) 해당 핸들러를 실행할 수 있는 "HandlerAdapter"를 찾는다. (getHandlerAdapter())
+	4. 찾아낸 "핸들러 어댑터"를 사용해서 핸들러의 응답을 처리한다. (handle())
+		- 핸들러의 리턴값을 보고 어떻게 처리할지 판단한다.
+			- 뷰 이름에 해당하는 뷰를 찾아서 모델 데이터를 랜더링한다.
+			- @RepsonseEntity가 있다면 converter를 사용해서 응답 본문(response body)을 만든다.
+	5. (부가적으로) 예외가 발생했다면, 예외 처리 핸들러에 요청 처리를 위임한다.
+	7. 최종적으로 응답을 보낸다.
+
+
+
+- 참고)
+	- class에 @RestController를 선언하면, 해당 class 안에 있는 모든 메소드에 @ResponceBody를 선언한 형태와 같다.
+
+
+
+
+
+
+
+
+{% ditaa -T %}
++----------------------------------+
+|Spring Application                |
+|                                  |
+|  +-----------------------------+ |
+|  |     Spring IoC Container    | |
+|  +-----------------------------+ |
+|                 ^                |
+|  +--------------|--------------+ |
+|  |              |              | |
+|  |     +--------+--------+     | |
+|  |     |DispatcherServlet|     | |
+|  |     +-----------------+     | |
+|  |                             | |
+|  |Embedded Tomcat              | |
+|  +-------------+---------------+ |
++----------------------------------+
+{% endditaa %}
 
 ## 내용 출처
 [inflearn - '스프링 웹 MVC(백기선)' 강의 및 강의 노트](https://www.inflearn.com/course/%EC%9B%B9-mvc#)
