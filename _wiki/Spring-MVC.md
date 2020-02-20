@@ -3,7 +3,7 @@ layout    : wiki
 title     : 스프링 웹 MVC
 summary   : 
 date      : 2020-02-10 12:16:49 +0900
-updated   : 2020-02-20 13:13:20 +0900
+updated   : 2020-02-20 23:45:39 +0900
 tag       : spring mvc web inflearn
 public    : true
 published : true
@@ -371,6 +371,7 @@ public class HelloServlet extends HttpServlet {
 		- servlet container(tomcat, netty 등)가 먼저 뜨고, 그 안에 등록되는 servlet Application에다가 spring을 연동하는 방법이다. => servlet container 안에 spring이 들어가 있는 형태
 		- spring boot의 경우 spring boot application(java app)이 먼저 뜨고, 내장되어 있는 Tomcat이 뜨게 된다. boot가 내장 Tomcat에 DispatcherServlet을 코드로 등록한다. => spring boot application(java app) 안에 tomcat이 들어가 있는 형태
 
+
 #### 1.4.2 동작 원리
 
 - DispatcherServlet 초기화
@@ -389,7 +390,7 @@ public class HelloServlet extends HttpServlet {
 			- 뷰 이름에 해당하는 뷰를 찾아서 모델 데이터를 랜더링한다.
 			- @RepsonseEntity가 있다면 converter를 사용해서 응답 본문(response body)을 만든다. 그리고, mv(modelAndView는 null이 된다.)
 	5. (부가적으로) 예외가 발생했다면, 예외 처리 핸들러에 요청 처리를 위임한다.
-	7. 최종적으로 응답을 보낸다.
+	6. 최종적으로 응답을 보낸다.
 
 - @ResponseBody
 	- HandlerMapping : RequestMappingHandlerMapping (annotation 기반의 요청)
@@ -464,7 +465,17 @@ public class SimpleController implements Controller {
 		return new ModelAndView("thanks");
 	}
 }
-```
+```  
+
+
+- 참고)
+	- DispatcherServlet에는 beanNameUrlHandlerMapping, requestmMappingHandlerMapping이 기본으로 등록되어 있다.
+	- class에 @RestController를 선언하면, 해당 class 안에 있는 모든 메소드에 @ResponseBody를 선언한 형태와 같다.
+	- mv(modelAndView)가 null이 아니면 mapping된 jsp를 response body에 넣는다.  
+	  
+
+### 1.5 스프링 MVC 구성 요소  
+
 {% ditaa -T -E %}
 +---------------------------------+
 | DispatcherServlet               |
@@ -490,11 +501,67 @@ public class SimpleController implements Controller {
 +---------------------------------+
 {% endditaa %}
 
-- 참고)
-	- DispatcherServlet에는 beanNameUrlHandlerMapping, requestmMappingHandlerMapping이 기본으로 등록되어 있다.
-	- class에 @RestController를 선언하면, 해당 class 안에 있는 모든 메소드에 @ResponseBody를 선언한 형태와 같다.
-	- mv(modelAndView)가 null이 아니면 mapping된 jsp를 response body에 넣는다.
+- DispatcherServlet의 기본 전략
+	- DispatcherServlet.properties
+- MultipartResolver
+	- 파일 업로드 요청 처리에 필요한 인터페이스 
+	- HttpServletRequest를 MultipartHttpServletRequest로 변환해주어 요청이 담고 있는 File을 꺼낼 수 있는 API 제공. 
+- LocaleResolver 
+	- 클라이언트의 위치(Locale) 정보를 파악하는 인터페이스 
+	- 기본 전략은 요청의 accept-language를 보고 판단. 
+- ThemeResolver 
+	- 애플리케이션에 설정된 테마를 파악하고  변경할 수 있는 인터페이스 
+	- 참고: [https://memorynotfound.com/spring-mvc-theme-switcher-example/](https://memorynotfound.com/spring-mvc-theme-switcher-example/)
+- HandlerMapping 
+	- 요청을 처리할 핸들러를 찾는 인터페이스 
+- HandlerAdapter 
+	- HandlerMapping이 찾아낸 "핸들러"를 처리하는 인터페이스 
+	- 스프링 MVC 확장력의 핵심 
+- HandlerExceptionResolver 
+	- 요청 처리 중에 발생한 에러를 처리하는 인터페이스 
+- RequestToViewNameTranslator 
+	- 핸들러에서 뷰 이름을 명시적으로 리턴하지 않은 경우, 요청을 기반으로 뷰 이름을 판단하는 인터페이스 
+- ViewResolver 
+	- 뷰 이름(string)에 해당하는 뷰를 찾아내는 인터페이스 
+- FlashMapManager 
+	- FlashMap 인스턴스를 가져오고 저장하는 인터페이스 
+	- FlashMap은 주로 리다이렉션을 사용할 때 요청 매개변수를 사용하지 않고 데이터를 전달하고 정리할 때 사용한다. 
+	- redirect:/events 
 
+### 1.6 정리 
+
+- DispatcherServlet : 결국엔 서블릿(하지만 굉장히 복잡한)
+
+- DispatcherServlet 초기화
+	1. 특정 타입에 해당하는 빈을 찾는다.
+	2. 없으면 기본 전략을 사용한다. (DispatcherServlet.properties에 명시되어 있는 것들로)
+
+- 스프링 부트를 사용하지 않는 스프링 MVC
+	- 서블릿 컨테이너(ex 톰캣)에 등록한 웹 애플리케이션(WAR)에 DispatcherServlet을 등록한다.
+		- web.xml에 서블릿 등록
+			- spring-web-mvc을 등록하면 dispatcherservlet을 쓸 수 있게 된다.
+		- 또는 WebApplicationInitializer에 자바 코드로 서블릿 등록 (스프링 3.1+, 서블릿 3.0+)
+			```java
+			public class WebApplication implements WebApplicationInitializer {
+				@override
+				public void onStartup(ServletContext servletContext) throws ServletException {
+					AnnotationConfigApplicationContext context 
+											= new AnnotationConfigApplicationContext();
+					context.register(WebConfig.class);
+					context.refresh();
+					
+					DispatcherServlet dispatcherServlet = new DispatcherServlet(context);
+					ServletRegistration.Dynamic app = servletContext.addServet("app", dispatcherServlet);
+					app.addMappnig("/app/*");
+				}
+			}
+			```
+	- 세부 구성 요소는 빈 설정하기 나름
+- 스프링 부트를 사용하는 스프링 MVC
+	- 자바 애플리케이션에 내아 톰캣을 만들고 그 안에 DispatcherServlet을 등록한다.
+		- 스프링 부트 자동 설정이 자동으로 해준다.
+	- 스프링 부트의 주관에 따라 여러 인터페이스 구현체를 빈으로 미리 등록한다.
+	- 웬만한건 다 설정이 되어 있다.
 
 
 
@@ -519,10 +586,11 @@ public class SimpleController implements Controller {
 |  |Embedded Tomcat              | |
 |  +-------------+---------------+ |
 +----------------------------------+
-{% endditaa %}
+{% endditaa %}  
+
 
 ## 내용 출처
-[inflearn - '스프링 웹 MVC(백기선)' 강의 및 강의 노트](https://www.inflearn.com/course/%EC%9B%B9-mvc#)
+[inflearn - '스프링 웹 MVC(백기선)' 강의 및 강의 노트](https://www.inflearn.com/course/%EC%9B%B9-mvc)
 
 
 ## footnotes

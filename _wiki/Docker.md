@@ -3,7 +3,7 @@ layout    : wiki
 title     : Docker
 summary   : 
 date      : 2019-08-20 14:37:47 +0900
-updated   : 2020-02-20 15:10:20 +0900
+updated   : 2020-02-20 22:45:21 +0900
 tag       : docker
 public    : true
 published : true
@@ -13,8 +13,7 @@ latex     : false
 
 ## 1. Docker
 Docker는 가상 머신이 아니다.  
-가상머신은 운영체제 위에 하드웨어를 에뮬레이션하고 그 위에 운영체제를 올리고 프로세스를 실행하는 반면에, 도커 컨테이너는 하드웨어 에뮬레이션 없이 리눅스 커널을 공유해서 바로 프로세스를 실행한다. 
-
+가상머신은 운영체제 위에 하드웨어를 에뮬레이션하고 그 위에 운영체제를 올려 프로세스를 실행하는 반면에, 도커 컨테이너는 하드웨어 에뮬레이션 없이 리눅스 kernel을 공유해서 바로 프로세스를 실행한다. 
 
 ubuntu에서 centos docker container를 올릴 수 있는 이유
 명령 체계도 다르고, 패키기 관리 방식, UI 등 다르지만 Linux kernel이 동일한 뿌리를 두기 때문이다. 
@@ -25,7 +24,7 @@ user space영역을 가상화시켜 분리하는 기술이므로 동일한 kerne
 
 docker host의 kernel에 완전히 의존적일 수 밖에 없기 때문에 kernel 레벨의 작업을 하게 되면 모든 container가 영향을 받을 수 있다.
 
-kernel 3.8이상의 버전만을 지원한다.
+kernel 3.10이상의 버전만을 지원한다.
 
 Docker Host의 OS가 kernel 3.13.0 버전의 Ubuntu 14.04 LTS이고, CentOS 6.6(default kernel version : 2.6.32) Container를 올리게 되면 CentOS 6.6에 kernel 버전을 3.13.0으로 upgrade한 OS를 사용하는 듯한 환경이 될 것이다.
 
