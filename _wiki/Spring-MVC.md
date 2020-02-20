@@ -3,7 +3,7 @@ layout    : wiki
 title     : 스프링 웹 MVC
 summary   : 
 date      : 2020-02-10 12:16:49 +0900
-updated   : 2020-02-17 19:58:40 +0900
+updated   : 2020-02-20 13:13:20 +0900
 tag       : spring mvc web inflearn
 public    : true
 published : true
@@ -378,7 +378,7 @@ public class HelloServlet extends HttpServlet {
 	- HandlerMapping : 핸들러를 찾아주는 인터페이스 (strategy pattern)
 	- HandlerAdapter : 핸들러를 실행하는 인터페이스 (strategy pattern)
 	- HandlerExceptionResolver
-	- ViewResolver  
+	- ViewResolver : resource(view) 이름에 해당하는 resource(view)를 찾아 변환해준다.
 	  <br>
 - DispatcherServlet 동작 순서 (doDispatch())
 	1. 요청을 분석한다. (locale, theme, multipart(file upload))
@@ -387,14 +387,113 @@ public class HelloServlet extends HttpServlet {
 	4. 찾아낸 "핸들러 어댑터"를 사용해서 핸들러의 응답을 처리한다. (handle())
 		- 핸들러의 리턴값을 보고 어떻게 처리할지 판단한다.
 			- 뷰 이름에 해당하는 뷰를 찾아서 모델 데이터를 랜더링한다.
-			- @RepsonseEntity가 있다면 converter를 사용해서 응답 본문(response body)을 만든다.
+			- @RepsonseEntity가 있다면 converter를 사용해서 응답 본문(response body)을 만든다. 그리고, mv(modelAndView는 null이 된다.)
 	5. (부가적으로) 예외가 발생했다면, 예외 처리 핸들러에 요청 처리를 위임한다.
 	7. 최종적으로 응답을 보낸다.
 
+- @ResponseBody
+	- HandlerMapping : RequestMappingHandlerMapping (annotation 기반의 요청)
+	- HandlerAdapter : RequestMappingHandlerAdapter  
+	  
+	  ```java
+	  // @RestController
+	  @Controller
+	  public class HelloController {
+	  
+	  	@Autowired
+		HelloService helloService;
+		
+		@GetMapping("/hello")
+		@ReponseBody
+		public String hello() {
+			return "Hello, " + helloService.getName();
+		}
+		
+		@GetMapping("/bye")
+		public String bye() {
+			return "/WEB-INF/bye.jsp";
+		}
+	  }
+	  ```  
+	  hello()의 경우 return값을 response body로 넣는다. mv(modelAndView)가 null이다.
+	  bye()의 경우 return값으로 resource(view)의 경로를 넘겨주어 해당 view를 response body로 넣는다.
+	  
+	
+- Controller 구현체
+	- HandlerMapping : BeanNameUrlHandlerMapping
+	- HandlerAdapter : SimpleControllerHandlerAapter  
+	  
+		```java
+		@org.springframework.stereotype.Controller("/thanks")
+		public class SimpleController implements Controller {
+			@Override
+			public ModelAndView handleRequest(HttpServletRequest request, 
+											  HttpServletResponse response) 
+											  		throws Exception {
+				return new ModelAndView("/WEB-INF/thanks.jsp");
+			}
+		}
+		```
 
+- 커스텀 ViewResolver
+	- ViewResolver
+		- InternalResourceViewResolver
+			- Prefix
+			- Suffix
+
+```java
+@Configuration
+@ComponentScan
+public class WebConfig {
+	@Bean
+	public InternalResourceViewResolver viewResolver() {
+		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+		viewResolver.setPrefix("/WEB-INF/");
+		viewResolver.setSuffix(".jsp");
+		return viewResolver;
+	}
+}
+```
+```java
+@org.springframework.stereotype.Controller ("/thanks")
+public class SimpleController implements Controller {
+	@Override
+		public ModelAndView handleRequest(HttpServletRequest request, 
+										  HttpServletResponse response) 
+										  		throws Exception {
+		return new ModelAndView("thanks");
+	}
+}
+```
+{% ditaa -T -E %}
++---------------------------------+
+| DispatcherServlet               |
+| +-----------------------------+ |
+| |      MultipartResolver      | |
+| +-----------------------------+ |
+| |       LocaleResolver        | |
+| +-----------------------------+ |
+| |        ThemeResolver        | |
+| +-----------------------------+ |
+| |       *HandlerMapping       | |
+| +-----------------------------+ |
+| |       *HandlerAdapter       | |
+| +-----------------------------+ |
+| | *HandlerExceptionResolvers  | |
+| +-----------------------------+ |
+| | RequestToViewnameTranslator | |
+| +-----------------------------+ |
+| |       *ViewResolvers        | |
+| +-----------------------------+ |
+| |       FlashMapManager       | |
+| +-----------------------------+ |
++---------------------------------+
+{% endditaa %}
 
 - 참고)
-	- class에 @RestController를 선언하면, 해당 class 안에 있는 모든 메소드에 @ResponceBody를 선언한 형태와 같다.
+	- DispatcherServlet에는 beanNameUrlHandlerMapping, requestmMappingHandlerMapping이 기본으로 등록되어 있다.
+	- class에 @RestController를 선언하면, 해당 class 안에 있는 모든 메소드에 @ResponseBody를 선언한 형태와 같다.
+	- mv(modelAndView)가 null이 아니면 mapping된 jsp를 response body에 넣는다.
 
 
 

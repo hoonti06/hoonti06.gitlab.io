@@ -3,7 +3,7 @@ layout    : wiki
 title     : markdown 연습장
 summary   : 
 date      : 2019-09-29 17:32:09 +0900
-updated   : 2020-02-15 21:08:33 +0900
+updated   : 2020-02-20 13:10:09 +0900
 tag       : 
 public    : true
 published : true
@@ -187,19 +187,17 @@ int main()
 {% endplantuml %}
 
 {% plantuml %}
-@startuml
 
 (First usecase)
 (Another usecase) as (UC2)  
 usecase UC3
 usecase (Last\nusecase) as UC4
 
-@enduml
 {% endplantuml %}
 
 
 {% plantuml %}
-@startuml
+
 :Main Admin: as Admin
 (Use the application) as (Use)
 
@@ -218,12 +216,12 @@ end note
 note "This note is connected\nto several objects." as N2
 (Start) .. N2
 N2 .. (Use)
-@enduml
+
 {% endplantuml %}
 
 
 {% plantuml %}
-@startuml
+
 participant Alice
 actor Bob
 
@@ -235,12 +233,12 @@ ref over Bob
 	This can be on
 	several lines
 end ref
-@enduml
+
 {% endplantuml %}
 
 
 {% plantuml %}
-@startuml
+
 participant User
 User -> A: DoWork
 activate A
@@ -254,7 +252,7 @@ B --> A: RequestCreated
 deactivate B
 A -> User: Done
 deactivate A
-@enduml
+
 {% endplantuml %}
 
 ## 4. ditaa

@@ -3,7 +3,7 @@ layout    : wiki
 title     : Docker
 summary   : 
 date      : 2019-08-20 14:37:47 +0900
-updated   : 2020-02-15 09:07:40 +0900
+updated   : 2020-02-20 15:10:20 +0900
 tag       : docker
 public    : true
 published : true
@@ -46,6 +46,7 @@ RUN
 ## 2.1 Dockerfile Command
 
 ## 3. docker-compose
+[설치](https://docs.docker.com/compose/install/)
 
 ## 4. command
 
