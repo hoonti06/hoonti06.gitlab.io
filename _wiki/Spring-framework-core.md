@@ -3,7 +3,7 @@ layout    : wiki
 title     : 스프링 프레임워크 핵심 기술
 summary   : 
 date      : 2020-01-29 09:42:19 +0900
-updated   : 2020-02-16 21:07:18 +0900
+updated   : 2020-02-22 10:29:14 +0900
 tag       : spring web inflearn
 public    : true
 published : true
@@ -44,7 +44,6 @@ Spring framework는 소규모 애플리케이션 또는 기업용 애플리케�
 Inversion of Control(IoC): 의존 관계 주입(Dependency Injection, DI)이라고도 하며, 어떤 객체가 사용하는 **의존 객체를 직접 만들어 사용하는게 아니라, 주입 받아 사용하는 방법**[^1]을 말함
 
 {% plantuml %}
-@startuml
 rectangle "Bean 설정" as bean
 node "Spring IoC 컨테이너" as container
 bean -right-> container
@@ -53,8 +52,6 @@ skinparam node {
 	backgroundColor Agua
 }
 
-@enduml
-					
 {% endplantuml %}
 
 - Spring IoC 컨테이너    
