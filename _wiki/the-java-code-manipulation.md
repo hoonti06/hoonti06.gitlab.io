@@ -3,7 +3,7 @@ layout    : wiki
 title     : 더 자바, 코드를 조작하는 다양한 방법
 summary   : 
 date      : 2020-02-22 09:48:16 +0900
-updated   : 2020-02-24 00:29:00 +0900
+updated   : 2020-02-24 09:09:44 +0900
 tag       : java
 public    : true
 published : true
@@ -165,8 +165,8 @@ latex     : false
 		- Resolve : 심볼릭 메모리 레퍼런스를 메소드 영역에 있는 실제 레퍼런스로 교체한다. 
 	- 초기화 
 		- Static 변수의 값을 할당한다. (static 블럭이 있다면 이때 실행된다.) 
-	- 클래스 로더는 계층 구조로 이뤄져 있으면 기본적으로 3가지 클래스 로더가 제공된다. 
-		- 부트 스트랩 클래스 로더 : JAVA_HOME/lib에 있는 코어 자바 API를 제공한다. 최상위 우선순위를 가진 클래스 로더 
+	- 클래스 로더는 계층 구조로 이뤄져 있으며 기본적으로 3가지 클래스 로더가 제공된다. 
+		- 부트스트랩 클래스로더 : JAVA_HOME/lib에 있는 코어 자바 API를 제공한다. 최상위 우선순위를 가진 클래스 로더 
 		- 플랫폼 클래스로더 : JAVA_HOME/lib/ext 폴더 또는 java.ext.dirs 시스템 변수에 해당하는 위치에 있는 클래스를 읽는다. 
 		- 애플리케이션 클래스로더 : 애플리케이션 classpath(애플리케이션 실행할 때 주는 -classpath 옵션 또는 java.class.path 환경 변수의 값에 해당하는 위치)에서 클래스를 읽는다.
 
@@ -256,3 +256,34 @@ latex     : false
  
 ### 2.3 javaagent
 - javaagent
+
+
+### 2.4 정리
+- 바이트 코드 조작 툴의 활용 예
+	- 프로그램 분석
+		- 코드에서 버그 찾는 툴
+		- 코드 복잡도 계산
+	- 클래스 파일 생성
+		- 프록시
+		- 특정 API 호출 접근 제한
+		- 스칼라 같은 언어의 컴파일러
+	- 그 밖에도 자바 소스 코드를 건드리지 않고 코드 변경이 필요한 경우
+		- 프로파일러
+		- 최적화
+		- 로깅
+		- ...
+- 스프링이 컴포넌트 스캔하는 방법
+- 빈으로 등록할 후보 클래스 정보를 찾는데 사용
+- ClassPathScanningCandidateComponentProvider -> SimpleMetadataReader
+- ClassReader와 Visitor를 사용해서 클래스에 있는 메타 정보를 읽어온다.
+- 
+- simple metadatareader가 class reader와 visitor 구현체를 사용해서 class와 메소드에 붙어있는 애노테이션을 추출한다. 이때  ASM을 사용한다.
+- classPathscaningcand compprovider가 Asm을 사용하고 있다.
+- class reader도 Asm을 사용한다.
+- 참고)
+	- https://www.youtube.com/watch?v=39kdr1mNZ_s
+	- ASM, Jvassist, ByteBuddy, CGlib
+	- 프록시는 하기의 기능에 사용되고 있다.
+		- Spring AOP
+		- 하이버네이트 레이지 로딩 객체
+		- mock
