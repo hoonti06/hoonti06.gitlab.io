@@ -3,7 +3,7 @@ layout    : wiki
 title     : 더 자바, 코드를 조작하는 다양한 방법
 summary   : 
 date      : 2020-02-22 09:48:16 +0900
-updated   : 2020-02-24 09:09:44 +0900
+updated   : 2020-02-25 20:00:56 +0900
 tag       : java
 public    : true
 published : true
@@ -103,7 +103,7 @@ latex     : false
 - 클래스 로더 시스템
 	- .class 파일에서 바이트 코드를 읽고 메모리에 저장
 	- 로딩 : 클래스 읽어오는 과정
-	- 링크 : 레퍼런스를 연겨하는 과정
+	- 링크 : 레퍼런스를 연결하는 과정
 	- 초기화 : static 값들 초기화 및 변수에 할당
 - 메모리
 	- 메소드 : 클래스 수준의 정보(클래스 이름, 부모 클래스 이름, 메소드, 변수 등) 저장. 공유 자원이다.
@@ -287,3 +287,29 @@ latex     : false
 		- Spring AOP
 		- 하이버네이트 레이지 로딩 객체
 		- mock
+
+## 3. Reflection
+
+
+### 3.1 Reflection API
+
+- 리플렉션의 시작은 Class<T>
+	- https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html
+- Class<T>에 접근하는 방법
+	- 모든 클래스를 로딩한 다음 Class<T>의 인스턴스가 생긴다. "타입.class"로 접근할 수 있다.
+		- Class<Book> bookClass = Book.class;
+	- 모든 인스턴스는 getClass() 메소드를 가지고 있다. "인스턴스.getClass()"로 접근할 수 있다.
+		- Class<? extends Book> bookClass = book.getClass();
+	- 클래스를 문자열로 읽어오는 방법
+		- Class.forName("FQCN")
+		- classpath에 해당 클래스가 없다면 ClassNotFoundException 발생
+			- Class<?> aClass1 = Class.forName("me.hoonti06.Book");
+
+- Class<T>를 통해 할 수 있는 것
+	- 필드(목록) 가져오기 (getFields(), getDeclaredFields())
+	- 메소드(목록) 가져오기 (getMethod())
+	- 상위 클래스 가져오기 (getSuperClass())
+	- 인터페이스(목록) 가져오기 (getInterfaces())
+	- 애노테이션 가져오기
+	- 생성자 가져오기
+	- ...

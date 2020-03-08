@@ -3,7 +3,7 @@ layout    : wiki
 title     : 정렬
 summary   : 
 date      : 2019-09-14 10:17:04 +0900
-updated   : 2020-01-31 19:20:55 +0900
+updated   : 2020-03-06 17:07:44 +0900
 tag       : 
 public    : true
 published : true
@@ -101,9 +101,9 @@ void insertionSort(int arr[], int N)
 ### 5.1 코드
 정해진 pivot보다 작은(또는 큰) 원소가 몇 개인지 알면 해당 pivot에 해당하는 원소가 정렬했을 때 몇 번째 위치인지 알 수 있다.  
 아래의 코드는 오름차순 정렬이다.
-left가 start+1부터 시작하게 되면 원소가 2개인 경우에 문제가 발생하기 때문에, start부터 시작하게 된다.
+left가 start+1부터 시작하게 되면 원소가 2개인 경우에 문제가 발생하기 때문에, start부터 시작하게 된다.  
 
-`while (arr[left] <= pivot && left < end)`에만 `left < end` 조건이 있는 이유는 `while(pivot < arr[right])`에서는 항상 right가 pivot위치에 가게 되면 해당 while이 종료되기 때문이다.
+`while (arr[left] <= pivot && left < end)`에만 `left < end` 조건이 있는 이유는 `while(pivot < arr[right])`에서는 항상 right가 pivot위치에 가게 되면 해당 while이 종료되기 때문이다.  
 
 결국 **최상위 while이 종료된 후의 right는 항상 pivot보다 작거나 같은 값을 갖는 부분 집합의 마지막 index를 가리키게 된다.**
 그리고 최상위 while문 밖에서 pivot의 위치인 start와 right(pivot보다 작거나 같은 값을 갖는 부분 집합의 마지막 index)와 swap하게 되고, pivot 양쪽으로 재귀 함수를 호출한다.
