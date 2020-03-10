@@ -3,7 +3,7 @@ layout  : category
 title   : Algorithm 개념
 summary : 
 date    : 2019-07-23 23:19:27 +0900
-updated : 2019-10-06 09:13:47 +0900
+updated : 2020-03-10 16:48:36 +0900
 tag     : 
 public  : true
 parent  : Algorithm
@@ -25,6 +25,7 @@ latex   : false
 	* Queue
 	* Union-Find
 	* Heap 
+	* Hash
 
 * Divide & Conquer
  
@@ -53,3 +54,5 @@ latex   : false
 	* CCW
 	* 볼록껍질
 	* 라인 스위핑
+
+* 정렬(Sort)

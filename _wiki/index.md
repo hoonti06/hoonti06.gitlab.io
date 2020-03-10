@@ -2,13 +2,13 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2020-02-22 14:52:57 +0900
+updated : 2020-03-10 16:55:21 +0900
 public  : true
 comment : false
 ---
 
 * [ToDoList]
-* [[book-review]]{도서 내용 정리}
+* [[book-contents-summary]]{도서 내용 정리}
 	* [[The_Essence_of_Object-Orientation]]{객체지향의 사실과 오해}
 * [[Spring-framework-core]]{Spring framework 핵심 기술}
 * [[Spring-boot]]{Spring boot}
@@ -17,7 +17,6 @@ comment : false
 * [[Git]]
 * [[OS]]
 * [[Database]]
-* [[Data-Structure]]{자료구조}
 * [[Network]]
 	* [[OSI-7layers]]{OSI 7계층}
 	* [[TCP-IP]]{TCP/IP}
@@ -40,7 +39,8 @@ comment : false
 			* [[BOJ-17136]]{17136. 색종이 붙이기}
 			* [[BOJ-17837]]{17837. 새로운 게임2}
 	* [[Algorithm-Concept]]{개념}
-		* [[Hash]]
+		* [[Data-Structure]]{자료구조}
+			* [[Hash]]
 		* [[Sort]]
 * [[Computer-Terminology]]{컴퓨터 용어}
 * [[Docker]]

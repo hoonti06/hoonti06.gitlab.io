@@ -3,7 +3,7 @@ layout    : wiki
 title     : 더 자바, 코드를 조작하는 다양한 방법
 summary   : 
 date      : 2020-02-22 09:48:16 +0900
-updated   : 2020-03-08 23:29:21 +0900
+updated   : 2020-03-09 10:43:35 +0900
 tag       : java
 public    : true
 published : true
@@ -179,6 +179,7 @@ latex     : false
 	- https://www.eclemma.org/jacoco/trunk/doc/index.html 
 	- http://www.semdesigns.com/Company/Publications/TestCoverage.pdf  
 	  <br>
+	  
 		```xml
 		<plugin> 
 			<groupId>org.jacoco</groupId> 
@@ -199,13 +200,18 @@ latex     : false
 				</execution> 
 			</executions> 
 		</plugin>
-		```
+		```  
+		
+		<br>  
 		
 		```bash
 		mvn clean verify
-		```
+		```  
 		
-		커버리지 만족 못할 시 빌드 실패하도록 설정
+		<br>  
+		
+		커버리지 만족 못할 시 빌드 실패하도록 설정  
+		
 		```xml
 		<plugin> 
 			<groupId>org.jacoco</groupId> 
@@ -326,9 +332,10 @@ latex     : false
 - 하이버네이트
 	- @Entity 클래스에 Setter가 없다면 리플렉션을 사용한다.
 - JUnit
-	- https://junit.org
+	- https://junit.org/
+ 
 - 참고
-	- 
+ 
 ## 4. Dinamic Proxy
 
 - 다이나믹 프록시는 reflect의 일부
@@ -338,6 +345,35 @@ latex     : false
 - 스프링 데이터 JPA의 동작 방법
 	- 스프링 데이터 JPA에서 인터페이스 타입의 인스턴스는 누가 만들어주는 것인가?
 		- Spring AOP를 기반으로 동작하며 RepositoryFactorySupport에서 프록시를 생성한다.
+
+{% plantuml %}
+rectangle "클라이언트" as client
+rectangle "서브젝트" as subject
+rectangle "프록시" as proxy
+rectangle "리얼 서브젝트" as real_subject
+
+
+client -right-> subject
+proxy -up-|> subject
+real_subject -up-|> subject
+proxy -right-> real_subject
+{% endplantuml %}
+
+
+{% plantuml %}
+participant "클라이언트" as client
+participant "프록시" as proxy
+participant "리얼 서브젝트" as real_subject
+
+activate client #FFBBBB
+client -> proxy
+activate proxy #FFBBBB
+
+proxy -> real_subject
+activate real_subject#FFBBBB
+
+hide footbox
+{% endplantuml %}
 
 
 
