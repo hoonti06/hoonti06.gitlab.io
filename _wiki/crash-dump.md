@@ -3,10 +3,10 @@ layout  : wiki
 title   : Crash Dump
 summary : 
 date    : 2019-08-06 10:19:27 +0900
-updated : 2019-09-28 21:24:49 +0900
+updated : 2020-03-10 17:39:18 +0900
 tag     : 
 public  : true
-parent  : Debugging
+parent  : debugging
 latex   : false
 ---
 

@@ -3,11 +3,11 @@ layout    : wiki
 title     : TCP/IP
 summary   : 
 date      : 2019-09-29 19:22:36 +0900
-updated   : 2019-10-04 12:41:37 +0900
+updated   : 2020-03-09 00:28:40 +0900
 tag       : 
 public    : true
 published : true
-parent    : Network
+parent    : network
 latex     : false
 ---
 

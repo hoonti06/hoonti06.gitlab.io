@@ -3,11 +3,11 @@ layout    : wiki
 title     : 정렬
 summary   : 
 date      : 2019-09-14 10:17:04 +0900
-updated   : 2020-03-06 17:07:44 +0900
+updated   : 2020-03-09 00:22:31 +0900
 tag       : 
 public    : true
 published : true
-parent    : Algorithm-Concept
+parent    : algorithm-concept
 latex     : false
 ---
 

@@ -3,10 +3,10 @@ layout  : wiki
 title   : 
 summary : 
 date    : 2019-03-26 23:30:15 +0900
-updated : 2019-10-04 11:25:40 +0900
+updated : 2020-03-09 00:22:37 +0900
 tag     : 
 public  : true
-parent  : Algorithm-Concept
+parent  : data-structure
 latex   : false
 ---
 

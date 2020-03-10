@@ -3,10 +3,10 @@ layout  : wiki
 title   : HTTP
 summary : 
 date    : 2019-02-16 12:55:24 +0900
-updated : 2019-10-06 10:29:14 +0900
+updated : 2020-03-09 00:29:28 +0900
 tag     : 
 public  : true
-parent  : Network
+parent  : network
 latex   : false
 ---
 

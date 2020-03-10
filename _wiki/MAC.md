@@ -3,10 +3,10 @@ layout  : wiki
 title   : MAC 주소
 summary : 
 date    : 2019-02-16 18:14:26 +0900
-updated : 2019-09-28 21:25:45 +0900
+updated : 2020-03-09 00:29:35 +0900
 tag     : 
 public  : true
-parent  : Network
+parent  : network
 latex   : false
 ---
 

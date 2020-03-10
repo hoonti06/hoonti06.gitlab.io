@@ -3,10 +3,10 @@ layout  : category
 title   : Algorithm 개념
 summary : 
 date    : 2019-07-23 23:19:27 +0900
-updated : 2020-03-10 16:48:36 +0900
+updated : 2020-03-09 00:30:31 +0900
 tag     : 
 public  : true
-parent  : Algorithm
+parent  : algorithm
 latex   : false
 ---
 

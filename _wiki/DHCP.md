@@ -3,10 +3,10 @@ layout    : wiki
 title     : DHCP
 summary   : DHCP 동작 과정
 date      : 2019-02-09 22:13:32 +0900
-updated   : 2019-10-06 10:26:26 +0900
+updated   : 2020-03-09 00:28:49 +0900
 tag       :
 public    : true
-parent    : Network
+parent    : network
 published : true
 latex     : false
 ---

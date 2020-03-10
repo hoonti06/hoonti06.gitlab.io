@@ -3,11 +3,11 @@ layout    : wiki
 title     : OSI 7계층
 summary   : 
 date      : 2019-09-29 17:32:09 +0900
-updated   : 2019-12-18 15:11:43 +0900
+updated   : 2020-03-09 00:28:34 +0900
 tag       : 
 public    : true
 published : true
-parent    : Network
+parent    : network
 latex     : false
 ---
 
