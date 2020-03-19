@@ -3,7 +3,7 @@ layout    : wiki
 title     : 정렬
 summary   : 
 date      : 2019-09-14 10:17:04 +0900
-updated   : 2020-03-09 00:22:31 +0900
+updated   : 2020-03-19 14:57:05 +0900
 tag       : 
 public    : true
 published : true
@@ -137,9 +137,9 @@ void quickSort(int arr[], int start, int end)
 }
 ```
 
-## 6. 머지 정렬
+## 6. 머지 정렬(Merge sort)
 
-## 7. 힙 정렬
+## 7. 힙 정렬(Heap sort)
 
 ## 8. 셸 정렬
 

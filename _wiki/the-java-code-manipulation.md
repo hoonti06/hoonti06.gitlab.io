@@ -3,7 +3,7 @@ layout    : wiki
 title     : 더 자바, 코드를 조작하는 다양한 방법
 summary   : 
 date      : 2020-02-22 09:48:16 +0900
-updated   : 2020-03-09 10:43:35 +0900
+updated   : 2020-03-17 20:08:35 +0900
 tag       : java
 public    : true
 published : true
@@ -375,5 +375,15 @@ activate real_subject#FFBBBB
 hide footbox
 {% endplantuml %}
 
+- 프록시와 리얼 서브젝트가 공유하는 인터페이스가 있고, 클라이언트는 해당 인터페이스 타입으로 프록시를 사용한다.
+- 클라이언트는 프록시를 거쳐서 리얼 서브젝트를 사용하기 때문에 프록시는 리얼 서브젝트에 대한 접근을 관리하거나 부가 기능을 제공, 리턴 값을 변경 등을 할 수 있다.
+- 리얼 서브젝트는 자신이 해야 할 일만 하면서(SRP[^1]) 프록시를 사용해서 부가적인 기능(접근 제한, 로깅, 트랜 잭션 등)을 제공할 때 이런 패턴을 주로 사용한다.
+
+- 참고
+	- https://www.oodesign.com/proxy-pattern.html
+	- https://en.wikipedia.org/wiki/Proxy_pattern 
+	- https://en.wikipedia.org/wiki/Single-responsibility_principle
 
 
+
+## footnotes

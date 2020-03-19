@@ -1,10 +1,10 @@
 ---
 layout  : category
-title   : Algorithm 개념
+title   : 알고리즘 개념
 summary : 
 date    : 2019-07-23 23:19:27 +0900
-updated : 2020-03-09 00:30:31 +0900
-tag     : 
+updated : 2020-03-19 14:54:58 +0900
+tag     : algorithm
 public  : true
 parent  : algorithm
 latex   : false
@@ -36,8 +36,9 @@ latex   : false
 * Graph 알고리즘
 	* 위상 정렬(Topological sort)
 	* MST(Minimum Spanning Tree)
-	* 다익스트라(Dijstra)
+	* 다익스트라(Dijkstra)
 	* 벨만-포드
+	* 플로이드 워셜
  
 * 문자열 Algorithm
 	* KMP

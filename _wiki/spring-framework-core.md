@@ -3,7 +3,7 @@ layout    : wiki
 title     : 스프링 프레임워크 핵심 기술
 summary   : 
 date      : 2020-01-29 09:42:19 +0900
-updated   : 2020-02-22 10:29:14 +0900
+updated   : 2020-03-11 00:40:07 +0900
 tag       : spring web inflearn
 public    : true
 published : true
@@ -210,7 +210,7 @@ skinparam node {
 	 
 - 참고)
 	- @Bean : @Configuration으로 선언된 클래스 내에 있는 메소드를 정의할 때 사용한다. 이 메소드가 반환하는 객체가 bean이 되며, 메소드 이름이 bean의 이름이 된다.
-	- @Bean vs @Component:
+	- @Bean vs @Component
 		- @Bean은 개발자가 직접 제어할 수 없는 외부 라이브러리 등을 Bean으로 등록할 때 사용
 	- Function을 사용한 빈 등록 ('@Bean'을 통한 빈 등록을 대체할 수 있지만, @ComponentScan을 대체하기엔 좋지 못한 방법)  
 	  
@@ -225,6 +225,45 @@ skinparam node {
 			.run(args);
 	  }
 	  ```
+	  
+### 2.5 빈의 스코프
+
+- 스코프
+	- 싱글톤
+	- 프로토타입 : @scope("prototype")
+		- Request
+		- Session
+		- WebSocket
+		- ...
+- 프로토타입 빈이 싱글톤 빈을 참조하면?
+	- 아무 문제없음
+- 싱글톤 빈이 프로토타입을 참조하면?
+	- 프로토타입 빈이 업데이트되지 않는다.  
+	  (싱글톤 빈이 처음에 생성될 때 참조하는 프로토타입 빈의 property도 세팅이 되어 바뀌지 않는다.)
+	- 업데이트 하려면
+		- scoped-proxy 
+			- @scope(value="prototype", proxyMode="ScopedProxyMode.TARGET_CLASS") // '클래스 기반의 proxy로 해당 빈을 감싸라'
+		- Object-Provider
+			- ObjectProvider<CLASS> class;
+			- 추천 X (코드에 스프링 코드가 추가되기 때문에 POJO스럽지 않다.)
+		- Provider(표준)  
+		  <br>
+		  
+- 프록시
+
+{% ditaa -T %}
++---------+
+|  Proxy  |
+| +-----+ |    +------+
+| |Proto| |<---+Single|
+| +-----+ |    +------+
++---------+
+{% endditaa %}  
+<br>
+
+- 싱글톤 객체 사용 시 주의할 점
+	- property가 공유된다. (변수들의 값이 thread-safe하지 않기 때문에 조심해야 한다.)
+	- ApplicationContext 초기 구동 시에 인스턴스 생성함 (구동 시에 모든 빈을 생성하느라 느릴 수 있다.)
 
 ## 내용 출처
 [inflearn - '스프링 프레임워크 핵심 기술(백기선)' 강의 및 강의 노트](https://www.inflearn.com/course/spring-framework_core)
