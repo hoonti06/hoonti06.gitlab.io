@@ -3,7 +3,7 @@ layout    : wiki
 title     : 벨만-포드 알고리즘
 summary   : 
 date      : 2020-03-19 10:55:16 +0900
-updated   : 2020-03-19 14:53:24 +0900
+updated   : 2020-03-24 21:37:45 +0900
 tag       : graph graph-algorithm
 public    : true
 published : true
@@ -25,7 +25,7 @@ latex     : false
 - V개 정점, E개 간선일 때
 	1. 정점의 수만큼 모든 간선을 relax하는 작업 수행
 	2. V-1(정점 개수-1)이 한 정점에서 다른 정점까지 거칠 수 있는 최대 간선 개수(모든 정점을 거친 경우가 이에 해당)
-	3. V번째에 갱신된다면 음수 사이클 존재  
+	3. V번째에서 갱신된다면 음수 사이클 존재  
 	   
 	   
 ```cpp

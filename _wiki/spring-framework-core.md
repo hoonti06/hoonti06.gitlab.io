@@ -3,7 +3,7 @@ layout    : wiki
 title     : 스프링 프레임워크 핵심 기술
 summary   : 
 date      : 2020-01-29 09:42:19 +0900
-updated   : 2020-03-11 00:40:07 +0900
+updated   : 2020-03-24 10:24:55 +0900
 tag       : spring web inflearn
 public    : true
 published : true
@@ -14,7 +14,7 @@ latex     : false
 ## 1. Spring framework
 Spring framework는 소규모 애플리케이션 또는 기업용 애플리케이션을 자바로 개발하는 데 있어 유용하고 편리한 기능을 제공하는 프레임 워크이다.
 
-## 1.1 역사
+## 1.1. 역사
 - 2003년 등장 (개발은 그 이전부터 이미 진행됐지만)
 	- 등장시 Java EE[^5] 표준과 싸우는 것처럼 보였지만 실제로는 Java EE 스팩 구현 모음체(+alpha).
 	- Servlet, WebSocket, Bean Validation, JPA, Dependency Injection(DI), ...
@@ -22,14 +22,14 @@ Spring framework는 소규모 애플리케이션 또는 기업용 애플리케�
 - 스프링 5부터는 WebFlux 지원으로 서블릿 기반이 아닌 서버 애플리케이션도 개발할 수 있게 지원
 
 
-## 1.2 디자인 철학
+## 1.2. 디자인 철학
 - 모든 선택은 개발자의 몫. (ex> Spring이 특정 영속화 기술을 강요하지 않는다.)
 - 다양한 관점을 지향한다. (유연성)
 - 하위 호환성을 지킨다. (노력)
 - API를 신중히 설계한다. (공들인다)
 - 높은 수준의 코드를 지향한다. (자랑)
 
-## 1.3 장점
+## 1.3. 장점
 - 트랜젝션 관리
 - 각기 다른 데이터베이스의 연동 지원
 - 객체관계형 프레임워크(하이버네이트, 아이바티스)와 결합
@@ -39,7 +39,7 @@ Spring framework는 소규모 애플리케이션 또는 기업용 애플리케�
 
 ## 2. IoC 컨테이너
 
-### 2.1 Spring IoC 컨테이너와 빈
+### 2.1. Spring IoC 컨테이너와 빈
 
 Inversion of Control(IoC): 의존 관계 주입(Dependency Injection, DI)이라고도 하며, 어떤 객체가 사용하는 **의존 객체를 직접 만들어 사용하는게 아니라, 주입 받아 사용하는 방법**[^1]을 말함
 
@@ -108,7 +108,7 @@ skinparam node {
 			- 실행 환경 자동 설정
 
 
-### 2.2 ApplicationContext와 다양한 빈 설정 방법
+### 2.2. ApplicationContext와 다양한 빈 설정 방법
 
 - Spring IoC 컨테이너의 역할
 	- 빈 instance 생성
@@ -145,7 +145,7 @@ skinparam node {
 			- @configuration이 붙는 Class를 생성할 필요도 없다.
 
 
-### 2.3 @Autowired
+### 2.3. @Autowired
 
 - 필요한 의존 객체의 `타입`에 해당하는 빈을 찾아 주입한다.
 - @Autowired(required: true) : Default값은 true (주입할 빈을 못 찾으면 애플리케이션 구동 실패)
@@ -186,7 +186,7 @@ skinparam node {
 		- 생성자가 호출되는 시점에는 아직 빈이 초기화되지 않은 상태, 즉 아직 Bean이 주입되기 전이다.  
 		  생성자에서 빈에 대한 초기화를 할 수 없으니 주입이 완료된 빈에 대해 초기화를 @PostConstruct가 설정된 method에서 할 수 있다.
 
-### 2.4 @Component와 컴포넌트 스캔
+### 2.4. @Component와 컴포넌트 스캔
 
 - @Component : 개발자가 직접 작성한 Class를 Bean으로 등록할 때 사용
 	- 하위 annotation으로 나눈 이유 : annotation마다 특성을 갖고 있지만, 가독성에서도 해당 애노테이션을 갖는 클래스가 무엇을 하는지 알 수 있다.
@@ -226,7 +226,7 @@ skinparam node {
 	  }
 	  ```
 	  
-### 2.5 빈의 스코프
+### 2.5. 빈의 스코프
 
 - 스코프
 	- 싱글톤

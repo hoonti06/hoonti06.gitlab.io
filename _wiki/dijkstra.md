@@ -3,7 +3,7 @@ layout    : wiki
 title     : 다익스트라
 summary   : 
 date      : 2020-03-19 09:45:18 +0900
-updated   : 2020-03-19 16:55:33 +0900
+updated   : 2020-03-24 10:25:21 +0900
 tag       : dijkstra graph graph-algorithm
 public    : true
 published : true
@@ -13,7 +13,7 @@ latex     : false
 
 ## 1. 다익스트라
 
-### 1.1 정의 및 특징
+### 1.1. 정의 및 특징
 - 한 정점에서 나머지 정점들의 최단 거리를 구하는 알고리즘
 - 음수 가중치 불가능 (무한 루프)
 - Min-Heap 방식(priorty queue로 구현)
@@ -24,7 +24,7 @@ latex     : false
 	- 각 노드마다 이웃한 노드의 최단 거리를 갱신할 때 O(ElogV)의 시간이 필요
 		- 각 노드마다 모든 이웃을 확인하는 것은 모든 edge를 확인하는 것(O(E))과 같고, 매번 힙에서 최단 거리를 갱신(O(logV))
 
-### 1.2 예제 코드
+### 1.2. 예제 코드
 ```{.cpp .numberLines}
 #include <iostream>
 #include <vector>
