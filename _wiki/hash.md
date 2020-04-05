@@ -3,7 +3,7 @@ layout  : wiki
 title   : Hash(해시)
 summary : 
 date    : 2019-03-26 23:30:15 +0900
-updated : 2020-03-25 08:22:23 +0900
+updated : 2020-04-05 17:03:53 +0900
 tag     : 
 public  : true
 parent  : data-structure
@@ -24,8 +24,9 @@ latex   : false
 - 인덱스로 해시값을 사용하므로 검색과 삽입, 삭제를 빠르게 수행할 수 있다. (0(1))
 - 적은 리소스로 많은 데이터를 효율적으로 관리할 수 있다.
 
-### 2.3. Collision
+### 2.3. Collision(충돌)
 - 한정적인 자원(table)으로 인해 훨씬 많은 key값을 더 적은 양의 hash값으로 대응시켜야 하기 때문에 서로 다른 두 key값이 같은 hash값을 갖는 Collision이 발생한다.
+
 - 해결 방법
 	- Open addressing(개방 주소)
 		- 다른 인덱스의 저장소를 탐색하여 빈 곳에 삽입하게 된다.
@@ -60,5 +61,4 @@ bcd로 가기 위해서
 [https://dbehdrhs.tistory.com/70](https://dbehdrhs.tistory.com/70)
 
 ## footnotes
-[^1]: 연관배열 구조(associative array) : 키(key) 1개와 값(value) 1개가 1대1로 연관되어 있는 자료구조로, 키(key)를 이용하여 값(value)를 도출할 수 있다.
 

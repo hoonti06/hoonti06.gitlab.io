@@ -3,7 +3,7 @@ layout  : wiki
 title   : HTTP
 summary : 
 date    : 2019-02-16 12:55:24 +0900
-updated : 2020-03-09 00:29:28 +0900
+updated : 2020-04-04 16:36:10 +0900
 tag     : 
 public  : true
 parent  : network
@@ -34,9 +34,14 @@ TCP/IP 위에서 동작한다. HTML뿐만 아니라 이미지, 동영상 등 어
 	클라이언트에 Session ID를 Cookie로 저장한다. Session ID로 클라이언트를 식별한다.  
 	Session은 서버 메모리에 저장되지만, Session 역시 클라이언트에 Cookie로 저장된다.
 	
+	
 5. URL : 웹 브라우저는 URL을 이용하여 자원의 위치를 찾는다. (URL은 HTTP와 독립된 체계이다.)  
-	http - 자원에 접근하기 위한 프로토콜  
-	www.naver.com - 인터넷 상의 자원 위치. Domain은 IP주소로 변환되므로 IP주소로 서버의 위치를 알 수 있다.  
-	search?alphabet - 요청한 자원의 이름  
+	- http - 자원에 접근하기 위한 방법, 프로토콜  
+	- www.naver.com - 인터넷 상의 자원 위치. Domain은 IP주소로 변환되므로 IP주소로 서버의 위치를 찾는다.  
+	- search?alphabet - 요청한 자원의 이름  
 	
 	이렇게 '[Protocol]/[자원의 위치]/[자원명]' 으로 언제 어디서든 인터넷 상에서 자원에 접근할 수 있다.
+	
+## 2. 메시지 구조
+- request
+- response

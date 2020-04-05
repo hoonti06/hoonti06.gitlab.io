@@ -3,7 +3,7 @@ layout    : wiki
 title     : 다익스트라
 summary   : 
 date      : 2020-03-19 09:45:18 +0900
-updated   : 2020-03-24 10:25:21 +0900
+updated   : 2020-04-05 17:04:20 +0900
 tag       : dijkstra graph graph-algorithm
 public    : true
 published : true
@@ -15,7 +15,7 @@ latex     : false
 
 ### 1.1. 정의 및 특징
 - 한 정점에서 나머지 정점들의 최단 거리를 구하는 알고리즘
-- 음수 가중치 불가능 (무한 루프)
+- 음수 가중치 불가능(무한 루프)
 - Min-Heap 방식(priorty queue로 구현)
 - 가장 짧은 거리의 정점부터 연산
 - 시간 복잡도 : O((V+E)logV)
