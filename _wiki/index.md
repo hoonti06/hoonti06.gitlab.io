@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2020-03-26 09:25:55 +0900
+updated : 2020-04-07 20:34:24 +0900
 public  : true
 comment : false
 ---
@@ -19,6 +19,8 @@ comment : false
 * [[os]]
 * [[database]]
 * [[network]]
+	* [[HTML]]
+	* [[URI]]
 	* [[OSI-7layers]]{OSI 7계층}
 	* [[TCP-IP]]{TCP/IP}
 	* [[DHCP]]
