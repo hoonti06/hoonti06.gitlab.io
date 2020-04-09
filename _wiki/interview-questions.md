@@ -3,7 +3,7 @@ layout    : wiki
 title     : 면접 질문
 summary   : 
 date      : 2020-03-26 09:25:56 +0900
-updated   : 2020-04-07 23:42:15 +0900
+updated   : 2020-04-09 21:37:16 +0900
 tag       : 
 public    : true
 published : true
@@ -150,10 +150,20 @@ latex     : false
 			} 
 		}
 	- java 콜렉션 대표 인터페이스 3개
+ 
 	- 접근제어자 종류 특성 설명
+		- public : 모든 클래스에서 접근 가능
+		- protected : 동일 패키지 또는 외부 패키지의 해당 클래스를 상속 받은 클래스
+		- default : 패키지 내에서만 접근 가능
+		- private : 해당 클래스에서만 접근 가능
+
 	- toString 메소드 : 인스턴스에 대한 정보를 문자열로 제공하기 위한 목적으로 정의됨. 인스턴스를 출력하게되면 toString이 콜됨.
 	- String과 StringBuffer의 차이
 	- wait(), notify()
+	- 'final' keyword
+		- class : 상속 X
+		- method : overriding X
+		- variable : update X (C언어의 const)
 
 
 
@@ -229,44 +239,11 @@ latex     : false
  
 
 ## 2. WEB
-- OSI 7layer : 네트워크 통신 과정을 7계층으로 구분한 표준 모델(이론적)
-	- 목적
-		- 계층화를 통해 서로 구현한 내용을 모르더라도 인터페이스를 이용하여 네트워크 시스템을 개발하고 운영할 수 있다.
-		- 다양한 네트워크의 호환
-	- 계층 설명
-		- Application(L7)
-			- 사용자가 이용하는 네트워크 응용 프로그램, 서비스
-		- Presentation(L6)
-			- 데이터 포맷 상호 변환
-			- 데이터 압축
-			- 암호화 및 복호화
-		- Session(L5)
-			- 양 끝단 응용 프로세스간의 연결 성립, 유지 및 해제 등의 역할
-		- Transport(L4)
-			- 양 끝단의 응용 프로세스간의 투명한 데이터 전송을 가능하게 함
-			- 프로세스(Port) 식별
-			- 오류 제어, 흐름 제어
-			- 프로토콜 : TCP, UDP
-		- Network(L3)
-			- 패킷의 최적 이동 경로를 찾아(Routing) 전송(논리적 주소를 이용)
-			- host 식별
-			- 프로토콜 : IP
-			- 단위 : packet
-			- 대표 장치 : 라우터
-		- Data link(L2)
-			- 물리적 계층을 통한 데이터 전송의 신뢰성 제공(물리 주소(MAC)를 이용)
-			- 이더넷
-			- 단위 : frame
-			- 대표 장치 : 스위치
-		- Physical(L1)
-			- 물리적 전송 매체와 전송 방식 정의(e.g> 케이블)
-			- 비트를 전기적 신호로 변경
-			- 단위 : signal
-			- 대표 장치 : 리피터(단순 증폭)
+- [[OSI-7layers]]{OSI 7layers}
 
-- TCP/IP : 인터넷을 통한 통신 프로토콜
+- [[TCP-IP]]{TCP/IP}
  
-- TCP vs UDP
+- [[TCP-IP]]{TCP vs UDP}
  
 - 같은 네트워크
 	- 리피터나 스위치 등으로 연결되어 서로 동일한 네트워크 번호를 갖는 host들을 같은 네트워크라고 부를 수 있다.
@@ -282,7 +259,9 @@ latex     : false
 		- 만약 동시에 여러 기기가 데이터를 실어보내려 하면 충돌(Collision)이 발생하고 자신이 보내려던 데이터를 임의의(랜덤) 시간을 기다리다 다시 시도한다.
 	- 토큰링
 		- 한 네트워크에 단 하나의 토큰이 존재하고 토큰을 가진 기기만 네트워크에 데이터를 실어보낼 수 있다.(전송할 데이터가 있더라도 자신의 차례를 기다려야 한다)
+
 - MAC : 물리적 주소
+ 
 - ARP(Address Resolution Protocol)
 	- 논리적 주소(IP)를 물리적 주소(MAC)로 대응시키기 위해 사용되는 프로토콜
 	- ARP 캐시를 먼저 조회한다.
@@ -307,8 +286,10 @@ latex     : false
 	- 멀티캐스트는 보내고 싶은 그룹 멤버에게만 한 번에 보낼 수 있다. 라아우터나 스위치에서 이 기능을 지원해주어야만 가능하다.
 	- 유니캐스트는 자신의 MAC주소가 아니면 버린다. (CPU의 성능 저하가 없다.)
 	- 브로드캐스트는 자신의 MAC주소와 다르더라도 위로 올린다. (인터럽트가 걸리기 때문에 CPU의 성능 저하가 존재한다.)
+ 
 - DHCP(Dynamic HOst Configuration Protocol)
 	- 같은 네트워크 내에서 host의 IP 주소가 같아선 안된다. 또한 네트워크 별로 동일한 네트워크 번호, 동일한 서브넷 마스크를 가져야 한다. 클러이언트 PC가 켜지면서 네트워크에 브로드캐스트를 보낸다. DHCP 서버는 그 요청을 받고 자신이 관리하는 IP 주소 중 아직 배정되지 않은 하나를 클라이언트에게 전달한다. 요즘은 라우터에서도 이 기능을 제공해준다.
+ 
 - LAN(Local Area Network)
 	- 어느 한정된 공간에서 구성된 네트워크
 - WAN(Wide Area Network)
@@ -367,7 +348,9 @@ latex     : false
 
 - CGI(Common Gateway Interface)
 	- 초기 웹 프로그래밍 기술
+	- 웹 서버에서 동적인 페이지를 보여주기 위해 임의의 프로그램을 실행할 수 있도록 한다.
 	- 프로세스 단위로 실행되기 때문에 사용자가 많을 경우 비효율적
+	- C, Perl
 
 - Sevlet
 	- 웹에서 클라이언트의 요청을 처리하고 결과를 다시 클라이언트에게 전송하는 Servlet 클래스의 구현 규칙을 지킨 자바 프로그래밍 기술
@@ -416,6 +399,7 @@ latex     : false
 - Spring이란?
 - IP vs Port
 - 트래픽(traffic) : 서버의 데이터 전송량
+- https://demoversion.tistory.com/13
 
 ## 3. 데이터베이스
 
@@ -427,35 +411,45 @@ latex     : false
 
 SELECT * from 테이블명 where id = 'id';
 
-SELECT * from 테이블명 [group by {컬럼}] [HAVING 조건][ORDER BY {컬럼} ASC,DESC]
+SELECT * from 테이블명 [group by {컬럼}] [HAVING {조건}] [ORDER BY {컬럼} ASC,DESC]
 
 INSERT into 테이블명 values{ }
 
-INSERT into 테이블명 [{컬럼... }] VALUES[{값..}]
+INSERT into 테이블명 [{컬럼..}] VALUES[{값..}]
 
 UPDATE 테이블명 SET 컬럼1=값1 WHERE 조건
 
 DELETE from 테이블명 WHERE 조건
 
-6. JDBC(Java Database Connectivity)
-7. PreparedStatement : 동적으로 변수에 값을 바인딩함.
-9. Connection Pool : DB 커넥션을 매번 생성하게되면 시간이 많이 듬. 커넥션을 미리 생성해두고 재사용하는 매커니즘.
-10. Procedure(PL/SQL) 이란?
-10. Procedure vs Function
-11. PL/SQL Cursor란?
+- JDBC(Java Database Connectivity)
+- PreparedStatement : 동적으로 변수에 값을 바인딩함.
+- Connection Pool : DB 커넥션을 매번 생성하게되면 시간이 많이 듬. 커넥션을 미리 생성해두고 재사용하는 매커니즘.
+- Procedure vs Function
+	- Procedure
+		- 일련의 쿼리를 마치 하나의 함수처럼 실행하기 위한 쿼리의 집합
+		- 서버에서 수행(속도가 빠름)
+		- 리턴값이 없어도 되고 여러 개도 가능하다(in, out으로 처리)
+		- select로 호출 불가능(call) 
+	- Function
+		- 클라이언트에서 수행(속도 느림)
+		- 리턴값이 필수이고 하나이다. 파라미터 넘기는 값은 IN만 존재
+		- select로 호출 가능하다.
+		- 주로 간단한 계산 수행
+
+- 트리거
+	- 특정한 변경 등의 이벤트가 발생했을 때 자동적으로 호출하는 일종의 프로시저
+	- 구성
+		- 사건(event): 트리거를 가동
+		- 조건(condition): 트리거 수행 여부 검사
+		- 동작(action): 트리거가 수행해야 할 내용
+
+- PL/SQL Cursor란?
 - Inner join(natural), outer join 차이
 - NOSQL이란?
-- 동시에 많은 사람들이 글을 등록 수정하면서 생기는 insert, update 처리를 충돌나지 않게 하는 방법.
 
-- 트랜잭션(transaction)
-	- 여러 개의 작업을 하나의 논리적인 작업 단위로 묶어주는 것. 
-	- 병럴 처리에 의한 부정합 방지 목적
-	- ACID
-		- Atomicity(원자성) : 모두 반영되거나 모두 반영되지 않는다.
-		- Consistency(일관성) : 트랜잭션 수행 전, 후에 데이터 모델의 모든 제약 조건(기본키, 외래키, 도메인, 도메인 제약조건 등)을 만족하는 것을 통해 보장 
-		- Isolation(고립성) : 트랜잭션 수행 도중 다른 트랜잭션이 끼어들지 못한다.(트랜잭션 밖에 있는 어떤 연산도 중간 단계의 데이터를 볼 수 없다)
-		- Durability(지속성) : 성공적으로 수행된 트랜잭션은 영원히 반영(보장)되어 그 결과를 잃지 않는다.(트랜잭션들이 로그로 기록되어 로그를 통해 시스템 장애 발생 전으로 복원 가능)
-- 격리 수준()
+- [[transaction]]{트랜잭션(transaction)}
+
+
 
 ## 4. 자료구조
 

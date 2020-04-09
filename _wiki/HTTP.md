@@ -3,7 +3,7 @@ layout  : wiki
 title   : HTTP
 summary : 
 date    : 2019-02-16 12:55:24 +0900
-updated : 2020-04-04 16:36:10 +0900
+updated : 2020-04-08 08:52:57 +0900
 tag     : 
 public  : true
 parent  : network
@@ -45,3 +45,13 @@ TCP/IP 위에서 동작한다. HTML뿐만 아니라 이미지, 동영상 등 어
 ## 2. 메시지 구조
 - request
 - response
+
+
+
+
+
+
+Keep-Alive
+HTTP1.1부터 default로 지원
+한 웹페이지에 여러 이미지와 HTML을 요청해야 하는 경우 TCP 커넥션을 매 번 맺으면 성능이 안 좋아짐
+=> 맺고 끊는 데서 발생하는 지연을 없애기 위해 한 번 연결한 TCP 커넥션을 재활용 "지속 커넥션"

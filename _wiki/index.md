@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2020-04-07 20:34:24 +0900
+updated : 2020-04-09 21:32:45 +0900
 public  : true
 comment : false
 ---
@@ -18,6 +18,7 @@ comment : false
 * [[git]]
 * [[os]]
 * [[database]]
+	* [[transaction]]{트랜잭션(Transaction)}
 * [[network]]
 	* [[HTML]]
 	* [[URI]]
@@ -67,20 +68,19 @@ comment : false
     * [[groovy]]
 	* C Language
 	* C++
-	* java
+	* [[java]]
 	* python
-* [[how-to]]
-    * [[mathjax-latex]]
-* [[vim]]
-    * [[vim-conceallevel]]{conceallevel (Vim)}
-	* [[vimwiki]]
-* [[YAML]]
 * [[debugging]]
 	* [[PDB]]
 	* [[crash-dump]]{Crash Dump}
 	* [[memory-leak]]{Memory leak(Glfags 사용법)}
+* [[how-to]]
+    * [[mathjax-latex]]
+* [[YAML]]
+* [[vim]]
+    * [[vim-conceallevel]]{conceallevel (Vim)}
+	* [[vimwiki]]
 * [[etc]]{기타}
 	* [[version-naming]]{버전 표기법(SemVer)}
 	* [[TBB]]
 	* [[markdown-example]]
-
