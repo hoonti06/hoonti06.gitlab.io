@@ -3,7 +3,7 @@ layout    : wiki
 title     : OS
 summary   : 
 date      : 2019-09-29 16:55:46 +0900
-updated   : 2020-02-04 15:21:34 +0900
+updated   : 2020-04-14 09:21:23 +0900
 tag       : 
 public    : true
 published : true
@@ -54,18 +54,23 @@ linux는 기본적으로 thread를 지원하지 않는다. 그러나 thread와 �
 | - 프로그램 수행에 필요한 자원을 하나의 개체에서 관리 | - 하나의 프로세스 안에서 각각의 레지스터, 스택 공간을 제외한            |
 | - 모든 프로세스에는 하나 이상의 thread 존재          | 나머지 공간(heap, data, bss, code)과 자원을 다른 쓰레드와 공유          |
 | - 자신만의 고유 공간과 자원을 할당 받는다.           | - 스택과 레지스터만 switching하므로 context switching 속도가 상대적으로 |
-| (메모리 공간과 자원 소모가 상대적으로 큼)            | - 자원 공유로 인한 동기화 문제가 발생                                   |
+| (메모리 공간과 자원 소모가 상대적으로 큼)            | - 자원 공유로 인한 동기화 문제 발생                                   |
 |                                                      | - 디버깅이 어려움                                                       |
-|                                                      | - 스케줄링의 대상                                                       |
+|                                                      |                                                                         |
 +------------------------------------------------------+-------------------------------------------------------------------------+
 
+PCB
+context switching
 
 ## 2. CPU scheduling
 ### 2.0 Dispatcher
 ### 2.0 Scheduling Algorithm
-FCFS, SJF, RR(Round Robin) - time quantum (= time slice), 
+- FCFS
+- SJF
+- RR(Round Robin) - time quantum(time slice)
 
 ## 3. 동기화(Synchronization)
+
 
 ## 4. 메모리 관리
 

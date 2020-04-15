@@ -3,7 +3,7 @@ layout    : wiki
 title     : 면접 질문
 summary   : 
 date      : 2020-03-26 09:25:56 +0900
-updated   : 2020-04-09 21:37:16 +0900
+updated   : 2020-04-15 01:49:29 +0900
 tag       : 
 public    : true
 published : true
@@ -12,37 +12,32 @@ latex     : false
 ---
 ## 1. 프로그래밍 언어
 
-- 객체 지향 프로그래밍(Object Oriented Programming, OOP, 객체 '위주')
+- [[OOP]]{객체 지향 프로그래밍(Object Oriented Programming, OOP, 객체 '위주')}
 	- 정의 : 상태(데이터, 변수)와 행위(데이터 처리, 메소드)를 묶어 객체를 만들고 객체들의 상호작용으로 프로그램을 구현하는 방식
-	- 언어 : Java, C++, C#
-	- 특징 : 캡슐화, 상속, 다형성
+	- 특징
+		- 캡슐화
+			- 변수와 함수(메소드)를 하나의 단위로 묶는 것
+			- 정보 은닉(파생된 보조 개념)
+		- 상속
+			- 상위 클래스의 특성과 기능을 이용하거나 확장
+			- 같은 타입으로 묶을 수 있다
+		- 다형성
+			- 하나의 변수, 또는 함수(메소드)가 상황에 따라 다르게 해석되는 것
+			- 오버라이딩
+				- 상위 클래스의 메소드 위에 하위 클래스의 메소드를 덮어쓰는 것
+				- 상위 클래스의 참조 변수에 의해 참조되는 하위 클래스의 메소드가 호출된다.
+			- 오버로딩
+				- 매개변수가 다른 동일한 이름의 함수를 여러 개 생성
+		- 추상화
+			- 핵심적인 개념 또는 기능 등을 간추려 내는 것
+			- 클래스간의 공통점을 찾아서 공통의 조상을 만드는 작업
+	- 대표 언어 : Java, C++, C#
 	- 장점 : 모듈화되어 있기 때문에 코드의 재사용, 유지보수가 용이
 	- 단점 : 설계의 어려움, 캡슐화 등으로 처리 속도가 상대적으로 느리다.
-	- 참고)
-		- 클래스(Class) : 변수와 메소드의 집합. 설계도 또는 틀.
-		- 객체(Object) : 코드 상에서 자료형이 임의의 클래스로 선언된 식별자를 말한다.
-		- 인스턴스(Instance) : 메모리에 할당된 객체를 말한다.
-		
-		```{.java .numberLines}
-		/* 클래스 */
-		public class Car {
-		  ...
-		}
-		/* 객체와 인스턴스 */
-		public class Main {
-			public static void main(String[] args) {
-				Car truck, fireEngine; // '객체'
-
-				// 인스턴스화
-				truck = new Car(); // Car 클래스의 '인스턴스'(객체를 메모리에 할당)
-				fireEngine = new Car(); // Car 클래스의 '인스턴스'(객체를 메모리에 할당)
-			}
-		}
-		```
 
 - 절차 지향 프로그래밍(Procedural Programming)
 	- 정의 : 일이 진행되는 순서대로 프로그램을 구현하는 방식
-	- 언어 : C, Pascal
+	- 대표 언어 : C, Pascal
 	- 장점 : 컴퓨터의 처리구조와 비슷해 실행 속도가 빠르다.
 	- 단점 : 프로그래밍 과정 하나하나 코드로 작성해야 하기 때문에 프로그램 분석 및 유지보수가 어렵다.
  
@@ -59,57 +54,17 @@ latex     : false
 			- 함수의 실행은 프로그램의 실행에 영향을 미치는 Side dffect가 없어야 한다.
 			  (e.g> 함수 내부에서 인자의 값이나 프로그램의 상태 등을 변경하는 것)
 
-
-- 캡슐화(Encapsulation)
-	- 변수와 함수(메소드)를 하나의 단위로 묶는 것(데이터의 번들링). 보통 클래스를 통해 구현
-	- 모듈화 향상, 인터페이스 간결
-	- 정보 은닉(Information hiding)
-		- 내부 구현을 숨겨 모듈 내의 응집도를 높이고, 모듈간의 결합도를 낮춰 유연성과 유지보수성을 높인다.
-		- 정보 은닉은 캡슐화로부터 파생된 보조 개념(캡슐화 != 정보 은닉)
- 
- 
-- 상속(Inheritance)
-	- 상위 클래스의 특성과 기능을 이용하거나 확장할 수 있다.
-	- 같은 타입으로 묶을 수 있다.
-	- 캡슐화를 유지하면서도 클래스의 재사용 용이
-
-
-- 다형성(Polymorphism)
-	- 하나의 변수, 또는 함수(메소드)가 상황에 따라 다르게 해석되는 것
-	- 장점
-		- 하나의 타입으로 관리할 수 있다.
-		- 메소드의 활용 범위를 넓힐 수 있다.
-	- 서브타입 다형성
-		- 기초 클래스 또는 인터페이스를 구현하는 상위 클래스를 생성하고 해당 클래스를 상속받는 다수의 하위 클래스들을 만들어 상위 클래스의 포인터나 참조 변수 등이 하위 클래스의 객체를 참조하는 것
-		- 상위 클래스의 메소드 위에 하위 클래스의 메소드를 덮어쓰는 오버라이딩을 통해 상위 클래스의 참조 변수가 참조하는 하위 클래스의 메소드가 호출된다.
-	- 매개변수 다형성
-		- 타입을 매개변수로 받아 새로운 타입을 되돌려주는 기능
-		- C++의 템플릿(Template), Java의 제네릭(Generic)
-	- 임시 다형성
-		- 함수 오버로딩 : 매개변수가 다른 동일한 이름의 함수를 여러 개 생성하는 것. 본질적으로는 같다.
-		- 연산자 오버로딩 : 기본 연산자가 수행되는 클래스에 따라 다르게 동작하도록 하는 것. C++, C#에서 제공
-	- 강제 다형성
-		- 묵시적 형 변환 : 손실이 적은 방향인 작은 자료형에서 큰 자료형으로 이루어진다.
-		- 명시적 형 변환 : 원하는 형태를 명시하여 형을 변환할 수 있다.
-
-
-- 추상화
-	- 핵심적인 개념 또는 기능 등을 간추려 내는 것
-	- 클래스간의 공통점을 찾아서 공통의 조상을 만드는 작업(구체화 : 상속을 통해 클래스를 구현, 확장하는 작업)
-	- 추상 클래스, 추상 메소드
- 
-- java
+- [[java]]
 	- 'Write once run anywhere'
 	- OS로부터 독립적(JVM)
 	- JVM
 	- JDK
+	- java는 call by value만 존재
 	- 데이터 타입
 		- 기본형(primitive type) 8개
 			- boolean, char, byte, short, int, long, float, double
-			- Call by value
 		- 참조형(reference type)
 			- 기본형 외의 모든 타입(String, Class, Interface, Array 등)
-			- Call by reference
 	- static
 		- 클래스 메소드 : 인스턴스 없이 호출 가능한 함수
 		- 클래스 변수 : 해당 클래스의 모든 인스턴스가 공유하는 변수
@@ -200,41 +155,32 @@ latex     : false
 - Deep copy vs Shallow Copy
 	- Deep copy는 원본과 동일한 값을 갖는 새 객체를 생성하는 것
 	- Shallow copy는 단순히 참조만 복사하는 것
+
+- call by value vs call by reference
+	- call by value는 함수의 parameter에 argument 값이 복사되는 것이다.
+	- call by reference는 argument에 사용된 변수의 레퍼런스 값(참조값)을 전달 받는다
+	- C언어는 call by value만 지원하지만 포인터를 통해 call by reference에 준하는 효과를 낼 수 있다.
+	- C++는 참조자(&)를 통해 call by reference를 지원한다.
+	- JAVA는 Call by value만 지원한다.
+		- 기본형은 함수 호출 시 매개변수(parameter)에 인자값을 복사
+		- 참조형은 함수 호출 시 매개변수(parameter)에 참조값(인자값)을 복사
+			- argument 변수 자체의 참조값이 아닌, argument 변수가 참조하는 객체의 참조값이 매개변수에 복사된다.
+			- parameter에 저장된 참조 객체의 참조값으로 객체에 대한 수정을 할 수 있지만, 새로운 객체를 담는 등의 행위는 argument 변수에 영향을 끼치지 않는다.
+			- argument 변수와 parameter는 완전히 다른 변수이다.
+	<br>
+	
+	- 참고)
+		- 아규먼트(argument) : 함수에 전달되는 변수 또는 값
+		- 매개변수(parameter) : 함수 호출 시에 메모리에 할당되는, 인자를 저장하는 local 변수
  
 
 - Iterator : 컬렉션에 저장된 요소를 읽어들이는 표준화된 방법. Iterator 인터페이스를 이용하여 접근 가능
 
 - 정규식(Regular expression, Regex) : 특정한 규칙을 가진 문자열 집합을 표현하는 데 사용하는 형식 언어
 
-
-
-- 이벤트(event) : 사용자 또는 코드를 통해 발생하는 사건
-
-- Adapter 클래스란?
-- 애플릿(Applet)이란?
-- 직렬화(Serialization)
-- 관심사의 분리(Seperation of Concerns)
-- 팩토리란?
-- Properties : <String, String>값을 저장하는 컬렉션 클래스. 주로 환경설정과 관련된 속성을 저장하는데 사용한다.
-- IoC컨테이너란? (Inversion of Control)
-- DI(Dependency Injection) 의존관계 주입
-- Open-closed 원칙
 - Callback
-- Proxy(프록시)
-- 리플렉션(Reflection)
-	- ....실행 중에 객체의 Class에 대한 정보를 얻어오는 것?
-- Cross-cutting Concerns란? ( 횡단관심사 )
-- AOP란? ( Aspect Oriented Programming) : 관점지향 프로그래밍
-- 스프링 @ MVC 장점
-- SDK
-	- Software Development kit, 소프트웨어 개발 도구 모음
- 
-- 프레임워크 vs 라이브러리
-	- 프레임워크 : 큰 틀을 제공하여 그 틀 안에 맞춰서 코드를 작성해야 한다.
-	- 작동할 때 코드 실행 흐름을 보면 프레임워크가 내 코드를 호출
-	- 라이브러리느 사용할 수 있는 함수들의 모음, 내가 라이브러리를 호출해서 능동적으로 사용해야 함
-- 에코시스템
-	- 여러 서브 프로젝트들이 서로 상호작용하면서 하나의 생태계를 꾸린다.
+
+
  
  
 
@@ -263,20 +209,20 @@ latex     : false
 - MAC : 물리적 주소
  
 - ARP(Address Resolution Protocol)
-	- 논리적 주소(IP)를 물리적 주소(MAC)로 대응시키기 위해 사용되는 프로토콜
+	- 논리적 주소(IP)를 통해 물리적 주소(MAC)를 알아내는 프로토콜
 	- ARP 캐시를 먼저 조회한다.
-	- 브로드캐스트로 같은 네트워크 상에 있는 모든 Host에게 메시지를 보낸다.
+	- ARP request를 브로드 캐스트로 보낸다.(같은 네트워크 상에 있는 모든 Host에게)
 	- 브로드캐스트는 MAC주소가 자신의 것과 달라도 무조건 Network Layer로 올린다.
 	- 수신 IP 주소가 자신과 다르면 무시하고, 자신의 것과 같으면 유니캐스트로 ARP reply를 보낸다.
-	- ARP reply에 있는 송신 MAC 주소를 통해 보낼 곳의 MAC 주소를 획득한다.
+	- ARP reply에 있는 송신 MAC 주소를 통해 데이터를 전송할 host의 MAC 주소를 획득한다.
 	- 참고)
 		- 같은 네트워크 상에 있으면 보낼 곳의 MAC 주소이지만, 다른 네트워크라면 그 네트워크와 통하는 라우터의 MAC주소이다. 그 라우터에 보낼 곳의 MAC주소가 있거나 아니면 그 다음 라우터의 MAC 주소가 있을 것이다.
  
 - NAT(Network Address Translation, 네트워크 주소 변환)
-	- Packet을 중계할 때 IP헤더에 기제된 IP 주소와 포트 번호를 바꾸어주는 것
+	- Packet을 중계할 때 IP 헤더에 기재된 IP 주소와 port 번호를 바꾸어주는 것
 	- 송신자의 IP 주소를 Private(사설) IP에서 Public(공인) IP 주소로 바꿔주고, port 또한 미사용 번호로 적당히 바꿔준다.
 	- mapping table에 LAN측 정보(사설 IP와 포트 번호)에 인터넷측 정보(공인 IP와 적당히 바뀐 포트 번호)가 mapping되어 있다.
-	- 공인 IP의 수가 부족하여 이를 해결하기 위한 목적
+	- 공인 IP의 수의 부족을 해결하기 위한 목적
 
 - 유니캐스트 vs 브로드캐스트 vs 멀티캐스트
 	- 이더넷의 특성에 따라 유니캐스트나 브로드캐스트 둘 다 모든 host에게 데이터를 전송한다.
@@ -301,14 +247,15 @@ latex     : false
  
 - 수신 MAC 주소는 router의 MAC 주소이다.
 - router는 다시 다른 네트워크에 브로드캐스트로 다음 router의 MAC주소를 받던지 해당 네트워크에 수신 IP에 해당하는 host가 있으면 해당 host의 MAC주소를 받아오던지 해서 자기 자신이 저장해놓을 것이다.
+
  
-- Circuit switchig vs Packet switching(사실 잘 모르겠음...)
-	- Network Layer에서 일어나는 통신 과정의 종류(-> TCP, UDP(Transport Layer)와는 관계가 없다는 얘기임)
+- Circuit switchig vs Packet switching
+	- Network Layer에서 일어나는 통신 과정의 종류(TCP, UDP(Transport Layer)와는 관계가 없다)
 	- Packet switching
 		- 고정된 경로 X
 		- 패킷 단위로 독립적으로 전송
 		- 종류
-			- virtual Circuit 
+			- Virtual circuit 
 				- 데이터 전송 전 논리적 연결(회선) 설정(연결 지향성)
 				- 모든 패킷을 전송하면 가상 회선이 해제되고, 패킷들은 순서대로 도착
 				- 논리적 연결이기 때문에 점유하는 것이 아니라서 경로의 일부가 공유될 수 있음  
@@ -322,7 +269,6 @@ latex     : false
 		- 목적지로 전송하기 전에 먼저 회선을 설정하고 해당 경로를 점유
 		- 다시 경로를 찾기 위한 노력 X
 		- e.g> 전화망(하지만 전화 네트워크도 Packet switching으로 전환되는 추세)
-
 
 - [[HTTP]]
 	- 클라이언트와 서버 사이에 이루어지는 요청과 응답 프로토콜
@@ -362,6 +308,7 @@ latex     : false
 		- HTTP 프로토콜 서비스를 지원하는 javax.servlet.http.HttpServlet 클래스를 상속받는다. UDP보다 속도가 느리다.
 		- HTML 변경 시 Servlet을 재컴파일해야 하는 단점
 
+- Web server vs WAS(Web Application Server)
 
 - JSP(Java Server Page)
 	- 
@@ -380,26 +327,55 @@ latex     : false
 - 속성과 스코프
 - include 액션태그와 include 지시어(디렉티브)의 비교
 - 자바빈(JavaBean)
-- 쿠키, 세션
+- [[HTTP]]{cookie vs session}
 - EL(Expression Language)
 - JSTL(JSP standard Tag Library)
-- WAS란? (Web Application Server)
-- jQuery란?
 - 크로스 브라우징이란?
-- jQuery 최적화란?
 - MVC
 	- Model, View, Controller 3가지 영역으로 분리하여 개발하는 것
 	- 영역간의 결합도를 낮추어 분업화 및 유지보수에 용이
-- AJAX란?
-- HTML5란?
+- AJAX
+- HTML5
 - CRUD
 	- 기본적인 데이터 처리 기능의 묶음
 	- Create, Read, Update, Delete
 - iBatis란?
 - Spring이란?
-- IP vs Port
+- IP address vs Port
+	- IP address : 호스트 구별
+		- 호스트를 구별
+		- 네트워크 번호 + 호스트 번호
+	- Port : 호스트 내의 프로세스 구별
 - 트래픽(traffic) : 서버의 데이터 전송량
 - https://demoversion.tistory.com/13
+- POJO()
+ 
+- 이벤트(event) : 사용자 또는 코드를 통해 발생하는 사건
+
+- Adapter 클래스란?
+- 애플릿(Applet)이란?
+- 직렬화(Serialization)
+- 관심사의 분리(Seperation of Concerns)
+- 팩토리란?
+- Properties : <String, String>값을 저장하는 컬렉션 클래스. 주로 환경설정과 관련된 속성을 저장하는데 사용한다.
+- IoC컨테이너란? (Inversion of Control)
+- DI(Dependency Injection) 의존관계 주입
+- Open-closed 원칙
+- Proxy(프록시)
+- 리플렉션(Reflection)
+	- ....실행 중에 객체의 Class에 대한 정보를 얻어오는 것?
+- Cross-cutting Concerns란? ( 횡단관심사 )
+- AOP란? ( Aspect Oriented Programming) : 관점지향 프로그래밍
+- 스프링 @ MVC 장점
+- SDK
+	- Software Development kit, 소프트웨어 개발 도구 모음
+ 
+- 프레임워크 vs 라이브러리
+	- 프레임워크 : 큰 틀을 제공하여 그 틀 안에 맞춰서 코드를 작성해야 한다.
+	- 작동할 때 코드 실행 흐름을 보면 프레임워크가 내 코드를 호출
+	- 라이브러리느 사용할 수 있는 함수들의 모음, 내가 라이브러리를 호출해서 능동적으로 사용해야 함
+- 에코시스템
+	- 여러 서브 프로젝트들이 서로 상호작용하면서 하나의 생태계를 꾸린다.
 
 ## 3. 데이터베이스
 
@@ -448,6 +424,11 @@ DELETE from 테이블명 WHERE 조건
 - NOSQL이란?
 
 - [[transaction]]{트랜잭션(transaction)}
+	- 정의 : 여러 개의 작업을 하나의 논리적인 작업 단위로 묶어주는 것
+	- 목적 : 병렬 처리에 의한 부정합 방지
+	- 특징
+		- ACID
+		- Isolation Level
 
 
 
@@ -456,17 +437,14 @@ DELETE from 테이블명 WHERE 조건
 - Heap(힙)
 	- 최댓값 또는 최솟값이 root에 위치하여 O(1)의 속도로 검색이 가능한 완전 이진 트리
 	- Max heap, Min heap
-	- 최대값 및 최소값을 O(1)의 속도로 함. (Max Heap, Min Heap)
 	- Max heap의 경우 부모 노드는 자식보다 무조건 커야 한다. (Min heap은 그 반대)
-	- 힙은 트리 구조이지만 완전 이진 트리의 특성을 활용하여 배열에 저장하는 것이 더 효율적(인덱스의 규칙 이용)
-	- 삽입
-		1. 삽입할 데이터를 완전 이진트리를 만족하는 비어있는 자리에 놓는다.
-		2. 새로운 노드와 그것의 부모노드를 계속 비교하여 부모가 더 크다는 조건을 만족할 때까지 반복
-	- 삭제(최댓값, 최솟값 삭제)
-		1. 루트 노드를 삭제한다
-		2. 마지막 레벨의 마지막 노드를 루트에 올려 놓는다.
-		3. 힙의 조건을 만족할때까지 교환을 반복한다.
+	- 힙은 트리의 한 종류지만 완전 이진 트리의 특성을 활용하여 배열에 저장하는 것이 더 효율적(인덱스의 규칙 이용)
+	- 중복 값 허용
+	- 삽입(O(logN))
+	- 삭제(최댓값, 최솟값 삭제, O(logN))
 
+
+- [[tree]]{트리}
  
 - 링크드 리스트 vs 배열
 	- 배열 : 랜덤 접근 가능. 삽입, 삭제 느림
@@ -481,7 +459,7 @@ DELETE from 테이블명 WHERE 조건
 
 - 동기화(Synchronization)
 
-- 스레드(Thread) vs 프로세스
+- 스레드(thread) vs 프로세스(process)
 	- 프로세스 : 실행중인 프로그램
 	- 스레드 : 프로세스의 자원을 이용해서 실제로 작업을 수행하는 것.
 	- 스레드의 개수는 제한되어 있지 않으나, 프로세스의 메모리 한계(호출 스택의 크기)가 정해져 있기 때문에 스레드의 개수 또한 제한된다.
@@ -494,6 +472,7 @@ DELETE from 테이블명 WHERE 조건
 	- 작업의 분리, 코드 간결
 
 - 멀티 스레드 vs 멀티 프로세스
+	- 멀티 스레드
  
 - Deadlock(교착상태) : 2개 이상의 쓰레드가 자원을 점유한 상태에서 서로 상대편이 점유한 자원을 사용하려고 기다리고 있는 상태.
 

@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2020-04-09 21:32:45 +0900
+updated : 2020-04-13 23:20:35 +0900
 public  : true
 comment : false
 ---
@@ -16,7 +16,8 @@ comment : false
 * [[spring-mvc]]{Spring MVC}
 * [[the-java-code-manipulation]]{더 자바, 코드를 조작하는 다양한 방법}
 * [[git]]
-* [[os]]
+* [[OS]]
+* [[OOP]]{객체 지향 프로그래밍}
 * [[database]]
 	* [[transaction]]{트랜잭션(Transaction)}
 * [[network]]

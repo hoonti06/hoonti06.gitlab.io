@@ -3,7 +3,7 @@ layout    : wiki
 title     : 트랜잭션(Transaction)
 summary   : 
 date      : 2020-04-09 21:32:14 +0900
-updated   : 2020-04-10 01:54:09 +0900
+updated   : 2020-04-13 00:02:47 +0900
 tag       : db database
 public    : true
 published : true
@@ -41,7 +41,7 @@ latex     : false
 
 ### 4.1 격리 이슈
 - dirty read
-	- 커밋되지 않은 수정중인 데이터를 다른 트랜잭션이 읽을 수 있도록 허용할 때 발생
+	- 수정은 됐지만 아직 커밋은 안된 데이터를 다른 트랜잭션이 읽은 상태에서 수정이 ROLLBACK되버린 경우
 
 - non-repeatable read
 	- 한 트랜잭션에서 같은 쿼리를 두 번 수행할 때 그 사이에 수정 또는 삭제 트랜잭션이 커밋되어 두 쿼리의 결과가 다르게 나타나는 경우
@@ -74,13 +74,10 @@ latex     : false
 - READ UNCOMMITTED (Level 0)
 	- 가장 낮은 격리 수준
 	- **트랜잭션에 처리중인 혹은 아직 커밋되지 않은 데이터를 다른 트랜잭션이 읽는 것을 허용(쓰기는 안됨)**
-	- lost update는 막고 dirty read는 허용
-	- SELECT 문장을 수행하는 경우 해당 데이터에 shared lock이 걸리지 않는 레벨
-	- 사용하지 않는 것을 권장
 
 - READ COMMITTED (Level 1)
 	- **커밋된 데이터만 읽을 수 있도록 허용**
-	- 한 트랜잭션에서 동일한 SELECT 쿼리의 결과가 다름
+	- 한 트랜잭션에서 동일한 SELECT 쿼리가 다른 결과를 낼 수 있음
 
 - REPEATABLE READ (Level 2)
 	- **변경 전의 데이터를 Undo 영역에 백업해놓고 이를 이용해 한 트랜잭션에서 동일한 결과를 보여줄 수 있도록 보장**
@@ -90,7 +87,7 @@ latex     : false
 
 - SEREALIZABLE (Level 3)
 	- 가장 높은 격리 수준
-	- **읽기 작업에도 shared lock**을 걸어서, 동시에 다른 트랜잭션이 이 레코드를 변경할 수 없다.
+	- **읽기 작업에도 shared lock을 걸어**서, 동시에 다른 트랜잭션이 이 레코드를 변경할 수 없다.
 	- 성능 측면에서는 동시 처리 성능이 가장 낮다.  
 <br>	  
 
