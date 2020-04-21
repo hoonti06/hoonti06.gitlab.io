@@ -3,7 +3,7 @@ layout    : wiki
 title     : 면접 질문
 summary   : 
 date      : 2020-03-26 09:25:56 +0900
-updated   : 2020-04-15 01:49:29 +0900
+updated   : 2020-04-17 00:00:32 +0900
 tag       : 
 public    : true
 published : true
@@ -91,7 +91,7 @@ latex     : false
 
 
 	- Generics(제네릭스) : 컬렉션 클래스에 한 종류의 타입을 사용하게끔 지정함. 형변환의 번거로움을 줄인다.
-		- 타입 안정성을 제공 ( 의도하지 않은 타입의 저장을 막음, 저장된 객체를 꺼내올 때 타입과 다른 타입으로 형변환 되어 발생하는 오류를 줄임)
+		- 타입 안정성을 제공 (의도하지 않은 타입의 저장을 막음, 저장된 객체를 꺼내올 때 타입과 다른 타입으로 형변환 되어 발생하는 오류를 줄임)
 		- 타입체크와 형변환을 생략하므로 코드가 간결
 	- 쓰레드의 구현
 		- Runnable 인터페이스를 구현. // 또는 Thread 클래스 상속
@@ -106,13 +106,13 @@ latex     : false
 		}
 	- java 콜렉션 대표 인터페이스 3개
  
-	- 접근제어자 종류 특성 설명
+	- 접근 제어자(access modifier) 종류 특성 설명
 		- public : 모든 클래스에서 접근 가능
-		- protected : 동일 패키지 또는 외부 패키지의 해당 클래스를 상속 받은 클래스
+		- protected : 동일 패키지의 클래스 또는 해당 클래스를 상속 받은 외부 패키지 클래스
 		- default : 패키지 내에서만 접근 가능
 		- private : 해당 클래스에서만 접근 가능
 
-	- toString 메소드 : 인스턴스에 대한 정보를 문자열로 제공하기 위한 목적으로 정의됨. 인스턴스를 출력하게되면 toString이 콜됨.
+	- toString() : 인스턴스에 대한 정보를 문자열로 제공하기 위한 목적으로 정의됨. 인스턴스를 출력하게되면 toString()이 호출됨
 	- String과 StringBuffer의 차이
 	- wait(), notify()
 	- 'final' keyword
@@ -220,9 +220,9 @@ latex     : false
  
 - NAT(Network Address Translation, 네트워크 주소 변환)
 	- Packet을 중계할 때 IP 헤더에 기재된 IP 주소와 port 번호를 바꾸어주는 것
-	- 송신자의 IP 주소를 Private(사설) IP에서 Public(공인) IP 주소로 바꿔주고, port 또한 미사용 번호로 적당히 바꿔준다.
-	- mapping table에 LAN측 정보(사설 IP와 포트 번호)에 인터넷측 정보(공인 IP와 적당히 바뀐 포트 번호)가 mapping되어 있다.
 	- 공인 IP의 수의 부족을 해결하기 위한 목적
+	- 일반적으로 라우터에서 송신자의 IP 주소를 Private(사설) IP에서 Public(공인) IP로 바꿔주고, port 또한 미사용 번호로 적당히 바꿔준다.
+	- mapping table에 LAN측 정보(사설 IP와 포트 번호)와 인터넷측 정보(공인 IP와 적당히 바뀐 포트 번호)가 mapping되어 있다.
 
 - 유니캐스트 vs 브로드캐스트 vs 멀티캐스트
 	- 이더넷의 특성에 따라 유니캐스트나 브로드캐스트 둘 다 모든 host에게 데이터를 전송한다.

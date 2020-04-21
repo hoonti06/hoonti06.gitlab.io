@@ -3,7 +3,7 @@ layout    : wiki
 title     : JAVA
 summary   : 
 date      : 2020-04-09 09:26:31 +0900
-updated   : 2020-04-14 23:41:34 +0900
+updated   : 2020-04-19 16:10:16 +0900
 tag       : java
 public    : true
 published : true
@@ -13,7 +13,7 @@ latex     : false
 
 ## 0. 개요
 'write once run anywhere'
-객체 지향 프로그래밍 언어로서, JVM을 통해 구동되어 OS에 독립적으로 수행된다.
+객체 지향 프로그래밍 언어로서, JVM을 통해 구동되기 때문에 OS로부터 독립적으로 수행된다.
 
 ## 1. 특징
 ## 1.1 데이터 타입
@@ -22,6 +22,7 @@ latex     : false
 	- 문자형 : char(2)
 	- 정수형 : byte(1), short(2), int(4), long(8)
 	- 실수형 : float(4), double(8)
+ 
 - 참조형(reference type)
 	- 기본형 외의 모든 타입(String, Class, Interface, Array 등)
 	- 객체의 참조값(reference value)
