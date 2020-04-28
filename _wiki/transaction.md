@@ -3,7 +3,7 @@ layout    : wiki
 title     : 트랜잭션(Transaction)
 summary   : 
 date      : 2020-04-09 21:32:14 +0900
-updated   : 2020-04-13 00:02:47 +0900
+updated   : 2020-04-28 09:14:26 +0900
 tag       : db database
 public    : true
 published : true
@@ -82,6 +82,7 @@ latex     : false
 - REPEATABLE READ (Level 2)
 	- **변경 전의 데이터를 Undo 영역에 백업해놓고 이를 이용해 한 트랜잭션에서 동일한 결과를 보여줄 수 있도록 보장**
 	- MYSQL InnoDB의 Default level
+	- 한 번 lock이 설정된 레코드는 해당 트랜잭션이 종료될 때까지 lock이 유지된다.
 	- 트랜잭션이 시작되기 전까지의 커밋된 내용에 대해서만 조회할 수 있는 격리 수준
 	- 자신의 트랜잭션 번호보다 낮은 트랜잭션 번호에서 변경된(+커밋된) 것만 보게 된다.
 

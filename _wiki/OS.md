@@ -3,7 +3,7 @@ layout    : wiki
 title     : OS
 summary   : 
 date      : 2019-09-29 16:55:46 +0900
-updated   : 2020-04-21 09:50:16 +0900
+updated   : 2020-04-27 09:10:21 +0900
 tag       : os
 public    : true
 published : true
@@ -27,23 +27,26 @@ latex     : false
 ### 1.2 컴퓨터 시스템 구조
 
 #### 1.2.1 CPU
-#### 1.2.1 Memory
+#### 1.2.2 Memory
 
-#### 1.2.1 Timer
+#### 1.2.3 Timer
 한 프로세스가 CPU를 점유하는 시간이 정해진 시간을 초과하면 CPU에 interrupt를 보낸다.
 
-#### 1.2.1 Device controller
+#### 1.2.4 Device controller
 - 해당 I/O Device를 관리하는 일종의 작은 CPU
 - local buffer(일종의 Data register)를 갖는다.
 - I/O는 실제 Device와 local buffer 사이에 일어난다.
 - I/O가 완료되면 controller는 CPU에 interrupt를 보낸다.
  
-#### 1.2.1 Local buffer
+#### 1.2.5 Local buffer
 - I/O의 Data를 저장하는 임시 공간
 
-#### 1.2.1 DMA(Direct Memory Access) controller
+#### 1.2.6 DMA(Direct Memory Access) controller
 - CPU의 개입 없이 I/O Device와 memory 간의 데이터 전송을 담당
 - I/O Device의 interrupt가 너무 많이 발생하여 CPU를 비효율적으로 사용되는 문제를 해결
+ 
+#### 1.2.7 MMU(Memory Management Unit)
+- logical memory를 physical memory로 매핑해주는 H/W Device
 
 
 #### 1.2.1 Mode bit
@@ -134,26 +137,28 @@ latex     : false
 ### 2.2 thread
 프로세스가 할당 받은 자원을 이용하는 실행의 단위
 
+
 참고)
 linux는 기본적으로 thread를 지원하지 않는다. 그러나 thread와 유사한 형태의 프로세스를 생성하여 사용할 수 있다.
 
 ### 2.3 process vs thread
-+------------------------------------------------------+------------------------------------------------------------------------------+
-| process                                              | thread                                                                       |
-+======================================================+==============================================================================+
-| OS로부터 `자원을 할당받는` 시스템의 작업 단위        | 프로세스가 할당 받은 `자원을 이용`하는 `실행의 단위`                         |
-+------------------------------------------------------+------------------------------------------------------------------------------+
-| - 프로그램에 대한 Instance                           | - 프로세스 내에서 실제로 작업을 수행                                         |
-| - 프로그램 수행에 필요한 자원을 하나의 개체에서 관리 | - 하나의 프로세스 안에서 각각의 레지스터, 스택 공간을 제외한                 |
-| - 모든 프로세스에는 하나 이상의 thread 존재          | 나머지 공간(heap, data, bss, code)과 자원을 다른 쓰레드와 공유               |
-| - 자신만의 고유 공간과 자원을 할당 받는다.           | - 스택과 레지스터만 switching하므로 context switching 속도가 상대적으로 빠름 |
-| (메모리 공간과 자원 소모가 상대적으로 큼)            | - 자원 공유로 인한 동기화 문제 발생                                          |
-|                                                      | - 디버깅이 어려움                                                            |
-|                                                      |                                                                              |
-+------------------------------------------------------+------------------------------------------------------------------------------+
++------------------------------------------------------+-----------------------------------------------------------------------------------------------+
+| process                                              | thread                                                                                        |
++======================================================+===============================================================================================+
+| OS로부터 `자원을 할당받는` 시스템의 작업 단위        | 프로세스가 할당 받은 `자원을 이용`하는 `실행의 단위`                                          |
++------------------------------------------------------+-----------------------------------------------------------------------------------------------+
+| - 프로그램에 대한 Instance                           | - 프로세스 내에서 실제로 작업을 수행                                                          |
+| - 프로그램 수행에 필요한 자원을 하나의 개체에서 관리 | - 하나의 프로세스 안에서 각각의 레지스터, 스택 공간을 제외한                                  |
+| - 모든 프로세스에는 하나 이상의 thread 존재          | 나머지 공간(heap, data, bss, code)과 자원을 다른 쓰레드와 공유                                |
+| - 자신만의 고유 공간과 자원을 할당 받는다.           | - 스택과 레지스터만 switching하므로 context switching 속도가 상대적으로 빠름(overhead가 적다) |
+| (메모리 공간과 자원 소모가 상대적으로 큼)            | - 자원 공유로 인한 동기화 문제 발생                                                           |
+|                                                      | - 디버깅이 어려움                                                                             |
+|                                                      |                                                                                               |
++------------------------------------------------------+-----------------------------------------------------------------------------------------------+
 
-- PCB
-context switching
+### 2.2.2 kernel thread vs user thread
+- kernel thread : kernel에서 직접 관리
+- user thread(library) : 라이브러리를 통해 thread가 관리되고, 여러 개의 thread가 있어도 OS 입장에서는 하나의 프로세스로 인식한다.
 
 ## 2. CPU scheduling
 ### 2.0 Dispatcher
@@ -163,6 +168,7 @@ context switching
 - RR(Round Robin) - time quantum(time slice)
 
 ## 3. 동기화(Synchronization)
+
 
 ### 3.1 Mutex vs Semaphore
 +-------+-----------+
@@ -177,10 +183,24 @@ context switching
 
 
 ## 4. 데드락(Deadlock)
+- 
 
 ## 5. 메모리 관리
+### 5.1. Address Binding
+- symbolic address(함수 이름, 변수 이름) -> logical address -[이 시점이 언제인지]-> pyhsical address
+- 분류
+	- Compile time
+		- logical address와 physical address가 완전 동일
+		- 안 쓴다
+	- Load time
+		- 수행 시작 전에 비어 있는 physical address에 올림
+	- Execution time
+		- logical address와 다른 physical address에 올림
+		- 수행 도중 변경 가능(H/W 지원이 필요 - MMU)
 
-## 6. Virtual Memory
+### 5.2. Virtual Memory
+- 적은 양의 physical memory를 
+- logical memory와 physical memory를
 
 ## 7. IPC(InterProcess-Communication)
 

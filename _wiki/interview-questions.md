@@ -3,7 +3,7 @@ layout    : wiki
 title     : 면접 질문
 summary   : 
 date      : 2020-03-26 09:25:56 +0900
-updated   : 2020-04-17 00:00:32 +0900
+updated   : 2020-04-28 22:42:18 +0900
 tag       : 
 public    : true
 published : true
@@ -119,6 +119,7 @@ latex     : false
 		- class : 상속 X
 		- method : overriding X
 		- variable : update X (C언어의 const)
+	- https://gmlwjd9405.github.io/2017/10/01/basic-concepts-of-development-spring.html
 
 
 
@@ -233,7 +234,7 @@ latex     : false
 	- 유니캐스트는 자신의 MAC주소가 아니면 버린다. (CPU의 성능 저하가 없다.)
 	- 브로드캐스트는 자신의 MAC주소와 다르더라도 위로 올린다. (인터럽트가 걸리기 때문에 CPU의 성능 저하가 존재한다.)
  
-- DHCP(Dynamic HOst Configuration Protocol)
+- [[DHCP]](Dynamic HOst Configuration Protocol)
 	- 같은 네트워크 내에서 host의 IP 주소가 같아선 안된다. 또한 네트워크 별로 동일한 네트워크 번호, 동일한 서브넷 마스크를 가져야 한다. 클러이언트 PC가 켜지면서 네트워크에 브로드캐스트를 보낸다. DHCP 서버는 그 요청을 받고 자신이 관리하는 IP 주소 중 아직 배정되지 않은 하나를 클라이언트에게 전달한다. 요즘은 라우터에서도 이 기능을 제공해준다.
  
 - LAN(Local Area Network)
@@ -308,10 +309,12 @@ latex     : false
 		- HTTP 프로토콜 서비스를 지원하는 javax.servlet.http.HttpServlet 클래스를 상속받는다. UDP보다 속도가 느리다.
 		- HTML 변경 시 Servlet을 재컴파일해야 하는 단점
 
-- Web server vs WAS(Web Application Server)
-
 - JSP(Java Server Page)
 	- 
+
+- Web server vs WAS(Web Application Server)
+	- https://gmlwjd9405.github.io/2018/10/27/webserver-vs-was.html
+
 
 - DNS 서버
 	- 
@@ -377,7 +380,32 @@ latex     : false
 - 에코시스템
 	- 여러 서브 프로젝트들이 서로 상호작용하면서 하나의 생태계를 꾸린다.
 
-## 3. 데이터베이스
+- IOC(Inversion of Control, 제어의 역전)란
+	- https://gmlwjd9405.github.io/2017/10/01/basic-concepts-of-development-spring.html
+- MVC 패턴이란
+	- https://gmlwjd9405.github.io/2017/10/01/basic-concepts-of-development-spring.html
+- DI(Dependency Injection, 의존성 주입)란
+	- https://gmlwjd9405.github.io/2017/10/01/basic-concepts-of-development-spring.html
+- AOP(Aspect Oriented Programming)란
+	- https://gmlwjd9405.github.io/2017/10/01/basic-concepts-of-development-spring.html
+- POJO
+	- https://gmlwjd9405.github.io/2017/10/01/basic-concepts-of-development-spring.html
+- DAO, DTO의 차이
+	- https://gmlwjd9405.github.io/2017/10/01/basic-concepts-of-development-spring.html
+- Spring JDBC를 이용한 데이터 접근
+	- https://gmlwjd9405.github.io/2017/10/01/basic-concepts-of-development-spring.html
+
+## 3. DB(데이터베이스)
+Join
+SQL Injection
+Index
+Statement, PrepareStatement
+RDBMS, NoSQL
+효과적인 쿼리 저장
+Replication
+파티셔닝(Partitioning)
+샤딩(Sharding)
+https://gmlwjd9405.github.io/2017/10/01/basic-concepts-of-development-db.html
 
 1. DBMS
 2. 기본키 (Primary Key)
@@ -445,6 +473,9 @@ DELETE from 테이블명 WHERE 조건
 
 
 - [[tree]]{트리}
+	- 이진 트리
+	- 완전 이진 트리
+	- https://gmlwjd9405.github.io/2018/08/12/data-structure-tree.html
  
 - 링크드 리스트 vs 배열
 	- 배열 : 랜덤 접근 가능. 삽입, 삭제 느림
@@ -479,6 +510,26 @@ DELETE from 테이블명 WHERE 조건
 - context switching
 	- https://jeong-pro.tistory.com/93
 - 데몬 쓰레드
+- Thread-safe
+- 동기화 객체의 종류
+- 뮤텍스와 세마포어의 차이
+- 스케줄러
+- 동기 vs 비동기
+- 멀티스레드
+- 프로세스 동기화
+- 메모리 관리 전략
+- 가상 메모리
+- 캐시의 지역성
+- 교착상태(데드락)의 개념과 조건
+- paging
+- demand paging
+- 사용자 수준 스레드, 커널 수준 스레드
+- 외부 단편화와 내부 단편화
+- Context Switching
+- Swapping
+- 멀티 프로세스 대신 멀티 스레드를 사용하는 이유?
+	- https://gmlwjd9405.github.io/2017/10/01/basic-concepts-of-development-os.html
+- JVM thread
 
 ## 6. 소프트웨어 공학
 - UML(Unified Modeling Language)
@@ -488,6 +539,7 @@ DELETE from 테이블명 WHERE 조건
 	- 테스트 코드를 통해 개발하는 방법
 
 - 디자인 패턴
+	- https://gmlwjd9405.github.io/2017/10/01/basic-concepts-of-development-designpattern.html
 	- 데코레이터 패턴
 	- Strategy 패턴 & DI
 	- Front Controller Pattern
@@ -506,4 +558,15 @@ DELETE from 테이블명 WHERE 조건
 - 소스를 작성하고 분기처리를 할 때의 주의점
 - 인터럽트
 - RISC, CISC
+- 
+
+
+
+- http://blog.naver.com/PostView.nhn?blogId=kbh3983&logNo=220777337921&categoryNo=17&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView
+- https://hanee24.github.io/2018/05/13/interview-questions/
+
+
+
+
+
 
