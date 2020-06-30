@@ -24,3 +24,11 @@
     padding-left: 30px;
     background-color: #FFFFFF;
 }
+
+$active-color: red;
+.active-toc {
+	color: $active-color;
+}
+.active-toc:visited {
+	color: $active-color;
+}
