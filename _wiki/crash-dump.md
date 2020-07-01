@@ -3,7 +3,7 @@ layout  : wiki
 title   : Crash Dump
 summary : 
 date    : 2019-08-06 10:19:27 +0900
-updated : 2020-03-10 17:39:18 +0900
+updated : 2020-07-01 14:27:06 +0900
 tag     : 
 public  : true
 parent  : debugging
@@ -18,7 +18,8 @@ Crash Dump : 어떠한 원인으로 인하여 Crash가 발생했을 때 그 때�
 
 ### 1.1 Visual Studio
 1. 먼저, command line으로 Symbol서버에 Login한다.
-	```dos
+   
+	```
 	net use "\\192.169.219.18\SymSrv" /user"hoonti" "P@ssw0rd"
 	```
 <br>
@@ -45,8 +46,54 @@ Crash Dump : 어떠한 원인으로 인하여 Crash가 발생했을 때 그 때�
 [WinDbg.exe 설치](https://docs.microsoft.com/en-us/windows-hardware/
 drivers/debugger/debugger-download-tools)
 
-아래 batch 파일의 내용을 참고한다.  
-[Analyze_Dump_via_LocalPDB.bat](https://gitlab.com/hoonti06/hoonti06.gitlab.io/uploads/8d9d5385779d611a500cafc1994bfd65/Analyze_Dump_via_LocalPDB.bat)
+아래 batch script 내용을 참고한다.  
+```
+:: ------- Do NOT Touch (START Line) -------
+setlocal
+:: cmd창에 한글을 출력하기 위한 코드
+@chcp 65001 1> NUL 2> NUL
+:: ------- Do NOT Touch (End Line) -------
+
+
+:: SYMBOL 데이터들을 저장할 Local 경로를 지정한다.(경로 맨 마지막의 '\'는 제거한다)
+SET SYMBOL=D:\symbol
+
+:: Local에 저장되어 있는 PDB 폴더의 경로로 변경한다.(경로 맨 마지막의 '\'는 제거한다)
+SET PDB_PATH=D:\local_PDB
+
+:: Dump가 저장되어 있는 경로로 변경한다.(경로 맨 마지막의 '\'는 제거한다)
+SET DUMP_PATH=C:\Users\hoonti\Desktop\issue\crash-dump
+
+:: Dump 분석할 branch의 source code 경로로 변경한다.(경로 맨 마지막의 '\'는 제거한다)
+SET SOURCE_PATH=Z:\Develop\project
+
+
+:: ------- Do NOT Touch (START Line) -------
+SET DBG_TOOL_PATH=C:\Program Files\Debugging Tools for Windows (x64)
+SET WINDBG_EXE=%DBG_TOOL_PATH%\windbg.exe
+SET SYMSTORE_EXE=%DBG_TOOL_PATH%\symstore.exe
+
+SET MS_SYMBOL=%SYMBOL%\websymbol
+SET MY_SYMBOL=%SYMBOL%\mysymbol
+
+mkdir %SYMBOL%
+mkdir %MS_SYMBOL%
+mkdir %MY_SYMBOL%
+
+SET MS_SYMBOL=SRV*%MS_SYMBOL%*http://msdl.microsoft.com/download/symbols
+SET MY_SYMBOL=SRV*%MY_SYMBOL%*%PDB_PATH%
+
+SET DUMP_FILE=crashdump.dmp
+
+:: ------- Do NOT Touch (END Line) --------
+
+
+"%WINDBG_EXE%" -y "Cache*;%MY_SYMBOL%;%MS_SYMBOL%" -srcpath "%SOURCE_PATH%" -z "%DUMP_PATH%\%DUMP_FILE%" -c ".symopt+0x40;!analyze -v;kP" -logo "%DUMP_PATH%\dump_analysis_output.txt"
+
+pause
+```
+
+
 
 
 ## 2. 원격 Debugging
