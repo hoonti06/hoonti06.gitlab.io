@@ -3,14 +3,13 @@ layout    : post
 title     : Naver Developer Open Class 2019
 summary   : 네이버 하반기 공채 채용 설명회
 date      : 2019-08-08 10:09:03 +0900
+updated   : 2020-07-01 13:42:24 +0900
 tag       : 
-toc       : true
 public    : true
-published : false
+published : true
 latex     : false
 ---
-* TOC
-{:toc}
+
 ## 0. 개요
 2019년 8월 7일(수) 13:00 ~ 17:20까지 진행한 Naver Developer Open Class 2019에 참석해서 들은 내용
 
@@ -40,7 +39,7 @@ Speaker : 박찬규(chankyu.park@webtoonscorp.com)
 	
 	 
 ## 3. 선배와의 대화
-1. 김종찬
+1. 김OO
 	- 빅스케일 서비스와 잩은 변화에 대응
 	- 예상할 수 없는 엣지 케이스, 버그들
 		- 네이버 카페 영상 관련 웹 view 변경 proj 진행  
@@ -48,7 +47,7 @@ Speaker : 박찬규(chankyu.park@webtoonscorp.com)
 	- 동료들의 시간을 절약해주는 개발
 		- 한 번 짤 때 잘 짜야 동료들이 쉽게 개발할 수 있다.(디자인 패턴, 객체 지향)  
 <br>
-2. 최인식
+2. 최OO
 	- 2016 채용 연계형 인턴
 	- Search & clova, Smart around
 	- 네이버 : 많은 양의 데이터, 실리콘 벨리의 문화와 가장 가까움
@@ -59,7 +58,7 @@ Speaker : 박찬규(chankyu.park@webtoonscorp.com)
 		- 언제 어떤 자료구조를 써야 되는지
 		- 문제가 주어 졌을때, 잘 몰라도 면접관들과 소통하여 힌트를 얻고 잘 해결할 수 있는지  
 <br>
-3. 전민영
+3. 전OO
 	- 스타트업 경험자
 	- 2017 채용 연계형 인턴
 	- 네이버 개발 문화
@@ -69,7 +68,7 @@ Speaker : 박찬규(chankyu.park@webtoonscorp.com)
 	- 오래된 코드를 관리하고 계속 유지, 보수 해나가고, 담당자가 바뀌어도 쉽게 코드를 알 수 있도록 하는 관리 방법을 배울 수 있다.
 	- 개발자 중심의 일정(지속 가능한 개발, 번아웃 없이)  
 <br>
-4. 이강일
+4. 이OO
 	- 비전공자
 	- 2012 비전공자 대상 소프트웨어 멤버십
 	- 좋은 개발자가 되려면
@@ -85,7 +84,7 @@ Speaker : 박찬규(chankyu.park@webtoonscorp.com)
 		- *뭐 만들어보고 싶다고 하지..*
 	- OCC : 새로 생긴 팀에 자원해서 갈 수도 있는 시스템  
 <br>
-5. 이명현
+5. 이OO
 	- 컴퓨터교육학 전공
 	- 2015 경력 공채
 	- PaaS 쪽 개발
@@ -99,7 +98,7 @@ Speaker : 박찬규(chankyu.park@webtoonscorp.com)
 	- 기술 공유 채널이 잘 되어있다.
 	- 최고의 개발자들과 개발할 수 있는 것이 네이버를 다니는 가장 큰 이유  
 <br>
-6. 조성철
+6. 조OO
 	- 2008년 경력 입사
 	- calendar 이후 vedio platform
 	- 그룹 스터디, 개별 학습
@@ -115,8 +114,8 @@ Speaker : 박찬규(chankyu.park@webtoonscorp.com)
 		 - 수평적인 개발 문화
 			
 
-## 3. 네이버 채용 기준
-- 8말 9초, 3년만에 신입 개발자 공채
+## 4. 네이버 채용 기준
+- 2019년 8말 9초, 3년만에 신입 개발자 공채
 	- 지원서 작성
 	- 온라인 코딩 테스트
 	- 1차 면접
@@ -175,7 +174,7 @@ Speaker : 박찬규(chankyu.park@webtoonscorp.com)
 			```
 		  
 
-## 4. QnA
+## 5. QnA
 - 입사에 가장 중요하다고 생각하는 것
 	- 화사에서 어떤 걸 기여할 수 있는지를 증명  
 <br>

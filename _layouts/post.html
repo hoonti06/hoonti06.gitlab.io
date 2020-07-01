@@ -1,27 +1,44 @@
 ---
-layout: default
+layout: document
 ---
+
+{% assign thisName = page.id | remove: '/wiki/' %}
+<input type="hidden" id="thisName" value="{{ thisName }}"/>
 <div class="post">
     <header class="post-header">
         <h1 class="post-title">{{ page.title }}</h1>
-        <p class="created-date">
-            {{ page.date | date: "%Y.%m.%d" }}
-        </p>
-        {% include post-tags.html %}
-        <h2>{{ page.summary }}</h2>
-    </header>
-
-{% if page.toc %}
-    <div class="toc">
-    </div>
+{% if page.summary %}
+        <p class="title-summary">{{ page.summary }}</p>
 {% endif %}
+        <p>
+            <a href="{{ site.original }}/{{ thisName }}.md">원본 보기</a>
+        </p>
+        <div class="history-button">
+        <p><a href="{{ site.blame }}/{{ thisName }}.md" target="_blank">created: {{ page.date | date: '%Y.%m.%d' }}</a></p>
+        <p><a href="{{ site.blame }}/{{ thisName }}.md" target="_blank">updated: {{ page.updated | date: '%Y.%m.%d' }}</a></p>
+        </div>
+
+{% if page.tags %}
+    {% include post-tags.html %}
+{% endif %}
+
+    </header>
     <article class="post-content">
         {{ content }}
     </article>
-    {% include createLink.html %}
+
+{% if page.comment != false %}
     {% include comment.html %}
+{% endif%}
 
 </div>
+{% include createLink.html %}
+{% include createFootnotePopup.html %}
 
+<script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="/js/resize-youtube.js"></script>
+<script src="/js/common.js"></script>
+<script src="/js/pandoc-code-block.js"></script>
+<script src="/js/pandoc-table.js"></script>
+<script src="/js/mermaid.js"></script>
 <script src="/js/toc-highlight.js"></script>
