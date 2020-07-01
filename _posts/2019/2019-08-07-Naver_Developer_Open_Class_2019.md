@@ -3,7 +3,7 @@ layout    : post
 title     : Naver Developer Open Class 2019
 summary   : 네이버 하반기 공채 채용 설명회
 date      : 2019-08-08 10:09:03 +0900
-updated   : 2020-07-01 13:42:24 +0900
+updated   : 2020-07-01 13:53:32 +0900
 tag       : 
 public    : true
 published : true
@@ -148,16 +148,19 @@ Speaker : 박찬규(chankyu.park@webtoonscorp.com)
 		- *버블 sort의 개선을 아래처럼 하면 되려나...?*  
 
 			*ex>*  
-			*개선 전*
+			*개선 전*  
+
 			```cpp
 			for (int i = N-1; i > 0; i--)
 				for (int j = 0; j < i; j++)
 					if (arr[j] > arr[j+1])
 						swap(&arr[j], &arr[j+1]);
 			```  
+
 			---
 
-			*개선 후*
+			*개선 후*  
+
 			```cpp
 			for (int i = N-1; i > 0 && isSwapped; i++)
 			{
