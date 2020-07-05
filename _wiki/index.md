@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2020-04-13 23:20:35 +0900
+updated : 2020-07-05 22:11:29 +0900
 public  : true
 comment : false
 ---
@@ -85,3 +85,4 @@ comment : false
 	* [[version-naming]]{버전 표기법(SemVer)}
 	* [[TBB]]
 	* [[markdown-example]]
+	* [[how-to-use-github-gitlab-issue]]
