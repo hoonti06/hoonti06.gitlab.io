@@ -3,7 +3,7 @@ layout    : wiki
 title     : github, gitlab issue 사용법
 summary   : 
 date      : 2020-07-05 22:11:29 +0900
-updated   : 2020-07-05 23:59:19 +0900
+updated   : 2020-07-06 00:45:58 +0900
 tag       : 
 public    : true
 published : true
@@ -43,7 +43,8 @@ latex     : false
 1. issue를 등록한다.
 
 2. issue 해결을 할 local branch를 생성한다.  
-   git checkout -b origin/{base\_branch} origin/{branch\_to\_solve\_issue} (일반적으로, base\_branch는 master)
+	1. git checkout {base\_branch} (일반적으로, base\_branch는 master)
+	2. git checkout -b origin/{branch\_to\_solve\_issue}
 
 4. local branch에서 코드를 수정 및 추가하여 commit한다. (commit 개수는 상관없다.)
 
