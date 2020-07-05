@@ -5,17 +5,17 @@ else
 	INSTANCE_NAME="blog"
 	WORKING_DIR=/srv/jekyll
 	DOCKER_IMAGE=hoonti06/hoonti06.gitlab.io-env
+	SCRIPT_TO_EXECUTE_IN_CONTAINER_SHELL="cd ${WORKING_DIR}; \
+										  bundle install; \
+										  ${RUN_JEKYLL}; \
+										  exec \"\${SHELL:-sh}\""
 
 	docker stop $INSTANCE_NAME
 	docker rm $INSTANCE_NAME
 
 	docker run -it --name $INSTANCE_NAME \
-		--volume="$PWD:/srv/jekyll" \
+		--volume="${PWD}:${WORKING_DIR}" \
 		-p 4000:4000 \
-		$DOCKER_IMAGE /bin/bash -c '\
-		cd /srv/jekyll; \
-		bundle install; \
-		${RUN_JEKYLL}; \
-		exec "${SHELL:-sh}" '
+		$DOCKER_IMAGE /bin/bash -c "$SCRIPT_TO_EXECUTE_IN_CONTAINER_SHELL"
 fi
 
