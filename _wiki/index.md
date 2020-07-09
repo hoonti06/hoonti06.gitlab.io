@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2020-07-05 22:11:29 +0900
+updated : 2020-07-07 19:55:28 +0900
 public  : true
 comment : false
 ---
@@ -11,6 +11,7 @@ comment : false
 * [[interview-questions]]{면접 질문}
 * [[book-contents-summary]]{도서 내용 정리}
 	* [[the-essence-of-object-orientation]]{객체지향의 사실과 오해}
+	* [[effective-java-3e]] {이펙티브 자바 3/E}
 * [[spring-framework-core]]{Spring framework 핵심 기술}
 * [[spring-boot]]{Spring boot}
 * [[spring-mvc]]{Spring MVC}
