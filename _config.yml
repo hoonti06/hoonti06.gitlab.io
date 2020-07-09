@@ -20,6 +20,7 @@ plugins:
   - jekyll-mermaid
   - jekyll-pandoc-mermaid
   - jekyll-plantuml
+  - jekyll-pandoc-href
  #- jekyll-pandoc-multiple-format
  #- jekyll-youtube
 

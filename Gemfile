@@ -34,5 +34,6 @@ group :jekyll_plugins do
   gem 'jekyll-gist'
 end
 
+gem 'jekyll-pandoc-href', :path => "./jekyll-pandoc-href" # for development
 #gem 'jekyll-pandoc-rouge', :path => "./jekyll-pandoc-rouge" # for development
 #gem 'jekyll-pandoc-mermaid', :path => "./jekyll-pandoc-mermaid" # for development
