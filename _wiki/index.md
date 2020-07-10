@@ -2,11 +2,12 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2020-07-07 19:55:28 +0900
+updated : 2020-07-10 10:38:26 +0900
 public  : true
 comment : false
 ---
 
+* [[memo]]
 * [ToDoList]
 * [[interview-questions]]{면접 질문}
 * [[book-contents-summary]]{도서 내용 정리}
