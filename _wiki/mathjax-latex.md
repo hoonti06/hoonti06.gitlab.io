@@ -6,7 +6,7 @@ date    : 2017-11-28 22:56:29 +0900
 updated : 2019-09-28 21:23:48 +0900
 tag     : latex
 public  : true
-parent  : how-to
+parent  : [[how-to]]
 latex   : true
 ---
 

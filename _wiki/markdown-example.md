@@ -7,7 +7,7 @@ updated   : 2020-04-07 09:31:54 +0900
 tag       : 
 public    : true
 published : true
-parent    : etc
+parent    : [[etc]]
 latex     : false
 ---
 

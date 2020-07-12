@@ -6,7 +6,7 @@ date    : 2019-03-26 23:30:15 +0900
 updated : 2020-04-05 17:03:53 +0900
 tag     : 
 public  : true
-parent  : data-structure
+parent  : [[data-structure]]
 latex   : false
 ---
 

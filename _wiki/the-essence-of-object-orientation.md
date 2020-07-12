@@ -7,7 +7,7 @@ updated   : 2020-03-10 16:55:40 +0900
 tag       : 
 public    : true
 published : true
-parent    : book-contents-summary
+parent    : [[book-contents-summary]]
 latex     : false
 ---
 

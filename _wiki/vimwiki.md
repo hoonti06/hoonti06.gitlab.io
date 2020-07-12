@@ -6,7 +6,7 @@ date    : 2019-07-24 00:14:19 +0900
 updated : 2019-12-18 18:09:05 +0900
 tag     : 
 public  : true
-parent  : vim
+parent  : [[vim]]
 latex   : false
 ---
 

@@ -7,7 +7,7 @@ updated   : 2020-03-25 08:21:30 +0900
 tag       : 
 public    : true
 published : true
-parent    : data-structure
+parent    : [[data-structure]]
 latex     : false
 ---
 

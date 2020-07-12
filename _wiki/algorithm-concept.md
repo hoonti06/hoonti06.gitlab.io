@@ -6,7 +6,7 @@ date    : 2019-07-23 23:19:27 +0900
 updated : 2020-03-24 10:05:53 +0900
 tag     : algorithm
 public  : true
-parent  : algorithm
+parent  : [[algorithm]]
 latex   : false
 ---
 

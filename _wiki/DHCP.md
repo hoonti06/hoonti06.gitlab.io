@@ -6,7 +6,7 @@ date      : 2019-02-09 22:13:32 +0900
 updated   : 2020-03-09 00:28:49 +0900
 tag       :
 public    : true
-parent    : network
+parent    : [[network]]
 published : true
 latex     : false
 ---

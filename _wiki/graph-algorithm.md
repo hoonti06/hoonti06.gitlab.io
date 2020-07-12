@@ -7,7 +7,7 @@ updated   : 2020-03-24 23:06:50 +0900
 tag       : graph graph-algorithm
 public    : true
 published : true
-parent    : algorithm-concept
+parent    : [[algorithm-concept]]
 latex     : false
 ---
 

@@ -7,7 +7,7 @@ updated   : 2020-02-15 20:36:12 +0900
 tag       : spring spring-boot web inflearn
 public    : true
 published : true
-parent    : 
+parent    : [[]]
 latex     : false
 ---
 

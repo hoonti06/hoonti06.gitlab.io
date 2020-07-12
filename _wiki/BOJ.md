@@ -7,7 +7,7 @@ updated   : 2020-03-09 00:30:21 +0900
 tag       : 
 public    : true
 published : true
-parent    : algorithm-problem
+parent    : [[algorithm-problem]]
 latex     : false
 ---
 

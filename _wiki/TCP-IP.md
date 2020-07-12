@@ -7,7 +7,7 @@ updated   : 2020-04-14 23:33:32 +0900
 tag       : 
 public    : true
 published : true
-parent    : network
+parent    : [[network]]
 latex     : false
 ---
 

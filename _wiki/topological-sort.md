@@ -7,7 +7,7 @@ updated   : 2020-03-19 17:08:47 +0900
 tag       : topological-sort graph graph-algorithm
 public    : true
 published : true
-parent    : graph-algorithm
+parent    : [[graph-algorithm]]
 latex     : false
 ---
 

@@ -7,7 +7,7 @@ updated   : 2020-02-20 22:45:21 +0900
 tag       : docker
 public    : true
 published : true
-parent    : 
+parent    : [[]]
 latex     : false
 ---
 

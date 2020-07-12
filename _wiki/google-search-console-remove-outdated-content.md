@@ -6,7 +6,7 @@ date    : 2017-11-28 08:50:10 +0900
 updated : 2019-09-28 21:23:00 +0900
 tag     : google
 public  : true
-parent  : useful-site
+parent  : [[useful-site]]
 latex   : true
 ---
 

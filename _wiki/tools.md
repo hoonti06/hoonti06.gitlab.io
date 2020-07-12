@@ -6,7 +6,7 @@ date    : 2018-02-04 11:05:57 +0900
 updated : 2019-09-28 21:22:38 +0900
 tag     : tools
 public  : true
-parent  : index
+parent  : [[index]]
 latex   : false
 ---
 

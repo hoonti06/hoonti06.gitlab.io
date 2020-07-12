@@ -7,7 +7,7 @@ updated   : 2020-04-28 09:14:26 +0900
 tag       : db database
 public    : true
 published : true
-parent    : database
+parent    : [[database]]
 latex     : false
 ---
 

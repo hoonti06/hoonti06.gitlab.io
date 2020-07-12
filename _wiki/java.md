@@ -7,7 +7,7 @@ updated   : 2020-04-19 16:10:16 +0900
 tag       : java
 public    : true
 published : true
-parent    : programming-language
+parent    : [[programming-language]]
 latex     : false
 ---
 

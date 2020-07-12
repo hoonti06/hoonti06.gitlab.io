@@ -6,7 +6,7 @@ date      : 2019-08-05 09:46:05 +0900
 updated   : 2020-07-01 19:17:09 +0900
 tag       :
 public    : true
-parent    : debugging
+parent    : [[debugging]]
 published : true
 latex     : false
 ---

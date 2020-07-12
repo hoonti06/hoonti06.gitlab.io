@@ -7,7 +7,7 @@ updated   : 2020-04-28 22:42:18 +0900
 tag       : 
 public    : true
 published : true
-parent    : 
+parent    : [[]]
 latex     : false
 ---
 ## 1. 프로그래밍 언어

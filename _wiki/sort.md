@@ -7,7 +7,7 @@ updated   : 2020-03-19 14:57:05 +0900
 tag       : 
 public    : true
 published : true
-parent    : algorithm-concept
+parent    : [[algorithm-concept]]
 latex     : false
 ---
 

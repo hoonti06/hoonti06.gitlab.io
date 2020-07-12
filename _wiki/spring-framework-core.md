@@ -7,7 +7,7 @@ updated   : 2020-03-24 10:24:55 +0900
 tag       : spring web inflearn
 public    : true
 published : true
-parent    :
+parent    :[[]]
 latex     : false
 ---
 

@@ -6,7 +6,7 @@ date    : 2017-12-03 10:40:55 +0900
 updated : 2019-09-28 21:22:17 +0900
 tag     : gradle tool
 public  : true
-parent  : index
+parent  : [[index]]
 latex   : false
 ---
 

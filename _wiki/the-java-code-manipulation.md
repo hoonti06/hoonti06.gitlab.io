@@ -7,7 +7,7 @@ updated   : 2020-03-17 20:08:35 +0900
 tag       : java
 public    : true
 published : true
-parent    : 
+parent    : [[]]
 latex     : false
 ---
 

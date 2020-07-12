@@ -3,13 +3,54 @@ layout    : wiki
 title     : 
 summary   : 
 date      : 2020-07-10 10:38:27 +0900
-updated   : 2020-07-10 10:52:44 +0900
+updated   : 2020-07-12 11:17:31 +0900
 tag       : 
 public    : true
 published : true
-parent    : 
+parent    : [[]]
 latex     : false
 ---
+
+## 2020-07-11
+- item6
+	- RomanNumerals.isRomanNumeral static method를 사용하여 ROMAN이란 객체를 재사용한다.
+	- 지연 초기화 (item87)
+		- JPA lazy loading (Entity 정보를 query를 쓰기 전까지는 loading하지 않는다)
+		- synchrosized
+	- 어댑터 패턴
+	- 방어적 복사 (item50)
+	- boolean(String) 생성자가 뭐지 찾아보자
+	- String s = "bikini"; (heap 영역의 constant pool, String만) 
+		- 비용 문제로 그렇게 하는것으로 보임
+- item 11
+	- 익명 클래스
+	- hashcode 요령
+		- '31'
+	- equals로 또 한 번 체크한다.
+
+- item 12
+	- 디버깅 쉽다
+	- 포맷의 문서화
+- item 13
+- item 15
+	- 하지만 getter, setter는 그대로 return 타입과 method 이름에 변수 이름이 다 드러난다.
+		- getter, setter는 안티패턴
+		- 외부에서 진짜 필요한 메소드만 제공을 하는게 더 낫다.
+	- 정보 은닉 : 시스템 관리 비용
+	- array를 
+- chapter3
+	- 상용구 코드를 안 써도 된다.
+	- double 콜론 (java9)
+	- data.sql, 
+	- JPA
+		- @Entity : JPA 애노테이션
+		- @NoArgsConstructor private으로
+		- @GeneratedValue
+		- Order는 sql에서 예약어
+		- CrudRepository
+		- spring 데이터는 method 이름을 분석한다.
+		- 너무 길면 @Query()
+		
 
 ## 2020-07-10
 
