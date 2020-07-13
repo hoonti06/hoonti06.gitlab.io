@@ -3,11 +3,11 @@ layout    : wiki
 title     : 
 summary   : 
 date      : 2020-07-07 19:55:31 +0900
-updated   : 2020-07-09 09:16:12 +0900
+updated   : 2020-07-13 22:17:57 +0900
 tag       : 
 public    : true
 published : true
-parent    : [[]]
+parent    : [[book-contents-summary]]
 latex     : false
 ---
 

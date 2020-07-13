@@ -3,11 +3,11 @@ layout    : wiki
 title     : 스프링 프레임워크 핵심 기술
 summary   : 
 date      : 2020-01-29 09:42:19 +0900
-updated   : 2020-03-24 10:24:55 +0900
+updated   : 2020-07-13 22:20:46 +0900
 tag       : spring web inflearn
 public    : true
 published : true
-parent    :[[]]
+parent    : [[online-lecture]]
 latex     : false
 ---
 

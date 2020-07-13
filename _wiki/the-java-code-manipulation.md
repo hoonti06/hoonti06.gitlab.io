@@ -3,11 +3,11 @@ layout    : wiki
 title     : 더 자바, 코드를 조작하는 다양한 방법
 summary   : 
 date      : 2020-02-22 09:48:16 +0900
-updated   : 2020-03-17 20:08:35 +0900
+updated   : 2020-07-13 22:29:18 +0900
 tag       : java
 public    : true
 published : true
-parent    : [[]]
+parent    : [[online-lecture]]
 latex     : false
 ---
 
