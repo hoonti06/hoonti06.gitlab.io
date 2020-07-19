@@ -3,7 +3,7 @@ layout    : wiki
 title     : PDB(Program DataBase)
 summary   : PDB의 활용
 date      : 2019-08-05 09:46:05 +0900
-updated   : 2020-07-01 19:17:09 +0900
+updated   : 2020-07-19 23:48:46 +0900
 tag       :
 public    : true
 parent    : [[debugging]]
@@ -22,7 +22,7 @@ PDB : Program DataBase의 약자로, Symbol 파일로도 불린다.
 Symbol 서버를 이용하면 분석할 dump에 맞는 PDB 파일들을 자동으로 download해주기 때문에 분석하는 데 좀 더 수월하다.  
 Symbol 서버가 구축되어 있지 않으면 직접 분석에 필요한 올바른 PDB 파일을 찾아 Local에 저장하여 분석을 진행해야 한다.
 
-### 1.1 Symbol 서버 접속 방법
+### 1.1. Symbol 서버 접속 방법
 
 ```
 net use "\\192.168.219.18\SymSrv" /user:"hoonti" "0000"
@@ -30,7 +30,7 @@ net use "\\192.168.219.18\SymSrv" /user:"hoonti" "0000"
 net use Z: "\\192.168.219.18\SymSrv" /user:"hoonti" "0000"
 ```
 
-### 1.2 Symbol 서버 구축 방법
+### 1.2. Symbol 서버 구축 방법
 참고 : dbg_amd64_6.12.2.msi'가 반드시 설치되어 있어야 한다.  
 
 ```

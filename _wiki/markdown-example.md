@@ -3,7 +3,7 @@ layout    : wiki
 title     : markdown 연습장
 summary   : 
 date      : 2019-09-29 17:32:09 +0900
-updated   : 2020-04-07 09:31:54 +0900
+updated   : 2020-07-19 23:49:11 +0900
 tag       : 
 public    : true
 published : true
@@ -394,7 +394,7 @@ pie
     "Iron" :  5
 {% endmermaid %}
 
-## 6.etc
+## 6. etc
 ```
 {% youtube https://www.youtube.com/watch?v=G33WiEktUo8 %}
 {% youtube https://www.youtube.com/embed/V69UAnkoYHM %}

@@ -3,7 +3,7 @@ layout    : wiki
 title     : JAVA
 summary   : 
 date      : 2020-04-09 09:26:31 +0900
-updated   : 2020-04-19 16:10:16 +0900
+updated   : 2020-07-19 23:48:15 +0900
 tag       : java
 public    : true
 published : true
@@ -16,7 +16,7 @@ latex     : false
 객체 지향 프로그래밍 언어로서, JVM을 통해 구동되기 때문에 OS로부터 독립적으로 수행된다.
 
 ## 1. 특징
-## 1.1 데이터 타입
+## 1.1. 데이터 타입
 - 기본형(primitive type) 8개
 	- 논리형 : boolean(1)
 	- 문자형 : char(2)
@@ -65,7 +65,7 @@ latex     : false
 ## 2. JVM
 
 
-## 2.1 Garbage Collecter
-## 2.2 JIT
+## 2.1. Garbage Collecter
+## 2.2. JIT
 
 ## 3. JDK

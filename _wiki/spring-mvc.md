@@ -3,7 +3,7 @@ layout    : wiki
 title     : 스프링 웹 MVC
 summary   : 
 date      : 2020-02-10 12:16:49 +0900
-updated   : 2020-07-13 22:29:06 +0900
+updated   : 2020-07-19 23:30:12 +0900
 tag       : spring mvc web inflearn
 public    : true
 published : true
@@ -13,7 +13,7 @@ latex     : false
 
 ## 1. Spring MVC 동작 원리
 
-### 1.1 Spring MVC
+### 1.1. Spring MVC
 - MVC
 	- 모델(M)
 		- 도메인 객체 또는 DTO로 화면에 전달하거나 화면으로부터 전달 받은 데이터를 담고 있는 객체
@@ -123,7 +123,7 @@ public class EventService {
 	- [Thymeleaf Document](https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html)
 
 
-### 1.2 Servlet
+### 1.2. Servlet
 
 - 서블릿(Servlet)
 	- Java EE는 Web Application 개발용 spec과 API를 제공. 
@@ -222,7 +222,7 @@ public class HelloServlet extends HttpServlet {
 		- application context를 '/'(root)로 설정한다.
 		- war_exploded : war를 푼 상태로 배포(Deployment)하는 방법
 
-### 1.3 Servlet Listener and Filter
+### 1.3. Servlet Listener and Filter
 
 - 서블릿 리스터
 	- 웹 애플리케이션에서 발생하는 주요 이벤트를 감지하고 각 이벤트에 특별한 작업이 필요한 경우에 사용할 수 있다.
@@ -263,8 +263,8 @@ public class HelloServlet extends HttpServlet {
 {% endditaa %}		
 
 
-### 1.4 DispatcherServlet
-#### 1.4.1 DispatcherServlet
+### 1.4. DispatcherServlet
+#### 1.4.1. DispatcherServlet
 ![이미지 출처 : [https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc
 ](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc)](/wiki-img/Spring-MVC/DispatcherServlet.png)  
 
@@ -372,7 +372,7 @@ public class HelloServlet extends HttpServlet {
 		- spring boot의 경우 spring boot application(java app)이 먼저 뜨고, 내장되어 있는 Tomcat이 뜨게 된다. boot가 내장 Tomcat에 DispatcherServlet을 코드로 등록한다. => spring boot application(java app) 안에 tomcat이 들어가 있는 형태
 
 
-#### 1.4.2 동작 원리
+#### 1.4.2. 동작 원리
 
 - DispatcherServlet 초기화
 	- 다음의 특별한 타입의 빈들을 찾거나, 기본 전력에 해당하는 빈들을 등록한다.
@@ -474,7 +474,7 @@ public class SimpleController implements Controller {
 	- mv(modelAndView)가 null이 아니면 mapping된 jsp를 response body에 넣는다.  
 	  
 
-### 1.5 스프링 MVC 구성 요소  
+### 1.5. 스프링 MVC 구성 요소  
 
 {% ditaa -T -E %}
 +---------------------------------+
@@ -528,7 +528,7 @@ public class SimpleController implements Controller {
 	- FlashMap은 주로 리다이렉션을 사용할 때 요청 매개변수를 사용하지 않고 데이터를 전달하고 정리할 때 사용한다. 
 	- redirect:/events 
 
-### 1.6 정리 
+### 1.6. 정리 
 
 - DispatcherServlet : 결국엔 서블릿(하지만 굉장히 복잡한)
 

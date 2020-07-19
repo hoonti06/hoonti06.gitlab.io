@@ -3,7 +3,7 @@ layout  : wiki
 title   : Crash Dump
 summary : 
 date    : 2019-08-06 10:19:27 +0900
-updated : 2020-07-01 14:27:06 +0900
+updated : 2020-07-19 23:48:58 +0900
 tag     : 
 public  : true
 parent  : [[debugging]]
@@ -16,7 +16,7 @@ Crash Dump : 어떠한 원인으로 인하여 Crash가 발생했을 때 그 때�
 ## 1. Dump 분석 방법
 우선, Crash가 발생한 버전의 [[PDB]]와 Source Code가 필요하다. 그리고 해당 버전을 설치해놓는다.
 
-### 1.1 Visual Studio
+### 1.1. Visual Studio
 1. 먼저, command line으로 Symbol서버에 Login한다.
    
 	```
@@ -41,7 +41,7 @@ Crash Dump : 어떠한 원인으로 인하여 Crash가 발생했을 때 그 때�
 		- Watch : 변수를 등록하여 값 확인(정확한 값이 아닐 확률이 높음)  
 <br>
 
-### 1.2 WinDbg.exe
+### 1.2. WinDbg.exe
 
 [WinDbg.exe 설치](https://docs.microsoft.com/en-us/windows-hardware/
 drivers/debugger/debugger-download-tools)

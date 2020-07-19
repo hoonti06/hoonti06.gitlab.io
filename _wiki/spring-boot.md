@@ -3,7 +3,7 @@ layout    : wiki
 title     : Spring boot
 summary   : 
 date      : 2020-01-27 12:31:49 +0900
-updated   : 2020-07-13 22:29:01 +0900
+updated   : 2020-07-19 23:29:41 +0900
 tag       : spring spring-boot web inflearn
 public    : true
 published : true
@@ -13,19 +13,19 @@ latex     : false
 
 ## 1. 시작하기
 
-### 1.1 Spring boot 소개
+### 1.1. Spring boot 소개
 [https://docs.spring.io/spring-boot/docs/2.0.3.RELEASE/reference/htmlsingle/#getting-started-introducing-spring-boot](https://docs.spring.io/spring-boot/docs/2.0.3.RELEASE/reference/htmlsingle/#getting-started-introducing-spring-boot)
 <br>
 
-### 1.2 spring boot 시작하기
+### 1.2. spring boot 시작하기
 [https://docs.spring.io/spring-boot/docs/2.0.3.RELEASE/reference/htmlsingle/#getting-started-maven-installation](https://docs.spring.io/spring-boot/docs/2.0.3.RELEASE/reference/htmlsingle/#getting-started-maven-installation)
 <br>
 
-### 1.3 Sprint boot 프로젝트 생성기
+### 1.3. Sprint boot 프로젝트 생성기
 [https://start.spring.io](https://start.spring.io)
 <br>
 
-### 1.4 프로젝트 구조
+### 1.4. 프로젝트 구조
 [https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-structuring-your-code](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#using-boot-structuring-your-code)
 <br><br>
 
@@ -41,9 +41,9 @@ latex     : false
 
 ## 2. 원리
 
-### 2.1 의존성 관리 
+### 2.1. 의존성 관리 
 
-#### 2.1.1 이해
+#### 2.1.1. 이해
 
 {% mermaid %}
 graph BT
@@ -62,7 +62,7 @@ spring-boot-starter-parent의 pom.xml 내부 \<properties\> 항목에 아래와 
 - etc...
 
 
-#### 2.1.2 활용
+#### 2.1.2. 활용
 
 - 버전 관리 해주는 의존성 추가
 	- spring boot에서 관리하는 의존성이기 때문에 version을 명시하지 않아도 된다.  
@@ -90,9 +90,9 @@ spring-boot-starter-parent의 pom.xml 내부 \<properties\> 항목에 아래와 
 	- spring-boot-dependencies나 spring-boot-start-parent의 \<properties\>를 current project에서 다른 버전으로 overriding할 수 있다. 
 
 
-### 2.2 자동 설정
+### 2.2. 자동 설정
 
-#### 2.2.1 개요
+#### 2.2.1. 개요
 - @EnableAutoConfiguration (@SpringBootApplication 안에 포함되어 있음)
 	- 의존성 'spring-boot-autoconfigure'에서 설정된 이 Annotation으로 인해 application 실행 시 tomcat, jdbc, MongoDB 등이 자동으로 설정되는 것이다.  
 	<br>
@@ -108,7 +108,7 @@ spring-boot-starter-parent의 pom.xml 내부 \<properties\> 항목에 아래와 
 	- @SpringBootApplication : @COnfiguration, @EnableAutoConfiguration, @ComponentScan 3가지를 하나의 annotation으로 합친 것
 
 
-#### 2.2.2 자동 설정 만들기
+#### 2.2.2. 자동 설정 만들기
 https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-developing-auto-configuration
 
 - 모듈(프로젝트)
@@ -218,9 +218,9 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 	- 프로퍼티(application.properties)에 설정된 key값을 통해 자동 설정이 된다.
 
 
-### 2.3 내장 서블릿 컨테이너
+### 2.3. 내장 서블릿 컨테이너
 
-#### 2.3.1
+#### 2.3.1.
 - 스프링 부트는 서버가 아닌, Tool이다.(tomcat, netty 등이 서버에 해당한다.)
 	- 아래 코드처럼 tomcat을 직접 실행할 수 있다.  
 	  
@@ -266,7 +266,7 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 		  위 내용처럼 '서블릿 웹 서버(컨테이너)를 생성하는 일'과 '서블릿을 생성하고 등록하는 일'이 분리되어 있다.   
 		  서블릿은 바뀌지 않지만 컨테이너는 설정에 따라 달라질 수 있기 때문이다.
 
-#### 2.3.2 응용
+#### 2.3.2. 응용
 - 다른 서블릿 컨테이너로 변경
 	- Default 설정인 Tomcat을 빼고 Jetty를 적용할 수 있다. ([참고 Document](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-embedded-web-servers))  
 	  
@@ -365,7 +365,7 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 		```
 				
 				
-### 2.4 독립적으로 실행 가능한 JAR
+### 2.4. 독립적으로 실행 가능한 JAR
 
 - 배포하거나 docker 이미지를 만들 때 JAR package로 packaging하고 JAR로 실행하는 것이 유용하다.
 - java -jar xXXX.jar (jar 파일 하나로 Application이 실행된다.)
@@ -393,7 +393,7 @@ https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-featu
 				
 ## 3. 스프링 부트 활용
 
-### 3.1 소개
+### 3.1. 소개
 
 Spring boot가 제공하는 여러 기능을 사용하며 원하는대로 커스터마이징하는 방법을 학습
 
@@ -408,7 +408,7 @@ Spring boot가 제공하는 여러 기능을 사용하며 원하는대로 커스
 | - spring-Dev-Tools  |                             |
 +---------------------+-----------------------------+
 
-### 3.2 SpringApplication
+### 3.2. SpringApplication
 
 [document](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-embedded-web-servers.html#howto-configure-http2-tomcat)  
 
@@ -469,7 +469,7 @@ app.run(args)
 - 참고)
 	- 빈의 생성자가 하나고 그 생성자의 파라미터가 빈이면 spring이 알아서 주입해준다.
 
-### 3.3 외부 설정
+### 3.3. 외부 설정
 
 [document](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-external-config)
 
@@ -545,7 +545,7 @@ app.run(args)
 		- 실제 application.properties에 추가한 항목에 대해 테스트용에도 추가해야 한다는 번거로움이 있다.
 		- test.properteis는 파일 자체를 덮는게 아니라 존재하는 key 값에 대해서만 value를 overriding한다.
 
-### 3.4 프로파일
+### 3.4. 프로파일
 
 - "test", "prod"
 - @Profile 애노테이션은 어디에? 아래의 애노태이션들과 같이
@@ -558,7 +558,7 @@ app.run(args)
 - 프로파일용 프로퍼티
 	- application-{profile}.properties (.properties 파일에 설정)
 
-### 3.5 Logging
+### 3.5. Logging
 - 로깅 퍼사드 vs 로거
 	- 로깅 퍼사드는 로거 API들을 추상화 해놓은 인터페이스(로거를 변경할 수 있다.)
 	- 로깅 퍼사드 : Commons Logging(defualt, 문제 많음), SLF4j(좀 더 안전, 대신 설정들이 좀 복잡했음)
@@ -586,7 +586,7 @@ app.run(args)
 		- ~~JUL : logging.properties~~ (비추천)
 	- [로거를 Log4j2로 변경하기](https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-configure-log4j-for-logging)
 
-### 3.6 Test
+### 3.6. Test
 - 시작은 일단 spring-boot-start-test 의존성을 추가하는 것부터
 	- 'test' scope로 추가
 - @AutoConfigureMockMvc

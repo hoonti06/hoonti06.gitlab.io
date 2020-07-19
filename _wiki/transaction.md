@@ -3,7 +3,7 @@ layout    : wiki
 title     : 트랜잭션(Transaction)
 summary   : 
 date      : 2020-04-09 21:32:14 +0900
-updated   : 2020-04-28 09:14:26 +0900
+updated   : 2020-07-19 23:45:05 +0900
 tag       : db database
 public    : true
 published : true
@@ -39,7 +39,7 @@ latex     : false
 
 ## 4. 격리 수준(Isolation level)
 
-### 4.1 격리 이슈
+### 4.1. 격리 이슈
 - dirty read
 	- 수정은 됐지만 아직 커밋은 안된 데이터를 다른 트랜잭션이 읽은 상태에서 수정이 ROLLBACK되버린 경우
 
@@ -57,7 +57,7 @@ latex     : false
 	- second lost updates problem : non-repeatable read의 한 가지 형태로, 첫 번째 트랜잭션이 데이터에 쓰기를 하고 커밋을 했는데 다른 트랜잭션이 같은 데이터에 쓰기를 하고 커밋을 하면 앞선 트랜잭션의 결과는 날아가 버린다.  
  
  
-### 4.2 격리 수준
+### 4.2. 격리 수준
 
 +------------------+------------+---------------------+--------------+
 |                  | dirty read | non-repeatable read | Phantom read |

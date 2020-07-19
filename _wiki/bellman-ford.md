@@ -3,7 +3,7 @@ layout    : wiki
 title     : 벨만-포드 알고리즘
 summary   : 
 date      : 2020-03-19 10:55:16 +0900
-updated   : 2020-03-24 21:37:45 +0900
+updated   : 2020-07-19 23:47:45 +0900
 tag       : graph graph-algorithm
 public    : true
 published : true
@@ -13,7 +13,7 @@ latex     : false
 
 ## 1. 벨만-포드 알고리즘
 
-### 1.1 정의 및 특징
+### 1.1. 정의 및 특징
 - 한 정점에서 나머지 정점들의 최단 거리
 - 음수 가중치 가능
 - 음수 사이클 발견 가능
@@ -34,7 +34,7 @@ for (iter = 0; iter < V; iter++)
 		for (j = 0; j < edge[from].size(); j++)
 ```
 
-### 1.2 예제 코드
+### 1.2. 예제 코드
 ```{.cpp .numberLines}
 #include <cstdio>
 #include <algorithm>

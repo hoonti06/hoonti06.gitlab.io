@@ -3,7 +3,7 @@ layout    : wiki
 title     : 더 자바, 코드를 조작하는 다양한 방법
 summary   : 
 date      : 2020-02-22 09:48:16 +0900
-updated   : 2020-07-13 22:29:18 +0900
+updated   : 2020-07-19 23:31:04 +0900
 tag       : java
 public    : true
 published : true
@@ -13,7 +13,7 @@ latex     : false
 
 ## 1. JVM의 이해
 
-### 1.1 
+### 1.1.
 
 {% ditaa -T -E %}
 +-----------------------------------+
@@ -69,7 +69,7 @@ latex     : false
 	- [JDK, JRE 그리고 JVM](https://howtodoinjava.com/java/basics/jdk-jre-jvm/)
 	- [JVM 언어 목록](https://en.wikipedia.org/wiki/List_of_JVM_languages)
 
-### 1.2 JVM의 구조
+### 1.2. JVM의 구조
 
 {% ditaa -T -E %}
 +------------------------------------+
@@ -125,7 +125,7 @@ latex     : false
 - 네이티브 메소드 라이브러리
 	- C, C++로 작성된 라이브러리
 
-#### 1.2.1 클래스 로더
+#### 1.2.1. 클래스 로더
 {% ditaa -T -E %}
 +----------------------------------------------------+
 |                Class Loader System                 |
@@ -172,7 +172,7 @@ latex     : false
 
 ## 2. 바이트 코드 조작
 
-### 2.1 코드 커버리지
+### 2.1. 코드 커버리지
 
 - 코드 커버리지 : 테스트 코드가 확인한 소스 코드를 %로 나타낸 수치
 	- jaCoCo
@@ -254,17 +254,17 @@ latex     : false
 		</plugin>
 		```
 		
-### 2.2 바이트 코드 조작 라이브러리
+### 2.2. 바이트 코드 조작 라이브러리
 
 - [ASM](https://asm.ow2.io/) : visitor 패턴과 Adapter 패턴을 알아야 하고, 사용하기 어려움
 - [Javassist](https://www.javassist.org/)
 - **[Bytebuddy](https://bytebuddy.net/#/)** : api, guide 쉽게 잘 되어 있음. 추천
  
-### 2.3 javaagent
+### 2.3. javaagent
 - javaagent
 
 
-### 2.4 정리
+### 2.4. 정리
 - 바이트 코드 조작 툴의 활용 예
 	- 프로그램 분석
 		- 코드에서 버그 찾는 툴
@@ -297,7 +297,7 @@ latex     : false
 ## 3. Reflection
 
 
-### 3.1 Reflection API
+### 3.1. Reflection API
 
 - 리플렉션의 시작은 Class<T>
 	- https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html
@@ -320,7 +320,7 @@ latex     : false
 	- 생성자 가져오기
 	- ...
 
-### 3.2 정리 및 활용
+### 3.2. 정리 및 활용
 
 - 리플렉션 사용 시 주의할 것
 	- 지나친 사용은 성능 이슈를 야기할 수 있다. 반드시 필요한 경우에만 사용할 것
@@ -340,7 +340,7 @@ latex     : false
 
 - 다이나믹 프록시는 reflect의 일부
  
-### 4.1 JPA
+### 4.1. JPA
 
 - 스프링 데이터 JPA의 동작 방법
 	- 스프링 데이터 JPA에서 인터페이스 타입의 인스턴스는 누가 만들어주는 것인가?

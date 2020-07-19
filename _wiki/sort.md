@@ -3,7 +3,7 @@ layout    : wiki
 title     : 정렬
 summary   : 
 date      : 2019-09-14 10:17:04 +0900
-updated   : 2020-03-19 14:57:05 +0900
+updated   : 2020-07-19 23:47:12 +0900
 tag       : 
 public    : true
 published : true
@@ -21,7 +21,7 @@ latex     : false
 	- 최선 : O(N)
 	- 최악 : O(N^2)
 
-### 1.1 코드
+### 1.1. 코드
 오름차순 정렬
 ```{.cpp .numberLines}
 void insertionSort(int arr[], int N)
@@ -41,7 +41,7 @@ void insertionSort(int arr[], int N)
 }
 ```
 
-### 1.2 이진 삽입 정렬(Binary insertion sort)
+### 1.2. 이진 삽입 정렬(Binary insertion sort)
 삽입 정렬에서 정렬되지 않은 원소의 들어갈 위치를 찾을 때, [[binary-search]]{이진 탐색(binary search)}을 활용하는 정렬. 삽입 정렬에서 살짝 개선된 것  
 
 #### 1.2.1 코드
@@ -98,7 +98,7 @@ void insertionSort(int arr[], int N)
 	- 퀵 정렬에서는 재귀적인 호출을 이용하기 때문에 스택을 관리하기 위한 메모리가 별도로 필요하다. 스택에 소모되는 메모리는 재귀 함수의 깊이와 비례하게 된다. 그러므로 분할이 이상적으로 이루어진 경우 O(logN)의 스택 메모리가 소요된다. 최악의 경우, 즉 분할이 한쪽으로만 이루어진 경우에는 O(N)의 스택 메모리가 필요하다
 
 
-### 5.1 코드
+### 5.1. 코드
 정해진 pivot보다 작은(또는 큰) 원소가 몇 개인지 알면 해당 pivot에 해당하는 원소가 정렬했을 때 몇 번째 위치인지 알 수 있다.  
 아래의 코드는 오름차순 정렬이다.
 left가 start+1부터 시작하게 되면 원소가 2개인 경우에 문제가 발생하기 때문에, start부터 시작하게 된다.  

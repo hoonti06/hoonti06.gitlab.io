@@ -3,7 +3,7 @@ layout    : wiki
 title     : 플로이드-워셜 알고리즘
 summary   : 
 date      : 2020-03-19 14:20:42 +0900
-updated   : 2020-03-24 21:38:10 +0900
+updated   : 2020-07-19 23:47:55 +0900
 tag       : graph graph-algorithm dp
 public    : true
 published : true
@@ -26,7 +26,7 @@ for (k = 0; k < V; k++)
 			dp[i][j] = min(dp[i][j], dp[i][k] + dp[k][j]);
 ```
 
-### 1.2 예제 코드
+### 1.2. 예제 코드
 ```{.cpp .numberLines}
 #include <iostream>
  
