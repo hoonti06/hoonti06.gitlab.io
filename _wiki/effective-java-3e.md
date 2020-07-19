@@ -3,7 +3,7 @@ layout    : wiki
 title     : Effective Java 3/E 내용 정리
 summary   : 
 date      : 2020-07-07 19:55:31 +0900
-updated   : 2020-07-13 23:19:52 +0900
+updated   : 2020-07-18 02:13:58 +0900
 tag       : 
 public    : true
 published : true
@@ -103,3 +103,78 @@ public final class Time {
 		- [java14 component getSize()](https://docs.oracle.com/en/java/javase/14/docs/api/java.desktop/java/awt/Component.html#getSize())
 		- [java14 component getWidth()](https://docs.oracle.com/en/java/javase/14/docs/api/java.desktop/java/awt/Component.html#getWidth())
 			- getSize() 대신 getWidth(), getHeight()를 쓰라고 권유하고 있다.  
+
+---
+
+## [item22] 인터페이스는 타입을 정의하는 용도로만 사용하라
+
+### 인터페이스
+- 자신을 구현한 클래스의 instance를 참조할 수 있는 타입 역할
+- 클래스가 어떤 인터페이스를 구현한다는 것은 자신의 instance로 무엇을 할 수 있는지를 클라이언트에 얘기해주는 것
+
+### 상수 인터페이스 안티 패턴
+상수 인터페이스 : 메서드 없이, static final 필드로만 이루어진 인터페이스
+
+```{.java .numberLines}
+public interface PhysicalConstants {
+	static final double AVOGADROS_NUMBER   = 6.022_140_857e23; // [1], [2]
+	static final double BOLTZMANN_CONSTANT = 1.380_648_52e-23; 
+	static final double ELECTRON_MASS      = 9.109_383_56e-31;
+}
+```
+[1] : interface의 field는 public static final이 default이다. ([jLS-9](https://docs.oracle.com/javase/specs/jls/se7/html/jls-9.html#jls-9.3))  
+[2] : 숫자 사이의 밑줄('_')은 아무런 영향을 주지 않고 가독성을 높인다.  
+<br>  
+
+- java 7에 추가  
+- 숫자 끝에 사용 불가  
+- [guide 문서](https://docs.oracle.com/javase/7/docs/technotes/guides/language/underscores-literals.html)
+
+
+클래스 내부에서 사용하는 상수 : 외부 인터페이스가 아닌 내부 구현에 해당 => 상수 인터페이스는 내부 구현을 클래스의 API로 노출하는 행위  
+코드가 내부 구현에 해당하는 이 상수들에 종속되게 한다.  
+이 상수들을 안 쓰게 되더라도 [[binary-compatibility]]{바이너리 호환성}을 위해 여전히 상수 인터페이스를 구현하고 있어야 한다.  
+(final이 아닌 클래스가 상수 인터페이스를 구현한다면 모든 하위 클래스의 이름공간이 그 인터페이스가 정의한 상수들로 오염되어 버린다.)  
+
+
+인터페이스를 잘못 활용한 예    
+<br>   
+- java.io.ObjectStreamConstants
+
+### '상수 공개' 목적의 해결 방법
+- 특정 클래스나 인터페이스와 강하게 연관된 상수라면 그 클래스나 인터페이스 자체에 추가
+	- ex> Integer와 Double의 MIN_VALUE, MAX_VALUE
+- 열거 타입([item34](https://github.com/JAVA-JIKIMI/EFFECTIVE-JAVA3/wiki/item-34))
+- 인스턴스화할 수 없는 유틸리티 클래스([item4](https://github.com/JAVA-JIKIMI/EFFECTIVE-JAVA3/wiki/item-4))
+ 
+
+```{.java .numberLines}
+
+import package effectivejava.chapter4.item22.constantutilityclass.PhysicalConstants.*; // [1]
+// package effectivejava.chapter4.item22.constantutilityclass;
+
+public class PhysicalConstans {
+	private PyysicalConstants(){} // 인스턴스화 방지
+	
+	public static final double AVOGADROS_NUMBER   = 6.022_140_857e23;
+	public static final double BOLTZMANN_CONSTANT = 1.380_648_52e-23;
+	public static final double ELECTRON_MASS      = 9.109_383_56e-31;
+}
+```
+[1] : 정적 임포트(static import)를 통한 클래스 이름 생략 가능  
+PhysicalConstants.AVOGADROS_NUMBER -> AVOGADROS_NUMBER
+
+
+### 요약
+인터페이스는 타입을 정의하는 용도로만 사용해야 한다. 상수 공개용 수단으로 사용하지 말자
+
+
+언급할 것
+- 숫자 사이의 밑줄('_') (java 7)
+- 바이너리 호환성
+- 필드가 interface는 public 없고, util class에는 public으로 선언
+- PhysicalConstants.AVOGADROS_NUMBER
+
+- 질문
+- 바이너리 호환성에서 recompile에 대해 언급하고 있는데, .class 파일은 binary 파일이 아니지 않나?
+- 
