@@ -36,6 +36,29 @@
       }
     })(post);
     function link(content) {
+      // Ex> [[OOP#2.2. 상속(Inheritance)]]{상속}
+      content = content.replace(/\[\[([^\[\[#]*)([^\ ]\d*\.)+\ ([^\[\[]*)\]\]\{([^\{]*)\}/g,
+        function(match, capture1, capture2, capture3, capture4) {
+          capture3 = capture3.toLowerCase();
+          capture3 = capture3.replace('(', '');
+          capture3 = capture3.replace(')', '');
+          capture3 = capture3.replace(' ', '-');
+
+          // Result : <a href=../OOP/#상속inheritance>상속</a>
+          return "<a href=../" + capture1 + "/#" + capture3 + ">" + capture4 + "</a>";
+        });
+
+      // Ex> [[OOP#2.2 상속(Inheritance)]]{상속}
+      content = content.replace(/\[\[([^\[\[#]*)([^\ ]\d*\.)+\d*\ ([^\[\[]*)\]\]\{([^\{]*)\}/g,
+        function(match, capture1, capture2, capture3, capture4) {
+          capture3 = capture3.toLowerCase();
+          capture3 = capture3.replace('(', '');
+          capture3 = capture3.replace(')', '');
+          capture3 = capture3.replace(' ', '-');
+
+          // Result : <a href=../OOP/#상속inheritance>상속</a>
+          return "<a href=../" + capture1 + "/#" + capture3 + ">" + capture4 + "</a>";
+        });
       content = content.replace(/\\\[\[([^\[\[]*)\]\]/g, '\\[\\[$1\\]\\]');
       content = content.replace(/\[\[([^\[\[]*)\]\]\{([^\{]*)\}/g, '<a href="../$1">$2</a>');
       content = content.replace(/\[\[([^\[\[]*)\]\]/g, '<a href="../$1">$1</a>');
