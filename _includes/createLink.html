@@ -60,8 +60,8 @@
           return "<a href=../" + capture1 + "/#" + capture3 + ">" + capture4 + "</a>";
         });
       content = content.replace(/\\\[\[([^\[\[]*)\]\]/g, '\\[\\[$1\\]\\]');
-      content = content.replace(/\[\[([^\[\[]*)\]\]\{([^\{]*)\}/g, '<a href="../$1">$2</a>');
-      content = content.replace(/\[\[([^\[\[]*)\]\]/g, '<a href="../$1">$1</a>');
+      content = content.replace(/\[\[([^\[\]]+?)\]\]\{([^\{\}]+?)\}/g, '<a href="../$1">$2</a>');
+      content = content.replace(/\[\[([^\[\]]+?)\]\]/g, '<a href="../$1">$1</a>');
       content = content.replace(/\\\[\\\[(.+?)\\\]\\\]/g, '[[$1]]');
       return content;
     }
