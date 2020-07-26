@@ -3,8 +3,8 @@ layout    : wiki
 title     : 스프링 웹 MVC
 summary   : 
 date      : 2020-02-10 12:16:49 +0900
-updated   : 2020-07-19 23:30:12 +0900
-tag       : spring mvc web inflearn
+updated   : 2020-07-26 12:46:01 +0900
+tag       : spring mvc web inflearn online-lecture
 public    : true
 published : true
 parent    : [[online-lecture]]

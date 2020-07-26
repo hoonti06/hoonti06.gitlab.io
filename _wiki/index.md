@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2020-07-19 13:16:10 +0900
+updated : 2020-07-25 14:49:21 +0900
 public  : true
 comment : false
 ---
@@ -14,6 +14,7 @@ comment : false
 ## [[book-contents-summary]]{도서 내용 정리}
 * [[the-essence-of-object-orientation]]{객체지향의 사실과 오해}
 * [[effective-java-3e]]{이펙티브 자바 3/E}
+	* [[effective-java-3e-01]]{이펙티브 자바 3/E - 1. 객체의 생성과 파괴}
 * [[head-first-design-pattern]]{Head First Design Pattern}
  
 ## [[online-lecture]]{온라인 강의}
