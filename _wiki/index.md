@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2020-07-25 14:49:21 +0900
+updated : 2020-08-01 23:34:58 +0900
 public  : true
 comment : false
 ---
@@ -44,6 +44,7 @@ comment : false
 	* [[HTTP]]
 	* [[MAC]]
 	* [[protocol-stack]]{프로토콜 스택}
+	* [[REST]]
 
 * [[computer-terminology]]{컴퓨터 용어}
 * [[docker]]
