@@ -3,7 +3,7 @@ layout    : category
 title     : Effective Java 3/E 내용 정리
 summary   : 
 date      : 2020-07-07 19:55:31 +0900
-updated   : 2020-08-01 08:47:12 +0900
+updated   : 2020-08-04 03:22:39 +0900
 tag       : java book-contents-summary
 public    : true
 published : true
@@ -496,6 +496,8 @@ public static Operation inverse(Operation op) {
 	- E.g. 태양계 행성, 체스 말, 메뉴 아이템, 연산 코드, 명령줄 플래그 등
 	- 정의된 상수 개수가 영원히 불변일 필요는 없다. (상수 추가돼도 바이너리 호환 가능)
 
+### 참고
+- https://woowabros.github.io/tools/2017/07/10/java-enum-uses.html
 
 
 
