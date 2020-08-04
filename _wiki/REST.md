@@ -3,7 +3,7 @@ layout    : wiki
 title     : REST
 summary   : 
 date      : 2020-04-01 14:37:38 +0900
-updated   : 2020-08-04 03:03:23 +0900
+updated   : 2020-08-04 17:31:13 +0900
 tag       : 
 public    : true
 published : true
@@ -11,11 +11,28 @@ parent    : [[network]]
 latex     : false
 ---
 
-## 0. 개요
-REST는 **Re**presentational **S**tate **T**ransfer의 약자로, Roy Fielding의 2000년 논문에서 처음 소개된 분산 하이퍼 미디어 시스템[^2]의 아키텍처 스타일[^1]
+## 개요
+REST는 **Re**presentational **S**tate **T**ransfer의 약자로, Roy Fielding의 2000년 논문에서 처음 소개된 분산 하이퍼 미디어 시스템[^2]의 아키텍처 스타일[^1]  
 
-## RESTful
-REST는 6개의 가이딩 제약을 가지고 있고, 이 제약들을 만족해야만 RESTful 하다고 할 수 있다.
+## 탄생 배경
+웹이 급속도로 성장하고 있던 상황에서 당시 HTTP 명세에 참여하고 있던 Roy Fielding이 당시 아키텍처가 웹의 본래 설계의 우수성을 많이 사용하지 못하고 있다고 판단하여 웹의 장점을 최대한 활용할 수 있는 네트워크 기반의 아키텍처에 대한 제약 및 가이드를 제시
+
+## 구체적인 개념
+HTTP URI를 통해 자원(Resource)의 표현(Representation)을 명시하고, HTTP Method(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD Operation을 적용한 구조  
+
+## 구성
+- 자원(Resource) : URI
+	- 자원은 Server은 존재하고, 각 자원은 unique ID를 갖는다.
+	- Client는 URI를 이용해 자원을 지정하고 해당 자원 상태에 대한 조작을 Server에 요청한다.
+- 행위(Verb) - HTTP Method
+	- HTTP Method에는 POST, GET, PUT, DELETE가 있다.
+		- GET : 리소스 조회
+		- POST : 리소스 생성
+		- PUT : 리소스 갱신
+		- DELETE : 리소스 삭제
+- 표현(Representations)
+	- 하나의 자원을 보통 JSON이나 XML의 형태로 표현하고, 이를 주고 받는다.
+
 
 ## 제약(Constraint)
 - Client-Server
@@ -45,32 +62,36 @@ REST는 6개의 가이딩 제약을 가지고 있고, 이 제약들을 만족해
 	- 이 제약조건은 필수는 아니다.
 
 ## HTTP와 REST의 관계
-REST 아키텍처 스타일(디자인, 패턴)이고, HTTP는 통신에 대한 약속이다.
-REST에서 반드시 HTTP만 사용하지 않고, 다른 프로토콜로도 가능하다.
-하지만, 웹 환경 통신(클라이언트와 서버 간)의 대부분이 HTTP를 사용한다.
+- REST 아키텍처 스타일(디자인, 패턴)이고, HTTP는 통신에 대한 약속이다.
+- REST에서 반드시 HTTP만 사용하지 않고, 다른 프로토콜로도 가능하다.
+- 하지만, 웹 환경 통신(클라이언트와 서버 간)의 대부분이 HTTP를 사용한다.
 
+## REST API
+- API : 프로그램들이 정보 교환 등의 상호작용하는 것을 도와주는 매개체
+- REST API
+	- REST 기반으로 서비스 API를 구현한 것
+	- Open API, MSA 등을 제공하는 업체 대부분은 REST API를 제공한다.
 
-## REST
+## REST API의 특징
+- REST 기반으로 시스템을 분산해 확장성과 재사용성을 높여 유지보수 및 운용을 편리하게 할 수 있다.
+- HTTP 표준을 기반으로 구현하므로, HTTP를 지원하는 프로그래밍 언어로 클라이언트 및 서버를 구현할 수 있다.
+
+## REST의 의미
 HTTP URI를 통해 자원(Resource)의 표현(Representation)을 명시하고, HTTP Method(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD Operation을 적용한 구조  
 
-## 구성
-- 자원(Resource) : URI
-	- 자원은 Server은 존재하고, 각 자원은 unique ID를 갖는다.
-	- Client는 URI를 이용해 자원을 지정하고 해당 자원 상태에 대한 조작을 Server에 요청한다.
-- 행위(Verb) - HTTP Method
-	- HTTP Method에는 POST, GET, PUT, DELETE가 있다.
-- 표현(Representations)
-	- 하나의 자원을 보통 JSON이나 XML의 형태로 표현하고, 이를 주고 받는다.
-
-## REST(ful) API
+## REST API
 - API
 	- 프로그램들이 정보 교환 등의 상호작용하는 것을 도와주는 매개체
 - REST API
 	- REST 기반으로 서비스 API를 구현한 것
 
-## REST API 설계 규칙
-- 위 제약을 지키기 위해 어떻게 구현해야 하는지는 나오지 않는다. 해당 제약을 지키기 위한 가이드는 표준이 아닌 많은 개발자들에 의해 만들어진 비공식 가이드이다. 
-
+## RESTful
+- REST의 Code-On-Demand를 제외한 5가지 제약을 지키는 구조를 RESTful 하다고 할 수 있다.
+- 하지만, Roy Fielding의 논문에는 'url을 어떻게 작성해야 하는지' 등의 구체적인 언급은 없다.
+- 따라서, REST의 제약을 잘 지키기 위한 가이드는 표준이 아니고, 여러 개발자들에 의해 만들어진 비공식 가이드라고 할 수 있다.
+	- 목적 
+		- 이해하기 쉽고 사용하기 쉬운 REST API를 만드는 것
+		- 일관적인 컨벤션을 통한 API의 이해도 및 호환성 향상(성능 향상이 주 목적은 아님)
 
 
 ## 0. 개요
@@ -136,7 +157,6 @@ HTTP URI를 통해 자원(Resource)을 명시하고, HTTP Method(POST, GET, PUT,
 	- Server로부터 스크립트를 받아 Cient에서 실행할 수 있다.
 
 
-
 ## API
 프로그램들이 정보 교환 등의 상호작용하는 것을 도와주는 매개체
 
@@ -175,7 +195,14 @@ HTTP URI를 통해 자원(Resource)을 명시하고, HTTP Method(POST, GET, PUT,
 - http://haah.kr/2017/05/24/rest-the-dissertation-summary/
 - https://sanghaklee.tistory.com/61
 - https://ijbgo.tistory.com/20
+- https://dingue.tistory.com/m/11
+- https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html
+- https://meetup.toast.com/posts/92
 
 ## footnotes
 [^1]: 그 스타일을 따르는 아키텍처가 지켜야 하는 제약조건들의 집합
-[^2]: hypertext(링크를 가진 텍스트, 다른 문서를 넘나들며 원하는 정보를 얻을 수 있음)의 상위 개념
+[^2]: 상호 연결된 텍스트, 그래픽, 이미지, 사운드, 영상 등
+[^3]: 서버에서 관리하는 디렉터리라는 리소스
+[^4]: 클라이언트에서 관리하는 리소스 저장소
+[^5]: 객체 인스턴스나 데이터베이스 레코드와 유사한 개념
+

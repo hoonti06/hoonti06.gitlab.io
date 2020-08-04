@@ -3,7 +3,7 @@ layout  : wiki
 title   : HTTP
 summary : 
 date    : 2019-02-16 12:55:24 +0900
-updated : 2020-08-04 03:34:46 +0900
+updated : 2020-08-04 15:59:52 +0900
 tag     : 
 public  : true
 parent  : [[network]]
@@ -182,39 +182,92 @@ https://developer.mozilla.org/ko/docs/Web/HTTP/Status
 	- 오류 발생 시 파라미터의 위치(path, query, body), 사용자 입력 값, 에러 이유를 꼭 명시하는 것이 좋다.
 - 401 Unauthorized
 	- 클라이언트가 권한이 없기 때문에 작업을 진행할 수 없는 경우
+	- 인증이 아직 안 되어 권한이 없는 상태 (E.g 로그인이 안 된 상태)
 
 - 403 Forbidden
 	- 클라이언트가 권한이 없기 때문에 작업을 진행할 수 없는 경우
+	- 인증되었지만 요구되는 권한보다 낮은 경우 (E.g 관리자만 접근 가능한 경우)
 
 - 404 Not Found
 	- 클라이언트가 요청한 자원이 존재하지 않다.
-	- 브라우저(클라이언트) 입장에선 자원이 웹 페이지 경로고 존재하지 않는 경로(자원)를 요청했기 때문에 404 상태 코드를 응답했다.
+	- 브라우저(클라이언트) 입장에선 자원이 곧 웹 페이지 경로이고, 존재하지 않는 경로(자원)를 요청했기 때문에 404 상태 코드를 응답받는다.
+	- REST API에선 크게 두 가지 경우에서 404 상태 코드를 응답한다.
+		- 경로가 존재하지 않는 경우
+		- 자원이 존재하지 않는 경우
+			- 경로가 존재하더라도 자원의 존재 여부를 사전에 확인해야 오류를 미리 차단할 수 있다.
 
-REST API에선 크게 두 가지 경우에서 404 상태 코드를 응답한다.
+- 405 Method Not Allowed
+	- REST API에서 HTTP Method는 4가지(POST, GET, PUT, DELETE)가 있다.
+	- 자원(URI)은 존재하지만, 해당 자원이 지원하지 않는 메소드일 때 응답하는 상태 코드
+	- HTTP OPTIONS Method를 사용하면 HTTP Response header의 Allow에 해당 자원의 지원 메소드 리스트를 응답 받을 수 있다.
+		- 완성도 높은 API를 위해 OPTIONS Method를 제공하기를 추천한다.
+		```
+		OPTIONS /users/1 HTTP/1.1
+		```
+		```
+		HTTP/1.1 200 OK
+		Allow: GET,PUT,DELETE,OPTIONS,HEAD
+		```
+		- 참고)
+			- POST /users/:id는 GET, PUT, DELETE 메소드는 허용되나 POST는 허용되지 않는다.
+			- GET, PUT, DELETE의 경우 id 1의 사용자가 없다면 404로 응답한다.
+			```
+			GET /users/1 HTTP/1.1
+			```
+			```
+			HTTP/1.1 404 Not Found
+			```
+			- POST의 경우 지원하지 않는 메소드이기 때문에 405로 응답하는 것이 옳은 방법이다.
+			```
+			POST /users/1 HTTP/1.1
+			```
+			```
+			HTTP/1.1 405 Method Not Allowed
+			Allow: GET,PUT,DELETE,OPTIONS,HEAD
+			```
 
-경로가 존재하지 않음
+- 409 Conflict
+	- 클라이언트의 요청이 서버의 상태와 충돌이 발생한 경우 
+	- 충돌은 매우 추상적이어서 정의하기 나름이다.
+	- 400, 401, 403, 404, 405 상태 코드에 속하기 모호한 오류들을 409로 응답할 수 있다.
+		- 응답 시 오류의 원인을 알려야 한다. 추가적으로, HATEOAS를 이용해 클라이언트가 다음 상태로 전이될 수 있는 링크를 함께 응답하면 좋다.
 
-자원이 존재하지 않음
+		```
+		HTTP/1.1 409 Conflict
+		{
+			"message" : "First, delete posts"
+			"links": [
+				{
+					"rel": "posts.delete",
+					"method": "DELETE",
+					"href": "https://api.rest.com/v1/users/1/posts"
+				},
+			]
+		}
+		```
+- 429 Too Many Requests
+	- 클라이언특라 일정 시간 동안 너무 많은 요청을 보낸 경우
+	- DoS, Brute-force attack 등의 비정상적인 방법으로 자원을 요청하는 경우 응답한다.
+	- 서버가 감당하기 힘든 요청이 계속 들어오면 서버는 다른 작업을 처리하지 못할 것이다.
+	- 해당 상태 코드는 HTTP header의 Retry-After(단위 : sec)와 함께 일정 시간 뒤 요청할 것을 나타내는 것이다.
+	```
+	HTTP/1.1 429 Too Many Requests
+	Retry-After: 3600
+	```
+	- 참고)
+		- Case1 기
 
-
-
-출처: https://sanghaklee.tistory.com/61 [이상학의 개발블로그]
-
-
-
-출처: https://sanghaklee.tistory.com/61 [이상학의 개발블로그]
-
-
-출처: https://sanghaklee.tistory.com/61 [이상학의 개발블로그]
 
 ### 5XX Server error
-클라이언트의 요청이 유효하지 않아 서버가 해당 요청을 수행하지 않았다는 의미
+- 클라이언트의 요청은 유효하여 작업을 진행했고, 도중에 오류가 발생한 경우  
+- API 서버의 응답에서 5XX 오류가 발생해서는 안 된다. 
+- 보통 개발 과정에서 유효하지 않은 요청을 사전 처리를 안 한 경우(400)에 많이 발생한다.  
 
-
-출처: https://sanghaklee.tistory.com/61 [이상학의 개발블로그]
-
-
-출처: https://sanghaklee.tistory.com/61 [이상학의 개발블로그]
+- 500 Internal Server Error
+	- 개발자의 실수로 발생할 여지가 크다.
+	- 4XX 오류를 발생시킬 가능성이 있는 요청에 대해 사전 작업을 하지 않은 경우
+		- 파라미터 필수 값, 유효성 확인 없이 비즈니스 로직 진행
+		- 외부 API에서 받은 객체를 확인하지 않고 비즈니스 로직 진행
 
 - References
 	- https://sanghaklee.tistory.com/61
