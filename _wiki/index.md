@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2020-08-05 12:57:57 +0900
+updated : 2020-08-06 00:12:29 +0900
 public  : true
 comment : false
 ---
@@ -16,6 +16,7 @@ comment : false
 * [[effective-java-3e]]{이펙티브 자바 3/E}
 	* [[effective-java-3e-01]]{이펙티브 자바 3/E - 1. 객체의 생성과 파괴}
 * [[head-first-design-pattern]]{Head First Design Pattern}
+* [[http-the-definitive-guide]]{HTTP 완벽 가이드}
  
 ## [[online-lecture]]{온라인 강의}
 * [[spring-framework-core]]{Spring framework 핵심 기술}

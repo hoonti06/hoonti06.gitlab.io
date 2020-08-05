@@ -3,7 +3,7 @@ layout    : wiki
 title     : REST
 summary   : 
 date      : 2020-04-01 14:37:38 +0900
-updated   : 2020-08-05 21:04:44 +0900
+updated   : 2020-08-06 02:52:18 +0900
 tag       : REST, REST-API
 public    : true
 published : true
@@ -13,6 +13,7 @@ latex     : false
 
 ## 개요
 REST는 **Re**presentational **S**tate **T**ransfer의 약자로, Roy Fielding의 2000년 논문에서 처음 소개된 분산 하이퍼 미디어 시스템[^2]의 아키텍처 스타일[^1]  
+즉, 웹을 위한 네트워크 기반 아키텍처의 설계 규범들(아키텍처가 지켜야 하는 제약조건들의 집합)
 
 ## 탄생 배경
 웹이 급속도로 성장하고 있던 상황에서 당시 HTTP 명세에 참여하고 있던 Roy Fielding이 당시 아키텍처가 웹의 본래 설계의 우수성을 많이 사용하지 못하고 있다고 판단하여 웹의 장점을 최대한 활용할 수 있는 네트워크 기반의 아키텍처에 대한 제약 및 가이드를 제시
@@ -192,13 +193,40 @@ HTTP URI를 통해 자원(Resource)을 명시하고, HTTP Method(POST, GET, PUT,
   0.9 에선 GET 을 이용한 Read-only 버전이었고 1.0 에 들어와서야 HEAD, POST 등을 이용해 서버로 데이터 전송이 가능해졌다.  
   HTTP 1.1 (RFC 2616) 에 와서야 DELETE, PUT 등이 추가되면서 변경, 삭제까지 가능해졌다.
 
+- FC 2616의 GET 메서드 정의는 다음과 같다.
+The GET method means retrieve whatever information (in the form of an
+entity) is identified by the Request-URI.
 
-REST의 논문에선 CRUD에 대한 언급을 안 했으며, 모든 자원에 대해 균일하게 정의되어야 한다 정도를 언급했다. 다만 이 메소드가 본래의 정의에 맞게 사용되기는 해야한다. 모든 상태변화에 PUT만 쓸 필요가 없다.
+- HTTP method definition (2014 6월 개정) : https://tools.ietf.org/html/rfc7231#section-4.3
+	- GET : The GET method requests transfer of a current selected representation
+   for the target resource. GET is the primary mechanism of information
+   retrieval and the focus of almost all performance optimizations.
+	- HEAD : The HEAD method is identical to GET except that the server MUST NOT
+   send a message body in the response. This method can be used for obtaining
+   metadata about the selected representation without transferring the
+   representation data and is often used for testing hypertext links for
+   validity, accessibility, and recent modification.
 
+- REST의 논문에선 CRUD에 대한 언급을 안 했으며, 모든 자원에 대해 균일하게 정의되어야 한다 정도를 언급했다. 다만 이 메소드가 본래의 정의에 맞게 사용되기는 해야한다. 모든 상태변화에 PUT만 쓸 필요가 없다.
+
+- REST 논문에는 애초에 CRUD나 어떤 HTTP 메소드를 써야 한다는 언급이 없었다.  ‘REST API는 GET/POST/PUT/DELETE를 쓰는 것이다’라는 공식은 웹 프레임웍의 잘못된 가이드에도 원인이 있기도 하다.
+
+- ["POST 써도 괜찮아"](https://roy.gbiv.com/untangled/2009/it-is-okay-to-use-post) - Roy Fielding의 블로그 'Untangled'
+	- 몇몇 사람들이 '갱신(upgrade) 목적으로는 POST를 쓰지마' 라고 REST가 제안하고 있다고 (잘못) 생각하고 있어"
+	> Some people think that REST suggests not to use POST for updates. 
+	- "내 논문을 찾아보면 CRUD나 POST에 대한 언급은 없어. PUT도 HTTP의 write-back caching 부재에 관한 내용에서만 언급 돼."
+	> Search my dissertation and you won’t find any mention of CRUD or POST.
+	- "상세한 내용을 작성하지 않은 주요 이유는 HTTP method는 Web의 아키텍처 정의의 한 부분이지, REST 아키텍처 스타일이 아니기 때문이다."
+	>  The main reason for my lack of specificity is because the methods defined by HTTP are part of the Web’s architecture definition, not the REST architectural style
+	- 항상 stats 변화에 PUT을 사용할 필요없어. REST는 절대 그러라고 한 적이 없어
+	> We don’t need to use PUT for every state change in HTTP. REST has never said that we should.
+	- 	
+	> What matters is that every important resource have a URI, therein allowing representations of that resource to be obtained using GET.
 ## References
 - https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#fig_5_8
 - https://shoark7.github.io/programming/knowledge/what-is-rest.html
 - https://blog.npcode.com/2017/03/02/%EB%B0%94%EC%81%9C-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%93%A4%EC%9D%84-%EC%9C%84%ED%95%9C-rest-%EB%85%BC%EB%AC%B8-%EC%9A%94%EC%95%BD/
+- https://blog.npcode.com/2017/04/03/rest%ec%9d%98-representation%ec%9d%b4%eb%9e%80-%eb%ac%b4%ec%97%87%ec%9d%b8%ea%b0%80/
 - https://restfulapi.net/
 - http://haah.kr/2017/05/24/rest-the-dissertation-summary/
 - https://sanghaklee.tistory.com/61
@@ -207,10 +235,12 @@ REST의 논문에선 CRUD에 대한 언급을 안 했으며, 모든 자원에 �
 - https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html
 - https://meetup.toast.com/posts/92
 - https://1ambda.github.io/javascripts/rest-api-put-vs-post/
+- https://greatkim91.tistory.com/13
+- https://tools.ietf.org/html/rfc7231#section-4.3
 
 ## footnotes
 [^1]: 그 스타일을 따르는 아키텍처가 지켜야 하는 제약조건들의 집합
-[^2]: 상호 연결된 텍스트, 그래픽, 이미지, 사운드, 영상 등
+[^2]: world wide web(이하 web)이 하이퍼미디어의 하나의 예이다.
 [^3]: 서버에서 관리하는 디렉터리라는 리소스
 [^4]: 클라이언트에서 관리하는 리소스 저장소
 [^5]: 객체 인스턴스나 데이터베이스 레코드와 유사한 개념
