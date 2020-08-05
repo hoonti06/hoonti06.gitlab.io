@@ -3,8 +3,8 @@ layout    : wiki
 title     : REST
 summary   : 
 date      : 2020-04-01 14:37:38 +0900
-updated   : 2020-08-04 17:31:13 +0900
-tag       : 
+updated   : 2020-08-05 21:04:44 +0900
+tag       : REST, REST-API
 public    : true
 published : true
 parent    : [[network]]
@@ -187,6 +187,14 @@ HTTP URI를 통해 자원(Resource)을 명시하고, HTTP Method(POST, GET, PUT,
 - Uniform Interface
 - Layered System
 - Code-On-Demand
+
+- HTTP 메소드에 대해서 알아보았는데, 조금 더 찾아보니 HTTP 는 0.9 -> 1.0 -> 1.1 순으로 변화했다고 한다.  
+  0.9 에선 GET 을 이용한 Read-only 버전이었고 1.0 에 들어와서야 HEAD, POST 등을 이용해 서버로 데이터 전송이 가능해졌다.  
+  HTTP 1.1 (RFC 2616) 에 와서야 DELETE, PUT 등이 추가되면서 변경, 삭제까지 가능해졌다.
+
+
+REST의 논문에선 CRUD에 대한 언급을 안 했으며, 모든 자원에 대해 균일하게 정의되어야 한다 정도를 언급했다. 다만 이 메소드가 본래의 정의에 맞게 사용되기는 해야한다. 모든 상태변화에 PUT만 쓸 필요가 없다.
+
 ## References
 - https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#fig_5_8
 - https://shoark7.github.io/programming/knowledge/what-is-rest.html
@@ -198,6 +206,7 @@ HTTP URI를 통해 자원(Resource)을 명시하고, HTTP Method(POST, GET, PUT,
 - https://dingue.tistory.com/m/11
 - https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html
 - https://meetup.toast.com/posts/92
+- https://1ambda.github.io/javascripts/rest-api-put-vs-post/
 
 ## footnotes
 [^1]: 그 스타일을 따르는 아키텍처가 지켜야 하는 제약조건들의 집합
