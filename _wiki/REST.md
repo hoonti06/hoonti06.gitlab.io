@@ -3,7 +3,7 @@ layout    : wiki
 title     : REST
 summary   : 
 date      : 2020-04-01 14:37:38 +0900
-updated   : 2020-08-06 02:52:18 +0900
+updated   : 2020-08-10 01:44:32 +0900
 tag       : REST, REST-API
 public    : true
 published : true
@@ -12,28 +12,12 @@ latex     : false
 ---
 
 ## 개요
-REST는 **Re**presentational **S**tate **T**ransfer의 약자로, Roy Fielding의 2000년 논문에서 처음 소개된 분산 하이퍼 미디어 시스템[^2]의 아키텍처 스타일[^1]  
+REST는 **Re**presentational **S**tate **T**ransfer의 약자로, Roy Fielding의 2000년 논문에서 처음 소개된 분산 하이퍼 미디어[^2] 시스템의 아키텍처 스타일[^1]  
 즉, 웹을 위한 네트워크 기반 아키텍처의 설계 규범들(아키텍처가 지켜야 하는 제약조건들의 집합)
+REST 아키텍처 스타일은 URI, HTTP 등의 웹 표준에 반영되었다.
 
 ## 탄생 배경
 웹이 급속도로 성장하고 있던 상황에서 당시 HTTP 명세에 참여하고 있던 Roy Fielding이 당시 아키텍처가 웹의 본래 설계의 우수성을 많이 사용하지 못하고 있다고 판단하여 웹의 장점을 최대한 활용할 수 있는 네트워크 기반의 아키텍처에 대한 제약 및 가이드를 제시
-
-## 구체적인 개념
-HTTP URI를 통해 자원(Resource)의 표현(Representation)을 명시하고, HTTP Method(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD Operation을 적용한 구조  
-
-## 구성
-- 자원(Resource) : URI
-	- 자원은 Server은 존재하고, 각 자원은 unique ID를 갖는다.
-	- Client는 URI를 이용해 자원을 지정하고 해당 자원 상태에 대한 조작을 Server에 요청한다.
-- 행위(Verb) - HTTP Method
-	- HTTP Method에는 POST, GET, PUT, DELETE가 있다.
-		- GET : 리소스 조회
-		- POST : 리소스 생성
-		- PUT : 리소스 갱신
-		- DELETE : 리소스 삭제
-- 표현(Representations)
-	- 하나의 자원을 보통 JSON이나 XML의 형태로 표현하고, 이를 주고 받는다.
-
 
 ## 제약(Constraint)
 - Client-Server
@@ -51,7 +35,26 @@ HTTP URI를 통해 자원(Resource)의 표현(Representation)을 명시하고, H
 	- 모든 서버 응답은 캐시 가능한지 아닌지 알 수 있어야 한다.
 	- 호율, 규모확장성, 사용자 입장에서의 성능이 개선된다.
 - Uniform Interface(인터페이스 일관성)
-	- 구성 요소(Client, Server 등) 사이의 인터페이스는 균인해야 한다.
+	- 구성 요소(Client, Server 등) 사이의 인터페이스는 균일해야 한다.
+		- 미디어 유형이나 리소스 식별자 등을 의미하는 문법이 구성요소나 호환 시스템 간 동일해야 한다는 의미
+		- 필요한 이유
+			- 서버 입장에서 어떤 클라이언트든 상관없이(내가 보내주는 것을 이해할 수 있을까 걱정없이) 표준에 의한 응답을 해줄 수 있다.
+			- 클라이언트 입장에선 hypertext를 통해 다음 상태로의 이동을 해야 하는데, 표준화된 방식을 통해 해당 서버의 특성을 알 필요가 없어진다.
+			- 서로의 특성을 알지 못해도 커뮤니케이션이 가능할 수 있어야, 각각 독립적으로 진화할 수 있는 유연한 시스템이 만들어진다.
+		- 4가지 Interface 제약조건
+			-  identification of resources
+				- 리소스를 식별하는 방법이 동일해야 한다. 우리는 보통 URI를 쓰기 때문에 어쩐지 당연한 말처럼 느껴진다.
+			- manipulation of resources through representation
+				- 리소스의 표현계층(representation)을 리소스의 식별자(URL)로부터 분리한 것은 REST에서 아주 주요한 관점이다.
+			- self-descriptive messages
+				- 요청이나 응답 메시지에는 이를 이해하기 위한 모든 정보가 포함되어야 한다.
+			- hypermedia as the engine of application state(a.k.a HATEOAS)
+				- 논문에서 hypermedia라고 한 것은 단지 text가 아닌 매체를 고려했기 때문이고,
+				- 일반적인 API에서는 거의 hypertext라고 표현하면 된다.
+				- 음? 우리가 HTML 페이지에서 맨날 보는 그 hypertext라는 용어가 맞나?
+				- 맞다. 제시된 hypertext 위에서 application 상태를 변경하는 주체가 client가 되어야 한다는 게 핵심이다.
+				- 목적
+					- (서버-클라이언트 간 의존성을 분리해야만 가능한) 독자적인 진화와 확장을 보조하는 것이며, hypermedia는 그 목적을 이루는 데 기여해야 한다.
 	- 인터페이스의 일반화
 		- 구조가 단순해진다. 
 		- 상호 작용의 가시성 개선
@@ -61,6 +64,23 @@ HTTP URI를 통해 자원(Resource)의 표현(Representation)을 명시하고, H
 - Code-On-Demand (Optional) 
 	- Server가 네트워크를 통해 Client에게 Java applet이나 script(E.g javascript)를 전달하면 Client에서 실행될 수 있어야 한다.
 	- 이 제약조건은 필수는 아니다.
+
+## 구성
+- 자원(Resource) : URI
+	- 자원은 Server은 존재하고, 각 자원은 unique ID를 갖는다.
+	- Client는 URI를 이용해 자원을 지정하고 해당 자원 상태에 대한 조작을 Server에 요청한다.
+- 행위(Verb) - HTTP Method
+	- HTTP Method에는 POST, GET, PUT, DELETE가 있다.
+		- GET : 리소스 조회
+		- POST : 리소스 생성
+		- PUT : 리소스 갱신
+		- DELETE : 리소스 삭제
+- 표현(Representations)
+	- 하나의 자원을 보통 JSON이나 XML의 형태로 표현하고, 이를 주고 받는다.
+
+## 구체적인 개념
+HTTP URI를 통해 자원(Resource)의 표현(Representation)을 명시하고, HTTP Method(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD Operation을 적용한 구조  
+
 
 ## HTTP와 REST의 관계
 - REST 아키텍처 스타일(디자인, 패턴)이고, HTTP는 통신에 대한 약속이다.
@@ -157,6 +177,9 @@ HTTP URI를 통해 자원(Resource)을 명시하고, HTTP Method(POST, GET, PUT,
 - Code-On-Demand
 	- Server로부터 스크립트를 받아 Cient에서 실행할 수 있다.
 
+### Roy가 말하는 hypertext
+- 내가 hypertext라고 이야기하는 건, 정보와 통제(control)를 동시에 제공함으로써, 그 정보가 사용자에 선택권을 주고 동작을 결정하는 수단이 되는 것을 말한다
+- hypertext는 브라우저 위에서 HTML로 이루어질 필요는 없다. 기계는 data format과 relation type만 이해하면 링크를 따라갈 수 있다
 
 ## API
 프로그램들이 정보 교환 등의 상호작용하는 것을 도와주는 매개체
@@ -221,7 +244,36 @@ entity) is identified by the Request-URI.
 	- 항상 stats 변화에 PUT을 사용할 필요없어. REST는 절대 그러라고 한 적이 없어
 	> We don’t need to use PUT for every state change in HTTP. REST has never said that we should.
 	- 	
-	> What matters is that every important resource have a URI, therein allowing representations of that resource to be obtained using GET.
+	> What matters is that every important resource have a URI, therein allowing representations of that resource to be obtained using GET.  
+
+
+
+
+
+
+
+
+
+
+import org.springframework.web.bind.annotation.RequestMethod;
+- GET : 
+- POST
+- DELTE
+- HEAD
+- OPTIONS
+- PATCH
+- PUT
+- TRACE
+
+- PUT vs PATCH
+	- 
+
+
+
+
+
+
+
 ## References
 - https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#fig_5_8
 - https://shoark7.github.io/programming/knowledge/what-is-rest.html
@@ -240,7 +292,7 @@ entity) is identified by the Request-URI.
 
 ## footnotes
 [^1]: 그 스타일을 따르는 아키텍처가 지켜야 하는 제약조건들의 집합
-[^2]: world wide web(이하 web)이 하이퍼미디어의 하나의 예이다.
+[^2]: hypertext를 확장한 개념, world wide web(이하 web)이 하나의 예
 [^3]: 서버에서 관리하는 디렉터리라는 리소스
 [^4]: 클라이언트에서 관리하는 리소스 저장소
 [^5]: 객체 인스턴스나 데이터베이스 레코드와 유사한 개념

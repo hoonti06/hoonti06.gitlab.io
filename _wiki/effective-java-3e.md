@@ -3,7 +3,7 @@ layout    : category
 title     : Effective Java 3/E 내용 정리
 summary   : 
 date      : 2020-07-07 19:55:31 +0900
-updated   : 2020-08-04 03:22:39 +0900
+updated   : 2020-08-07 21:00:50 +0900
 tag       : java book-contents-summary
 public    : true
 published : true
@@ -276,6 +276,8 @@ public class Chooser<T> {
 	- **배열**은 '공변'과 '실체화'(런타임에 타입 안전)
 	- **제네릭**은 '불공변'과 타입 정보 '소거'(컴파일 타임에 타입 안전)
 - 둘을 섞어 쓰다 컴파일 오류나 경고를 만나면, 가장 먼저 **배열을 리스트로 대체**해보자! 
+
+
  
 ## [item34] int 상수 대신 열거 타입을 사용하다
 
@@ -291,13 +293,13 @@ public static final int ORANGE_BLOOD = 2;
 ```
 - 타입 안전하지 않다.
 	```java
-	APPLE_FUJI == ORANGE_NAVEL // 경고 메시지 하나 뜨지 않는다.
+	APPLE_FUJI == ORANGE_NAVEL // Warning 조차 뜨지 않는다.
 	```
 - 포현력도 좋지 않다.
 - namespace를 지원하지 않아 접두어를 쓰는 등의 방법으로 이름 충돌을 방지해야 한다
 - 컴파일하면 그 값이 클라이언트 파일에 그대로 새겨진다.(JSL-13.1)
 	- 상수의 값이 바뀌면 클라이언트도 반드시 다시 컴파일해야 함
-- 정수 대신 문자열 상수를 사용하는 변형 패턴(문자열 열거 패턴, string enum pattern)도 존재한다
+- 정수 대신 문자열 상수를 사용하는 변형 패턴, 문자열 열거 패턴(string enum pattern)도 존재한다
 
 ### 열거 타입의 특징
 - **완전한 형태의 클래스**(C, C++, C#의 enum과는 다르다)
@@ -325,8 +327,8 @@ public enum Planet {
 	NEPTUNE(1.024e+26, 2.447e7);
 
 	// 모든 field final
-	private final double mass;            // 질량(단위: 킬로그램)
-	private final double radius;          // 반지름(단위: 미터)
+	private final double mass;            // 질량(단위: kg)
+	private final double radius;          // 반지름(단위: m)
 	private final double surfaceGravity;  // 표면중력(단위: m / s^2)
 
 	// 중력상수 (단위: m^3 / kg s^2)
@@ -494,7 +496,7 @@ public static Operation inverse(Operation op) {
 - 상수 일부가 같은 동작을 공유한다면 전략 열거 타입 패턴을 사용하자
 - 필요한 원소를 컴파일타임에 다 알 수 있는 상수 집합이라면 항상 열거 타입을 사용하자
 	- E.g. 태양계 행성, 체스 말, 메뉴 아이템, 연산 코드, 명령줄 플래그 등
-	- 정의된 상수 개수가 영원히 불변일 필요는 없다. (상수 추가돼도 바이너리 호환 가능)
+	- 정의된 상수의 개수가 영원히 불변일 필요는 없다. (상수 추가돼도 바이너리 호환 가능)
 
 ### 참고
 - https://woowabros.github.io/tools/2017/07/10/java-enum-uses.html

@@ -3,7 +3,7 @@ layout  : wiki
 title   : HTTP
 summary : 
 date    : 2019-02-16 12:55:24 +0900
-updated : 2020-08-04 15:59:52 +0900
+updated : 2020-08-10 01:44:15 +0900
 tag     : 
 public  : true
 parent  : [[network]]
@@ -89,13 +89,20 @@ https://developer.mozilla.org/ko/docs/Web/HTTP/Status
 
 ## REST API에서의 HTTP 상태 코드
 ### 1XX Information
+요청을 받았으며 프로세스를 계속 진행
+
+- 100 Continue
+	- 진행 중임을 의미하는 응답코드
+	- 현재까지의 진행상태에 문제가 없으며, 클라이언트가 계속해서 요청을 하거나 이미 요청을 완료한 경우에는 무시해도 되는 것을 알려준다.
+- 101 Switching Protocols
+	- 요청자가 서버에 프로토콜 전환을 요청했으며, 서버에서 이를 승인하는 중을 의미함
 
 ### 2XX Success
 서버가 클라이언트의 요청을 성공적으로 처리했다는 의미
 
 - 200 OK
 	- 클라이언트의 요청을 서버가 정상적으로 처리했다.
-	```
+	```http
 	HTTP/1.1 200 OK
 	{
 		"result" : false
@@ -110,7 +117,7 @@ https://developer.mozilla.org/ko/docs/Web/HTTP/Status
 
 - 201 Created
 	- 성공과 동시에 새로운 리소스가 생성되었다는 의미를 포함한다.
-	```
+	```http
 	POST /users HTTP/1.1
 	Content-Type: application/json
 	{
@@ -119,7 +126,7 @@ https://developer.mozilla.org/ko/docs/Web/HTTP/Status
 	```
 	<br>
 	
-	```
+	```http
 	HTTP/1.1 201 Created
 	{
 		"id" : 1,
@@ -139,15 +146,56 @@ https://developer.mozilla.org/ko/docs/Web/HTTP/Status
 	- 클라이언트의 요청은 정상적이나, 컨텐츠를 제공하지 않는다.
 	- HTTP Response body가 존재하지 않는다.
 	- 자원 삭제에 대한 응답으로 사용될 수 있으나, 흔하지 않다.
-	```
+	```http
 	DELETE /users/1 HTTP/1.1
 	```  
 	<br>
 	
-	```
+	```http
 	HTTP/1.1 204 No Content
 	```
 ### 3XX Redirection
+- 300 Multiple Choice
+	- 요청에 대해서 하나 이상의 응답이 가능합니다. 사용자 에언트 또는 사용자는 그중에 하나를 반드시 선택해야 합니다. 응답 중 하나를 선택하는 방법에 대한 표준화 된 방법은 존재하지 않습니다.
+- 301 Moved Permanently
+	- 이 응답 코드는 요청한 리소스의 URI가 **영구적**으로 변경되었음을 의미
+	- Location 헤더에 변경된 URL을 포함해야 한다.
+
+- 302 Found
+	- 이 응답 코드는 요청한 리소스의 URI가 **일시적**으로 변경되었음을 의미
+	- 임시 목적으로 Location 헤더에 변경된 URL을 포함해야 한다.
+	- 클라이언트는 이후의 요청도 반드시 원래 URI로 해야한다.
+ 
+- 303 See Other
+	- 클라이언트가 요청한 리소스를 다른 URI에서 가져와야 한다고 말해주고자 할 때 사용
+	- 주 목적은 POST 요청에 대한 응답으로 클라이언트에게 리소스의 위치를 알려주는 것
+
+- 304 Not Modified
+	- 캐시를 목적으로 사용
+	- 이것은 클라이언트에게 응답이 수정되지 않았음을 알려주어 클라이언트는 계속해서 응답의 캐시된 버전을 사용 가능
+
+- 305 Use Proxy
+	- 반드시 프록시를 통해서 접속해야 함을 알려주기 위해 사용한다.
+	- 프락시의 위치는 Location 헤더를 통해 주어진다.
+	- 프록시의 in-band설정에 대한 보안상의 걱정으로 인하여 사라져가고 있습니다.
+
+- 306 Unused
+	- 현재는 사용되지 않는다.
+
+- 307 Temporary Redirect
+	- 301과 비슷
+	- 
+	- 클라이언트가 요청한 리소스가 다른 URI에 있으며, 이전 요청과 동일한 메소드를 사용하여 요청해야 할 때, 서버가 클라이언트에 이 응답을 직접 보냅니다. 이것은 302 Found HTTP 응답 코드와 동일한 의미를 가지고 있으며, 사용자 에이전트가 반드시 사용된 HTTP 메소드를 변경하지 말아야 하는 점만 다릅니다. 만약 첫 요청에 POST가 사용되었다면, 두번째 요청도 반드시 POST를 사용해야 합니다.
+
+
+- 참고) 301 vs 302
+	- 검색엔진 크롤러
+		- 301의 경우 검색엔진은 과거 URL의 페이지랭킹과 평가점수를 새로운 URL로 이동시킨다.
+		- 302의 경우 검색엔진은 페이지랭킹이나 링크에 대한 점수를 새로운 URL로 옮기지 않으며 기존 URL을 그대로 유지
+		- 활용 방법
+			- 해당 제품이 보유한 사이트랭크를 유지하면서 사용자에게 일시적으로 제품이 품절됐음을 알려야 할 때
+				- 301을 사용하거나 혹은 페이지의 content를 변경하게 되면 사이트랭킹 점수가 달라지게 되낟.
+				- 302를 사용하여 검색엔진은 일시적으로 해당 URL의 사이트랭크는 유지시키고, 사용자는 새로운 URI의 content를 보게 된다.
  
 ### 4XX Client error
 클라이언트의 요청이 유효하지 않아 서버가 해당 요청을 수행하지 않았다는 의미
@@ -162,7 +210,7 @@ https://developer.mozilla.org/ko/docs/Web/HTTP/Status
 
 	- 대부분의 API는 사전에 유효성 검증을 통해 400 상태 코드로 클라이언트에게 유효하지 않은 요청임을 응답한다.  
 	  (유효성 검증 없이 진행하면 5xx 서버 오류가 발생할 수 있기 때문에 대부분 사전에 막는 로직을 추가한다.)
-	```
+	```http
 	HTTP/1.1 400 Bad Request
 	{
 		"errors": {
@@ -182,11 +230,12 @@ https://developer.mozilla.org/ko/docs/Web/HTTP/Status
 	- 오류 발생 시 파라미터의 위치(path, query, body), 사용자 입력 값, 에러 이유를 꼭 명시하는 것이 좋다.
 - 401 Unauthorized
 	- 클라이언트가 권한이 없기 때문에 작업을 진행할 수 없는 경우
-	- 인증이 아직 안 되어 권한이 없는 상태 (E.g 로그인이 안 된 상태)
+	- 인증이 아직 안 되어 권한이 없는 상태 (E.g. 로그인이 안 된 상태)
 
 - 403 Forbidden
 	- 클라이언트가 권한이 없기 때문에 작업을 진행할 수 없는 경우
-	- 인증되었지만 요구되는 권한보다 낮은 경우 (E.g 관리자만 접근 가능한 경우)
+	- 인증되었지만 요구되는 권한보다 낮은 경우 (E.g. 관리자만 접근 가능한 경우)
+	- 401과의 차이점(https://stackoverflow.com/a/28672217)
 
 - 404 Not Found
 	- 클라이언트가 요청한 자원이 존재하지 않다.
@@ -201,27 +250,27 @@ https://developer.mozilla.org/ko/docs/Web/HTTP/Status
 	- 자원(URI)은 존재하지만, 해당 자원이 지원하지 않는 메소드일 때 응답하는 상태 코드
 	- HTTP OPTIONS Method를 사용하면 HTTP Response header의 Allow에 해당 자원의 지원 메소드 리스트를 응답 받을 수 있다.
 		- 완성도 높은 API를 위해 OPTIONS Method를 제공하기를 추천한다.
-		```
+		```http
 		OPTIONS /users/1 HTTP/1.1
 		```
-		```
+		```http
 		HTTP/1.1 200 OK
 		Allow: GET,PUT,DELETE,OPTIONS,HEAD
 		```
 		- 참고)
 			- POST /users/:id는 GET, PUT, DELETE 메소드는 허용되나 POST는 허용되지 않는다.
 			- GET, PUT, DELETE의 경우 id 1의 사용자가 없다면 404로 응답한다.
-			```
+			```http
 			GET /users/1 HTTP/1.1
 			```
-			```
+			```http
 			HTTP/1.1 404 Not Found
 			```
 			- POST의 경우 지원하지 않는 메소드이기 때문에 405로 응답하는 것이 옳은 방법이다.
-			```
+			```http
 			POST /users/1 HTTP/1.1
 			```
-			```
+			```http
 			HTTP/1.1 405 Method Not Allowed
 			Allow: GET,PUT,DELETE,OPTIONS,HEAD
 			```
@@ -232,7 +281,7 @@ https://developer.mozilla.org/ko/docs/Web/HTTP/Status
 	- 400, 401, 403, 404, 405 상태 코드에 속하기 모호한 오류들을 409로 응답할 수 있다.
 		- 응답 시 오류의 원인을 알려야 한다. 추가적으로, HATEOAS를 이용해 클라이언트가 다음 상태로 전이될 수 있는 링크를 함께 응답하면 좋다.
 
-		```
+		```http
 		HTTP/1.1 409 Conflict
 		{
 			"message" : "First, delete posts"
@@ -250,7 +299,7 @@ https://developer.mozilla.org/ko/docs/Web/HTTP/Status
 	- DoS, Brute-force attack 등의 비정상적인 방법으로 자원을 요청하는 경우 응답한다.
 	- 서버가 감당하기 힘든 요청이 계속 들어오면 서버는 다른 작업을 처리하지 못할 것이다.
 	- 해당 상태 코드는 HTTP header의 Retry-After(단위 : sec)와 함께 일정 시간 뒤 요청할 것을 나타내는 것이다.
-	```
+	```http
 	HTTP/1.1 429 Too Many Requests
 	Retry-After: 3600
 	```
