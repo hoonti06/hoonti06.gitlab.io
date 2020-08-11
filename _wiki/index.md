@@ -1,8 +1,8 @@
-- --
+---
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2020-08-08 13:38:46 +0900
+updated : 2020-08-11 11:44:40 +0900
 public  : true
 comment : false
 ---
