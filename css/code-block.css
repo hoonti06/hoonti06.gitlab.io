@@ -95,6 +95,6 @@ code span.pp { color: #cc99cc !important; } /* Preprocessor */
 code span.sc { color: #b778ff !important; } /* SpecialChar */
 code span.ss { color: #b778ff !important; } /* SpecialString */
 code span.st { color: #ff4949 !important; } /* String */
-code span.va { color: #19177c !important; } /* Variable */
+code span.va { color: #79aaff !important; } /* Variable */
 code span.vs { color: #4070a0 !important; } /* VerbatimString */
 code span.wa { color: #60a0b0 !important; } /* Warning */
