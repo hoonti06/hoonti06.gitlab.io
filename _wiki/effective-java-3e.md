@@ -1,9 +1,9 @@
 ---
 layout    : category
-title     : Effective Java 3/E 내용 정리
+title     : (도서 내용 정리) Effective Java 3/E
 summary   : 
 date      : 2020-07-07 19:55:31 +0900
-updated   : 2020-08-07 21:00:50 +0900
+updated   : 2020-08-11 13:38:49 +0900
 tag       : java book-contents-summary
 public    : true
 published : true

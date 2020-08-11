@@ -1,9 +1,9 @@
 ---
 layout    : wiki
-title     : Spring boot
+title     : (강의 내용 정리) Spring boot
 summary   : 
 date      : 2020-01-27 12:31:49 +0900
-updated   : 2020-07-26 12:45:53 +0900
+updated   : 2020-08-11 12:21:18 +0900
 tag       : spring spring-boot web inflearn online-lecture
 public    : true
 published : true

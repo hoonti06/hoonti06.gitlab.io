@@ -1,9 +1,9 @@
 ---
 layout    : wiki
-title     : Effective Java 3/E - 1장. 객체 생성과 파괴
+title     : (도서 내용 정리) Effective Java 3/E - 1장. 객체 생성과 파괴
 summary   : 
 date      : 2020-07-25 14:43:37 +0900
-updated   : 2020-07-25 14:52:24 +0900
+updated   : 2020-08-11 12:18:44 +0900
 tag       : java book-contents-summary
 public    : true
 published : true

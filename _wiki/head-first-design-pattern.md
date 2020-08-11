@@ -1,9 +1,9 @@
 ---
 layout    : wiki
-title     : Head First Design Pattern 내용 정리
+title     : (도서 내용 정리) Head First Design Pattern
 summary   : 
 date      : 2020-07-19 13:16:11 +0900
-updated   : 2020-07-27 01:55:29 +0900
+updated   : 2020-08-11 13:51:50 +0900
 tag       : design-pattern book-contents-summary
 public    : true
 published : true

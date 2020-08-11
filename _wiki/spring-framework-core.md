@@ -1,9 +1,9 @@
 ---
 layout    : wiki
-title     : 스프링 프레임워크 핵심 기술
+title     : (강의 내용 정리) 스프링 프레임워크 핵심 기술
 summary   : 
 date      : 2020-01-29 09:42:19 +0900
-updated   : 2020-07-26 12:45:42 +0900
+updated   : 2020-08-11 12:21:07 +0900
 tag       : spring web inflearn online-lecture
 public    : true
 published : true

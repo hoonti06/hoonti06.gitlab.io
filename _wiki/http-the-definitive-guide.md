@@ -1,9 +1,9 @@
 ---
 layout    : wiki
-title     : 'HTTP 완벽 가이드' 내용 정리
+title     : (도서 내용 정리) HTTP 완벽 가이드
 summary   : 
 date      : 2020-08-06 00:12:49 +0900
-updated   : 2020-08-08 14:14:10 +0900
+updated   : 2020-08-11 12:19:54 +0900
 tag       : 
 public    : true
 published : true
