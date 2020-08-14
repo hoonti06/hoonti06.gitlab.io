@@ -3,7 +3,7 @@ layout    : category
 title     : (도서 내용 정리) Effective Java 3/E
 summary   : 
 date      : 2020-07-07 19:55:31 +0900
-updated   : 2020-08-11 13:38:49 +0900
+updated   : 2020-08-14 17:02:09 +0900
 tag       : java book-contents-summary
 public    : true
 published : true
@@ -500,6 +500,69 @@ public static Operation inverse(Operation op) {
 
 ### 참고
 - https://woowabros.github.io/tools/2017/07/10/java-enum-uses.html
+
+## [item40] @Override 애너테이션을 일관되게 사용하라
+@Override는 메서드 선언에만 달 수 있으며, 이 애너테이션이 달렸다는 것은 상위 타입의 메서들르 재정의했음을 뜻한다.
+
+```java
+// 영어 알파벳 2개로 구성된 문자열을 표현하는 클래스 - 버그 존재
+public class Bigram {
+	private final char first;
+	private final char second;
+	
+	public Bigram(char first, char second) {
+		this.first = first;
+		this.second = second;
+	}
+	public boolean equals(Bigram b) {
+		return b.first == first && b.second == second;
+	}
+	public int hashCode() {
+		return 31 * first + second;
+	}
+	
+	public static void main(String[] args) {
+		Set<Bigram> s = new HashSet<>();
+		for (int i = 0; i < 10; i++)
+			for (char ch = 'a'; ch <= 'z'; ch++)
+				s.add(new Bigram(ch, ch));
+		Sytem.out.println(s.size());
+	}
+}
+```
+
+```java
+// 컴파일 오류 발생하여 미리 잘못된 코드임을 확인할 수 있다.
+@Override public boolean equals(Bigram b) {
+	return b.first == first && b.second == second;
+}
+```
+
+```java
+// 올바르게 수정된 코드
+@Override public boolean equals(Object o) {
+	if (!(o instanceof Bigram))
+		return false;
+		Bigram b = (Bigram) o;
+	return b.first == first && b.second == second;
+}
+```
+
+- 상위 클래스의 메서드를 재정의하려는 모든 메서드에 @Override 애너테이션을 달자.
+- 예외는 한 가지뿐
+	- 구체 클래스에서 상위 클래서의 추상 메서드를 재정의할 때는 굳이 @Override를 달지 않아도 된다. (재정의 하지 않으면 재컴파일러가 알려준다.)
+- 달아도 괜찮다.
+- @Ovrrideㄴ느 클래스뿐 아니라 인터페이스의 메서드를 재정의할 때도 사용할 수 있다.
+- 디폴트 메서드를 지원하기 시작하면서, 인터페이스 메서드를 구현한 메서드에도 @Override를 다는 습관을 들이면 시그니처가 올바른지 재차 확신할 수 있다.
+- 구현하려는 인터페이스에 디폴트 메서드가 없음을 안다면 이를 구현한 메서드에서는 @Override를 생략해 코드를 조금 더 깔끔히 유지해도 좋다.
+- 하지만 추상 클래스나 인터페이스에서는 상위 클래스나 상위 인터페이스의 메서드를 재정의하는 모든 메서드에 @Override를 다는 것이 좋다. 상위 클래스가 구체 클래스든 추상 클래스든 마찬가지다. 예컨대 Set 인터페이스는 Collection 인터페이스를 확장했지만 새로 추가한 메서드는 없다.
+- 따라서 모든 메서드 선언에 @Override를 달아 실수로 추가한 메서드가 없음을 보장한다.
+- 
+### 핵심 정리
+재정의한 모든 메서드에 @Override 애너테이션을 의식적으로 달면 여러분이 실수했을 때 컴파일러가 바로 알려줄 것이다. 예외는 한 가지뿐이다.
+구체 클래스에서 상위 클래서의 추상 메서드를 재정의할 때는 이 애너테이션을 달지 않아도 된다(단다고 해서 해로울 것도 없다).
+
+
 
 
 
