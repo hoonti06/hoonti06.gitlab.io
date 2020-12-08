@@ -3,7 +3,7 @@ layout    : wiki
 title     : REST
 summary   : 
 date      : 2020-04-01 14:37:38 +0900
-updated   : 2020-08-10 23:58:37 +0900
+updated   : 2020-08-17 17:15:34 +0900
 tag       : REST, REST-API
 public    : true
 published : true
@@ -255,20 +255,6 @@ entity) is identified by the Request-URI.
 
 
 
-import org.springframework.web.bind.annotation.RequestMethod;
-- GET : 
-- POST
-- DELTE
-- HEAD
-- OPTIONS
-- PATCH
-- PUT
-- TRACE
-
-- PUT vs PATCH
-	- 
-
-
 
 
 
@@ -297,3 +283,78 @@ import org.springframework.web.bind.annotation.RequestMethod;
 [^4]: 클라이언트에서 관리하는 리소스 저장소
 [^5]: 객체 인스턴스나 데이터베이스 레코드와 유사한 개념
 
+
+# REST, REST API
+## 개요
+REST는 **Re**presentational **S**tate **T**ransfer의 약자로, Roy Fielding의 2000년 논문에서 처음 소개된 분산 하이퍼 미디어 시스템의 아키텍처 스타일  
+
+## 탄생 배경
+웹이 급속도로 성장하고 있던 상황에서 당시 HTTP 명세에 참여하고 있던 Roy Fielding이 당시 아키텍처가 웹의 본래 설계의 우수성을 많이 사용하지 못하고 있다고 판단하여 웹의 장점을 최대한 활용할 수 있는 네트워크 기반의 아키텍처에 대한 제약 및 가이드를 제시
+
+## 구체적인 개념
+HTTP URI를 통해 자원(Resource)의 표현(Representation, media type)을 명시하고, HTTP Method(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD Operation을 적용한 구조  
+
+## 구성
+- 자원(Resource) : URI
+	- 자원은 Server은 존재하고, 각 자원은 unique ID를 갖는다.
+	- Client는 URI를 이용해 자원을 지정하고 해당 자원 상태에 대한 조작을 Server에 요청한다.
+- 행위(Verb) - HTTP Method
+	- HTTP Method에는 POST, GET, PUT, DELETE가 있다.
+		- GET : 리소스 조회
+		- POST : 리소스 생성
+		- PUT : 리소스 갱신
+		- DELETE : 리소스 삭제
+- 표현(Representations)
+	- 하나의 자원을 보통 JSON이나 XML의 형태로 표현하고, 이를 주고 받는다.
+
+
+## 제약(Constraint)
+- Client-Server
+	- 데이터 저장소로부터 유저 인터페이스를 분리
+		- 서버 컴포넌트들을 단순화하여 확장성 증가
+		- 멀티 플랫폼간의 유저 인터페이스의 이식성 향상
+		- 이 분리는 웹에서 컴포넌트들이 독립적으로 진화하고, 인터넷에서 다양한 도메인의 요구를 지원할 수 있다.
+- Stateless
+	- 모든 요청은 필요한 모든 정보를 담고 있어야한다.
+	- 요청 하나만 봐도 바로 뭔지 알 수 있게 되므로 가시성이 확보된다.
+	- task 실패시 복원이 쉬우므로 신뢰성이 개선된다, 
+	- 상태를 저장할 필요가 없으므로 규모확장성이 개선된다.
+- Cache(Cacheable)
+	- 캐시가 가능해야 한다. 
+	- 모든 서버 응답은 캐시 가능한지 아닌지 알 수 있어야 한다.
+	- 호율, 규모확장성, 사용자 입장에서의 성능이 개선된다.
+- Uniform Interface(인터페이스 일관성)
+	- 구성 요소(Client, Server 등) 사이의 인터페이스는 균인해야 한다.
+	- 인터페이스의 일반화
+		- 구조가 단순해진다. 
+		- 상호 작용의 가시성 개선
+		- 구현과 서비스의 분리로 독립적인 확장이 가능하다.
+- Layered System 
+	- 계층(hierarchical layers)으로 구성이 가능해야하며, 각 레이어에 속한 구성요소는 인접하지 않은 레이어의 구성요소를 볼 수 없어야 한다.
+- Code-On-Demand (Optional) 
+	- Server가 네트워크를 통해 Client에게 Java applet이나 script(E.g javascript)를 전달하면 Client에서 실행될 수 있어야 한다.
+	- 이 제약조건은 필수는 아니다.
+
+## HTTP와 REST의 관계
+- REST 아키텍처 스타일(디자인, 패턴)이고, HTTP는 통신에 대한 약속이다.
+- REST에서 반드시 HTTP만 사용하지 않고, 다른 프로토콜로도 가능하다.
+- 하지만, 웹 환경 통신(클라이언트와 서버 간)의 대부분이 HTTP를 사용한다.
+
+## REST API
+- API : 프로그램들이 정보 교환 등의 상호작용하는 것을 도와주는 매개체
+- REST API
+	- REST 기반으로 서비스 API를 구현한 것
+	- Open API, MSA 등을 제공하는 업체 대부분은 REST API를 제공한다.
+
+## REST API 디자인 가이드
+REST API 설계 시 가장 중요한 항목 2가지
+- URI는 정보의 자원을 표현해야 한다.
+- 자원에 대한 행위는 HTTP Method(GET, POST, PUT, DELETE)로 표현한다.
+
+## RESTful
+- REST의 Code-On-Demand를 제외한 5가지 제약을 지키는 구조를 RESTful 하다고 할 수 있다.
+- 하지만, Roy Fielding의 논문에는 'url을 어떻게 작성해야 하는지' 등의 구체적인 언급은 없다.
+- 따라서, REST의 제약을 잘 지키기 위한 가이드는 표준이 아니고, 여러 개발자들에 의해 만들어진 비공식 가이드라고 할 수 있다.
+	- 목적 
+		- 이해하기 쉽고 사용하기 쉬운 REST API를 만드는 것
+		- 일관적인 컨벤션을 통한 API의 이해도 및 호환성 향상(성능 향상이 주 목적은 아님)

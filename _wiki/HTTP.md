@@ -1,9 +1,9 @@
----
+[[---]]
 layout  : wiki
 title   : HTTP
 summary : 
 date    : 2019-02-16 12:55:24 +0900
-updated : 2020-08-10 23:50:09 +0900
+updated : 2020-08-17 16:52:28 +0900
 tag     : 
 public  : true
 parent  : [[network]]
@@ -47,6 +47,61 @@ HTTP는 연결이 필수가 아님
 ## 2. 메시지 구조
 - request
 - response
+
+## 3. 메소드
+- GET
+	- 요청받은 URI의 정보를 검색하여 응답한다
+	- 서버에서 리소스를 달라고 요청하기 위해 사용
+- POST
+	- 요청된 리소스를 생성(CREATE)한다. 새로 작성된 리소스인 경우 HTTP 헤더 항목 'Location : {URI}' 를 포함하여 응답해야 한다.
+- DELETE
+	- 요청된 리소스를 삭제할 것을 요청함. (안전성 문제로 대부분의 서버에서 비활성)
+	- HTTP 명세는 서버가 클라이언트에게 알지지 않고 요쳥을 무시하는 것을 허용하여 삭제 수행에 대한 보장을 하지 못한다.
+- HEAD
+	- GET방식과 동일하지만, 응답에 BODY가 없고 응답코드와 HEAD만 응답한다.
+	- 웹서버 정보확인, 헬스체크, 버젼확인, 최종 수정일자 확인등의 용도로 사용된다.
+- PUT
+	- 일반적으로 리소스 수정(UPDATE)할 때 사용한다.
+	- 서버가 요청의 본문을 가지고 요청 URL의 이름대로 새 리소스를 만들거나, 이미 URL이 존재한다면 본문을 사용해서 교체한다.
+- PATCH
+	- PUT과 유사하게 요청된 리소스를 수정(UPDATE)할 때 사용한다. 
+	- PUT의 경우 리소스를 전체를 갱신하는 의미지만, PATCH는 해당 리소스의 일부를 교체하는 의미로 사용.
+- OPTIONS
+	- 웹서버에서 특정 리소스에 대해 지원되는 메소드의 종류를 확인할 경우 사용.
+- TRACE
+	- 원격지 서버에 루프백 메시지 호출하기 위해 테스트용으로 사용.
+	- 요청이 방화벽, 프락시, 게이트웨이 등을 거칠 수 있는데, 서버에 자신의 요청이 어떻게 수정되어 도달했는지 확인할 수 있다.
+
+## POST vs PUT
+PUT은 식별자를 포함해야 한다. 꼭 존재하는 식별자일 필요는 없고, 존재하지 않는 식별자일 경우 리소스를 생성하게 된다.  
+POST로 동일한 요청을 보내면 2개의 자원을 생성한다. 반면, PUT으로 동일한 요청을 2번 보낼 경우 첫 번째에 리소스가 생성되고, 두 번째에 리소스가 교체된다.  
+POST는 멱등이 아니고, PUT은 멱등이다. (멱등은 한 번 적용하나 여러 번 적용하나 항상 같은 결과를 나타내는 것을 의미)
+
+## PUT vs PATCH
+PUT은 자원의 전체를 교체하기 때문에 자원 내의 모든 필드가 필요하다. 일부 필드만 전달할 경우, 그 외 필드는 비어 있게 되거나 초기값으로 변경될 것이다.
+PATCH는 자원의 부분을 교체하기 때문에 교체할 필드만 전달하면 된다.
+
+```http
+PUT /members/1
+{
+    name : "hoon",
+    age : 28,
+}
+
+PATCH  /members/1
+{
+    name : "jihoon"
+}
+```
+
+
+
+https://tools.ietf.org/html/rfc7231#section-4.3 (method)
+https://tools.ietf.org/html/rfc7231#section-8.1.3 (멱등)
+https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html (method)
+https://multifrontgarden.tistory.com/245 (POST vs PUT)
+https://stackoverflow.com/questions/29092787/http-post-response-location-header-when-creating-multiple-resources (POST respose location)
+https://papababo.tistory.com/269 (PUT vs PATCH)
 
 
 ## 3.
