@@ -15,4 +15,4 @@ function resizePlantuml() {
 
 }
 
-window.onload = resizePlantuml;
+window.addEventListener('load', resizePlantuml);

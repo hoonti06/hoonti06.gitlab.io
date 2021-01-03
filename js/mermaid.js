@@ -20,5 +20,4 @@ function resizeMermaid() {
 
 }
 
-window.onload = resizeMermaid;
-//window.resize = resizeMermaid;
+window.addEventListener('load', resizeMermaid);
