@@ -3,7 +3,7 @@ layout    : category
 title     : (도서 내용 정리) Effective Java 3/E
 summary   : 
 date      : 2020-07-07 19:55:31 +0900
-updated   : 2021-01-04 00:45:17 +0900
+updated   : 2021-01-04 17:33:44 +0900
 tag       : java book-contents-summary
 public    : true
 published : true
@@ -17,7 +17,7 @@ latex     : false
 
 ### 패키지 바깥에서 접근할 수 있는 클래스라면 접근자를 제공하라
 #### 퇴보한 클래스
-```{.java .numberLines}
+```java
 class Point {
 	public double x;
 	public double y;
@@ -31,7 +31,7 @@ class Point {
 
 #### 캡슐화한 클래스
 
-```{.java .numberLines}
+```java
 class Point {
 	private double x;
 	private double y;
@@ -68,7 +68,7 @@ class Point {
 	- 내부 표현을 바꾸려면 API를 수정해야 함
 	- 외부에서 필드에 접근할 때 부수 작업 수행 못함  
 
-```{.java .numberLines}
+```java
 public final class Time {
 	private static final int HOURS_PER_DAY = 24;      // 이거랑 책이랑 어떤게 가독성이 높은지, 더 많이 쓰이는지
 	private static final int MINUTES_PER_HOUR = 60;
@@ -117,7 +117,7 @@ public final class Time {
 ### 상수 인터페이스 안티 패턴
 상수 인터페이스 : 메서드 없이, static final 필드로만 이루어진 인터페이스
 
-```{.java .numberLines}
+```java
 public interface PhysicalConstants {
 	static final double AVOGADROS_NUMBER   = 6.022_140_857e23; // [1], [2]
 	static final double BOLTZMANN_CONSTANT = 1.380_648_52e-23; 
@@ -150,7 +150,7 @@ public interface PhysicalConstants {
 - 인스턴스화할 수 없는 유틸리티 클래스([item4](https://github.com/JAVA-JIKIMI/EFFECTIVE-JAVA3/wiki/item-4))
  
 
-```{.java .numberLines}
+```java
 
 import package effectivejava.chapter4.item22.constantutilityclass.PhysicalConstants.*; // [1]
 // package effectivejava.chapter4.item22.constantutilityclass;
@@ -317,7 +317,7 @@ public static final int ORANGE_BLOOD = 2;
 - 임의의 메서드나 필드를 추가할 수 있고, 임의의 인터페이스를 구현하게 할 수도 있다.
  
 ### 데이터와 메서드를 갖는 열거 타입
-```{.java .numberLines}
+```java
 public enum Planet {
 	MERCURY(3.302e+23, 2.439e6),
 	VENUS(4.869e+24, 6.052e6),
