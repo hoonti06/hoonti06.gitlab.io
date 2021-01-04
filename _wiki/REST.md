@@ -3,8 +3,8 @@ layout    : wiki
 title     : REST
 summary   : 
 date      : 2020-04-01 14:37:38 +0900
-updated   : 2021-01-04 09:57:02 +0900
-tag       : REST, REST-API
+updated   : 2021-01-05 00:07:51 +0900
+tag       : REST REST-API
 public    : true
 published : true
 parent    : [[network]]

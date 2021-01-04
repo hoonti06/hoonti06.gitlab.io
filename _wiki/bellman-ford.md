@@ -3,7 +3,7 @@ layout    : wiki
 title     : 벨만-포드 알고리즘
 summary   : 
 date      : 2020-03-19 10:55:16 +0900
-updated   : 2021-01-04 10:06:10 +0900
+updated   : 2021-01-05 00:12:45 +0900
 tag       : graph graph-algorithm
 public    : true
 published : true
@@ -37,7 +37,7 @@ for (iter = 0; iter < V; iter++)
 ```
 
 ### 1.2. 예제 코드
-```{.cpp .numberLines}
+```cpp
 #include <cstdio>
 #include <algorithm>
 #include <vector>

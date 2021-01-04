@@ -3,7 +3,7 @@ layout    : wiki
 title     : sort(정렬)
 summary   : 
 date      : 2019-09-14 10:17:04 +0900
-updated   : 2021-01-04 10:04:53 +0900
+updated   : 2021-01-05 00:12:16 +0900
 tag       : 
 public    : true
 published : true
@@ -25,7 +25,7 @@ latex     : false
 
 ### 1.1. 코드
 오름차순 정렬
-```{.cpp .numberLines}
+```cpp
 void insertionSort(int arr[], int N)
 {
 	for (int i = 1; i < N; i++)
@@ -47,7 +47,7 @@ void insertionSort(int arr[], int N)
 삽입 정렬에서 정렬되지 않은 원소의 들어갈 위치를 찾을 때, [[binary-search]]{이진 탐색(binary search)}을 활용하는 정렬. 삽입 정렬에서 살짝 개선된 것  
 
 #### 1.2.1 코드
-```{.cpp .numberLines}
+```cpp
 //void binaryInsertionSort(int arr[], int N)
 //{
 //	for (int i = 1; i < N; i++)
@@ -154,7 +154,7 @@ left가 start+1부터 시작하게 되면 원소가 2개인 경우에 문제가 
 결국 **최상위 while이 종료된 후의 right는 항상 pivot보다 작거나 같은 값을 갖는 부분 집합의 마지막 index를 가리키게 된다.**
 그리고 최상위 while문 밖에서 pivot의 위치인 start와 right(pivot보다 작거나 같은 값을 갖는 부분 집합의 마지막 index)와 swap하게 되고, pivot 양쪽으로 재귀 함수를 호출한다.
 
-```{.cpp .numberLines}
+```cpp
 void quickSort(int arr[], int start, int end)
 {
 	if (start >= end)

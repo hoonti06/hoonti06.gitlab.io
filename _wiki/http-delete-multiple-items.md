@@ -3,7 +3,7 @@ layout    : wiki
 title     : 
 summary   : 
 date      : 2020-09-01 16:23:22 +0900
-updated   : 2021-01-04 10:10:39 +0900
+updated   : 2021-01-04 22:57:18 +0900
 tag       : 
 public    : true
 published : true
@@ -33,17 +33,17 @@ latex     : false
   - Mozilla Storage Service SyncStorage API v1.5
     - BSO는 basic storage object로, 해당 서비스의 storage 단위로 보임
     - collections 전부를 삭제할 경우
-    ```http
+    ```
     DELETE https://<endpoint-url>/storage/<collection>
     ``` 
    
     - single item 삭제할 경우
-    ```http
+    ```
     DELETE https://<endpoint-url>/storage/<collection>/<id>
     ``` 
   
     - multiple items 삭제할 경우
-    ```http
+    ```
     DELETE https://<endpoint-url>/storage/<collection>?ids=<ids>
     ``` 
     - Question

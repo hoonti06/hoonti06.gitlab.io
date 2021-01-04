@@ -3,7 +3,7 @@ layout    : wiki
 title     : dijkstra(다익스트라)
 summary   : 
 date      : 2020-03-19 09:45:18 +0900
-updated   : 2021-01-04 10:05:55 +0900
+updated   : 2021-01-05 00:12:40 +0900
 tag       : dijkstra graph graph-algorithm
 public    : true
 published : true
@@ -27,7 +27,7 @@ latex     : false
 		- 각 노드마다 모든 이웃을 확인하는 것은 모든 edge를 확인하는 것(O(E))과 같고, 매번 힙에서 최단 거리를 갱신(O(logV))
 
 ### 1.2. 예제 코드
-```{.cpp .numberLines}
+```cpp
 #include <iostream>
 #include <vector>
 #include <queue>
