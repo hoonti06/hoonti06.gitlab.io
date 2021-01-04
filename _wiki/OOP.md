@@ -3,13 +3,15 @@ layout    : wiki
 title     : 객체지향 프로그래밍
 summary   : 
 date      : 2020-04-12 11:04:34 +0900
-updated   : 2020-07-19 23:27:42 +0900
+updated   : 2021-01-04 09:51:34 +0900
 tag       : 
 public    : true
 published : true
 parent    : [[index]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 1. 정의
 상태(데이터, 변수)와 행위(데이터 처리, 메소드)를 묶어 객체를 만들고 객체들의 상호작용으로 프로그램을 구현하는 방식

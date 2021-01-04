@@ -3,13 +3,15 @@ layout    : wiki
 title     : (강의 내용 정리) 스프링 프레임워크 핵심 기술
 summary   : 
 date      : 2020-01-29 09:42:19 +0900
-updated   : 2020-08-11 12:21:07 +0900
+updated   : 2021-01-04 00:45:48 +0900
 tag       : spring web inflearn online-lecture
 public    : true
 published : true
 parent    : [[online-lecture]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 1. Spring framework
 Spring framework는 소규모 애플리케이션 또는 기업용 애플리케이션을 자바로 개발하는 데 있어 유용하고 편리한 기능을 제공하는 프레임 워크이다.
@@ -43,7 +45,7 @@ Spring framework는 소규모 애플리케이션 또는 기업용 애플리케�
 
 Inversion of Control(IoC): 의존 관계 주입(Dependency Injection, DI)이라고도 하며, 어떤 객체가 사용하는 **의존 객체를 직접 만들어 사용하는게 아니라, 주입 받아 사용하는 방법**[^1]을 말함
 
-{% plantuml %}
+```plantuml!
 rectangle "Bean 설정" as bean
 node "Spring IoC 컨테이너" as container
 bean -right-> container
@@ -52,7 +54,7 @@ skinparam node {
 	backgroundColor Agua
 }
 
-{% endplantuml %}
+```
 
 - Spring IoC 컨테이너    
 	- BeanFactory : 가장 상위 Class, 객체 생성과 검색에 대한 기능

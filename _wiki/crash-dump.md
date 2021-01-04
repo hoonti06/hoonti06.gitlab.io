@@ -1,14 +1,17 @@
 ---
-layout  : wiki
-title   : Crash Dump
-summary : 
-date    : 2019-08-06 10:19:27 +0900
-updated : 2020-07-19 23:48:58 +0900
-tag     : 
-public  : true
-parent  : [[debugging]]
-latex   : false
+layout    : wiki
+title     : Crash Dump
+summary   : 
+date      : 2019-08-06 10:19:27 +0900
+updated   : 2021-01-04 10:08:21 +0900
+tag       : 
+public    : true
+published : true
+parent    : [[debugging]]
+latex     : false
 ---
+* TOC
+{:toc}
 
 ## 0. 개요
 Crash Dump : 어떠한 원인으로 인하여 Crash가 발생했을 때 그 때의 오류의 원인 등의 내용을 기록하여 저장한 파일을 의미한다.

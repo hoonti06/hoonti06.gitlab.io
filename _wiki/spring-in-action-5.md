@@ -3,13 +3,15 @@ layout    : wiki
 title     : (도서 내용 정리) 스프링 인 액션5
 summary   : 
 date      : 2020-08-08 13:38:46 +0900
-updated   : 2020-10-17 02:25:18 +0900
+updated   : 2021-01-04 00:45:39 +0900
 tag       : 
 public    : true
 published : true
 parent    : [[book-contents-summary]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 7. REST 서비스 이용하기
 
@@ -295,6 +297,7 @@ public Ingredient addIngredient(Ingredient ingredient) {
 
 - RestTemplate은 REST 리소스를 사용하는 데 번잡한 일을 처리해준다.
 - REST 리소스와 상호 작용하기 위한 41개 메서드 제공  
+
   |메서드|기능 설명|
   |------|---|
   | delete(..) | 지정된 URL의 리소스에 HTTP DELETE 요청을 수행한다.|
@@ -317,8 +320,8 @@ public Ingredient addIngredient(Ingredient ingredient) {
   - 위 표의 메서드는 세 가지 형태로 오버로딩되어 있다.
     - 가변 인자 리스트에 지정된 URL 매개변수에 URL 문자열(String 타입)을 인자로 받는다.
 	- Map<String, String>에 지정된 URL 매개변수에 URL 문자열을 인자로 받는다.
-	- java.net.URI를 URL에 대한 인자로 받으며, 매개변수화된 URL은 지원하지 않는다.
-
+	- java.net.URI를 URL에 대한 인자로 받으며, 매개변수화된 URL은 지원하지 않는다.  
+<br>  
 
 - RestTemplate을 사용하기 위해 필요 시점에 RestTemplate 인스턴스를 생성하거나, 빈으로 선언하고 필요 시 주입한다.
   ```java
@@ -355,7 +358,7 @@ public Ingredient getIngredientById(String ingredientId) {
                              Ingredient.class, urlVariables);
 }
 ```
-  - 요청이 수행될 때 {id} 플레이스홀더는 키가 id인 Map 항목 값(ingredientId 값)으로 교체된다.
+  - 요청이 수행될 때 {id} 플레이스홀더는 키가 id인 Map 항목 값(ingredientId 값)으로 교체된다.  
 <br>
 
 URI 매개변수를 사용할 때는 URI 객체를 구성하여 getForObject()를 호출해야 한다.
@@ -451,40 +454,43 @@ public Ingredient createIngredient(Ingredient ingredient) {
   - 리소스 객체와 새로 생성된 리소스의 URI 모두 필요할 때 사용할 수 있다.
 
 API에서 하이퍼링크를 포함해야 한다면 RestTempate은 도움이 안 된다.  
-(더 상세한 리소스 데이터를 가져와서 그 안에 포함된 콘텐츠와 링크를 사용할 수 도 있지만, 간단하지는 않다)
+(더 상세한 리소스 데이터를 가져와서 그 안에 포함된 콘텐츠와 링크를 사용할 수도 있지만, 간단하지는 않다)
 
 ### 7.2. Traverson으로 REST API 사용하기
 Traverson은 스프링 데이터 HATEOAS에 같이 제공되며, 스프링 애플리케이션에서 하이퍼 미디어 API를 사용할 수 있는 솔루션이다.
+
 - 자바 기반의 라이브러리
-- '돌아다닌다(Traverse on)'의 의미로, 여기서는 관계 이름으로 원하는 API를 (이동하며) 사용할 것이다.
+- '돌아다닌다(Traverse on)'의 의미로, 여기서는 관계 이름으로 원하는 API를 (이동하며) 사용할 것이다.  
 <br>
 
-Traversion을 사용할 때는 우선 해당 API의 기본 URI를 갖는 객체를 생성해야 한다.
+Traversion을 사용할 때는 우선 해당 API의 기본 URI를 갖는 객체를 생성해야 한다.  
+
   ```java
   Traverson traverson = new Traverson(
       URI.create("http://localhost:8080/api"), MediaTypes.HAL_JSON);
-  ```
+  ```  
+ 
 - Traverson에는 URL만 지정하면 되고, 이후부터는 각 링크의 관계 이름으로 API를 사용한다.
 - Traverson 생성자에는 해당 API가 HAL 스타일의 하이퍼링크를 갖는 JSON 응답을 생성한다는 것을 인자로 지정할 수 있다.  
   - 이 인자를 지정하는 이유는 수신되는 리소스 데이터를 분석하는 방법을 Traverson이 알 수 있게 하기 위함이다.
 - 어디서든 Traverson이 필요할 때 Traverson 객체를 생성하거나, 주입되는 빈으로 선언할 수 있다.
 <br>
   
-```java
-// 모든 식자재 리스트 가져오기
-public Iterable<Ingredient> getAllIngredientsWithTraverson() {
-    ParameterizedTypeReference<Resources<Ingredient>> ingredientType =
-        new ParameterizedTypeReference<Resources<Ingredient>>() {};
-
-    Resources<Ingredient> ingredientRes = traverson
-                                          .follow("ingredients")
-                                          .toObject(ingredientType);
-	
-    Collection<Ingredient> ingredients = ingredientRes.getContent();
-	
-    return ingredients;
-}
-```
+  ```java
+  // 모든 식자재 리스트 가져오기
+  public Iterable<Ingredient> getAllIngredientsWithTraverson() {
+      ParameterizedTypeReference<Resources<Ingredient>> ingredientType =
+          new ParameterizedTypeReference<Resources<Ingredient>>() {};
+  
+      Resources<Ingredient> ingredientRes = traverson
+                                            .follow("ingredients")
+                                            .toObject(ingredientType);
+  	
+      Collection<Ingredient> ingredients = ingredientRes.getContent();
+  	
+      return ingredients;
+  }
+  ```
   - 각 ingredients 링크들은 해당 식자재 리소스를 링크하는 href 속성을 가지므로 그 링크를 따라가면 된다.
   - follow() 메서드를 호출하면 리소스 링크의 관계 이름이 ingredients인 리소스로 이동할 수 있다.
   - 이 시점에서 클라이언트는 ingredients로 이동햇으므로 toObject()를 호출하여 해당 리소스의 콘텐츠를 가져와야 한다.
@@ -643,14 +649,18 @@ curl localhost:8888/application/default/master
   "name":"application",
   "profiles":["default"],
   "label":"master",
-  "version":"551620858a658c9f2696c7f543f1d7effbadaef4"
+  "version":"551620858a658c9f2696c7f543f1d7effbadaef4",
   "state": null,
-  "propertySources": [
-    {"name":"https://github.com/habuma/tacocloud-config/application.yml",
-	 "source":{"server.port":0,
-	 "eureka.client.service-url.defaultZone":"http://localhost:8761/eureka/",
-	 "spring.data.mongodb.password":"93912a660a7f3c04e811b5df9a3cf6e1f63850cdcd4aa092cf5a3f7e1662fab7"}
-
+  "propertySources": 
+  [
+    {
+	  "name":"https://github.com/habuma/tacocloud-config/application.yml",
+	  "source":
+	  {
+	    "server.port":0,
+	    "eureka.client.service-url.defaultZone":"http://localhost:8761/eureka/",
+	    "spring.data.mongodb.password":"93912a660a7f3c04e811b5df9a3cf6e1f63850cdcd4aa092cf5a3f7e1662fab7"
+	  }
     }
   ]
 }
@@ -959,7 +969,25 @@ spring:
     ```  
 	
     - 둘 중 하나를 선택하면 된다.
-	- 구성의 변경 알림을 전파하는 수단이다.
+    - 구성의 변경 알림을 전파하는 수단이다.
   - 메시지 브로커 설정
 - Gogs 알림 추출기 생성
-
+  - 책 집필 당시에는 지원되지 않아 코드를 직접 작성함
+  - 최신 버전에는 Gogs 알림도 지원하여 해당 코드를 애플리케이션에 포함시킬 필요 없음
+  - 코드 : https://livebook.manning.com/book/spring-in-action-fifth-edition/chapter-14/1
+  - 해당 기능과 관련된 github 이슈 : https://github.com/spring-cloud/spring-cloud-config/pull/1003
+- 구성 서버 클라이언트에 속성의 자동 리프레시 활성화
+  - 구성 서버 클라이언트에 의존성 추가
+    ```xml
+    <!-- RabbitMQ -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+    </dependency>
+   
+    <!-- Kafka -->
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-bus-kafka</artifactId>
+    </dependency>
+    ```

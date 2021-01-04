@@ -16,43 +16,83 @@ gitlab_username: hoonti06
 plugins:
   - jekyll-paginate
   - jekyll-gist
-  - jekyll-pandoc
-  - jekyll-mermaid
-  - jekyll-pandoc-mermaid
-  - jekyll-plantuml
- #- jekyll-pandoc-multiple-format
- #- jekyll-youtube
+  - jekyll-spaceship
 
 permalink: /blog/:year/:month/:day/:title/
 
+jekyll-spaceship:
+  # default enabled processors
+  processors:
+    - table-processor
+    - mathjax-processor
+    - plantuml-processor
+    - mermaid-processor
+    - polyfill-processor
+    - media-processor
+    - emoji-processor
+    - element-processor
+  mathjax-processor:
+    src:
+      - https://polyfill.io/v3/polyfill.min.js?features=es6
+      - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    config:
+      tex:
+        inlineMath:
+          - ['$','$']
+          - ['\(','\)']
+        displayMath:
+          - ['$$','$$']
+          - ['\[','\]']
+      svg:
+        fontCache: 'global'
+    optimize: # optimization on building stage to check and add mathjax scripts
+      enabled: true # value `false` for adding to all pages
+      include: []   # include patterns for math expressions checking (regexp)
+      exclude: []   # exclude patterns for math expressions checking (regexp)
+  plantuml-processor:
+    mode: default  # mode value 'pre-fetch' for fetching image at building stage
+    css:
+      class: plantuml
+    syntax:
+      code: 'plantuml!'
+      custom: ['@startuml', '@enduml']
+    src: http://www.plantuml.com/plantuml/svg/
+  mermaid-processor:
+    mode: default  # mode value 'pre-fetch' for fetching image at building stage
+    css:
+      class: mermaid
+    syntax:
+      code: 'mermaid!'
+      custom: ['@startmermaid', '@endmermaid']
+    config:
+      theme: default
+    src: https://mermaid.ink/svg/
+  media-processor:
+    default:
+      id: 'media-{id}'
+      class: 'media'
+      width: '100%'
+      height: 350
+      frameborder: 0
+      style: 'max-width: 600px; outline: none;'
+      allow: 'encrypted-media; picture-in-picture'
+  emoji-processor:
+    css:
+      class: emoji
+    src: https://github.githubassets.com/images/icons/emoji/
+
 # kramdown settings
-#markdown: kramdown
-#highlighter: rouge
-#kramdown:
-#  input: GFM
-#  syntax_highlighter: rouge
-#  syntax_highlighter_opts:
-#    block:
-#      line_numbers: true
-#   #span:
-#     #line_numbers: true
-
-
-# jekyll-pandoc settings
-markdown: Pandoc
-pandoc:
-  extensions:
-    - toc
-    - toc-depth=6
-    - standalone
-    - highlight-style=pygments
-    #- no-highlight
-
-# jekyll-mermaid settinges
-mermaid:
-  src: 'https://unpkg.com/mermaid@8.4.6/dist/mermaid.min.js'
-
-#highlighter: rouge
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  smart_quotes: ["apos", "apos", "quot", "quot"] # https://kramdown.gettalong.org/rdoc/Kramdown/Options.html
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+   #span:
+     #line_numbers: true
 
 # jekyll-pandoc-multiple-formats settings
 #markdown: pandoc
@@ -106,4 +146,5 @@ original: "https://gitlab.com/hoonti06/hoonti06.gitlab.io/blob/master/_wiki"
 blame: "https://gitlab.com/hoonti06/hoonti06.gitlab.io/blame/master/_wiki"
 
 timezone: "Asia/Seoul"
+
 

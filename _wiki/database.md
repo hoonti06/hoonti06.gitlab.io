@@ -3,13 +3,15 @@ layout    : wiki
 title     : 데이터베이스
 summary   : 
 date      : 2019-10-04 09:44:02 +0900
-updated   : 2020-04-13 00:00:52 +0900
+updated   : 2021-01-04 09:55:29 +0900
 tag       : 
 public    : true
 published : true
-parent    : [[]]
+parent    : [[index]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 0. 개요
 DB : 응용 시스템들이 공유해서 사용하는 운영 데이터들을 구조적으로 통합시켜놓은 모임

@@ -3,13 +3,15 @@ layout    : wiki
 title     : DHCP
 summary   : DHCP 동작 과정
 date      : 2019-02-09 22:13:32 +0900
-updated   : 2020-07-19 23:45:32 +0900
+updated   : 2021-01-04 09:52:10 +0900
 tag       :
 public    : true
 parent    : [[network]]
 published : true
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 0. 개요
 

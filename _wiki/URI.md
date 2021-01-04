@@ -3,13 +3,15 @@ layout    : wiki
 title     : URI
 summary   : 
 date      : 2020-04-07 20:34:24 +0900
-updated   : 2020-04-07 20:35:54 +0900
+updated   : 2021-01-04 09:54:58 +0900
 tag       : 
 public    : true
 published : true
-parent    : [[]]
+parent    : [[network]]
 latex     : false
 ---
+* TOC
+{:toc}
 
  
 - URI

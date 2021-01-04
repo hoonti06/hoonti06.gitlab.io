@@ -1,15 +1,17 @@
 ---
 layout    : wiki
-title     : 위상 정렬
+title     : topological sort(위상 정렬)
 summary   : 
 date      : 2020-03-19 01:54:32 +0900
-updated   : 2020-07-19 23:47:32 +0900
+updated   : 2021-01-04 10:05:42 +0900
 tag       : topological-sort graph graph-algorithm
 public    : true
 published : true
 parent    : [[graph-algorithm]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 1. 위상 정렬
 

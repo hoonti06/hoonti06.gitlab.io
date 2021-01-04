@@ -3,13 +3,15 @@ layout    : wiki
 title     : intellij
 summary   : 
 date      : 2020-09-19 19:05:08 +0900
-updated   : 2020-09-22 23:14:05 +0900
+updated   : 2021-01-04 10:10:56 +0900
 tag       : 
 public    : true
 published : true
 parent    : 
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## shortcut
 - `<option> + F1` (editor, project window) : project 윈도우로 갈 수 있다.

@@ -1,14 +1,17 @@
-[[---]]
-layout  : wiki
-title   : HTTP
-summary : 
-date    : 2019-02-16 12:55:24 +0900
-updated : 2020-08-17 16:52:28 +0900
-tag     : 
-public  : true
-parent  : [[network]]
-latex   : false
 ---
+layout    : wiki
+title     : HTTP
+summary   : 
+date      : 2019-02-16 12:55:24 +0900
+updated   : 2021-01-04 09:53:35 +0900
+tag       : 
+public    : true
+published : true
+parent    : [[network]]
+latex     : false
+---
+* TOC
+{:toc}
 
 ## 0. 개요
 

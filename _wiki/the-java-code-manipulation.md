@@ -2,14 +2,16 @@
 layout    : wiki
 title     : (강의 내용 정리) 더 자바, 코드를 조작하는 다양한 방법
 summary   : 
-date      : 2020-02-22 09:48:16 +0900
-updated   : 2020-08-11 12:21:39 +0900
-tag       : java inflearn online-lecture
-public    : true
+date      : 2020-05-31 21:37:26 +0900
+updated   : 2021-01-04 00:46:47 +0900
+tag       : java inflearn online-lecture 
+public    : true 
 published : true
 parent    : [[online-lecture]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 1. JVM의 이해
 
@@ -346,7 +348,7 @@ latex     : false
 	- 스프링 데이터 JPA에서 인터페이스 타입의 인스턴스는 누가 만들어주는 것인가?
 		- Spring AOP를 기반으로 동작하며 RepositoryFactorySupport에서 프록시를 생성한다.
 
-{% plantuml %}
+```plantuml!
 rectangle "클라이언트" as client
 rectangle "서브젝트" as subject
 rectangle "프록시" as proxy
@@ -357,10 +359,10 @@ client -right-> subject
 proxy -up-|> subject
 real_subject -up-|> subject
 proxy -right-> real_subject
-{% endplantuml %}
+```
 
 
-{% plantuml %}
+```plantuml!
 participant "클라이언트" as client
 participant "프록시" as proxy
 participant "리얼 서브젝트" as real_subject
@@ -373,7 +375,7 @@ proxy -> real_subject
 activate real_subject#FFBBBB
 
 hide footbox
-{% endplantuml %}
+```
 
 - 프록시와 리얼 서브젝트가 공유하는 인터페이스가 있고, 클라이언트는 해당 인터페이스 타입으로 프록시를 사용한다.
 - 클라이언트는 프록시를 거쳐서 리얼 서브젝트를 사용하기 때문에 프록시는 리얼 서브젝트에 대한 접근을 관리하거나 부가 기능을 제공, 리턴 값을 변경 등을 할 수 있다.

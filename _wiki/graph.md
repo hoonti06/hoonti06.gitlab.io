@@ -3,13 +3,15 @@ layout    : wiki
 title     : 그래프
 summary   : 
 date      : 2020-03-24 23:06:53 +0900
-updated   : 2020-03-25 08:21:30 +0900
+updated   : 2021-01-04 10:04:17 +0900
 tag       : 
 public    : true
 published : true
 parent    : [[data-structure]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 1. 정의 및 특성
 - 어떤 상태 혹은 객체 간의 관계를 나타내는 자료구조

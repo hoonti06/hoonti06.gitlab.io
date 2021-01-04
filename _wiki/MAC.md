@@ -1,14 +1,17 @@
 ---
-layout  : wiki
-title   : MAC 주소
-summary : 
-date    : 2019-02-16 18:14:26 +0900
-updated : 2020-03-09 00:29:35 +0900
-tag     : 
-public  : true
-parent  : [[network]]
-latex   : false
+layout    : wiki
+title     : MAC 주소
+summary   : 
+date      : 2019-02-16 18:14:26 +0900
+updated   : 2021-01-04 09:56:32 +0900
+tag       : 
+public    : true
+published : true
+parent    : [[network]]
+latex     : false
 ---
+* TOC
+{:toc}
 
 ## 1. 정의
 

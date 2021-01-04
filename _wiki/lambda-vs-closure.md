@@ -3,13 +3,15 @@ layout    : wiki
 title     : 람다 vs 클로저
 summary   : 
 date      : 2020-08-31 20:21:53 +0900
-updated   : 2020-09-08 21:40:12 +0900
+updated   : 2021-01-04 10:10:29 +0900
 tag       : 
 public    : true
 published : true
 parent    : 
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## lambda vs closure
 

@@ -1,14 +1,17 @@
 ---
-layout  : wiki
-title   : Hash(해시)
-summary : 
-date    : 2019-03-26 23:30:15 +0900
-updated : 2020-04-05 17:03:53 +0900
-tag     : 
-public  : true
-parent  : [[data-structure]]
-latex   : false
+layout    : wiki
+title     : Hash(해시)
+summary   : 
+date      : 2019-03-26 23:30:15 +0900
+updated   : 2021-01-04 10:03:34 +0900
+tag       : 
+public    : true
+published : true
+parent    : [[data-structure]]
+latex     : false
 ---
+* TOC
+{:toc}
 
 ## 1. Hash
 - 임의의 길이의 데이터(key)를 고정된 길이의 데이터(hash)로 변환시키는 것

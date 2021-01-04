@@ -3,13 +3,15 @@ layout    : wiki
 title     : (도서 내용 정리) Head First Design Pattern
 summary   : 
 date      : 2020-07-19 13:16:11 +0900
-updated   : 2020-08-11 13:51:50 +0900
+updated   : 2021-01-04 00:45:27 +0900
 tag       : design-pattern book-contents-summary
 public    : true
 published : true
 parent    : [[book-contents-summary]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## Strategy 패턴
 ### 구현할 프로그램 주제
@@ -63,7 +65,7 @@ public class DecoyDuck extends Duck {
 
 
 ### 인터페이스를 통한 구현
-{% plantuml %}
+```plantuml!
 +abstract class Duck {
 	+{abstract} display()
 	+swim()
@@ -98,7 +100,7 @@ public class DecoyDuck extends Duck {
 +interface Quackable {
 	+quack()
 }
-{% endplantuml %}
+```
 
 필요한 클래스에서만 인터페이스를 구현하는 방법이 있지만, 복잡해지고 비효율적이다.
 
@@ -166,7 +168,7 @@ public class DecoyDuck extends Duck {
 				- quack() : 오리 소리를 내는 기계
 		- 기존의 행동 클래스를 전혀 건드리지 않고도 새로운 행동을 추가할 수 있다.
  
-{% plantuml %}
+```plantuml!
 +interface FlyBehavior {
 	+fly()
 }
@@ -195,7 +197,7 @@ public class DecoyDuck extends Duck {
 +class MuteQuack extends QuackBehavior {
 	+quack() {\n// 아무것도 안함\n}
 }
-{% endplantuml %}  
+```  
 
 <br>  
 
@@ -203,7 +205,7 @@ public class DecoyDuck extends Duck {
 - Duck 행동 통합하기
 	- Duck에서 fly 행동과 quack 행동을 Duck클래스 내부에서 정의한 메소드를 사용 및 구현하는 것이 아닌, 다른 클래스에 위임한다
 
-{% plantuml %}
+```plantuml!
 +abstract class Duck {
 	-FlyBehavior flyBehavior
 	-QuackBehavior quackBehavior
@@ -232,7 +234,7 @@ public class DecoyDuck extends Duck {
 +class DecoyDuck extends Duck {
 	+display() {\n// 가짜 오리 모양\n}
 }
-{% endplantuml %}
+```
  
 <br>  
 
@@ -397,7 +399,7 @@ public class DuckSimulator {
 
 ### 상속을 통한 구현
 
-{% plantuml %}
+```plantuml!
 +class Beverage {
 	-description
 	-milk
@@ -433,7 +435,7 @@ public class DuckSimulator {
 +class Espresso extends Beverage {
 	+cost()
 }
-{% endplantuml %}
+```
 
 ### OCP(Open-Closed Principle)
 - 가장 중요한 디자인 원칙 중 하나
@@ -464,7 +466,7 @@ public class DuckSimulator {
 - 정의
 	- 객체에 추가적인 요건을 동적으로 첨가한다. 데코레이터는 Sub 클래스를 만드는 것을 통해 기능을 유연하게 확장할 수 있는 방법을 제공
 
-{% plantuml %}
+```plantuml!
 +abstract class Component {
 	+methodA()
 	+methodB()
@@ -493,9 +495,9 @@ public class DuckSimulator {
 	+methodA()
 	+methodB()
 }
-{% endplantuml %}
+```
 
-{% plantuml %}
+```plantuml!
 +abstract class Beverage {
 	-String description
 	+{abstract} getDescription()
@@ -545,7 +547,7 @@ public class DuckSimulator {
 	+cost()
 	+getDescription()
 }
-{% endplantuml %}
+```
 
 - 상속을 이용해서 타입을 맞추는 것. 상속을 통해 행동을 물려 받는 것이 목적이 아님
 - 데코레이터 객체와 자신이 감싸고 있는 객체랑 같은 `인터페이스`를 가져야 원래 있던 구성요소가 들어갈 자리에 데코레이터 자신이 들어갈 수 있다.
@@ -643,7 +645,7 @@ public class StarbuzzCoffee {
 	- 데코레이터를 쓰면 구성요소 인스턴스만 생성해서 끝나지 않고, 꽤 많은 데코레이터로 감싸야 하는 경우가 있다.
 	- 이를 해결하기 위해 팩토리 패턴과 빌더 패턴을 사용할 수 있다.
 - 데코레이터 패턴의 예시 java.io의 inputStream
-{% plantuml %}
+```plantuml!
 +abstract class InputStream { 
 }
 
@@ -665,7 +667,7 @@ public class StarbuzzCoffee {
 +class LinueNumberInputStream extends FilterInputStream { 
 }
 
-{% endplantuml %}
+```
 
 - 상속을 통해 확장할 수도 있지만, 디자인의 유연성 면에서 보면 별로 좋지 않다.
 - 기존 코드를 수정하지 않고도 행동을 확장하는 방법이 필요

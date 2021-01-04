@@ -3,13 +3,15 @@ layout    : wiki
 title     : DNS
 summary   : DNS 서버 접속 과정
 date      : 2019-02-10 15:26:38 +0900
-updated   : 2020-04-14 21:53:04 +0900
+updated   : 2021-01-04 09:52:14 +0900
 tag       :
 public    : true
 parent    : [[network]]
 published : true
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 0. 개요
 

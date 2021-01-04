@@ -3,13 +3,15 @@ layout    : wiki
 title     : REST
 summary   : 
 date      : 2020-04-01 14:37:38 +0900
-updated   : 2020-08-17 17:15:34 +0900
+updated   : 2021-01-04 09:57:02 +0900
 tag       : REST, REST-API
 public    : true
 published : true
 parent    : [[network]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 개요
 REST는 **Re**presentational **S**tate **T**ransfer의 약자로, Roy Fielding의 2000년 논문에서 처음 소개된 분산 하이퍼 미디어[^2] 시스템의 아키텍처 스타일[^1]  

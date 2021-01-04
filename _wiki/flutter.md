@@ -3,13 +3,15 @@ layout    : wiki
 title     : 
 summary   : 
 date      : 2020-09-03 03:06:28 +0900
-updated   : 2020-10-10 18:18:41 +0900
+updated   : 2021-01-04 10:10:52 +0900
 tag       : 
 public    : true
 published : true
 parent    : 
 latex     : false
 ---
+* TOC
+{:toc}
 
 - Barcode_scan을 쓰려면 최소 18 버전 이상이어야 했고, android/app/src/build.gradle의 minSdkVersion
 이 16으로 되어 있어서 18로 올렸다.

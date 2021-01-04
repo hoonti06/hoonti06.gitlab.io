@@ -3,13 +3,15 @@ layout    : wiki
 title     : TCP/IP
 summary   : 
 date      : 2019-09-29 19:22:36 +0900
-updated   : 2020-04-14 23:33:32 +0900
+updated   : 2021-01-04 09:52:06 +0900
 tag       : 
 public    : true
 published : true
 parent    : [[network]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 1. 정의
 인터넷에 연결된 디바이스간의 데이터 통신 표준 프로토콜

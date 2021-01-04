@@ -1,15 +1,17 @@
 ---
 layout    : wiki
-title     : 정렬
+title     : sort(정렬)
 summary   : 
 date      : 2019-09-14 10:17:04 +0900
-updated   : 2020-09-22 18:55:17 +0900
+updated   : 2021-01-04 10:04:53 +0900
 tag       : 
 public    : true
 published : true
 parent    : [[algorithm-concept]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 0. 개요
 

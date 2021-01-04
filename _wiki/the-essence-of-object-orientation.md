@@ -3,13 +3,15 @@ layout    : wiki
 title     : (도서 내용 정리) 객체지향의 사실과 오해
 summary   : 
 date      : 2020-01-06 14:23:37 +0900
-updated   : 2020-08-11 12:19:16 +0900
+updated   : 2021-01-03 23:07:38 +0900
 tag       : book-contents-summary
 public    : true
 published : true
 parent    : [[book-contents-summary]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 0.개요
 

@@ -1,14 +1,17 @@
 ---
-layout  : wiki
-title   : IP
-summary : 
-date    : 2019-02-11 01:15:54 +0900
-updated : 2020-03-09 00:29:01 +0900
-tag     : 
-public  : true
-parent  : [[network]]
-latex   : false
+layout    : wiki
+title     : IP
+summary   : 
+date      : 2019-02-11 01:15:54 +0900
+updated   : 2021-01-04 09:54:23 +0900
+tag       : 
+public    : true
+published : true
+parent    : [[network]]
+latex     : false
 ---
+* TOC
+{:toc}
 
 ## 0. 개요
 

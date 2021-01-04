@@ -3,13 +3,15 @@ layout    : wiki
 title     : 트랜잭션(Transaction)
 summary   : 
 date      : 2020-04-09 21:32:14 +0900
-updated   : 2020-07-19 23:45:05 +0900
+updated   : 2021-01-04 00:47:21 +0900
 tag       : db database
 public    : true
 published : true
 parent    : [[database]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 1. 정의
 여러 개의 작업을 하나의 논리적인 작업 단위로 묶어주는 것

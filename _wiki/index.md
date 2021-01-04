@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2020-11-29 23:54:38 +0900
+updated : 2021-01-04 09:44:54 +0900
 public  : true
 comment : false
 ---
@@ -121,5 +121,6 @@ comment : false
 * [[intellij]]
 * [[osx]]
 * [[compile-vs-interpret]]
-* [[codeowl-server]]
 * [[spring]]
+* [[mi-box]]
+* [[how-to-configure-private-server]]{개인 서버 구성 방법}

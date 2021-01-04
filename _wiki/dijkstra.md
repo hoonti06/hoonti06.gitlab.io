@@ -1,15 +1,17 @@
 ---
 layout    : wiki
-title     : 다익스트라
+title     : dijkstra(다익스트라)
 summary   : 
 date      : 2020-03-19 09:45:18 +0900
-updated   : 2020-04-05 17:04:20 +0900
+updated   : 2021-01-04 10:05:55 +0900
 tag       : dijkstra graph graph-algorithm
 public    : true
 published : true
 parent    : [[graph-algorithm]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 1. 다익스트라
 

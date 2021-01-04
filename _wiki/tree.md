@@ -3,13 +3,15 @@ layout    : wiki
 title     : Tree(트리)
 summary   : 
 date      : 2020-03-23 14:24:20 +0900
-updated   : 2020-04-28 22:47:29 +0900
+updated   : 2021-01-04 10:03:56 +0900
 tag       : 
 public    : true
 published : true
-parent    : [[]]
+parent    : [[data-structure]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 1. 트리
 - 부모와 자식의 관계로 이루어진 계층 구조

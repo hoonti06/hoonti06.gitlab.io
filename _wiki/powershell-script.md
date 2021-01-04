@@ -3,13 +3,15 @@ layout    : wiki
 title     : powershell script 
 summary   : 
 date      : 2020-08-05 12:57:57 +0900
-updated   : 2020-08-07 23:13:59 +0900
+updated   : 2021-01-04 10:10:01 +0900
 tag       : 
 public    : true
 published : true
 parent    : 
 latex     : false
 ---
+* TOC
+{:toc}
 
 - exception 이름 알아내기 
   ```powershell

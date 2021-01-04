@@ -3,13 +3,16 @@ layout    : wiki
 title     : 면접 질문
 summary   : 
 date      : 2020-03-26 09:25:56 +0900
-updated   : 2020-04-28 22:42:18 +0900
+updated   : 2021-01-04 10:07:08 +0900
 tag       : 
 public    : true
 published : true
 parent    : [[]]
 latex     : false
 ---
+* TOC
+{:toc}
+
 ## 1. 프로그래밍 언어
 
 - [[OOP]]{객체 지향 프로그래밍(Object Oriented Programming, OOP, 객체 '위주')}

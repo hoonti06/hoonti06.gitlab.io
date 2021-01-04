@@ -3,13 +3,15 @@ layout    : wiki
 title     : HTML
 summary   : 
 date      : 2020-04-07 20:31:27 +0900
-updated   : 2020-04-07 20:33:54 +0900
+updated   : 2021-01-04 09:55:05 +0900
 tag       : 
 public    : true
 published : true
-parent    : [[]]
+parent    : [[network]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 Hyper Text Markup Language
 

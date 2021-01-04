@@ -3,14 +3,15 @@ layout    : wiki
 title     : (강의 내용 정리) 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술
 summary   : 
 date      : 2020-09-19 21:07:04 +0900
-updated   : 2020-09-20 19:48:09 +0900
+updated   : 2021-01-04 00:47:00 +0900
 tag       : 
 public    : true
 published : true
 parent    : [[online-lecture]]
 latex     : false
 ---
-
+* TOC
+{:toc}
 
 
 
@@ -98,15 +99,15 @@ public class MemberService {
 		// 같은 이름이 있는 중복 회원 X
 		Optional<Member> result = memberRepository.findByName(member.getName());
 		result.ifPresent(m -> {
-				throw new IllegalStateException("이미 존재하는 회원입니다.");
-				});
+			throw new IllegalStateException("이미 존재하는 회원입니다.");
+		});
 
 		// after1
 		// 같은 이름이 있는 중복 회원 X
 		memberRepository.findByName(member.getName())
 			.ifPresent(m -> {
-					throw new IllegalStateException("이미 존재하는 회원입니다.");
-					});
+				throw new IllegalStateException("이미 존재하는 회원입니다.");
+			});
 
 		// after2 (intellij에서 <alt> + <command> + M을 통해 method로 빼낼 수 있다)
 		validateDumplcateMember(member); // 중복 회원 검증
@@ -118,8 +119,8 @@ public class MemberService {
 	private void validateDumplcateMember(Member member) {
 		memberRepository.findByName(member.getName())
 			.ifPresent(m -> {
-					throw new IllegalStateException("이미 존재하는 회원입니다.");
-					});
+				throw new IllegalStateException("이미 존재하는 회원입니다.");
+			});
 	}
 	
 	/**
@@ -163,65 +164,63 @@ public class MemberService {
 	  MemoryMemberRepository memberRepository;
 
 	  @BeforeEach
-		  void beforeEach() {
-			  memberRepository = new MemoryMemberRepository();
-			  memberService = new MemberService(memberRepository);
-		  }
+	  void beforeEach() {
+		  memberRepository = new MemoryMemberRepository();
+		  memberService = new MemberService(memberRepository);
+	  }
 
 	  @AfterEach
-		  void afterEach() {
-			  memberRepository.clearStore();
-		  }
+	  void afterEach() {
+		  memberRepository.clearStore();
+	  }
 
 	  @Test
-		  void 회원가입() {
-			  // given
-			  Member member = new Member();
-			  member.setName("hello");
+	  void 회원가입() {
+		  // given
+		  Member member = new Member();
+		  member.setName("hello");
 
-			  // when
-			  Long saveId = memberService.join(member);
+		  // when
+		  Long saveId = memberService.join(member);
 
-			  // then
-			  Member findMember = memberService.findOne(saveId).get();
-			  assertThat(member.getName()).isEqualTo(findMember.getName());
-		  }
-
-	  @Test
-		  void 중복_회원_예외() {
-			  // given
-			  Member member1 = new Member();
-			  member1.setName("spring");
-
-			  Member member2 = new Member();
-			  member2.setName("spring");
-
-			  // when
-			  memberService.join(member1);
-			  assertThrows(IllegalStateException.class, () -> memberService.join(member2));
-
-			  IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
-			  assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
-
-			  /*
-				 try {
-				 memberService.join(member2);
-				 fail(); // 여기에 들어오면 실패
-				 } catch (IllegalStateException e) {
-				 assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
-				 }
-			   */
-
-			  // then
-		  }
+		  // then
+		  Member findMember = memberService.findOne(saveId).get();
+		  assertThat(member.getName()).isEqualTo(findMember.getName());
+	  }
 
 	  @Test
-		  void findMembers() {
-		  }
+	  void 중복_회원_예외() {
+		  // given
+		  Member member1 = new Member();
+		  member1.setName("spring");
+
+		  Member member2 = new Member();
+		  member2.setName("spring");
+
+		  // when
+		  memberService.join(member1);
+		  assertThrows(IllegalStateException.class, () -> memberService.join(member2));
+
+		  IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
+		  assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
+
+		  /*
+			 try {
+			 memberService.join(member2);
+			 fail(); // 여기에 들어오면 실패
+			 } catch (IllegalStateException e) {
+			 assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
+			 }
+		   */
+
+		  // then
+	  }
 
 	  @Test
-		  void findOne() {
-		  }
+	  void findMembers() {}
+
+	  @Test
+	  void findOne() {}
   }
 ```
 

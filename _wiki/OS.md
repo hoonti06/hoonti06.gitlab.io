@@ -3,13 +3,15 @@ layout    : wiki
 title     : OS
 summary   : 
 date      : 2019-09-29 16:55:46 +0900
-updated   : 2020-04-27 09:10:21 +0900
+updated   : 2021-01-04 09:55:40 +0900
 tag       : os
 public    : true
 published : true
-parent    : [[]]
+parent    : [[index]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 1. OS
 - OS는 하드웨어 바로 위에 설치되어 하드웨어와 소프트웨어 및 사용자를 연결하는 소프트웨어 

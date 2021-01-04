@@ -3,13 +3,15 @@ layout    : wiki
 title     : OSI 7계층
 summary   : 
 date      : 2019-09-29 17:32:09 +0900
-updated   : 2020-04-09 07:43:09 +0900
+updated   : 2021-01-04 09:52:02 +0900
 tag       : network
 public    : true
 published : true
 parent    : [[network]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 1. 정의
 네트워크 통신 과정을 7계층으로 구분한 표준 모델

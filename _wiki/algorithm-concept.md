@@ -3,9 +3,10 @@ layout  : category
 title   : 알고리즘 개념
 summary : 
 date    : 2019-07-23 23:19:27 +0900
-updated : 2020-03-24 10:05:53 +0900
+updated : 2021-01-04 10:02:53 +0900
 tag     : algorithm
 public  : true
+published : true
 parent  : [[algorithm]]
 latex   : false
 ---

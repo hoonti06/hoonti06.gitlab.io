@@ -3,13 +3,15 @@ layout    : wiki
 title     : 
 summary   : 
 date      : 2020-09-21 21:28:33 +0900
-updated   : 2020-09-22 17:52:03 +0900
+updated   : 2021-01-04 10:11:09 +0900
 tag       : 
 public    : true
 published : true
 parent    : 
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 인터프리트(Interpret)
 - 고급 언어(high-level programiing language)로 작성된 소스코드(원시코드, 사람이 읽을 수 있는 언어로 작성된 코드) 명령어들을 한 번에 한 줄씩 읽어들여 중간 코드로 변환한 다음, 변환한 것을 바로 실행하는 것

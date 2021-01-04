@@ -3,13 +3,15 @@ layout    : wiki
 title     : 
 summary   : 
 date      : 2020-02-03 19:50:36 +0900
-updated   : 2020-02-03 19:56:33 +0900
+updated   : 2021-01-04 09:59:44 +0900
 tag       : 
 public    : true
 published : false
-parent    : [[]]
+parent    : [[algorithm-problem]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 1.
 

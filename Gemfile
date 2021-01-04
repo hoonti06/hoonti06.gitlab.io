@@ -20,13 +20,8 @@ gem "minima", "~> 2.5.0"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
-  gem 'jekyll-pandoc'
-  gem 'jekyll-mermaid'
-  gem 'jekyll-pandoc-mermaid', ">= 1.0.2"
+  gem 'jekyll-spaceship'
   gem 'faraday', '~> 0.15.4' 
-  gem 'jekyll-plantuml'
-#  gem 'jekyll-youtube'
-#  gem 'jekyll-pandoc-multiple-formats'
 
   # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
   gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -3,13 +3,15 @@ layout    : wiki
 title     : (강의 내용 정리) Spring boot
 summary   : 
 date      : 2020-01-27 12:31:49 +0900
-updated   : 2020-08-11 12:21:18 +0900
+updated   : 2021-01-04 00:45:54 +0900
 tag       : spring spring-boot web inflearn online-lecture
 public    : true
 published : true
 parent    : [[online-lecture]]
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## 1. 시작하기
 
@@ -45,11 +47,11 @@ latex     : false
 
 #### 2.1.1. 이해
 
-{% mermaid %}
+```mermaid!
 graph BT
 	A[current project] -- parent --> B[spring-boot-starter-parent]
 	B -- parent --> C["spring-boot-dependencies(최상위)"]
-{% endmermaid %}
+```
 
 spring-boot-dependencies의 pom.xml 내부 \<dependency management\> 항목에 버전들이 정의되어 있다. 이 버전들을 current project의 pom.xml에 명시하면 해당 버전에 따른 dependency를 사용할 수 있다.
 

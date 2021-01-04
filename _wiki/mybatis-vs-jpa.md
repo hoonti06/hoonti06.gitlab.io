@@ -3,13 +3,15 @@ layout    : wiki
 title     : Mybatis vs JPA
 summary   : 
 date      : 2020-08-17 17:15:45 +0900
-updated   : 2020-08-17 20:52:48 +0900
+updated   : 2021-01-04 10:10:07 +0900
 tag       : 
 public    : true
 published : true
 parent    : 
 latex     : false
 ---
+* TOC
+{:toc}
 
 ## Mybatis
 - SQL을 별도의 파일로 분리해서 관리하게 해주며, 객체-SQL 사이의 파라미터 Mapping 작업을 자동으로 해주는 프레임워크
