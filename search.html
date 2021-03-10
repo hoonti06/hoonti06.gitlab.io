@@ -26,28 +26,43 @@ public: true
   <gcse:search linkTarget="_parent" queryParameterName="searchString"></gcse:search>
   */
 
-  // 'lunr.js' 사용
-  window.store = {
-	// 'site'는 jekyll의 변수 (참고 : https://jekyllrb-ko.github.io/docs/variables/)
-	// 'site.wiki'는 '_wiki' directory 인듯 하다.
-    {% for post in site.wiki %} 
-      "{{ post.url | slugify }}": {
-        "title": "{{ post.title | xml_escape }}",
-        "content": {{ post.content | strip_html | strip_newlines | jsonify }},
-        "url": "{{ post.url | xml_escape }}"
+</script>
+
+<!--script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script-->
+<script src="{{ site.baseurl }}/js/simple-jekyll-search.min.js"></script>
+<script type="text/javascript">
+  var sjs = SimpleJekyllSearch({
+    searchInput: document.getElementById('search-box'),
+    resultsContainer: document.getElementById('search-results'),
+    json: '{{ site.baseurl }}/search.json',
+    searchResultTemplate: '<li><a href="{url}">{title} ({date})</a></li>',
+    noResultsText: 'No results found',
+    limit: 20,
+    fuzzy: false,
+    exclude: ['Welcome']
+  });
+
+  function getQueryVariable(variable) {
+    let query = window.location.search.substring(1);
+    let vars = query.split('&');
+
+    for (let i = 0; i < vars.length; i++) {
+      let pair = vars[i].split('=');
+
+      if (pair[0] === variable) {
+        return decodeURIComponent(pair[1].replace(/\+/g, '%20'));
       }
-      {% unless forloop.last %},{% endunless %}
-    {% endfor %}
+    }
+  }
+
+  window.onload = function() {
+    let searchTerm = getQueryVariable('query');
+    if (searchTerm) {
+      let searchBox = document.getElementById('search-box');
+      searchBox.focus();
+      searchBox.value = searchTerm;
+
+      setTimeout(() => sjs.search(searchTerm), 100);
+    }
   };
 </script>
-<!--script src="/js/lunr_chinese_0.7.2.js" charset="utf-8"></script-->
-<!--script src="/js/search_chinese_0.7.2.js" charset="utf-8"></script-->
-
-<!--script src="/js/lunr_chinese_0.7.2.js"></script-->
-<!--script src="/js/search_chinese_0.7.2.js"></script-->
-
-<script src="/js/lunr_0.7.1.js" charset="utf-8"></script>
-<script src="/js/search_0.7.1.js" charset="utf-8"></script>
-
-<!--script src="/js/lunr_2.6.3.js"></script-->
-<!--script src="/js/search_2.6.3.js"></script-->
