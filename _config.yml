@@ -127,20 +127,16 @@ paginate_path: "/blog/page:num/"
 
 # Collections
 collections:
-    wiki:
-        output: true
-        permalink: /:collection/:path/
+  wiki:
+    output: true
+    permalink: /:collection/:path/
 
 # Comment Service
-disqus:
-  id: hoonti06
-  shortname: hoonti06
-
-google_analytics:
-  ua: UA-110224147-1
-
-google_adsense:
-  client: ca-pub-3675948545737694
+utterances:
+  repo: hoonti06/blog-comment
+  issue-term: pathname
+  label: Comment
+  branch: master
 
 original: "https://gitlab.com/hoonti06/hoonti06.gitlab.io/blob/master/_wiki"
 blame: "https://gitlab.com/hoonti06/hoonti06.gitlab.io/blame/master/_wiki"
