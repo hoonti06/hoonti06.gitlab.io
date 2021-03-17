@@ -3,11 +3,11 @@ layout    : wiki
 title     : binary search(이진 탐색)
 summary   : 
 date      : 2020-04-03 17:32:17 +0900
-updated   : 2021-01-04 10:04:41 +0900
+updated   : 2021-02-18 15:17:46 +0900
 tag       : 
 public    : true
 published : true
-parent    : [[data-structure]]
+parent    : [[divide-and-conquer]]
 latex     : false
 ---
 * TOC
