@@ -3,7 +3,7 @@ layout    : wiki
 title     : HTTP
 summary   : 
 date      : 2019-02-16 12:55:24 +0900
-updated   : 2021-01-04 09:53:35 +0900
+updated   : 2021-03-10 13:14:43 +0900
 tag       : 
 public    : true
 published : true
@@ -16,7 +16,7 @@ latex     : false
 ## 0. 개요
 
 HTTP(HyperText Transfer Protocol) : 클라이언트와 서버 사이에 이루어지는 `요청(Request) / 응답(Response)` 프로토콜.  
-TCP/IP 위에서 동작한다. HTML뿐만 아니라 이미지, 동영상 등 어느 종류의 데이터든지 전송 가능하다. 
+**TCP/IP 위에서 동작**한다. HTML뿐만 아니라 이미지, 동영상 등 어느 종류의 데이터든지 전송 가능하다. 
 클라이언트인 웹 브라우저가 HTTP를 통해 서버에게 웹 페이지나 그림 정보 등을 요청하면 서버는 이에 응답하여 필요한 정보를 전달하게 된다. 전달되는 자료는 http:로 시작하는 URL로 조회할 수 있다.  
 HTTP는 연결이 필수가 아님
 
@@ -391,6 +391,9 @@ https://developer.mozilla.org/ko/docs/Web/HTTP/Status
 - 511 Network Authentication Required
 	- 사용자가 네트워크 엑세스 권한이 필요한 경우에 사용(보통 로그인)
 
+
+## HTTP/3
+- HTTP/3는 TCP가 아닌 UDP에서 사용한다.
 
 - References
 	- https://sanghaklee.tistory.com/61
