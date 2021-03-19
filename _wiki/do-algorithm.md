@@ -3,7 +3,7 @@ layout    : wiki
 title     : 알고리즘 하자
 summary   : 
 date      : 2021-01-19 16:02:38 +0900
-updated   : 2021-03-18 00:23:19 +0900
+updated   : 2021-03-19 10:05:37 +0900
 tag       : 
 public    : true
 published : true
@@ -12,20 +12,25 @@ latex     : false
 ---
 * TOC
 {:toc}
+## 2021-03-18
+- [[boj-1197]]{BOJ 1197. 최소 스패닝 트리(골드4)}
+	- <https://www.acmicpc.net/problem/1197>
+ 
+- [[jungol-1863]]{JUNGOL 1863. 종교}
+
+- [[boj-2606]]{BOJ 2606. 바이러스(실버3)}
+	- https://www.acmicpc.net/problem/2606
+
 
 ## 2021-03-17
 - [[boj-1449]]{BOJ 1449. 수리공 항승(실버3)}
 	- <https://www.acmicpc.net/problem/1449>
  
-## 2021-03-17
-- [[boj-1449]]{BOJ 1449. 수리공 항승(실버3)}
-	- <https://www.acmicpc.net/problem/1449>
 
 ## 2021-03-16
 - [[boj-1168]]{BOJ 1168. 요세푸스 문제2(플레티넘2)}
 	- <https://www.acmicpc.net/problem/1168>
 	- Segment Tree
-
 
 - [[boj-1260]]{BOJ 1260. DFS와 BFS(실버2)}
 	- <https://www.acmicpc.net/problem/1260>
@@ -233,6 +238,41 @@ latex     : false
 		...
 	} while (next_permutation(vec.begin(), vec.end()));
 	```
+	
+	```java
+	boolean nextPermutation(int[] arr) {
+		int i = N-1;
+		while (i > 0 && arr[i-1] >= arr[i]) i--;
+		
+		if (i <= 0) return false;
+		
+		int j = N-1;
+		while (arr[i-1] >= arr[j]) j--;
+		
+		swap(arr, i-1, j);
+		
+		int k = N-1;
+		while (i < k)
+			swap(arr, i++, k--);
+			
+		return true;
+	}
+	
+	
+	```
+- prev permutation
+	```cpp
+	#include <algorithm>
+	sort(arr, arr + N);
+	do {
+		...
+	} while (prev_permutation(arr, arr + N));
+	// OR 
+	sort(vec.begin(), vec.end());
+	do {
+		...
+	} while (prev_permutation(vec.begin(), vec.end()));
+	```
 
 - [[boj-1744]]{BOJ 1744. 수 묶기(골드4)}
 	- <https://www.acmicpc.net/problem/1744>
@@ -298,6 +338,9 @@ latex     : false
 		return remain == 0? b : gcd(b, remain);
 	}
 	```
+## 2021-02-08
+- [[boj-6549]]{BOJ 6549. 히스토그램에서 가장 큰 직사각형(플레티넘5)}
+	- <https://www.acmicpc.net/problem/6549>
 
 ## 2021-02-05
 - [[boj-1167]]{BOJ 1176. 트리의 지름(골드3)}
@@ -408,9 +451,21 @@ latex     : false
 	#include <functional> // functional lib에 포함되어 있다.
 	sort(input.begin(), input.begin() + N, greater<long long>());
 	```
-- lower_bound, upper_bound
-
-- next_permutation, prev_permutation
+- lower_bound and upper_bound
+	- lower_bound
+		- key 값보다 크거나 같은 수가 처음 등장하는 위치
+		- e.g.
+		```cpp
+		int index = lower_bound(arr, arr + N, key) - arr;
+		int index = lower_bound(vec.begin(), vec.end(), key) - vec.begin();
+		```
+	- upper_bound
+		- key 값을 초과하는 수가 처음 등장하는 위치(key값보다 작거나 같은 수가 마지막으로 등장하는 위치의 다음 위치)
+		- e.g.
+		```cpp
+		int index = upper_bound(arr, arr + N, key) - arr;
+		int index = upper_bound(vec.begin(), vec.end(), key) - vec.begin();
+		```
 
 - 배열 초기화
 	- memset(arr, 0, sizeof(arr)); // 0으로 초기화 (#include <cstring>)
