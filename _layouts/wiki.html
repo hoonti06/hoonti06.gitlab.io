@@ -44,3 +44,34 @@ layout: document
 <script src="/js/axios.min.js"></script>
 <script async src="/js/parent.js"></script>
 <script async src="/js/toc-highlight.js"></script>
+<script>
+window.onload = function() {
+  let ulListInTd = document.querySelectorAll('td ul li');
+  for (let i = 0; i < ulListInTd.length; i++) {
+    let firstChild = ulListInTd[i].firstElementChild;
+    if (!firstChild) continue;
+
+    if (firstChild.tagName == 'UL' || firstChild.tagName == 'OL')
+      ulListInTd[i].style.listStyle = 'none';
+  }
+
+  let olListInTd = document.querySelectorAll('td ol li');
+  for (let i = 0; i < olListInTd.length; i++) {
+    let firstChild = olListInTd[i].firstElementChild;
+    if (!firstChild) continue;
+
+    if (firstChild.tagName == 'OL')
+      olListInTd[i].style.listStyle = 'none';
+
+  }
+
+  let listInTd = document.querySelectorAll('td ul');
+  for (let i = 0; i < listInTd.length; i++)
+    listInTd[i].style.paddingLeft = '20px';
+
+  listInTd = document.querySelectorAll('td ol');
+  for (let i = 0; i < listInTd.length; i++)
+    listInTd[i].style.paddingLeft = '20px';
+}
+</script>
+
