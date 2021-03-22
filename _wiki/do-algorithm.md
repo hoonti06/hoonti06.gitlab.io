@@ -3,7 +3,7 @@ layout    : wiki
 title     : 알고리즘 하자
 summary   : 
 date      : 2021-01-19 16:02:38 +0900
-updated   : 2021-03-19 10:05:37 +0900
+updated   : 2021-03-23 08:46:17 +0900
 tag       : 
 public    : true
 published : true
@@ -12,6 +12,10 @@ latex     : false
 ---
 * TOC
 {:toc}
+## 2021-03-21
+- [[boj-1477]]{BOJ 1477. 휴게소 세우기(골드5)}
+	- <https://www.acmicpc.net/problem/1477>
+
 ## 2021-03-18
 - [[boj-1197]]{BOJ 1197. 최소 스패닝 트리(골드4)}
 	- <https://www.acmicpc.net/problem/1197>
