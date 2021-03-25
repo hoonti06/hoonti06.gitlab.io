@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2021-03-18 21:19:32 +0900
+updated : 2021-03-24 19:16:38 +0900
 public  : true
 comment : false
 ---
@@ -69,6 +69,7 @@ comment : false
 		- [[tree]]
 		- [[heap]]
 		- [[graph]]
+		- [[trie]]
 	- [[divide-and-conquer]]
 		- [[binary-search]]
 	- [[sort]]
@@ -84,7 +85,13 @@ comment : false
 		- [[floyd-warshall]]{플로이드-워셜}
 		- [[dijkstra-vs-bellman-ford-vs-floyd-warshall]]{다익스트라 vs 벨만-포드 vs 플로이드-워셜}
 		- [[bipartite-graph]]{이분 그래프}
+	- [[string-algorithm]]{문자열 알고리즘}
+		- [[kmp-algorithm]]{KMP 알고리즘}
+		- [[rabin-karp-algorithm]]{라빈-카프 알고리즘}
+		- [[boier-algorithm]]{라빈-카프 알고리즘}
 	- [[dynamic-programming]]{DP}
+	- [[lower-bound-and-upper-bound]]{lower bound와 upper bound}
+	- [[permutation-and-combination]]{순열(Permutation)과 조합(Combination)}
  
 ## [[programming-language]]{프로그래밍 언어}
 - [[groovy]]
@@ -99,8 +106,8 @@ comment : false
 ## [[etc]]{기타}
 - [[interview-questions]]{면접 질문}
 - [[tools]]
-    - [[useful-site]]
-        - [[google-search-console-remove-outdated-content]]{구글 웹 도구 - 오래된 콘텐츠 삭제}
+	- [[useful-site]]
+		- [[google-search-console-remove-outdated-content]]{구글 웹 도구 - 오래된 콘텐츠 삭제}
 	- [[vim]]
 		- [[vim-conceallevel]]{conceallevel (Vim)}
 		- [[vimwiki]]
@@ -109,7 +116,7 @@ comment : false
 	- [[crash-dump]]{Crash Dump}
 	- [[memory-leak]]{Memory leak(Glfags 사용법)}
 - [[how-to]]
-    - [[mathjax-latex]]
+	- [[mathjax-latex]]
 - [[YAML]]
 - [[version-naming]]{버전 표기법(SemVer)}
 - [[TBB]]
@@ -140,3 +147,5 @@ comment : false
 - [[git-diff-smart]]
 - [[spring-rest-docs]]
 - [[spring-boot-jpa-mysql]]
+- [[front-end-summary]]
+- [[remind-web]]
