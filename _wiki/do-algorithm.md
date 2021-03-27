@@ -3,7 +3,7 @@ layout    : wiki
 title     : 알고리즘 하자
 summary   : 
 date      : 2021-01-19 16:02:38 +0900
-updated   : 2021-03-23 08:46:17 +0900
+updated   : 2021-03-27 09:13:40 +0900
 tag       : 
 public    : true
 published : true
@@ -12,6 +12,25 @@ latex     : false
 ---
 * TOC
 {:toc}
+## 2021-03-26
+- [[boj-17472]]{BOJ 17472. 다리 만들기(골드2)}
+	- <https://www.acmicpc.net/problem/17472>
+- [[boj-14502]]{BOJ 14502. 연구소(골드5)}
+	- <https://www.acmicpc.net/problem/14502>
+ 
+## 2021-03-25
+- Integer.toBinaryString(num)
+
+## 2021-03-23
+- string 찾기 함수
+	- java : indexof()
+	- C++ : string::find()
+	- 내부적으로는 완탐으로 구현되어 있다.
+
+## 2021-03-21
+- [[boj-1786]]{BOJ 1786. 찾기(골드1)}
+	- <https://www.acmicpc.net/problem/1786>
+ 
 ## 2021-03-21
 - [[boj-1477]]{BOJ 1477. 휴게소 세우기(골드5)}
 	- <https://www.acmicpc.net/problem/1477>
@@ -23,7 +42,7 @@ latex     : false
 - [[jungol-1863]]{JUNGOL 1863. 종교}
 
 - [[boj-2606]]{BOJ 2606. 바이러스(실버3)}
-	- https://www.acmicpc.net/problem/2606
+	- <https://www.acmicpc.net/problem/2606>
 
 
 ## 2021-03-17
@@ -229,61 +248,14 @@ latex     : false
 	- <https://www.acmicpc.net/problem/1182>
  
 ## 2021-02-17
-- next permutation
-	```cpp
-	#include <algorithm>
-	sort(arr, arr + N);
-	do {
-		...
-	} while (next_permutation(arr, arr + N));
-	// OR 
-	sort(vec.begin(), vec.end());
-	do {
-		...
-	} while (next_permutation(vec.begin(), vec.end()));
-	```
-	
-	```java
-	boolean nextPermutation(int[] arr) {
-		int i = N-1;
-		while (i > 0 && arr[i-1] >= arr[i]) i--;
-		
-		if (i <= 0) return false;
-		
-		int j = N-1;
-		while (arr[i-1] >= arr[j]) j--;
-		
-		swap(arr, i-1, j);
-		
-		int k = N-1;
-		while (i < k)
-			swap(arr, i++, k--);
-			
-		return true;
-	}
-	
-	
-	```
-- prev permutation
-	```cpp
-	#include <algorithm>
-	sort(arr, arr + N);
-	do {
-		...
-	} while (prev_permutation(arr, arr + N));
-	// OR 
-	sort(vec.begin(), vec.end());
-	do {
-		...
-	} while (prev_permutation(vec.begin(), vec.end()));
-	```
+- [[permutation-and-combination]]{순열과 조합}
 
 - [[boj-1744]]{BOJ 1744. 수 묶기(골드4)}
 	- <https://www.acmicpc.net/problem/1744>
 
 
 ## 2021-02-14
-- 중복 허용 binary search에서 같은 값의 제일 낮은 인덱스 리턴
+- 중복 허용 binary search에서 같은 값의 제일 낮은 인덱스 리턴?
 	```cpp
 	int bsearch(int input) {
 		int left = 0;
