@@ -3,7 +3,7 @@ layout    : wiki
 title     : 알고리즘 하자
 summary   : 
 date      : 2021-01-19 16:02:38 +0900
-updated   : 2021-03-27 09:13:40 +0900
+updated   : 2021-03-28 01:29:09 +0900
 tag       : 
 public    : true
 published : true
@@ -12,6 +12,15 @@ latex     : false
 ---
 * TOC
 {:toc}
+
+## 2021-03-27
+- [[boj-13706]]{BOJ 13706. 제곱근(브론즈1)}
+	- <https://www.acmicpc.net/problem/13706>
+- [[boj-16922]]{BOJ 16922. 로마 숫자 만들기(실버3)}
+	- <https://www.acmicpc.net/problem/16922>
+- [[boj-12904]]{BOJ 14502. A와 B(골드5)}
+	- <https://www.acmicpc.net/problem/12904>
+ 
 ## 2021-03-26
 - [[boj-17472]]{BOJ 17472. 다리 만들기(골드2)}
 	- <https://www.acmicpc.net/problem/17472>
