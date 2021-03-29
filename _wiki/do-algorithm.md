@@ -3,7 +3,7 @@ layout    : wiki
 title     : 알고리즘 하자
 summary   : 
 date      : 2021-01-19 16:02:38 +0900
-updated   : 2021-03-28 01:29:09 +0900
+updated   : 2021-03-29 20:39:54 +0900
 tag       : 
 public    : true
 published : true
@@ -12,6 +12,12 @@ latex     : false
 ---
 * TOC
 {:toc}
+## 2021-03-29
+- 알고리즘 테스트
+	- [[boj-2629]]{BOJ 2629. 양팔저울(골드2)}
+		- <https://www.acmicpc.net/problem/2629>
+	- [[boj-1755]]{BOJ 1755. 숫자놀이(싧버5)}
+		- <https://www.acmicpc.net/problem/1755>
 
 ## 2021-03-27
 - [[boj-13706]]{BOJ 13706. 제곱근(브론즈1)}
