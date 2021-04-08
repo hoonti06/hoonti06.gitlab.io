@@ -3,7 +3,7 @@ layout    : wiki
 title     : (강의 내용 정리) 스프링 프레임워크 핵심 기술
 summary   : 
 date      : 2020-01-29 09:42:19 +0900
-updated   : 2021-01-04 00:45:48 +0900
+updated   : 2021-04-08 09:07:39 +0900
 tag       : spring web inflearn online-lecture
 public    : true
 published : true
@@ -18,7 +18,7 @@ Spring framework는 소규모 애플리케이션 또는 기업용 애플리케�
 
 ## 1.1. 역사
 - 2003년 등장 (개발은 그 이전부터 이미 진행됐지만)
-	- 등장시 Java EE[^5] 표준과 싸우는 것처럼 보였지만 실제로는 Java EE 스팩 구현 모음체(+alpha).
+	- 등장시 Java EE[^javaee-1] 표준과 싸우는 것처럼 보였지만 실제로는 Java EE 스팩 구현 모음체(+alpha).
 	- Servlet, WebSocket, Bean Validation, JPA, Dependency Injection(DI), ...
 - 최근까지 주로 서블릿 기반 애플리케이션을 만들 때 사용해 옴.
 - 스프링 5부터는 WebFlux 지원으로 서블릿 기반이 아닌 서버 애플리케이션도 개발할 수 있게 지원
@@ -77,19 +77,17 @@ skinparam node {
 	- 이벤트 발행 기능
 	- 리소스[^3] 로딩 기능  
   
-+---------------------------------------------------+-------------+--------------------+
-| Feature                                           | BeanFactory | ApplicationContext |
-+===================================================+:===========:+:==================:+
-| Bean instantiation/wiring                         |     Yes     |         Yes        |
-+---------------------------------------------------+-------------+--------------------+
-| Automatic `BeanPostProcessor` registration        |      No     |         Yes        |
-+---------------------------------------------------+-------------+--------------------+
-| Automatic `BeanFactoryPostProcessor` registration |      No     |         Yes        |
-+---------------------------------------------------+-------------+--------------------+
-| Convenient `messageSource` access (for i18n)      |      No     |         Yes        |
-+---------------------------------------------------+-------------+--------------------+
-| `ApplicationEvent` publicaion                     |      No     |         Yes        |
-+---------------------------------------------------+-------------+--------------------+
+	| Feature                                           | BeanFactory | ApplicationContext |
+	|---------------------------------------------------|:-----------:|:------------------:|
+	| Bean instantiation/wiring                         |     Yes     |         Yes        |
+	|---------------------------------------------------|-------------|--------------------|
+	| Automatic `BeanPostProcessor` registration        |      No     |         Yes        |
+	|---------------------------------------------------|-------------|--------------------|
+	| Automatic `BeanFactoryPostProcessor` registration |      No     |         Yes        |
+	|---------------------------------------------------|-------------|--------------------|
+	| Convenient `messageSource` access (for i18n)      |      No     |         Yes        |
+	|---------------------------------------------------|-------------|--------------------|
+	| `ApplicationEvent` publicaion                     |      No     |         Yes        |
 
 	  
 - DI(Dependency Injection, 의존 주입)    
@@ -156,6 +154,7 @@ skinparam node {
 	- 세터(Setter)
 	- 필드  
 	  <br>
+ 
 - 같은 타입의 빈 개수에 따른 경우의 수
 	- 0개
 	- `1개`
@@ -164,12 +163,14 @@ skinparam node {
 			- `같은 이름의 빈을 찾으면 해당 빈을 사용`
 			- 같은 이름의 빈을 못 찾으면 실패  
 			  <br>
+
 - 같은 타입의 빈 개수가 2개 이상일 때 해결하는 방법
 	- `@Primary` : 가장 우선적인 빈을 주입하도록 지정 (추천, type-safe하기 때문)
 	- List<>을 통해 해당 타입의 빈을 모두 주입받을 수 있다.
 	- @Qualifier(value) : 해당 value로 지정해놓은 빈을 주입받는다. (value가 빈 이름이 될 수도 있다.)
 	- 필드(변수)의 이름을 빈 이름과 동일하게 작성(추천하지는 않는 방법)  
 	  <br>
+
 - 동작 원리
 	- BeanPostProcessor
 		- 새로 만든 빈 instance를 수정할 수 있는 라이프 사이클 인터페이스
@@ -268,8 +269,8 @@ skinparam node {
 	- ApplicationContext 초기 구동 시에 인스턴스 생성함 (구동 시에 모든 빈을 생성하느라 느릴 수 있다.)
 
 ## 내용 출처
-[inflearn - '스프링 프레임워크 핵심 기술(백기선)' 강의 및 강의 노트](https://www.inflearn.com/course/spring-framework_core)
-[Java EE - wikipedia](https://ko.wikipedia.org/wiki/자바_플랫폼,_엔터프라이즈_에디션)
+- [inflearn - '스프링 프레임워크 핵심 기술(백기선)' 강의 및 강의 노트](https://www.inflearn.com/course/spring-framework_core)
+- [Java EE - wikipedia](https://ko.wikipedia.org/wiki/자바_플랫폼,_엔터프라이즈_에디션)
 
 
 ## footnote
@@ -277,4 +278,4 @@ skinparam node {
 [^2]: 메시지 다국화
 [^3]: 특정 위치에 있는 파일 등
 [^4]: 단순히 평범한 자바 빈즈 객체
-[^5]: Java Platform Enterprise Edition, 자바를 이용한 서버측 개발을 위한 플랫폼. PC에서 동작하는 표준 플랫폼인 Java SE에 웹 애플리케이션 서버에서 동작하는 장애복구 및 분산 멀티티어(multi-tier)를 제공하는 자바 소프트웨어의 기능을 추가한 서버를 위한 플랫폼으로, 이전에는 J2EE라 불리었다.  Java EE 스펙에 따라 제품으로 구현한 것을 웹 애플리케이션 서버(WAS)라 불린다. (출처 : [위키피디아](https://ko.wikipedia.org/wiki/자바_플랫폼,_엔터프라이즈_에디션))
+[^javaee-1]: Java Platform Enterprise Edition, 자바를 이용한 서버측 개발을 위한 플랫폼. PC에서 동작하는 표준 플랫폼인 Java SE에 웹 애플리케이션 서버에서 동작하는 장애복구 및 분산 멀티티어(multi-tier)를 제공하는 자바 소프트웨어의 기능을 추가한 서버를 위한 플랫폼으로, 이전에는 J2EE라 불리었다.  Java EE 스펙에 따라 제품으로 구현한 것을 웹 애플리케이션 서버(WAS)라 불린다. (출처 : [위키피디아](https://ko.wikipedia.org/wiki/자바_플랫폼,_엔터프라이즈_에디션))
