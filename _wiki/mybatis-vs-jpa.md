@@ -3,7 +3,7 @@ layout    : wiki
 title     : Mybatis vs JPA
 summary   : 
 date      : 2020-08-17 17:15:45 +0900
-updated   : 2021-01-04 10:10:07 +0900
+updated   : 2021-03-18 09:11:22 +0900
 tag       : 
 public    : true
 published : true
@@ -23,7 +23,7 @@ latex     : false
 - JPA는 ORM을 사용하기 위한 인터페이스를 모아둔 것이며, JPA를 사용하기 위해서는 JPA를 구현한 Hibernate, EclipseLink, DataNucleus 같은 ORM 프레임워크를 사용해야 한다.
 
 ## ORM(Object Relational Mapping)
-- ORM은 객체와 DB 테이블이 mapping을 이루는 것  
+- ORM은 객체와 DB 테이블이 mapping을 이루는 것
 - ORM을 이용하면 SQL Query가 아닌 직관적인 코드(메서드)로 데이터 조작이 가능
 - User 테이블의 데이터를 출력하기 위해서 MySQL에서는 'SELECT * FROM user;' 라는 query를 실행해야 하지만, ORM을 사용하면 User 테이블과 매핑된 객체를 user라 할 때, user.findAll() 라는 메서드 호출로 데이터 조회가 가능
 - query가 복잡해지면 ORM으로 표현하는데 한계가 있고, 성능이 raw query에 비해 느리다는 단점이 있다. 이를 보안하기 위해 JPQL, QuertyDSL 등을 사용할 수 있다.
