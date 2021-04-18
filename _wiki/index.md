@@ -2,7 +2,7 @@
 layout  : wikiindex
 title   : wiki
 date    : 2019-02-09 01:38:36 +0900
-updated : 2021-03-24 19:16:38 +0900
+updated : 2021-04-16 08:36:58 +0900
 public  : true
 comment : false
 ---
@@ -27,29 +27,28 @@ comment : false
 - [[the-java-code-manipulation]]{더 자바, 코드를 조작하는 다양한 방법}
 - [[flutter-beginner-level]]{Flutter 입문 - 안드로이드, iOS 개발을 한 번에}
 - [[spring-beginner-level]]{스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술}
- 
 
  
 ## SW
 - [[git]]
-- [[OS]]
-- [[OOP]]{객체 지향 프로그래밍}
+- [[os]]
+- [[oop]]{객체 지향 프로그래밍}
 - [[database]]
 	- [[transaction]]{트랜잭션(Transaction)}
 - [[network]]
-	- [[HTML]]
-	- [[URI]]
-	- [[OSI-7layers]]{OSI 7계층}
-	- [[TCP-IP]]{TCP/IP}
-	- [[DHCP]]
-	- [[DNS]]
-	- [[IP]]
-		- [[CIDR]]
+	- [[html]]{HTML}
+	- [[uri]]{URI}
+	- [[osi-7layers]]{OSI 7계층}
+	- [[tcp-ip]]{TCP/IP}
+	- [[dhcp]]{DHCP}
+	- [[dns]]{DNS}
+	- [[ip]]{IP}
+		- [[cidr]]{CIDR}
 	- [[netmask]]
-	- [[HTTP]]
-	- [[MAC]]
+	- [[http]]{HTTP}
+	- [[mac]]{MAC}
 	- [[protocol-stack]]{프로토콜 스택}
-	- [[REST]]
+	- [[rest]]{REST}
 
 - [[computer-terminology]]{컴퓨터 용어}
 - [[docker]]
@@ -58,9 +57,9 @@ comment : false
 
 ## [[algorithm]]{알고리즘}
 - [[algorithm-problem]]{문제}
-	- [[BOJ]]
-	- [[SWEA]]
-	- [[JUNGOL]]
+	- [[boj]]{BOJ}
+	- [[swea]]{SWEA}
+	- [[jungol]]{JUNGOL}
 	- [[unknown-algorithm-problem]]
 
 - [[algorithm-concept]]{개념}
@@ -112,12 +111,12 @@ comment : false
 		- [[vim-conceallevel]]{conceallevel (Vim)}
 		- [[vimwiki]]
 - [[debugging]]
-	- [[PDB]]
+	- [[pdb]]{PDB}
 	- [[crash-dump]]{Crash Dump}
 	- [[memory-leak]]{Memory leak(Glfags 사용법)}
 - [[how-to]]
 	- [[mathjax-latex]]
-- [[YAML]]
+- [[yaml]]{YAML}
 - [[version-naming]]{버전 표기법(SemVer)}
 - [[TBB]]
 - [[markdown-example]]
@@ -149,3 +148,5 @@ comment : false
 - [[spring-boot-jpa-mysql]]
 - [[front-end-summary]]
 - [[remind-web]]
+- [[ssafy-back-end]]
+- [[gitlab-page]]{gitlab page}
