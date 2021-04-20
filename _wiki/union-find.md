@@ -3,7 +3,7 @@ layout    : wiki
 title     : Union-Find
 summary   : 
 date      : 2021-03-18 10:13:14 +0900
-updated   : 2021-03-18 22:24:00 +0900
+updated   : 2021-03-24 17:27:26 +0900
 tag       : 
 public    : true
 published : true
@@ -51,6 +51,7 @@ void merge(int x, int y) {
 // subtree x와 y의 높이(rank)를 비교하여 낮은 높이의 트리가 높은 트리의 하위로 합쳐진다
 // Path Compression이 적용된 find2()를 사용하면 rank가 실제 트리의 높이를 의미하지 않게 될 수 있다.
 // 하지만, Path Compression과 rank를 같이 쓸 수는 있고, 조금이나마 최적화가 될 수 있다.
+// 깊이(depth)나 높이(height)를 쓰지 않고 rank를 쓰는 이유는 Path Compression을 통해 실제 트리의 높이를 의미하지 않게 될 수 있기 때문이다.
 void merge2(int x, int y) { 
 	x = find(x);
 	y = find(y);
