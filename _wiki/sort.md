@@ -3,7 +3,7 @@ layout    : wiki
 title     : sort(정렬)
 summary   : 
 date      : 2019-09-14 10:17:04 +0900
-updated   : 2021-01-05 00:12:16 +0900
+updated   : 2021-04-11 09:57:35 +0900
 tag       : 
 public    : true
 published : true
@@ -24,15 +24,12 @@ latex     : false
 	- 최악 : O(N^2)
 
 ### 1.1. 코드
-오름차순 정렬
 ```cpp
-void insertionSort(int arr[], int N)
-{
-	for (int i = 1; i < N; i++)
-	{
+// 오름차순 정렬
+void insertionSort(int arr[], int N) {
+	for (int i = 1; i < N; i++) {
 		int key = arr[i];
-		for (int j = i-1; j >= 0; j--)
-		{
+		for (int j = i-1; j >= 0; j--) {
 			if (key < arr[j])
 				arr[j+1] = arr[j];
 			else
@@ -48,30 +45,23 @@ void insertionSort(int arr[], int N)
 
 #### 1.2.1 코드
 ```cpp
-//void binaryInsertionSort(int arr[], int N)
-//{
-//	for (int i = 1; i < N; i++)
-//	{
-//		int key = arr[i];
-//		
-//		int start = 0;
-//		int end = i - 1;
-//	
-//		int mid;
-//		while (start < end)
-//		{
-//			mid = (start + end) / 2;
-//			if (key >= mid)
-//			{
-//				start = mid + 1;
-//			}
-//			else
-//			{
-//				end = mid;
-//			}
-//		}
-//	}
-//}
+void binaryInsertionSort(int arr[], int N) {
+	for (int i = 1; i < N; i++) {
+		int key = arr[i];
+		
+		int start = 0;
+		int end = i - 1;
+	
+		int mid;
+		while (start < end) {
+			mid = (start + end) / 2;
+			if (key >= mid)
+				start = mid + 1;
+			else
+				end = mid;
+		}
+	}
+}
 ```
 
 ## 2. 선택 정렬(Selection sort)
@@ -155,18 +145,15 @@ left가 start+1부터 시작하게 되면 원소가 2개인 경우에 문제가 
 그리고 최상위 while문 밖에서 pivot의 위치인 start와 right(pivot보다 작거나 같은 값을 갖는 부분 집합의 마지막 index)와 swap하게 되고, pivot 양쪽으로 재귀 함수를 호출한다.
 
 ```cpp
-void quickSort(int arr[], int start, int end)
-{
-	if (start >= end)
-		return;
+void quickSort(int arr[], int start, int end) {
+	if (start >= end) return;
 
 	int pivot = arr[start];
 
 	int left = start;
 	int right = end;
 
-	while (left < right)
-	{
+	while (left < right) {
 		while (arr[left] <= pivot && left < end)
 			left++;
 		while (pivot < arr[right])
@@ -191,7 +178,7 @@ void quickSort(int arr[], int start, int end)
   - 평균 : O(NlogN)
   - 최선 : O(NlogN)
   - 최악 : O(NlogN)
-https://gmlwjd9405.github.io/images/algorithm-merge-sort/merge-sort-concepts.png
+![1](https://gmlwjd9405.github.io/images/algorithm-merge-sort/merge-sort-concepts.png)
 
 ```cpp
 
@@ -203,7 +190,7 @@ int sorted[MAX_SIZE] // 추가 공간
 /* 2개의 인접한 배열 arr[left...mid]와 arr[mid+1...right]의 합병 과정 */
 /* (실제로 숫자들이 정렬되는 과정) */
 void merge(int arr[], int left, int mid, int right) {
-	int i, j, k, l;
+	int i, j, k;
 	i = left;
 	j = mid + 1;
 	k = left;
@@ -216,34 +203,26 @@ void merge(int arr[], int left, int mid, int right) {
 			sorted[k++] = arr[j++];
 	}
 
-	// 남아 있는 값들을 일괄 복사
-	if (i > mid) {
-		for (l = j; l <= right; l++)
-			sorted[k++] = arr[l];
-	}
-	// 남아 있는 값들을 일괄 복사
-	else {
-		for (l = i; l <= mid; l++)
-			sorted[k++] = arr[l];
-	}
+	// 남아 있는 값들 일괄 복사
+	while (i <= mid)
+		sorted[k++] = arr[i++];
 
-	// 배열 sorted[](임시 배열)의 리스트를 배열 arr[]로 재복사
-	for (l = left; l <= right; l++){
-		arr[l] = sorted[l];
-	}
+	while (j <= right)
+		sorted[k++] = arr[j++];
+		
+	for(i = left; i <= right; i++)
+		list[i] = sorted[i];
 }
 
 // 합병 정렬
 void mergeSort(int arr[], int left, int right) {
-	int mid;
+	if (left == right) return;
 
-	if (left < right) {
-		mid = (left + right)/2; // 중간 위치를 계산하여 리스트를 균등 분할 -분할(Divide)
-		mergeSort(arr, left, mid); // 앞쪽 부분 리스트 정렬 -정복(Conquer)
-		mergeSort(arr, mid+1, right); // 뒤쪽 부분 리스트 정렬 -정복(Conquer)
+	int mid = (left + right)/2; // 중간 위치를 계산하여 리스트를 균등 분할 -분할(Divide)
+	mergeSort(arr, left, mid); // 앞쪽 부분 리스트 정렬 -정복(Conquer)
+	mergeSort(arr, mid+1, right); // 뒤쪽 부분 리스트 정렬 -정복(Conquer)
 
-		merge(arr, left, mid, right); // 정렬된 2개의 부분 배열을 합병하는 과정 -결합(Combine)
-	}
+	merge(arr, left, mid, right); // 정렬된 2개의 부분 배열을 합병하는 과정 -결합(Combine)
 }
 ```
 
@@ -286,4 +265,3 @@ https://dojinkimm.github.io/assets/imgs/cs/radix_sort.png
 ## 8. 셸 정렬
 
 ## reference
-- https://gmlwjd9405.github.io/2018/05/08/algorithm-merge-sort.html
