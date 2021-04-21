@@ -3,7 +3,7 @@ layout    : wiki
 title     : heroku
 summary   : 
 date      : 2021-04-16 17:25:41 +0900
-updated   : 2021-04-18 09:38:26 +0900
+updated   : 2021-04-19 09:16:59 +0900
 tag       : 
 public    : true
 published : true
@@ -48,10 +48,37 @@ latex     : false
 	```
 	- Dashboard > Settings > Config Vars
 
-- heroku 계속 깨어있게 하는 방법
-	- 카페인 : <http://kaffeine.herokuapp.com/>
-	- <https://nhj12311.tistory.com/283>
  
 - heroku는 default가 jdk8이다.
-	- jdk 버전 변경 방법 : <https://devcenter.heroku.com/articles/customizing-the-jdk>
+	- jdk 버전 변경 방법
+		- <https://devcenter.heroku.com/articles/customizing-the-jdk>
 		- 최상위 폴더 하위에 넣으면 된다
+ 
+- 서버 일시중지하는 방법
+	- heroku 웹페이지 dashboard > Settings에 가서 Maintenance Mode를 ON으로 설정
+
+- heroku 계속 깨어있게 하는 방법
+	- [카페인](http://kaffeine.herokuapp.com/ )
+		- bed time(서버가 자도록 나두는 시간)을 오전 2시부터 6시간(고정) 동안 설정하려면 GMT 기준이기 때문에 오후 5시로 설정하면 된다
+- heroku log 보기
+	- <https://stackoverflow.com/questions/2671454/heroku-how-to-see-all-the-logs>  
+	```sh
+	heroku logs -n 500 # 500개 로그 보기(maximum : 1500)
+	heroku logs -t # 라이브성으로 로그 확인
+	```
+	
+- 환경 변수 설정
+	- CLI
+	```sh
+	heroku config:set GOOGLE_CLIENT_ID=...
+	heroku config:set GOOGLE_CLIENT_SECRET=...
+	```
+	
+- spring profiles active 환경 변수 설정
+	- CLI
+	```sh
+	heroku config:set SPRING_PROFILES_ACTIVE=prod
+	```
+
+- ClearDB의 UTF-8 설정
+	- 기존의 환경변수 'CLEARDB_DATABASE_URL' 값의 뒷 부분에 `&useUnicode=yes&characterEncoding=UTF-8`를 추가해준다
