@@ -3,7 +3,7 @@ layout    : wiki
 title     : dijkstra(다익스트라) 알고리즘
 summary   : 
 date      : 2020-03-19 09:45:18 +0900
-updated   : 2021-03-23 08:21:03 +0900
+updated   : 2021-03-24 16:43:23 +0900
 tag       : dijkstra graph graph-algorithm
 public    : true
 published : true
@@ -22,7 +22,7 @@ latex     : false
 	- 각 노드마다 미방문 노드 중 출발점으로부터 현재까지 계산된 최단 거리를 가지는 노드를 찾는데 O(VlogV)의 시간이 필요
 		- 모든 노드(O(V))에 대해 Heap에서 최솟값을 검색 및 삭제(O(logV))
 	- 각 노드마다 이웃한 노드의 최단 거리를 갱신할 때 O(ElogV)의 시간이 필요
-		- 각 노드마다 모든 이웃을 확인하는 것은 모든 edge를 확인하는 것(O(E))과 같고, 매번 힙에서 최단 거리를 갱신(O(logV))
+		- 각 노드마다 모든 이웃을 확인하는 것은 모든 edge를 확인하는 것(O(E))과 같고, 매번 heap에서 최단 거리를 갱신(O(logV))
 
 
 ## 2. 예제 코드
