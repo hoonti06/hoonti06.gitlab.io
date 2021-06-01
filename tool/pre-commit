@@ -1,0 +1,3 @@
+#!/bin/sh
+
+./tool/save-images.sh
