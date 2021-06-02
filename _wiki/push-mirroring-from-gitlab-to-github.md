@@ -1,9 +1,9 @@
 ---
 layout    : wiki
 title     : gitlab repo를 github repo에 미러링하기 
-summary   : 
+summary   : 물을 주면 잔디도 심어진다
 date      : 2021-06-01 10:41:08 +0900
-updated   : 2021-06-01 15:24:38 +0900
+updated   : 2021-06-01 16:06:11 +0900
 tag       : 
 public    : true
 published : true
