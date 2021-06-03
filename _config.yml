@@ -138,6 +138,9 @@ utterances:
   label: Comment
   branch: master
 
+google_analytics:
+  ua: G-RXKR5GK6EZ
+
 original: "https://gitlab.com/hoonti06/hoonti06.gitlab.io/blob/master/_wiki"
 blame: "https://gitlab.com/hoonti06/hoonti06.gitlab.io/blame/master/_wiki"
 
