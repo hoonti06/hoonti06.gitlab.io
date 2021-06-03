@@ -3,7 +3,7 @@ layout    : wiki
 title     : 첫 contribute 해보기
 summary   : 
 date      : 2021-06-01 17:30:03 +0900
-updated   : 2021-06-02 22:47:46 +0900
+updated   : 2021-06-03 11:01:18 +0900
 tag       : 
 public    : true
 published : true
@@ -41,7 +41,7 @@ project를 fork하여 clone하여 IDE로 열어봤다. 어디서부터 시작해
 수정 전/후의 snapshot을 올려달라고 하여 gif로 올렸다.
 
 ## 2021-05-29
-도중에 [Audit Log에 대한 E2E Test가 commit](https://github.com/TEAMMATES/teammates/pull/11095 )되더니 E2E Test가 실패한다면서 수정을 요청받았다.
+도중에 [Audit Log에 대한 E2E Test가 commit](https://github.com/TEAMMATES/teammates/pull/11095 )되더니 E2E Test가 실패한다면서 수정을 피드백 받았다.
  
 ## 2021-05-31
 E2E Test를 위해 [teamates e2e-testing](https://github.com/TEAMMATES/teammates/blob/master/docs/e2e-testing.md )에 따라 chromedriver를 설치했다.  
