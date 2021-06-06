@@ -3,7 +3,7 @@ layout    : wiki
 title     : 첫 contribute 해보기
 summary   : 
 date      : 2021-06-01 17:30:03 +0900
-updated   : 2021-06-03 11:01:18 +0900
+updated   : 2021-06-05 13:08:56 +0900
 tag       : 
 public    : true
 published : true
@@ -150,3 +150,8 @@ intellij를 통해 debug로 application을 실행하여 한글로된 날짜를 �
 
 <br>
 드디어 E2E Test를 비롯한 [모든 테스트에 성공](https://github.com/TEAMMATES/teammates/pull/11151/checks?check_run_id=2727987713 )했다!!
+
+
+## 2021-06-05
+드디어 [첫 contribute에 성공](https://github.com/TEAMMATES/teammates/commit/1123653b5a6bfda9e0aa4e54357bff61891f2ac1 )했다!
+
