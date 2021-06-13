@@ -3,7 +3,7 @@ layout    : wiki
 title     : markdown 연습장
 summary   : 
 date      : 2019-09-29 17:32:09 +0900
-updated   : 2021-01-04 16:07:32 +0900
+updated   : 2021-06-13 11:40:11 +0900
 tag       : 
 public    : true
 published : true
@@ -88,31 +88,34 @@ latex     : false
   </tbody>
 </table>
 
-| Fruit     | Price   | Advantages          |
-| --------- | ------- | ------------------- |
-| Bananas   | $1.34   | - built-in wrapper  \
-|           |         | -- bright color     |
-| --------- | ------- | ------------------- |
-| Oranges   | $2.10   | - cures scurvy      \
-|           |         | -- tasty            |
+| Fruit     | Price   | Advantages               |
+| --------- | ------- | ------------------------ |
+| Bananas   | $1.34   |    - built-in wrapper    |
+|           |         | ^^ - bright color        |
+|           |         | ^^ - - bright color      |
+|           |         | ^^ - - bright color      |
+|           |         | ^^ - - - bright color    |
+| --------- | ------- | ------------------------ |
+| Oranges   | $2.10   | 1. cures scurvy          |
+|           |         | ^^ 1. 1. tasty           |
 
 | process                                                              | thread                                                                      |
 | -------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | OS로부터 자원을 할당 받는 `작업의 단위`                              | 프로세스가 할당 받은 자원을 이용하는 `실행의 단위`                          |
 | -------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | - 프로그램에 대한 인스턴스                                           | - 프로세스 내에서 실제로 작업을 수행                                        \
-| <li>프로그램 수행에 필요한 자원을 하나의 개체에서 관리               | - 하나의 프로세스 안에서 각각의 레지스터, 스택 공간을 제외한                \
+| - - 프로그램 수행에 필요한 자원을 하나의 개체에서 관리               | - 하나의 프로세스 안에서 각각의 레지스터, 스택 공간을 제외한                \
 | - 모든 프로세스에는 하나 이상의 쓰레드 존재                          | 나머지 공간(heap, data, bss, code)과 자원을 다른 쓰레드와 공유              \
 | - 자신만의 고유 공간과 자원을 할당 받는다.                           | - 스택과 레지스터만 switching하므로 context switching 속도가 상대적으로 빠름\
 | (메모리 공간과 자원 소모가 상대적으로 큼)                            | - 자원 공유로 인한 동기화 문제가 발생                                       \
 |                                                                      | - 디버깅이 어려움                                                           |
 
-| 1            |   2  |   3  |
-|--------------|------|------|
-| ```cpp       |  No  |  Yes   \
-| int main() { |      |        \
-| }            |      |        \
-| ```          |      |      |
+| 1            |  2 |  3  |
+|--------------|----|-----|
+| ```cpp       | No | Yes \
+| int main() { |    |     \
+| }            |    |     \
+| ```          |    |     |
 
 
 |   Markdown   | Rendered HTML |
@@ -313,6 +316,7 @@ deactivate A
   - second  
 
     ```mermaid!
+		%%{init: {"themeCSS": ".label foreignObject { font-size: 90% }"}}%%
     graph LR
     A[working directory] --> |add| B[staging area]
     B --> |commit| C[local repository]
@@ -380,10 +384,6 @@ pie
 ```
 
 ## 6. etc
-
 ![](https://www.youtube.com/watch?v=Ptk_1Dc2iPY)
-![](//www.youtube.com/watch?v=Ptk_1Dc2iPY?width=800&height=500)
-
-
-![](https://www.youtube.com/watch?v=G33WiEktUo8)
+![](https://www.youtube.com/watch?v=Ptk_1Dc2iPY?width=800&height=500)
 ![](https://www.youtube.com/embed/V69UAnkoYHM)
