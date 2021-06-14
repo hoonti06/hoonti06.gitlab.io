@@ -20,7 +20,7 @@ gem "minima", "~> 2.5.0"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem 'jekyll-feed', '~> 0.6'
-  gem 'jekyll-spaceship', '0.9.7'
+  gem 'jekyll-spaceship', '0.9.9'
   gem 'faraday', '~> 0.15.4' 
 
   # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -31,3 +31,4 @@ end
 
 #gem 'jekyll-pandoc-rouge', :path => "./jekyll-pandoc-rouge" # for development
 #gem 'jekyll-pandoc-mermaid', :path => "./jekyll-pandoc-mermaid" # for development
+#gem 'jekyll-spaceship', git: 'https://github.com/jeffreytse/jekyll-spaceship' # for test
