@@ -232,3 +232,8 @@ ul.tag-list {
 .post-excerpt {
     color: $forth-font-color;
 }
+
+code > .rouge-table > tbody > tr:hover {
+    background-color: unset !important;
+    color: unset !important;
+}
