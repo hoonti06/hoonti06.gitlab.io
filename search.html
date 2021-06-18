@@ -65,4 +65,8 @@ public: true
       setTimeout(() => sjs.search(searchTerm), 100);
     }
   };
+
+  document.getElementById('search-box').addEventListener('input', function () {
+    window.history.pushState(null, null, "{{ site.baseurl }}/search?query=" + this.value);
+});
 </script>
