@@ -3,7 +3,7 @@ layout    : wiki
 title     : git pre-commit 적용해보기
 summary   : johngrib님 github page의 save-images.sh 적용
 date      : 2021-06-01 16:06:24 +0900
-updated   : 2021-06-01 17:25:21 +0900
+updated   : 2021-06-18 16:24:19 +0900
 tag       : 
 public    : true
 published : true
@@ -16,7 +16,7 @@ latex     : false
 [johngrib님 github page](https://github.com/johngrib/johngrib.github.io )의 save-images.sh를 가져와 내 블로그에 맞게 적용해보고자 한다(항상 johngrib님께 감사하다).  
 
 <br>
-먼저, save-images.sh는 github의 issue 등에 업로드된 이미지의 URL을 통해 이미지를 다운로드 받도록 되어 있는 script이다.  commit 수행 전에 실행시켜야 하기 때문에 pre-commit에서 해당 script를 호출하도록 한다.
+먼저, save-images.sh는 github의 issue 등에 업로드되어 있는 이미지의 URL이 markdown에 작성되어 있으면 이미지를 다운로드 받고 markdown의 URL을 local의 path로 치환해주는 script이다. commit 수행 전에 실행시켜야 하기 때문에 pre-commit에서 해당 script를 호출하도록 한다.
 ```sh
 # pre-commit
 ./tool/save-images.sh
