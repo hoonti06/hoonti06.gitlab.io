@@ -3,7 +3,7 @@ layout    : wiki
 title     : markdown 연습장
 summary   : 
 date      : 2019-09-29 17:32:09 +0900
-updated   : 2021-06-13 11:40:11 +0900
+updated   : 2021-06-19 01:37:55 +0900
 tag       : 
 public    : true
 published : true
@@ -170,12 +170,14 @@ int main()
 - first  
 
   ```plantuml!
+	skinparam backgroundcolor transparent
   [First] - [Third]
   ```
 
   - second  
  
     ```plantuml!
+		skinparam backgroundcolor transparent
     (First usecase)
     (Another usecase) as (UC2)  
     usecase UC3
@@ -184,6 +186,7 @@ int main()
 
 
 ```plantuml!
+skinparam backgroundcolor transparent
 :Main Admin: as Admin
 (Use the application) as (Use)
 
@@ -206,6 +209,7 @@ N2 .. (Use)
 
 
 ```plantuml!
+skinparam backgroundcolor transparent
 participant Alice
 actor Bob
 
@@ -305,6 +309,7 @@ deactivate A
 - first  
 
   ```mermaid!
+	%%{init: {"themeCSS": ".label foreignObject { font-size: 90% }"}}%%
   graph TD
   	A['Christmas'] -->|Get money| B(Go shopping)
   	B --> C{Let me think}
@@ -384,6 +389,6 @@ pie
 ```
 
 ## 6. etc
-![](https://www.youtube.com/watch?v=Ptk_1Dc2iPY)
-![](https://www.youtube.com/watch?v=Ptk_1Dc2iPY?width=800&height=500)
-![](https://www.youtube.com/embed/V69UAnkoYHM)
+![](https://www.youtube.com/watch?v=Ptk_1Dc2iPY )
+![](https://www.youtube.com/watch?v=Ptk_1Dc2iPY?width=800&height=500 )
+![](https://www.youtube.com/embed/V69UAnkoYHM )
