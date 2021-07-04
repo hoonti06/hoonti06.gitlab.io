@@ -1,9 +1,9 @@
 ---
 layout    : wiki
-title     : 
+title     : jmeter
 summary   : 
 date      : 2021-07-01 17:12:55 +0900
-updated   : 2021-07-01 19:43:33 +0900
+updated   : 2021-07-04 16:35:04 +0900
 tag       : 
 public    : true
 published : true
@@ -35,16 +35,20 @@ available plugins tab에서 '3-basic-graph'와 'jpgc-Standard Set'을 선택 및
 file > templates에서 recording 선택 후 create를 클릭한다
 
 thread group이 기본적으로 존재하는데 부하 설계를 편하게 할 수 있는 ultimate thread group으로 대체한다
-plan 우클릭 > Add >
+![]( /wiki-img/jmeter/124348058-c9f1d500-dc22-11eb-94bd-571fc4a26c93.png )
 
 
-thread group에 있는 recording controller를 추가한 ultimate thread group으로 옮긴 후, thread group을 삭제한다
+
+thread group에 있는 recording controller를 추가한 ultimate thread group으로 옮긴 후, thread group을 삭제한다  
+![]( /wiki-img/jmeter/124348098-fa397380-dc22-11eb-9ba1-82cf2bd77b6e.png )
 
 
 ultimate group을 우클릭하여 listener를 추가한다
 - active threads over time
 - response times over time
 - transactions per second
+
+![]( /wiki-img/jmeter/124348113-13dabb00-dc23-11eb-9fee-1444b973125d.png )
 
 http(s) test script recorder를 클릭한 후, global settings에서 port가 8888인지 확인하고, https domains에 google.com을 입력한다.
 start를 클릭한다
