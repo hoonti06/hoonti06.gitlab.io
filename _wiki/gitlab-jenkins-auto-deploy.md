@@ -3,7 +3,7 @@ layout    : wiki
 title     : gitlab-jenkins-OCI 자동 배포
 summary   : 
 date      : 2021-07-01 21:41:32 +0900
-updated   : 2021-08-17 13:38:17 +0900
+updated   : 2021-08-28 12:49:36 +0900
 tag       : 
 public    : true
 published : true
@@ -50,7 +50,19 @@ sudo usermod -aG docker $USER
 
 추가로 필요한 프로그램을 설치한다
 ```sh
-sudo apt-get install -y vim docker-compose
+sudo apt-get install -y vim
+```
+
+[reference 페이지](https://docs.docker.com/compose/install/#install-compose-on-linux-systems )를 참고하여 docker-compose를 설치한다 
+```sh
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+```
+
+[[docker-buildkit]]{Docker Buildkit}이 필요한데, 해당 기능을 사용하기 위해서는 먼저 활성화를 해주어야 한다. 다음 명령어를 통해 활성화를 한다.
+```sh
+echo "{ \"features\": { \"buildkit\": true } }" | sudo tee -a /etc/docker/daemon.json
 ```
 
 VM 인스턴스의 port가 22(ssh)만 열려 있기 때문에 따로 port 개방을 해주어야 한다(참고 : <https://kibua20.tistory.com/124>)
