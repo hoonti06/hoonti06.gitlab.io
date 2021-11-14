@@ -20,7 +20,7 @@ gem "minima", "~> 2.5.0"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem 'jekyll-feed', '~> 0.6'
-  gem 'jekyll-spaceship', '0.9.9'
+  gem 'jekyll-spaceship', '0.10.1'
   gem 'faraday', '~> 0.15.4' 
 
   # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
