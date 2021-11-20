@@ -3,7 +3,7 @@ layout    : wiki
 title     : vim에서 ANSI color가 보이도록 하는 방법, colorizer
 summary   : 
 date      : 2021-09-28 09:05:20 +0900
-updated   : 2021-09-28 09:47:06 +0900
+updated   : 2021-11-21 00:03:13 +0900
 tag       : 
 public    : true
 published : true
@@ -13,7 +13,7 @@ latex     : false
 * TOC
 {:toc}
 
-vim으로 log 파일을 열면 ANSI color가 코드 그대로 나타나서 가독성이 떨어진다.
+vim으로 log 파일을 열면 ANSI color가 코드 그대로 나타나서 가독성이 떨어진다.  
 ![]( /wiki-img/vim-ansi-color-colorizer/135002615-4ef8eb26-f88b-4168-9a97-0df0887d6a4d.png )
 
 ANSI color를 실제 색으로 변환시켜주는 vim plugin인 [chrisbra/colorizer](https://github.com/chrisbra/colorizer )가 있다.
