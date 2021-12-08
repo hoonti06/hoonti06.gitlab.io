@@ -22,6 +22,7 @@ group :jekyll_plugins do
   gem 'jekyll-feed', '~> 0.6'
   gem 'jekyll-spaceship', '0.10.1'
   gem 'faraday', '~> 0.15.4' 
+  gem 'jekyll-code-block-linenos'
 
   # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
   gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
@@ -32,3 +33,4 @@ end
 #gem 'jekyll-pandoc-rouge', :path => "./jekyll-pandoc-rouge" # for development
 #gem 'jekyll-pandoc-mermaid', :path => "./jekyll-pandoc-mermaid" # for development
 #gem 'jekyll-spaceship', git: 'https://github.com/jeffreytse/jekyll-spaceship' # for test
+#gem 'jekyll-code-block-linenos', :path => "./jekyll-code-block-linenos" # for development

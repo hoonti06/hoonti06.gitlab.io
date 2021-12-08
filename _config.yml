@@ -17,6 +17,7 @@ plugins:
   - jekyll-paginate
   - jekyll-gist
   - jekyll-spaceship
+  - jekyll-code-block-linenos
 
 permalink: /blog/:year/:month/:day/:title/
 
@@ -88,9 +89,9 @@ kramdown:
   smart_quotes: ["apos", "apos", "quot", "quot"] # https://kramdown.gettalong.org/rdoc/Kramdown/Options.html
   input: GFM
   syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    block:
-      line_numbers: true
+  #syntax_highlighter_opts:
+   #block:
+     #line_numbers: true
    #span:
      #line_numbers: true
 
