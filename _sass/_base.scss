@@ -135,6 +135,10 @@ p {
 	margin-bottom: 0;
 }
 
+p + ul, p + ol {
+	margin-top: 0;
+}
+
 //.odd td, .even td {
 //	vertical-align: top;
 //}
