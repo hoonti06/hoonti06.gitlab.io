@@ -1,3 +1,10 @@
+function setCodeBlockMarginTopToZero() {
+  $('code[class^="language-"]').parents('pre').css("margin-top", 0);
+}
+
+setCodeBlockMarginTopToZero();
+
+
 function gatherCodeBlocks() {
     let codeBlocks = document.querySelectorAll('div[class="highlight"]');
     return codeBlocks;

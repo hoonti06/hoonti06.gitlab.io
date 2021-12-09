@@ -60,6 +60,15 @@ pre, pre code {
 pre code {
     padding: 0;
 }
+pre.highlight {
+    margin-top: 0;
+}
+figure.highlight {
+    margin-top: 0;
+}
+figure.highlight > pre {
+    margin-top: 0;
+}
 .hide {
     display: none;
 }
