@@ -1,9 +1,9 @@
 ---
 layout    : wiki
-title     : openvidu를 on-prmise로 배포
+title     : openvidu를 on-premises로 배포
 summary   : 
 date      : 2021-08-29 11:57:08 +0900
-updated   : 2021-08-31 14:04:30 +0900
+updated   : 2021-09-09 09:36:01 +0900
 tag       : 
 public    : true
 published : true
@@ -14,19 +14,17 @@ latex     : false
 {:toc}
 
 
-<https://docs.openvidu.io/en/2.19.0/deployment/ce/on-premises/>의 내용을 참고하였다.
+<https://docs.openvidu.io/en/2.19.0/deployment/ce/on-premises/>의 내용을 참고하였다.  
 
-
-이전에 openvidu-server-kms docker container 이미지를 사용했는데, 연결성 부분에서 좋은 성능을 보여주지 않아 다른 설치 방법을 설치하고자 했다.
-
-그리고 글을 쓰는 지금 [openvidu-server-kms docker hub](https://hub.docker.com/r/openvidu/openvidu-server-kms )에 가보니 해당 production deployments에는 맞지 않는 이미지라고 한다...이런....
+<br>
+이전에 openvidu-server-kms docker container 이미지를 사용했는데, 연결성 부분에서 좋은 성능을 보여주지 않아 다른 설치 방법을 설치하고자 했다.  
 
 
 ## premises로 openvidu 배포
 
 ### 전제 조건
-- Docker가 설치되어 있어야 한다([설치 방법](https://docs.docker.com/engine/install/debian/#install-using-the-repository)
-- `1.24` 이상 버전의 Docker Compose가 설치되어 있어야 한다([설치 방법](https://docs.docker.com/compose/install/)) 
+- Docker가 설치되어 있어야 한다([설치 방법](https://docs.docker.com/engine/install/debian/#install-using-the-repository))
+- `1.24` 이상 버전의 Docker Compose가 설치되어 있어야 한다([설치 방법](https://docs.docker.com/compose/install/))
 - port 구성
 	- 다음 port에 대해서 열려 있어야 한다.
 		- 22 TCP: to connect using SSH to admin OpenVidu.
@@ -45,7 +43,8 @@ latex     : false
 		- 6379 : redis for openvidu
 		- 8888 : KMS
 	
-
+	
+<br>
 ### 설치
 먼저 root 권한이 필요하다
 
@@ -104,6 +103,7 @@ LETSENCRYPT_EMAIL=user@example.com
 `/opt/openvidu` 위치에서 다음 명령어로 실행할 수 있다.
 
 ```sh
+cd /opt/openvidu
 ./openvidu start
 ```
 
@@ -128,9 +128,10 @@ openvidu를 실행하게 되면 redis와 coturn까지 내부적으로 실행되�
 
 
 ## openvidu call application 제거 방법
-<https://docs.openvidu.io/en/2.19.0/deployment/deploying-openvidu-apps/#remove-openvidu-call-application>을 참고하였다.
+<https://docs.openvidu.io/en/2.19.0/deployment/deploying-openvidu-apps/#remove-openvidu-call-application>을 참고하였다.  
 
-openvidu call application이 설치 시에 같이 설치되어 openvidu 실행시에도 같이 실행된다.
+<br>
+on-premises로 openvidu를 설치하면 openvidu call application이 default로 같이 설치되어 openvidu와 생명주기를 같이 한다.
 
 <br>
 해당 app을 삭제하기 위해서 우선 openvidu를 종료한다.
@@ -155,26 +156,28 @@ openvidu를 다시 실행한다.
 ```
 
 
-## 다른 openvidu를 사용하는 application 배포 방법
-<https://docs.openvidu.io/en/2.19.0/deployment/deploying-openvidu-apps/#deploy-other-openvidu-based-application>을 참고하였다.
+## openvidu를 사용하는 application을 openvidu가 배포되는 서버에 같이 배포하는 방법
 
-다음 경로에 대해서는 사용하면 안 된다.
-- /openvidu/
-- /dashboard/ (only in OpenVidu CE)
-- /inspector/ (only in OpenVidu Pro)
+<https://docs.openvidu.io/en/2.19.0/deployment/deploying-openvidu-apps/#deploy-other-openvidu-based-application>을 참고하였다.  
 
 <br>
-dockerized가 되어 있다면 `/opt/openvidu/docker-compose.override.yml` 안에 작성하면 되고, openvidu platform과 생명주기를 같이 한다.
+1.  다음 경로에 대해서는 사용하면 안 된다.
+	- /openvidu/
+	- /dashboard/ (only in OpenVidu CE)
+	- /inspector/ (only in OpenVidu Pro)
+
+2. dockerized된 application
+	1. `/opt/openvidu/docker-compose.override.yml` 안에 작성하면 되고, openvidu platform과 생명주기를 같이 한다.
+	2. 다음 요구 사항이 지켜져야 한다.
+		- network_mode를 host로 해야 한다.
+		- Application은 반드시 https가 아닌 http이어야 한다.
+		- http port는 5442이어야 한다. Openvidu platform의 nginx 설정에서 해당 port로 되어 있다.
+		- openvidu platform URL은 `http://localhost:5443`이다.
+		- openVidu secret은 환경변수 ${OPENVIDU_SECRET}로 활용 가능하다.
+
 
 <br>
-다음 요구 사항이 지켜져야 한다.
-- network_mode를 host로 해야 한다.
-- Application은 반드시 https가 아닌 http이어야 한다.
-- http port는 5442이어야 한다. Openvidu platform의 nginx 설정에서 해당 port로 되어 있다.
-- openvidu platform URL은 `http://localhost:5443`이다.
-- openVidu secret은 환경변수 ${OPENVIDU_SECRET}로 활용 가능하다.
-
-
-
+## 마무리
+그리고 [openvidu-server-kms의 Docker Hub 웹 페이지](https://hub.docker.com/r/openvidu/openvidu-server-kms )에 접속해보니 해당 이미지는 production deployments에 맞지 않는 이미지라고 쓰여져 있는 것을 이 글을 쓰는 지금 알게 되었다...
 
 
