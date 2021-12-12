@@ -3,7 +3,7 @@ layout    : wiki
 title     : Crash Dump
 summary   : 
 date      : 2019-08-06 10:19:27 +0900
-updated   : 2021-12-05 10:06:46 +0900
+updated   : 2021-12-12 18:42:58 +0900
 tag       : 
 public    : true
 published : true
@@ -17,7 +17,7 @@ latex     : false
 Crash Dump : 어떠한 원인으로 인하여 Crash가 발생했을 때 그 때의 오류의 원인 등의 내용을 기록하여 저장한 파일을 의미한다.
 
 ## 1. Dump 분석 방법
-우선, Crash가 발생한 버전의 [[PDB]]와 Source Code가 필요하다. 그리고 해당 버전의 application을 설치해놓는다.
+우선, Crash가 발생한 버전의 [[pdb]]{PDB}와 Source Code가 필요하다. 그리고 해당 버전의 application을 설치해놓는다.
 
 ### 1.1. Visual Studio
 1. 먼저, command line으로 Symbol서버에 Login한다.
@@ -96,8 +96,6 @@ SET DUMP_FILE=crashdump.dmp
 
 pause
 ```
-
-
 
 
 ## 2. 원격 Debugging
