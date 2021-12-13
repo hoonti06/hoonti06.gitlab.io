@@ -1,9 +1,9 @@
 ---
 layout    : wiki
-title     : 
+title     : swap memory 설정
 summary   : 
 date      : 2021-07-09 22:08:49 +0900
-updated   : 2021-07-10 00:27:15 +0900
+updated   : 2021-12-14 04:02:19 +0900
 tag       : 
 public    : true
 published : true
@@ -13,9 +13,17 @@ latex     : false
 * TOC
 {:toc}
 
-Oracle Cloud의 VM 인스턴스에 jenkins docker container 설치하고 maven build를 수행했는데, 메모리가 100퍼까지 올라가면서 수행을 할 수 없었다. 알고보니 VM 인스턴스는 memory가 1GB이고 swap memory 설정이 안 되어 있다(AWS EC2 인스턴스도 마찬가지로 설정이 안 되어 있다)
+## 시작
+Oracle Cloud의 VM 인스턴스에 jenkins docker container 설치하고 maven build를 수행했는데, 메모리가 100%까지 올라가면서 수행을 할 수 없었다.  
 
-swap memory를 설정하는 방법을 알아보자
+<br>
+VM 인스턴스는 memory가 1GB 밖에 안 되기 때문에 memory가 너무 적어 제대로 build 작업을 수행할 수 없었던 듯 하다.
+
+<br>
+그래서 memory를 늘리기 위해 swap memory 설정하는 방법을 찾아보게 되었다.
+
+<br><br>
+## 과정
 
 스왑 파티션 확인(swap 항목이 0이면 파티션이 없는 것)  
 ```sh
@@ -52,7 +60,7 @@ swapon /swapfile
 ```
 
 
-재부팅 후에도 시스템에서 스왑 파일을 사용할 수 있도록 `/etc/fstab`에 다음 코드를 추가
+재부팅 후에도 시스템에서 스왑 파일을 사용할 수 있도록 `/etc/fstab`에 다음 코드 추가
 ```sh
 /swapfile   none    swap    sw    0   0
 ```
@@ -67,6 +75,9 @@ swapoff swapfile
 rm /swapfile
 ```
 
+<br><br>
+## 마무리
+swap memory 설정을 한 후에는 maven build가 잘 수행되었다.
 
 ## 참고
 - <https://extrememanual.net/12975>
