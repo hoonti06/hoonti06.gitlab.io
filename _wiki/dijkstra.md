@@ -3,7 +3,7 @@ layout    : wiki
 title     : dijkstra(다익스트라) 알고리즘
 summary   : 
 date      : 2020-03-19 09:45:18 +0900
-updated   : 2021-03-24 16:43:23 +0900
+updated   : 2021-12-15 18:00:16 +0900
 tag       : dijkstra graph graph-algorithm
 public    : true
 published : true
@@ -26,7 +26,7 @@ latex     : false
 
 
 ## 2. 예제 코드
-```cpp
+```cpp linenos
 #include <iostream>
 #include <vector>
 #include <queue>

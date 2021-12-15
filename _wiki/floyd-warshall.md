@@ -3,7 +3,7 @@ layout    : wiki
 title     : 플로이드-워셜 알고리즘
 summary   : 
 date      : 2020-03-19 14:20:42 +0900
-updated   : 2021-11-01 09:44:44 +0900
+updated   : 2021-12-15 18:07:56 +0900
 tag       : graph graph-algorithm dp
 public    : true
 published : true
@@ -28,7 +28,7 @@ for (k = 0; k < V; k++)
 ```
 
 ## 2. 예제 코드
-```cpp
+```cpp linenos
 #include <iostream>
 
 #define MAX 105

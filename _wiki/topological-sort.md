@@ -3,7 +3,7 @@ layout    : wiki
 title     : topological sort(위상 정렬)
 summary   : 
 date      : 2020-03-19 01:54:32 +0900
-updated   : 2021-01-05 00:12:32 +0900
+updated   : 2021-12-15 18:09:17 +0900
 tag       : topological-sort graph graph-algorithm
 public    : true
 published : true
@@ -25,7 +25,7 @@ latex     : false
 	- queue가 빌 때까지 진행하면 된다.
 
 ### 1.2. 예시 코드
-```cpp
+```cpp linenos
 #include <cstdio>
 #include <algorithm>
 #include <cstring>
