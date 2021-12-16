@@ -3,7 +3,7 @@ layout    : wiki
 title     : Github actions를 이용한 Chrome Extension 배포
 summary   : 
 date      : 2021-12-03 22:44:48 +0900
-updated   : 2021-12-05 17:43:20 +0900
+updated   : 2021-12-16 09:12:23 +0900
 tag       : 
 public    : true
 published : true
@@ -96,6 +96,7 @@ on: workflow_dispatch
 ```
 
 [mnao305/chrome-extension-upload](https://github.com/mnao305/chrome-extension-upload )를 적용하여 Chrome Extension을 업로드 및 배포한다.
+{% raw %}
 ```yml
 - name: Upload & release
   uses: mnao305/chrome-extension-upload@2.1.0
@@ -105,6 +106,7 @@ on: workflow_dispatch
     client-id: ${{ secrets.GOOGLE_CLIENT_ID }}
     refresh-token: ${{ secrets.GOOGLE_REFRESH_TOKEN }}
 ```
+{% endraw %}
 
 ## 시행착오
 
@@ -158,6 +160,7 @@ root directory에서 명령어가 실행되어 에러가 발생했고, [어느 �
 다음과 같이 버튼 클릭을 통해 수동으로 Chrome Extension 배포를 할 수 있게 되었다.  
 ![]( /wiki-img/deploy-chrome-extension-using-github-actions/144947301-cd65c2ff-d5af-448e-973a-6a351f66ca9b.png )
 
+<br><br>
 ## 참고
 - <https://l-u-k-e.medium.com/continuously-deploying-a-chrome-extension-e95eeb7cca81>
 - <https://github.com/mnao305/chrome-extension-upload>
