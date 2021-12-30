@@ -3,7 +3,7 @@ layout    : wiki
 title     : jeykll markdown code block 안의 이중 중괄호 안 text가 삭제되는 이슈
 summary   : 
 date      : 2021-12-16 11:53:20 +0900
-updated   : 2021-12-16 12:28:49 +0900
+updated   : 2021-12-30 09:44:51 +0900
 tag       : 
 public    : true
 published : true
@@ -72,4 +72,4 @@ latex     : false
 jekyll-spaceship 이슈에 글을 남길 때 좀 더 확인해보고 글을 남길 걸 그랬다.
 
 ## 참고
-- https://stackoverflow.com/a/24102537
+- <https://stackoverflow.com/a/24102537>
