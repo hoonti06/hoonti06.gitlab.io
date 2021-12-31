@@ -3,7 +3,7 @@ layout  : wiki
 title   : vimwiki
 summary : 
 date    : 2019-07-24 00:14:19 +0900
-updated : 2019-12-18 18:09:05 +0900
+updated : 2021-12-31 15:34:27 +0900
 tag     : 
 public  : true
 parent  : [[vim]]
@@ -27,4 +27,34 @@ word에 enter를 입력하면 link(대괄호-중괄호)가 생성되는데, 이�
 (johngrab.github.io에서 enter를 입력했을 때 이중 대괄호가 적용되도록 설정을 해놓았는데, 그렇게 설정을 해놓으면 vim에서 .md 파일인데도 filetype이 markdown으로 적용이 되지 않아 markdown형식의 highlight가 안 된다.)
 
 generateData.js는 tag 관련 데이터를 생성해주는 shell script로, .gitlab-ci.yml에서 수행된다.
+
+
+" F2 키를 누르면 커서가 놓인 단어를 위키에서 검색한다.
+nnoremap <F2> :execute "VWS /" . expand("<cword>") . "/" <Bar> :lopen<CR>
+
+" F3 키를 누르면 현재 문서를 링크한 모든 문서를 검색한다.
+nnoremap <F3> :execute "VWB" <Bar> :lopen<CR>
+
+
+- :VWS /word/ - 단어 검색 
+- :lopen - 검색된 문서 리스트
+- :VWB - 현재 문서를 링크한 문서 검색
+
+- 단축키
+	- Wiki Management
+		- `<leader> wr` - rename wiki page
+	- Editing shortcuts
+		- `glm` - increase indent of list item
+		- `gll` - decrease indent of list item
+		- `gl*` or `gl8` - switch or insert “*” symbol
+		- `gl#` or `gl3` - switch or insert “#” symbol
+		- `gl-` - switch or insert “-“ symbol
+		- `gl1` - switch or insert “1.” symbol
+	- Table shortcuts
+		- `<A-Left>` move column left
+		- `<A-right>` move column right
+		- `<CR>` (insert mode) go down/create cell
+		- `<Tab>` (insert mode) go next/create cell
+		- `gqq` or `gww` reformat table
+	- 참고 : <https://gist.github.com/drkarl/4c503bccb62558dc85e8b1bc0f29e9cb>
 
