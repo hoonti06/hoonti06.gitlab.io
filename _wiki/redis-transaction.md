@@ -3,7 +3,7 @@ layout    : wiki
 title     : Redis 트랜잭션
 summary   : 
 date      : 2022-02-06 09:42:16 +0900
-updated   : 2022-02-06 10:14:47 +0900
+updated   : 2022-02-18 16:09:31 +0900
 tag       : 
 public    : true
 published : true
@@ -27,3 +27,25 @@ Redis 트랜잭션은 [공식 reference](https://redis.io/topics/transactions)�
 > Redis "transactions" are completely different than what most people think transactions are in classical DBMS.
 
 `Redis의 트랜잭션`은 일반적으로 생각하는 기존 DBMS의 트랜잭션과 다르다.
+
+<br>
+먼저, 서버 사이드(in redis)와 클라이언트 사이드(in script)에서 정확히 무엇이 수행되는지 알아야 한다.
+
+<br>
+```python
+# Does NOT work
+redis.multi()
+current = redis.get('powerlevel')
+redis.set('powerlevel', current + 1)
+redis.exec()
+```
+위 코드를 봤을때, 분명 GET과 SET 명령은 서버 사이드에서 수행이 된다. 그리고 current에 값을 저장하는 것과 current + 1 연산은 클라이언트 사이드에서 수행된다.
+
+<br>
+`원자성(atomicity)`을 보장하기 위해서 MULTI/EXEC 구간 사이의 명령들은 EXEC을 비로소 만나야 수행이 되기 때문에 그때까지 기다린다. 그래서 클라이언트에서 구간의 명령(GET & SET)들을 메모리에 쌓아놨다가 마지막에 한 번에 수행된다.
+
+<br>
+다시 말하자면, redis.get()이 실행될 때에는 null이 반환되어 current값이 null이 되면서 GET operation이 queue에 쌓인다. (null + 1) 이 set의 parameter로 들어가고, queue SET operation이 쌓인다. exec()이 호출되면 그제서야 queue에 쌓인 operation들이 redis에 전달되고, 한 번에 처리된 뒤 그에 대한 값들이 응답으로 온다. 이때 실제 우리가 원하던 get(’powerlevel’)의 값을 받게 되지만 이미 한참 늦은 뒤인 것이다.
+
+<br>
+<https://lettuce.io/core/release/reference/#_transactionsmulti>에 비슷한 내용이 나와있다.
