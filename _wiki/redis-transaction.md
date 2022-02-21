@@ -3,7 +3,7 @@ layout    : wiki
 title     : Redis 트랜잭션
 summary   : 
 date      : 2022-02-06 09:42:16 +0900
-updated   : 2022-02-18 16:09:31 +0900
+updated   : 2022-02-21 12:25:41 +0900
 tag       : 
 public    : true
 published : true
@@ -49,3 +49,10 @@ redis.exec()
 
 <br>
 <https://lettuce.io/core/release/reference/#_transactionsmulti>에 비슷한 내용이 나와있다.
+
+
+## Redis 트랜잭션에는 Rollback이 없다.
+
+단순하고 빠르게 만들기 위해 Rollback 기능은 제공하지 않는다. 에러는 개발 중에 발견할 수 있다.  
+자세한 내용은 <https://redis.io/topics/transactions#why-redis-does-not-support-roll-backs>에서 확인할 수 있다.
+
