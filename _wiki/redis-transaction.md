@@ -3,7 +3,7 @@ layout    : wiki
 title     : Redis 트랜잭션
 summary   : 
 date      : 2022-02-06 09:42:16 +0900
-updated   : 2022-02-21 12:25:41 +0900
+updated   : 2022-02-22 16:20:46 +0900
 tag       : 
 public    : true
 published : true
@@ -55,4 +55,91 @@ redis.exec()
 
 단순하고 빠르게 만들기 위해 Rollback 기능은 제공하지 않는다. 에러는 개발 중에 발견할 수 있다.  
 자세한 내용은 <https://redis.io/topics/transactions#why-redis-does-not-support-roll-backs>에서 확인할 수 있다.
+
+
+## Redis 트랜잭션 구현
+
+Redis에도 저장을 하고, MySQL에도 저장을 하는 과정이 atomic하게 이루어져야 하는 것이 목표였다.  
+
+<br>
+Spring에서 Reids 트랜잭션을 구현하기 위해서는 크게 2가지 방법이 존재한다.
+
+### SessionCallback  사용
+
+다음 코드를 실행했을 때 정상 동작을 하고, 2개 항목을 수행했으니 2개 항목에 대한 결과가 txResults에 잘 저장되어 있다.
+```java
+List<Object> txResults = redisTemplate.execute(new SessionCallback<>() {
+  public List<Object> execute(RedisOperations operations) throws DataAccessException {
+ 
+    operations.multi(); // redis transaction 시작
+
+    operations.opsForValue().set("key1", "NEW_VALUE1");
+    operations.opsForSet().add("key2", "NEW_VALUE2");
+
+    jpaRepository.save(new Entity());
+
+    return operations.exec(); // redis transaction 종료
+  }
+});
+
+System.out.println(Arrays.toString(txResults.toArray())); // output : [true, 1]
+```
+
+<br>
+다음 코드는 transaction 외부에서 watch로 모니터링하고 있는 key의 값이 update 되었을 때이다.  
+트랜잭션 내부는 discard가 발생하여 rxResults에도 값이 하나도 안 들어가 있다. 하지만, MySQL에 save하는 코드는 정상 동작하게 된다. 그래서 이 경우에는 atomic이 이뤄지지 않는다.
+```java
+List<Object> txResults = redisTemplate.execute(new SessionCallback<>() {
+  public List<Object> execute(RedisOperations operations) throws DataAccessException {
+
+    operations.watch("key2");
+    operations.opsForSet().add("key2", "ANOTHER_VALUE");
+
+    operations.multi(); // redis transaction 시작
+
+    operations.opsForValue().set("key1", "NEW_VALUE1");
+    operations.opsForSet().add("key2", "NEW_VALUE2");
+
+    jpaRepository.save(new Entity());
+
+    return operations.exec(); // redis transaction 종료
+  }
+});
+
+System.out.println(Arrays.toString(txResults.toArray())); // ouput : [] (empty)
+```
+
+<br>
+따라서, 다음과 같이 txResults의 값을 확인하여 discard가 되었다면 runtime exception을 통해 MySQL에 저장하는 과정 또한 rollback 되게끔 해야 한다(txResults의 값은 execute 내부에서 실행되는 operations.exec()의 리턴 값이며, MySQL rollback은 `@Transactional`에 의해 이뤄진다).
+```java
+@Transactional
+void method() {
+
+  List<Object> txResults = redisTemplate.execute(new SessionCallback<>() {
+    public List<Object> execute(RedisOperations operations) throws DataAccessException {
+
+      operations.watch("key2");
+      operations.opsForSet().add("key2", "ANOTHER_VALUE");
+
+      operations.multi(); // redis transaction 시작
+
+      operations.opsForValue().set("key1", "NEW_VALUE1");
+      operations.opsForSet().add("key2", "NEW_VALUE2");
+
+      jpaRepository.save(new Entity());
+	
+      return operations.exec(); // redis transaction 종료
+    }
+  });
+	
+
+  if (txResults.isEmpty()) {
+    throw new RuntimeException("Redis 트랜잭션의 Discard 발생!");
+  }
+}
+```
+
+<br>
+다음 코드와 같이 Redis의 트랜잭션 진행 과정(multi와 exec 사이)에서 exception이 발생하면 exec()을 실행하지 않기 때문에 redis에 명령들이 전달되지 않는다. 그리고 DB의 save도 Rollback된다.
+
 
