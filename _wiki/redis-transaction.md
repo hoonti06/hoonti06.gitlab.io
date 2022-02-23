@@ -3,7 +3,7 @@ layout    : wiki
 title     : Redis 트랜잭션
 summary   : 
 date      : 2022-02-06 09:42:16 +0900
-updated   : 2022-02-22 16:20:46 +0900
+updated   : 2022-02-23 19:11:26 +0900
 tag       : 
 public    : true
 published : true
@@ -85,6 +85,7 @@ List<Object> txResults = redisTemplate.execute(new SessionCallback<>() {
 System.out.println(Arrays.toString(txResults.toArray())); // output : [true, 1]
 ```
 
+
 <br>
 다음 코드는 transaction 외부에서 watch로 모니터링하고 있는 key의 값이 update 되었을 때이다.  
 트랜잭션 내부는 discard가 발생하여 rxResults에도 값이 하나도 안 들어가 있다. 하지만, MySQL에 save하는 코드는 정상 동작하게 된다. 그래서 이 경우에는 atomic이 이뤄지지 않는다.
@@ -142,4 +143,86 @@ void method() {
 <br>
 다음 코드와 같이 Redis의 트랜잭션 진행 과정(multi와 exec 사이)에서 exception이 발생하면 exec()을 실행하지 않기 때문에 redis에 명령들이 전달되지 않는다. 그리고 DB의 save도 Rollback된다.
 
+```java
+@Transactional
+void method() {
 
+  List<Object> txResults = redisTemplate.execute(new SessionCallback<>() {
+    public List<Object> execute(RedisOperations operations) throws DataAccessException {
+
+      operations.multi(); // redis transaction 시작
+
+      operations.opsForValue().set("key1", "NEW_VALUE1");
+      operations.opsForSet().add("key2", "NEW_VALUE2");
+
+      jpaRepository.save(new Entity());
+
+      if (true) {
+        throw new RuntimeException("Redis 트랜잭션 내부에서 exception 발생!");
+      }
+
+      return operations.exec(); // redis transaction 종료
+    }
+  });
+}
+```
+
+
+### @Transactional 사용
+
+[spring data redis reference](https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/#tx.spring)를 참고하였다.
+
+<br>
+@Transactional을 사용하기 위해서는 몇 가지 설정이 필요하다
+
+<br>
+사실 JPA를 사용하면 (2)에 해당하는 RedisTemplate의 **`setEnableTransactionSupport(true)`** 설정만 해도 된다.
+```java
+@Configuration
+@RequiredArgsConstructor
+@EnableTransactionManagement // (1)
+public class RedisConfig {
+    private final RedisProperties redisProperties;
+
+    @Bean
+    public RedisConnectionFactory redisConnectionFactory() {
+        return new LettuceConnectionFactory(redisProperties.getHost(),
+                                            redisProperties.getPort());
+    }
+
+    @Bean
+    public RedisTemplate<?, ?> redisTemplate() {
+        RedisTemplate<?, ?> redisTemplate = new RedisTemplate<>();
+        redisTemplate.setConnectionFactory(redisConnectionFactory());
+        **redisTemplate.setEnableTransactionSupport(true);  // (2)**
+        return redisTemplate;
+    }
+}
+```
+
+<br>
+위와 같이 설정을 하고 다음의 코드를 수행하면, update() 메서드가 정상적으로 리턴되면 그제서야 JPA transactionManager의 commit()과 redis 트랜잭션의 exec()이 수행된다.
+```java
+public class ParentService {
+	
+	public void parent() {
+		txService.update();
+	}
+}
+
+public class TxService {
+	@Transactional // redis transaction 시작 & 끝
+	public void update() {
+	
+	  redisTemplate.opsForValue().set("key1", "NEW_VALUE1"); // 수행됨
+	  redisTemplate.opsForSet().add("key2", "NEW_VALUE2");   // 수행됨
+	
+	  jpaRepository.save(new Entity()); // 수행됨
+	
+	}
+}
+```
+
+<br>
+commit()을 수행하는 과정에서 DB의 연결 이상 등의 이유로 실패를 하게 되면 당연하게 DB 트랜잭션은 수행되지 않고, redis의 exec()도 수행되지 않는다.  
+하지만, exec()을 수행하는 과정에서 redis의 연결 이상 등의 이유로 실패하더라도 commit()은 정상 수행이 되어 원자성이 이루어지지 않는다. commit()이 먼저 이뤄지고, exec()이 그 다음 수행되는 것으로 판단된다.
