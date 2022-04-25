@@ -3,7 +3,7 @@ layout    : wiki
 title     : openvidu를 on-premises로 배포
 summary   : 
 date      : 2021-08-29 11:57:08 +0900
-updated   : 2021-09-09 09:36:01 +0900
+updated   : 2022-04-25 15:44:30 +0900
 tag       : 
 public    : true
 published : true
@@ -14,16 +14,19 @@ latex     : false
 {:toc}
 
 
+## 시작
 <https://docs.openvidu.io/en/2.19.0/deployment/ce/on-premises/>의 내용을 참고하였다.  
 
 <br>
-이전에 openvidu-server-kms docker container 이미지를 사용했는데, 연결성 부분에서 좋은 성능을 보여주지 않아 다른 설치 방법을 설치하고자 했다.  
+이전에 openvidu-server-kms docker 이미지를 사용했는데, 연결성 부분에서 좋은 성능을 보여주지 않아 다른 설치 방법을 설치하고자 했다.  
 
 
-## premises로 openvidu 배포
+## 과정
 
-### 전제 조건
-- Docker가 설치되어 있어야 한다([설치 방법](https://docs.docker.com/engine/install/debian/#install-using-the-repository))
+### on-premises로 openvidu 배포
+
+#### 전제 조건
+- Docker가 설치되어 있어야 한다([설치 방법](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 - `1.24` 이상 버전의 Docker Compose가 설치되어 있어야 한다([설치 방법](https://docs.docker.com/compose/install/))
 - port 구성
 	- 다음 port에 대해서 열려 있어야 한다.
@@ -45,7 +48,7 @@ latex     : false
 	
 	
 <br>
-### 설치
+#### 설치
 먼저 root 권한이 필요하다
 
 ```sh
@@ -97,7 +100,7 @@ LETSENCRYPT_EMAIL=user@example.com
 
 <br>
 `CERTIFICATE_TYPE`을 `letsencrypt`로 설정을 하기 위해서 `LETSENCRYPT_EMAIL`을 유효한 email로 설정해야 한다. 
-그리고 80 포트를 꼭 열어주어야 인증서를 받을 수 있다.
+그리고 `80 포트`를 꼭 열어주어야 인증서를 받을 수 있다.
 
 <br>
 `/opt/openvidu` 위치에서 다음 명령어로 실행할 수 있다.
@@ -108,26 +111,26 @@ cd /opt/openvidu
 ```
 
 <br>
-그 외의 명렁어는 [공식 reference 페이지](https://docs.openvidu.io/en/2.19.0/deployment/ce/on-premises/#5-administration )에서 확인할 수 있다.
+그 외의 명령어는 [공식 reference 페이지](https://docs.openvidu.io/en/2.19.0/deployment/ce/on-premises/#5-administration )에서 확인할 수 있다.
 
 <br>
-사실 docker-compose 실행하는 것이기 떄문에 docker와 docker-compose를 잘 알면 docker-compose 명령어로 잘 실행할 수 있다.
+사실 내부적으로 docker-compose를 실행하는 것이기 때문에 docker와 docker-compose를 잘 알면 docker-compose 명령어로 잘 실행할 수 있다.
 
 <br>
-`https://DOMAIN_OR_PUBLIC_IP`와 `https://{DOMAIN_OR_PUBLIC_IP}/dashboard`에 접속해서 잘 되는지 확인하다.
+실행 후, `https://DOMAIN_OR_PUBLIC_IP`와 `https://{DOMAIN_OR_PUBLIC_IP}/dashboard`에 접속하여 잘 되는지 확인하다.
 
 <br>
-이전보다 openvidu 연결 부분에서 훨씬 잘 되는 것 같다.
+이전에 사용한 openvidu-server-kms보다 openvidu 연결 부분에서 훨씬 잘 되는 것 같다.
 
 <br>
-openvidu를 실행하게 되면 redis와 coturn까지 내부적으로 실행되므로 coturn을 따로 설정할 필요도 없을 뿐더러 이전에 사용한 openvidu-server-kms보다 훨씬 좋은 성능을 보여주는 게 어찌보면 당연한 것일 수도...
+on-promises로 openvidu를 실행하게 되면 redis와 coturn까지 내부적으로 같이 실행되므로 속도도 빠르고 turn서버를 따로 구축할 필요도 없다.
 
 <br>
 `CERTIFICATE_TYPE`을 `letsencrypt`로 사용한다면 .env 파일에서 HTTPS_PORT를 변경하더라도 적용되지 않으니 default값인 443을 사용해야 한다.  
 변경을 원한다면 [해당 reference 페이지](https://docs.openvidu.io/en/2.19.0/deployment/deploying-openvidu-apps/#in-a-different-port-as-openvidu ) 참고하면 된다.
 
 
-## openvidu call application 제거 방법
+### openvidu call application 제거 방법
 <https://docs.openvidu.io/en/2.19.0/deployment/deploying-openvidu-apps/#remove-openvidu-call-application>을 참고하였다.  
 
 <br>
@@ -156,7 +159,7 @@ openvidu를 다시 실행한다.
 ```
 
 
-## openvidu를 사용하는 application을 openvidu가 배포되는 서버에 같이 배포하는 방법
+### openvidu를 사용하는 application을 openvidu가 배포되는 서버에 같이 배포하는 방법
 
 <https://docs.openvidu.io/en/2.19.0/deployment/deploying-openvidu-apps/#deploy-other-openvidu-based-application>을 참고하였다.  
 
@@ -178,6 +181,6 @@ openvidu를 다시 실행한다.
 
 <br>
 ## 마무리
-그리고 [openvidu-server-kms의 Docker Hub 웹 페이지](https://hub.docker.com/r/openvidu/openvidu-server-kms )에 접속해보니 해당 이미지는 production deployments에 맞지 않는 이미지라고 쓰여져 있는 것을 이 글을 쓰는 지금 알게 되었다...
+그리고 [openvidu-server-kms의 Docker Hub 웹 페이지](https://hub.docker.com/r/openvidu/openvidu-server-kms )를 확인해보니 해당 이미지는 production deployments에 맞지 않는 이미지라고 쓰여져 있는 것을 이 글을 쓰는 지금에야 알게 되었다...
 
 
